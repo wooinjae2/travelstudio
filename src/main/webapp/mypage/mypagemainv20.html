@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+/*div{
+border: 1px solid black;
+}*/
+#header{
+  height: 121px;
+}
+#container{
+width: 1244px;
+height:1000px;
+margin-left: 20%;
+}
+#write{
+width: 140px;
+height: 40px;
+}
+#header-s{
+  margin-left: 65%;
+}
+#header-padding{
+  width: 5px;
+}
+#mypage{
+  padding-left: 50px;
+  width:100%;
+  height: 100%;
+  padding-right: 50px;
+}
+#profile{
+  margin-top: 80px;
+  margin-left: 20px;
+}
+.profile_photo{
+  width:169px;
+  height:171px;
+  display: inline-block;
+
+
+}
+
+
+.profile_desc{
+  margin-left: 15px;
+  height:120px;
+  display: inline-block;
+}
+.user_name{
+  font-size: 30px;
+  margin-top: 10px;
+}
+.info_write{
+  width:110px;
+  display: inline-block;
+}
+.info_nation{
+width:110px;
+display: inline-block;
+}
+ul > li > img{
+  width:27px;
+  height:27px;
+  display: inline;
+}
+ul> li{
+  display: inline;
+}
+#aa{
+  display: inline-block;
+  height:30px;
+}
+.user_desc{
+  margin-top: 10px;
+}
+.dot{
+  width:27px;
+  height: 27px;
+}
+.card_bottom > img{
+  margin-top: 5px;
+  width: 33px;
+  height: 33px;
+}
+.travel_item{
+  width:255px;
+  display: inline-block;
+}
+.list_img{
+  width:250px;
+  height:200px;
+}
+.travle_list > li{
+  margin-left: auto;
+  margin-right: auto;
+}
+.cont_card{
+  margin-top: 130px;
+}
+div.card_title span{
+  width: 230px;
+  height: 30px;
+}
+.card_bottom> span{
+  width: 200px;
+}
+.mypage_list_heart{
+  margin-top: 10px;
+  float: right;
+}
+.list_title > a{
+  font: black;
+}
+.fa fa-align-justify{
+  display: inline-block;
+  float: right;
+}
+.list_title{
+  display: inline-block;
+  width: 200px;
+  font-size: 22px;
+}
+
+
+.header-container{
+  border: 1px solid white;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+}
+.in-header-container{
+  border:1px solid white;
+  width: 1024px;
+  height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+i{
+  margin-top: 7px;
+  margin-left: 10px;
+}
+#edit-start-button{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+  float: right;
+  width: 120px;
+  height: 40px;
+  margin-top:40px;
+  font-weight: bold;
+}
+#search-bar {
+  border: 1px solid white;
+  border-bottom: 2px solid black;
+  width: 500px;
+  height: 40px;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+#logo{
+  height: 100px;
+  margin-bottom: 20px;
+}
+.cate{
+display: inline-block;
+float:right;
+align: right;
+padding-right: 4px;
+width: 30px;
+}
+
+
+@import "compass/css3";
+
+/* Setting things up */
+
+a {
+  text-decoration: none;
+  color: black;
+
+}
+
+/* Important stuff */
+
+nav {
+  position: relative;
+}
+.dropdown-toggle {
+
+  background: white;
+}
+
+
+ul.dropdown {
+  display:none;
+  position: absolute;
+  top: 100%;
+  margin-top: .5em;
+  background: white;
+  min-width: 10em;
+  padding: 0;
+font-size: 20px;
+
+  border:darkgray solid 1px;
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        padding: .5em 1em;
+        display: block;
+      }
+   }
+}
+.item_card{
+  height:350px;
+  width:260px;
+  padding-right: 8px;
+  margin-right: 1000px;
+}
+.card_bottom{
+  margin-top: 15px;
+}
+    </style>
+  </head>
+<body>
+  <div class="header-container">
+        <div class="in-header-container">
+         <img src="logo.PNG" id="logo">
+        <input id="search-bar" type="text" name="search" placeholder="search">
+
+      <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+      <button type="button" id="edit-start-button">start
+      </div>
+    </div>
+    <hr>
+  <!-- <hr style="margin-top:-8px;"> -->
+<div id="container">
+  <div id="mypage">
+    <div id="profile">
+      <div class="profile_photo">
+        <img src="./usercircle.png"></img>
+      </div>
+      <div class="profile_desc">
+        <div class="user_desc">
+          <span class="user_name">swanpurple
+          </span>
+        <a href="" class="fa fa-cog fa-2x" ></a>
+        </div>
+
+    <div style="padding-top:5px;">
+      <div class="info_write">
+        <span class="fa fa-file-text-o fa-2x" aria-hidden="true"></span>
+        <span class="tit_info">여행기</span>
+        <span class="txt_num">3</span>
+      </div>
+      <div class="info_nation">
+        <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+        <span class="tit_info">여행국가</span>
+        <span class="txt_num">3</span>
+      </div>
+
+      <ul style="display:inline-block">
+        <li><img src="./korea.jpg"</li>
+        <li><img src="./italy.jpg"</li>
+        <li><img src="./spain.png"</li>
+      </ul>
+
+
+    </div>
+</div>
+<div class="cont_card">
+  <div class="inner_card">
+  <ul class="travle_list">
+    <li class="travel_item">
+      <div class="item_card">
+      <div class="img_card">
+        <a href="#">
+          <img class="list_img" src="./Turkey.jpg"></img>
+        </a>
+      </div>
+      <div class="card_desc">
+<div class="card_title">
+  <div class="list_title"><a href="#">첫번째22 여행기</a></div>
+  <div class="cate">
+      <nav>
+      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+      <ul class="dropdown">
+        <li href="#"><a href="#">친구 초대하기</a></li><br>
+        <li><a href="#">여행기 공유하기</a></li><br>
+        <li><a href="#">여행기 삭제하기</a></li><br>
+        <li><a href="#">나만 보기</a></li><br>
+      </ul>
+      </nav>
+</div>
+</div>
+<div class="card_bottom">
+  <img src="./usercircle.png"></img>
+  <span>swanpurple</span>
+  <div class="mypage_list_heart">
+  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <span class="heart_num">3</span>
+</div>
+</div>
+      </div>
+    </div>
+    </li>
+
+
+    <li class="travel_item">
+      <div class="item_card">
+      <div class="img_card">
+        <a href="#">
+          <img class="list_img" src="./Turkey.jpg"></img>
+        </a>
+      </div>
+      <div class="card_desc">
+<div class="card_title">
+  <div class="list_title"><a href="#">첫번째 여행기</a></div>
+  <div class="cate">
+      <nav>
+      <a class="dropdown-toggle" href="javascript:;"  title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+      <ul class="dropdown">
+        <li><a href="#">친구 초대하기</a></li><br>
+        <li><a href="#">여행기 공유하기</a></li><br>
+        <li><a href="#">여행기 삭제하기</a></li><br>
+        <li><a href="#">나만 보기</a></li><br>
+      </ul>
+      </nav>
+</div>
+</div>
+<div class="card_bottom">
+  <img src="./usercircle.png"></img>
+  <span>swanpurple</span>
+    <div class="mypage_list_heart">
+  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <span class="heart_num">3</span>
+</div>
+</div>
+      </div>
+    </div>
+    </li>
+
+
+
+        <li class="travel_item">
+          <div class="img_card">
+            <a href="#">
+              <img class="list_img" src="./Turkey.jpg"></img>
+            </a>
+          </div>
+          <div class="card_desc">
+    <div class="card_title">
+      <div class="list_title"><a href="#">첫번째 여행기</a></div>
+      <div class="cate">
+          <nav>
+          <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">친구 초대하기</a></li><br>
+            <li><a href="#">여행기 공유하기</a></li><br>
+            <li><a href="#">여행기 삭제하기</a></li><br>
+            <li><a href="#">나만 보기</a></li><br>
+          </ul>
+          </nav>
+    </div>
+    </div>
+    <div class="card_bottom">
+      <img src="./usercircle.png"></img>
+      <span>swanpurple</span>
+        <div class="mypage_list_heart">
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <span class="heart_num">3</span>
+    </div>
+    </div>
+          </div>
+        </li>
+
+
+
+            <li class="travel_item">
+              <div class="item_card">
+              <div class="img_card">
+                <a href="#">
+                  <img class="list_img" src="./Turkey.jpg"></img>
+                </a>
+              </div>
+              <div class="card_desc">
+        <div class="card_title">
+          <div class="list_title"><a href="#">첫번째 여행기</a></div>
+          <div class="cate">
+              <nav>
+              <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+                <li><a href="#">친구 초대하기</a></li><br>
+                <li><a href="#">여행기 공유하기</a></li><br>
+                <li><a href="#">여행기 삭제하기</a></li><br>
+                <li><a href="#">나만 보기</a></li><br>
+              </ul>
+              </nav>
+        </div>
+        </div>
+        <div class="card_bottom">
+          <img src="./usercircle.png"></img>
+          <span>swanpurple</span>
+            <div class="mypage_list_heart">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <span class="heart_num">3</span>
+        </div>
+        </div>
+              </div>
+            </div>
+            </li>
+
+
+
+    <li class="travel_item">
+      <div class="img_card">
+        <a href="#">
+          <img class="list_img" src="./Turkey.jpg"></img>
+        </a>
+      </div>
+      <div class="card_desc">
+<div class="card_title">
+  <div class="list_title"><a href="#">첫번째 여행기</a></div>
+  <i class="fa fa-align-justify" aria-hidden="true"></i>
+</div>
+<div class="card_bottom">
+  <img src="./usercircle.png"></img>
+  <span>swanpurple</span>
+    <div class="mypage_list_heart">
+  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <span class="heart_num">3</span>
+</div>
+</div>
+      </div>
+    </li>
+</ul>
+  </div>
+
+
+</div>
+
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+
+$(function() {
+
+// Dropdown toggle
+$('.dropdown-toggle').click(function(){
+  $(this).next('.dropdown').toggle();
+});
+
+$(document).click(function(e) {
+  var target = e.target;
+  if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) {
+    $('.dropdown').hide();
+  }
+});
+
+});
+</script>
+</body>
+</html>
