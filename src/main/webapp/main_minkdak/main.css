@@ -36,7 +36,6 @@ a:-webkit-any-link {
 }
 
 .blank-one {
-  position: relative;
   background: url('travel.jpg') center center no-repeat fixed;
   text-align: center;
   width: 100%;
@@ -46,8 +45,9 @@ a:-webkit-any-link {
 }
 
 .help_btn {
-  background: black;
-  bottom: 30px;
+  position: absolute;
+  background: white;
+  margin-bottom: : 30px;
   border: solid 1px #fff;
   width: 600px;
   height: 40px;
@@ -74,6 +74,7 @@ line-height: 50vh;
   margin: auto;
 }
 
+/* 여행기 슬라이드 블럭*/
 .slide_wrap {
   width: 1024px;
   height: 414px;
@@ -206,4 +207,102 @@ margin-bottom: 2px;
   margin-right: 3px;
   background-size: cover;
   vertical-align: middle;
+}
+
+/*여행 작가 라인*/
+.travel_writer {
+  position: relative;
+  width: 1024px;
+  /*border: solid 5px gray;*/
+  padding: 30px auto 0;
+  margin-bottom: 30px;
+  background-color: #f2f9fb;
+}
+
+.travel_writer .travel_writer_titl {
+  float:center;
+  width: 700px;
+  height: 130px;
+  /*border: solid 1px black;*/
+  margin: 20px auto 20px;
+  /*margin-top: 20px;*/
+  text-align: center;
+}
+
+.travel_writer .travel_writer_titl .pc_text {
+  float: none;
+  font-size: 29px;
+  font-weight: 600;
+  padding-top: 15px;
+}
+
+.travel_writer .travel_writer_titl .pc_text span {
+  color: #4265EE;
+  font-weight: 900;
+}
+
+.travel_writer .travel_writer_slide {
+  width: 1024px;
+  margin-bottom: 20px;
+
+}
+.travel_writer_slide {
+  box-sizing: border-box;
+  width: 900px;
+  /*height: 200px;*/
+  /*z-index: 9999;*/
+  padding: 0 20px;
+}
+.travel_writer_slide .item {
+  box-sizing: border-box;
+  width: 190px;
+  height: 260px;
+  /*border: solid 1px blue;*/
+  /*padding-bottom: 20px;*/
+
+}
+
+.owl-stage-outer {
+  display: inline-block;
+  width: 800px;
+  margin-left: 100px;
+}
+
+.travel_writer_slide .travel_writer_photozone {
+  width: 160px;
+  height: 130px;
+  /*border: 1px solid blue;*/
+  margin-bottom: 10px;
+}
+
+.travel_writer_slide .travel_writer_photozone img {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  margin: 0px auto;
+}
+
+.travel_writer_slide .travel_writer_id {
+  /*position: absolute;*/
+  /*z-index: 999;*/
+  width: 160px;
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 15px;
+}
+
+.travel_writer_slide .travel_writer_intro {
+  margin: 10px 0;
+}
+
+.travel_writer_slide .travel_writer_flag {
+  height: 30px;
+  border-top: solid 1px #d2d2d2;
+}
+
+.travel_writer_slide .travel_writer_flag img{
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
 }
