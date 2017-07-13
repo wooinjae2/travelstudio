@@ -17,6 +17,7 @@ s, samp, section, small, span, strike, strong, sub,
 summary, sup, table, tbody, td, tfoot, th, thead,
 time, tr, tt, u, ul, var, video {
   padding: 0;
+  margin: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
@@ -44,6 +45,84 @@ a:-webkit-any-link {
   margin-bottom: 20px;
 }
 
+.slide_bar {
+  background-color: white;
+  width: 320px;
+  height: 100%;
+  position: fixed;
+  left: -320px;
+  z-index: 999;
+}
+
+.slide_bar_cancel {
+  padding: 10px 0;
+}
+
+#cancel_icon {
+  float: right;
+  padding-right: 15px;
+}
+#cancel_icon, #slide_icon:hover {
+  cursor: pointer;
+}
+
+.member_slide {
+  width: 100%;
+  border: solid 1px gray;
+  margin: 20px 0 ;
+}
+
+.member_slide .member_info {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border: solid 1px red;
+}
+
+
+.member_slide .member_info .user_photo {
+  /*height: 3?0px;*/
+  border: 1px solid black;
+  position: relative;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.member_slide .member_info img {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  /*position: ;*/
+  /*left: 25%;*/
+  /*margin-left: auto;
+  margin-right: auto;*/
+}
+
+.member_slide .member_info .user_id {
+
+  text-align: center;
+}
+
+.member_slide .member_info .user_url {
+  text-align: center;
+  color: gray;
+}
+
+.member_slide .member_info .user_mypage {
+  text-align: center;
+  background-color: #4265EE;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 30px;
+  margin: 10px auto 0;
+  vertical-align: center;
+}
+
+.user_mypage {
+line-height: 40px;
+}
+
 .help_btn {
   position: absolute;
   background: white;
@@ -58,15 +137,65 @@ font-size: 80px;
 text-transform: uppercase;
 color: rgb(255, 255, 255);
 text-shadow: 1px 1px 2px #000;
-line-height: 50vh;
+line-height: 70vh; /*이전 설정 50vh*/
 }
-#header {
+
+#header_line {
   box-sizing: border-box;
   position: relative;
   height: 15%;
   width: 100%;
   border-bottom: solid 1px #d2d2d2;
 }
+/*header*/
+.header-container{
+  border: 1px solid white;
+  width: 100%;
+  height: 150px;
+
+
+}
+
+.in-header-container{
+  border:1px solid white;
+  width: 1024px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+i{
+  margin-top: 7px;
+  margin-left: 10px;
+}
+
+#edit-start-button{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+  float: right;
+  width: 120px;
+  height: 40px;
+  margin-top:40px;
+  font-weight: bold;
+}
+
+#search-bar {
+  border: 1px solid white;
+  border-bottom: 1px solid black;
+  width: 700px;
+  height: 40px;
+  margin-left: 70px;
+  margin-top: 40px;
+}
+
+#logo{
+  height: 60px;
+  margin-bottom: 20px;
+}
+/*여기까지 header*/
+/*Body*/
 .container_main {
   /*border: solid black 1px;*/
   width: 1024px;

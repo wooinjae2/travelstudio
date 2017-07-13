@@ -11,14 +11,46 @@
 <script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
 </head>
 <body>
+  <div class="slide_bar">
+    <div class="slide_bar_cancel">
+      <img src="cancel.png" id="cancel_icon">
+    </div>
+    <div class="slide_bar_content">
+      <div class="member_slide">
+        <div class="member_info">
+          <div class="user_photo">
+            <img src="vally.jpg">
+          </div>
+          <div class="user_id">InJaeZzang</div>
+          <div class="user_url">http://injaezzang.travel_log.com</div>
+
+            <a href="#"><div class="user_mypage">마이페이지2</div></a>
+
+        </div>
+      </div>
+  </div>
+</div>
 
 
+  <!--여기서부터 header html-->
+  <div class="header-container">
+    <div class="in-header-container">
+     <img src="slidecall.png" id=slide_icon>
+     <img src="logo.PNG" id="logo">
+    <input id="search-bar" type="text" name="search" placeholder="search">
+
+  <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+  <button type="button" id="edit-start-button">start
+  </div>
+</div>
+
+<!-- 메인화면 사진 HTML -->
   <div id="blank-one" class="blank-one">
     <h2>사진으로 여행기를 쉽게~</h2>
     <a href="#" type="button" class="help_btn"></a>
   </div>
-  <div class="header" id="header"></div>
-
+  <div class="header" id="header_line"></div>
+<!-- 메인 사진 끝 -->
   <div class="container_main">
     <div class="travel_writer">
       <div class="travel_writer_titl">
@@ -40,7 +72,7 @@
             </p>
             <div class="travel_writer_flag">
               <img src="kr.png">
-              <img src="kr.png">
+              <img  src="kr.png">
               <img src="kr.png">
               <img src="kr.png">
               <img src="kr.png">
@@ -506,6 +538,18 @@
 
 </body>
 <script>
+function slideCall() {
+$('#slide_icon').click(function (){
+  $('.slide_bar').animate({left:0}, 300);
+})
+$('#cancel_icon').click(function () {
+  $('.slide_bar').animate({left:-320}, 300);
+})
+}
+
+$(document).ready(slideCall)
+// (slideCall);
+
 $(document).ready(function(){
   //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
   $(".owl-carousel").owlCarousel({
