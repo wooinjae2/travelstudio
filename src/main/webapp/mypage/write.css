@@ -112,9 +112,10 @@ text-decoration-color: white;
   border-right:1px black solid;
   width:170px;
   display: inline-block;
-  margin-top: 0px;
+
   vertical-align: top;
   margin-right: 15px;
+  height:125px;
 }
 .travel_day > div{
   display: inline-block;
@@ -129,6 +130,7 @@ text-decoration-color: white;
   width: 700px;
   resize: none;
   border: none;
+
 }
 .travel_detail_date{
   font-size:15px;
@@ -140,14 +142,15 @@ text-decoration-color: white;
 }
 .day_list{
 margin-top: 20px;
-margin-bottom:20px;
-
+margin-bottom:40px;
+height:125px;
 }
 .fa fa-plus-circle fa-3x:hover{
 
 }
 .icons > a > div:hover > .title_hidden{
   visibility: visible;
+  color:white;
 }
 #write_data_arrow{
   color:white;
