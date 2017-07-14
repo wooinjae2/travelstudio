@@ -32,8 +32,13 @@ a:-webkit-any-link {
   font-family: 'Ropa Sans', sans-serif;
   margin-bottom: 20px;
 }
+.blank-one > i{
+  color:white;
+}
 
-
+#icons_i , .bb> i{
+  color:white;
+}
 .blank-one textarea {
 font-size: 40px;
 text-transform: uppercase;
@@ -72,31 +77,16 @@ text-decoration-color: white;
   margin-left: 100px;
   margin-top: 150px;
 }
-
-.icons > a > div{
-  margin-top: 20px;
-}
-.icons > a > div > .title_hidden{
-  font-size: 13px;
-  font-weight: bold;
-  visibility: hidden;
-
-}
-.icons > a > div > span:hover{
-  background-color: chocolate;
-
-  .title_hidden{
-     visibility: visible;
-   }
+.icons > div1{
+  position: absolute;
+  margin-left: 1000px;
 }
 
-
-.icons > a{
+.icons > a > i{
   z-index: 1000;
   width: 10px;
   height: 10px;
   margin-top: 45px;
-
 
 }
 
@@ -118,7 +108,6 @@ text-decoration-color: white;
   -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
   transform: rotate(90deg);
 }
-
 .travel_day{
   border-right:1px black solid;
   width:170px;
@@ -137,7 +126,7 @@ text-decoration-color: white;
 
 }
 .tool_box > textarea{
-  width: 500px;
+  width: 700px;
   resize: none;
   border: none;
 }
@@ -152,15 +141,28 @@ text-decoration-color: white;
 .day_list{
 margin-top: 20px;
 margin-bottom:20px;
+
 }
 .fa fa-plus-circle fa-3x:hover{
 
 }
-.ccc{
-   visibility:hidden;
+.icons > a > div:hover > .title_hidden{
+  visibility: visible;
 }
-.fa fa-plus-circle fa-3x:visited{
-  .ccc{
-    visibility: visible;
-  }
+#write_data_arrow{
+  color:white;
+}
+
+.title_hidden{
+visibility: hidden;
+width: 500px;
+resize: none;
+border: none;
+}
+
+#write_addition{
+  display: none;
+}
+.testdiv > span{
+
 }

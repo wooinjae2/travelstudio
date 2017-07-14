@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>travel_log</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="write.css">
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
   <body>
 
     <div id="blank-one" class="blank-one">
       <div class="icons">
-        <a href="#"><div><span><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">표지사진</span></div></a><br>
-        <a href="#"><div><span><i class="fa fa-lock fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">모두에게 공개</span></div></a><br>
-        <a href="#"><div><span><i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">자동 날짜 기록</span></div></a><br>
+        <a href="#"><div><span><i id="icons_i" class="fa fa-picture-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">표지사진</span></div></a><br>
+        <a href="#"><div><span><i id="icons_i" class="fa fa-lock fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">모두에게 공개</span></div></a><br>
+        <a href="#"><div><span><i id="icons_i" class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">자동 날짜 기록</span></div></a><br>
     </div>
     <textarea placeholder="여행기 제목을 입력해 주세요"></textarea>
     <div class="bb">
       <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
-      <a href="#" class="write_select_date_start"><input class="write_start_date" type="text" placeholder="여행 시작일"> <div class="write_data_arrow"><i class="fa fa-arrow-right " aria-hidden="true"></i></div><input class="write_end_date" type="text" placeholder="여행 종료일"></a>
+      <a href="#" class="write_select_date_start"><input class="write_start_date" type="text" placeholder="여행 시작일"> <div id="write_data_arrow" class="write_data_arrow"><i class="fa fa-arrow-right " aria-hidden="true"></i></div><input class="write_end_date" type="text" placeholder="여행 종료일"></a>
       <hr id="aa">
     </div>
 
@@ -32,23 +32,114 @@
   <div class="travel_detail_date">2017.05.05</div>
 </div>
 <div class="tool_box">
-<a href="#" onclick="return false;"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i><i class="fa fa-picture-o fa-3x ccc" aria-hidden="true"></i><i class="fa fa-map-marker fa-3x ccc" aria-hidden="true"></i></a>  <textarea class="text_write_box"></textarea>
+<a href="#" onclick="test('testdiv'); return false;"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+<div id="testdiv" style="display:none">
+<span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span>
+
+</div><br>
+<textarea onchange="addition_p('write_addition')"class="text_write_box"></textarea>
+  <br>
+
 </div>
 </div>
 <hr>
 
 
+
+
+
+
+<a href="#" onclick="adddiv(); return false;"><i id="write_addition" class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+
     </div>
+
+
+
+
     <!-- container_main 태그 -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-$("fa fa-plus-circle fa-3x").click(){
-  function(){
-    $(".ccc").css(visibility,"visible");
-  }
-}
-</script>
 
+
+
+// var plus_circle_count=0;
+// function aa(){
+// if(plus_circle_count==0){
+//   $("#tool_box_hide").css(display,)
+//   plus_circle_count=1;
+// }
+// else{
+//   $("#tool_box_hide").css(visibility,"hidden")
+//   plus_circle_count=0;
+// }
+//
+//
+// }
+// $(document).ready(function a(){
+//   $("#plus_show").click(function(){ $("#tool_box_hide").show() ; }); });
+
+
+//
+// function aa(){
+//           var state = $('#tool_box_hide').css('display'); // state 변수에 ID가 moreMenu인 요소의 display의 속성을 '대입'
+//           if(state == 'none'){ // state가 none 상태일경우
+//               $('#tool_box_hide').css('display',""); // ID가 moreMenu인 요소를 show();
+//           }else{ // 그 외에는
+//               $('#tool_box_hide').css('display,"none"'); // ID가 moreMenu인 요소를 hide();
+//           }
+//     };
+
+
+  //   $("#plus_show").on({
+  //     'click': function() {
+  //         //  var src = ($("#list_heart > img").attr('src') == 'white.png')
+  //         //     ? 'red.png'
+  //         //     : 'white.png';
+  //          $("plus_show").attr('display', '"none"');
+  //        }
+  // });
+
+
+var tbody = $('.container_main')
+
+
+  function test(idMyDiv){
+       var objDiv = document.getElementById(idMyDiv);
+       if(objDiv.style.display=="inline-block"){ objDiv.style.display = "none"; }
+        else{ objDiv.style.display = "inline-block";
+      }
+  }
+  function addition_p(aa){
+    var objDiv = document.getElementById(aa);
+    objDiv.style.display = "inline-block";
+
+  }
+
+function adddiv(){
+  $("<div>").html("<div class='day_list'><div class='travel_day'><h2><h2>" +
+    "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>" +
+    "<div class='travel_detail_date'></div></div><div class='tool_box'> <a href='#' onclick='test('testdiv'); return false;'><i class='fa fa-plus-circle fa-2x' aria-hidden='true'></i></a>" +
+    "<div id='testdiv' style='display:none'>"+
+    "<span><i class='fa fa-picture-o fa-2x' aria-hidden='true'></i></span><span><i class='fa fa-map-marker fa-2x' aria-hidden='true'></i></span><span><i class='fa fa-map fa-2x' aria-hidden='true'></i></span>"+
+    "</div><br><textarea onchange='addition('write_addition')'class='text_write_box'></textarea><br></div></div><hr>"
+  ).appendTo(tbody)
+}
+
+
+
+  $(document).ready(function(){ //DOM이 준비되고
+      $('#plus_show').click(function(){ // ID가 toggleButton인 요소를 클릭하면
+          var state = $('#tool_box_hide').css('display'); // state 변수에 ID가 moreMenu인 요소의 display의 속성을 '대입'
+          if(state == 'none'){ // state가 none 상태일경우
+              $('#tool_box_hide').attr('display',""); // ID가 moreMenu인 요소를 show();
+          }else{ // 그 외에는
+              $('#tool_box_hide').attr('display',"none"); // ID가 moreMenu인 요소를 hide();
+          }
+      });
+  });
+
+
+</script>
 
   </body>
 </html>
