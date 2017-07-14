@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>travel_log</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+  <body>
+
+    <div id="blank-one" class="blank-one">
+      <div class="icons">
+        <a href="#"><div><span><i class="fa fa-picture-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">표지사진</span></div></a><br>
+        <a href="#"><div><span><i class="fa fa-lock fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">모두에게 공개</span></div></a><br>
+        <a href="#"><div><span><i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i></span><br><span class="title_hidden">자동 날짜 기록</span></div></a><br>
+    </div>
+    <textarea placeholder="여행기 제목을 입력해 주세요"></textarea>
+    <div class="bb">
+      <i class="fa fa-calendar fa-2x" aria-hidden="true"></i>
+      <a href="#" class="write_select_date_start"><input class="write_start_date" type="text" placeholder="여행 시작일"> <div class="write_data_arrow"><i class="fa fa-arrow-right " aria-hidden="true"></i></div><input class="write_end_date" type="text" placeholder="여행 종료일"></a>
+      <hr id="aa">
+    </div>
+
+    </div>
+    <div class="header" id="header"></div>
+
+    <div class="container_main">
+      <div class="day_list">
+<div class="travel_day">
+  <h2>1일차<h2>
+  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  <div class="travel_detail_date">2017.05.05</div>
+</div>
+<div class="tool_box">
+<a href="#" onclick="return false;"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i><i class="fa fa-picture-o fa-3x ccc" aria-hidden="true"></i><i class="fa fa-map-marker fa-3x ccc" aria-hidden="true"></i></a>  <textarea class="text_write_box"></textarea>
+</div>
+</div>
+<hr>
+
+
+    </div>
+    <!-- container_main 태그 -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+$("fa fa-plus-circle fa-3x").click(){
+  function(){
+    $(".ccc").css(visibility,"visible");
+  }
+}
+</script>
+
+
+  </body>
+</html>
