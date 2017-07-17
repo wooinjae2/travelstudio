@@ -5,6 +5,7 @@
   <title>travel_log</title>
   <link rel="stylesheet" type="text/css" href="write.css">
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css"> -->
 </head>
   <body>
 
@@ -26,37 +27,46 @@
 
     <div class="container_main">
       <div class="day_list">
-<div class="travel_day">
+        <div class="day1">
+<div class="write_day">
   <h2>1일차<h2>
   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
   <div class="travel_detail_date">2017.05.05</div>
 </div>
 <div class="tool_box">
-<a href="#" onclick="test('testdiv'); return false;"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
+<a href="#" onclick="test('testdiv'); return false;"><i id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a>
 <div id="testdiv" style="display:none">
-<span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span>
+  <a href="#" onclick="test('testdiv_1'); return false;"><img id="testdiv_1" src="./image.png"></a>
+  <a href="#" onclick="test('map_container'); initialize(); return false;"><img id="testdiv_2" src="./marker.png"></a>
+  <a href="#" onclick="test('testdiv_3'); return false;"><img id="testdiv_2" src="./route.png"></img></a>
+<!-- <span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span> -->
 
 </div><br>
-<textarea onchange="addition_p('write_addition')"class="text_write_box" placeholder="내용을 입력하세요"></textarea>
+<div id="map_container">
+  <div id="googleMap" style="width:500px;height:380px;"></div>
+</div>
+<textarea onchange="addition_p('write_addition','testdiv')" class="text_write_box" placeholder="내용을 입력하세요"></textarea>
   <br>
 
 </div>
 </div>
-
-
-
-
-
-
+</div>
+<br>
 <a href="#" onclick="adddiv(); return false;"><i id="write_addition" class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+
+
+
+
+
+
 
     </div>
 
 
 
-
     <!-- container_main 태그 -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"></script>
 <script>
 
 
@@ -99,7 +109,7 @@
   // });
 
 
-var tbody = $('.container_main')
+var tbody = $('.day_list')
 
 
   function test(idMyDiv){
@@ -108,20 +118,50 @@ var tbody = $('.container_main')
         else{ objDiv.style.display = "inline-block";
       }
   }
-  function addition_p(aa){
+
+  function addition_p(aa,bb){
     var objDiv = document.getElementById(aa);
+    var bb= document.getElementById(bb);
     objDiv.style.display = "inline-block";
+    bb.style.display="none";
+
+$('#ab').css("display","none");
+
+
 
   }
+var count=0;
+
+var text1 = $('#text_write_box');
+text1.focus(function(){
+  $("#ab").css('display','inline');
+});
+
+// text1.blur(function(){
+//   $("#ab").css('display','none');
+// });
 
 function adddiv(){
-  $("<div>").html("<div class='day_list'><div class='travel_day'><h2><h2>" +
+  $('#ab').css('display',"none");
+
+
+  $("<div class='day1'>").html("<div class='write_day'><h2><h2>" +
     "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>" +
-    "<div class='travel_detail_date'></div></div><div class='tool_box'> <a href='#' onclick='test('testdiv'); return false;'><i class='fa fa-plus-circle fa-2x' aria-hidden='true'></i></a>" +
-    "<div id='testdiv' style='display:none'>"+
-    "<span><i class='fa fa-picture-o fa-2x' aria-hidden='true'></i></span><span><i class='fa fa-map-marker fa-2x' aria-hidden='true'></i></span><span><i class='fa fa-map fa-2x' aria-hidden='true'></i></span>"+
-    "</div><br><textarea onchange='addition('write_addition')'class='text_write_box'></textarea><br></div></div>"
+    "<div class='travel_detail_date'></div></div><div class='tool_box'>"+
+    "<a href='#' onclick='test("+ '&#39;'+"testdiv"+count+ '&#39;' +"); return false;'><i id='ab' class='fa fa-plus-circle fa-2x' aria-hidden='true'></i></a>" +
+    "<div id='testdiv"+count+"' style='display:none'>"+
+    "<a href='#' onclick='test('testdiv_1'); return false;'><img id='testdiv_1' src='./image.png'></a>"+
+    "<a href='#' onclick='test("+ '&#39;'+"map_container"+ '&#39;' +"); initialize(); return false;'><img id='testdiv_2' src='./marker.png'></a>"+
+    "<a href='#' onclick='test('testdiv_3'); return false;'><img id='testdiv_2' src='./route.png'></img></a>"+
+    "</div><br><textarea onchange='addition_p("+ '&#39;'+"write_addition"+ '&#39;'+",&#39;ab&#39;)'class='text_write_box'  placeholder='내용을 입력하세요'></textarea><br></div>"
   ).appendTo(tbody)
+count++;
+
+// $('.fa fa-plus-circle fa-2x').css('display',"none");
+$('#write_addition').css('display',"none");
+// $(this.tool_box).css('display','none')
+// console.log($('#testdiv'+count-1));
+
 }
 
 
@@ -138,6 +178,37 @@ function adddiv(){
   });
 
 
+// 지도
+  var map;
+var myCenter=new google.maps.LatLng(37.250943, 127.028344);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+}
+
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+  var infowindow = new google.maps.InfoWindow({
+    content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+  });
+  infowindow.open(map,marker);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
   </body>

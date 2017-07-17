@@ -53,7 +53,10 @@ font-style:white;
 text-decoration-color: white;
 
 }
-::-webkit-input-placeholder { color:white; }
+.blank-one textarea-placeholder{
+  color:white;
+}
+::-webkit-input-placeholder { color:gray; }
 
 #header {
   box-sizing: border-box;
@@ -65,7 +68,7 @@ text-decoration-color: white;
 
 .container_main {
   /*border: solid black 1px;*/
-  width: 1024px;
+  width: 1220px;
   height:100%;
   margin: auto;
   height:1000px;
@@ -108,7 +111,7 @@ text-decoration-color: white;
   -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
   transform: rotate(90deg);
 }
-.travel_day{
+.write_day{
   border-right:1px black solid;
   width:170px;
   display: inline-block;
@@ -117,7 +120,7 @@ text-decoration-color: white;
   margin-right: 15px;
   height:125px;
 }
-.travel_day > div{
+.write_day > div{
   display: inline-block;
   font-size:10px;
 }
@@ -129,7 +132,7 @@ text-decoration-color: white;
 .tool_box > textarea{
   width: 700px;
   resize: none;
-  border: none;
+
 
 }
 .travel_detail_date{
@@ -144,6 +147,7 @@ text-decoration-color: white;
 margin-top: 20px;
 margin-bottom:40px;
 height:125px;
+display: inline-block;
 }
 .fa fa-plus-circle fa-3x:hover{
 
@@ -165,7 +169,39 @@ border: none;
 
 #write_addition{
   display: none;
+  position: relative;
+  margin-top:30px;
+  margin-left: 500px;
+
 }
-.testdiv > span{
+#testdiv > a > img{
+width:30px;
+height:30px;
+margin-left: 10px;
+}
+#map_container{
+  display: none;
+  position: absolute;
+}
+/*.container_main > a >i{
+  display: block;
+}*/
+
+.day1{
+  margin-top: 30px;
+}
+
+div[id*='testdiv'] > a > img{
+  width:30px;
+  height:30px;
+  margin-left: 10px;
+}
+.text_write_box{
+  margin-top: 15px;
+  border:none;
+  border-bottom:1px solid gray;
+}
+.text_write_box:focus{
+
 
 }
