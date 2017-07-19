@@ -30,9 +30,9 @@
 
     #search_bar {
       border: 1px solid white;
-      border-bottom:1px solid black;
+      border-bottom: 1px solid gray;
       font-size: 25px;
-      font-weight:600;
+      font-weight: 600;
       margin-left: 10%;
       margin-top: 17px;
       display: inline;
@@ -41,14 +41,17 @@
       height: 40px;
     }
 
-    #search_icon{
+    #search_icon {
       position: absolute;
       margin-left: 695px;
       margin-top: 19px;
-      background-color:white;
+      background-color: white;
       border: none;
     }
-    ::-webkit-input-placeholder { color:#aeb5c1; }
+
+     ::-webkit-input-placeholder {
+      color: #aeb5c1;
+    }
 
     #start-my-journey {
       border: 1px solid black;
@@ -70,7 +73,7 @@
   <header class="header">
     <img id="logo" src="./pictures/ourlogo.png">
     <input type="search" id="search_bar" placeholder="검색">
-<button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
+    <button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
     <button type="button" id="start-my-journey">여행기 작성</button>
   </header>
 
