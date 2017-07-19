@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
@@ -9,536 +10,539 @@
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
-</script>
+  </script>
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Ropa+Sans);
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Ropa+Sans);
 
-*, *:before, *:after {
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-}
+    *,
+    *:before,
+    *:after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
 
-div{
+    div {}
 
-}
-a {
-color: inherit;
-}
-a:link {
-border: none;
-outline: 0;
-}
-/*div{
+    a {
+      color: inherit;
+    }
+
+    a:link {
+      border: none;
+      outline: 0;
+    }
+    /*div{
 border:1px solid black;
 }*/
 
-a:-webkit-any-link {
-/*color: -webkit-link;*/
-cursor: auto;
-text-decoration: none;
-}
+    a:-webkit-any-link {
+      /*color: -webkit-link;*/
+      cursor: auto;
+      text-decoration: none;
+    }
 
-.blank-one {
-position: relative;
-background: url('travel.jpg') center center no-repeat fixed;
-text-align: center;
-width: 100%;
-height: 700px;
-font-family: 'Ropa Sans', sans-serif;
-margin-bottom: 20px;
-}
-
-
-.blank-one textarea {
-font-size: 40px;
-text-transform: uppercase;
-width: 1000px;
-color: rgb(255, 255, 255);
-margin: 250px auto 0px auto;
-text-shadow: 1px 1px 2px #000;
-background-color:transparent;
-border:none;
-text-align: center;
-font-style:white;
-text-decoration-color: white;
-
-}
-::-webkit-input-placeholder { color:white; }
-
-#header {
-box-sizing: border-box;
-position: relative;
-height: 15%;
-width: 100%;
-border-bottom: solid 1px #d2d2d2;
-}
+    .blank-one {
+      position: relative;
+      background: url('travel.jpg') center center no-repeat fixed;
+      text-align: center;
+      width: 100%;
+      height: 700px;
+      font-family: 'Ropa Sans', sans-serif;
+      margin-bottom: 20px;
+    }
 
 
-.container_main {
-border: solid 1px white;
-width: 1220px;
-height: auto;
+    .blank-one textarea {
+      font-size: 40px;
+      text-transform: uppercase;
+      width: 1000px;
+      color: rgb(255, 255, 255);
+      margin: 250px auto 0px auto;
+      text-shadow: 1px 1px 2px #000;
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      font-style: white;
+      text-decoration-color: white;
+    }
+
+    ::-webkit-input-placeholder {
+      color: white;
+    }
+
+    #header {
+      box-sizing: border-box;
+      position: relative;
+      height: 15%;
+      width: 100%;
+      border-bottom: solid 1px #d2d2d2;
+    }
 
 
+    .container_main {
+      border: solid 1px white;
+      width: 1220px;
+      height: auto;
+    }
 
-}
-.icons{
-width: 130px;
-height: 400px;
-position: absolute;
-margin-left: 100px;
-margin-top: 150px;
-}
-.icons > div1{
-position: absolute;
-margin-left: 1000px;
-}
+    .icons {
+      width: 130px;
+      height: 400px;
+      position: absolute;
+      margin-left: 100px;
+      margin-top: 150px;
+    }
 
-.icons > a > i{
-z-index: 1000;
-width: 10px;
-height: 10px;
-margin-top: 45px;
+    .icons>div1 {
+      position: absolute;
+      margin-left: 1000px;
+    }
 
-}
+    .icons>a>i {
+      z-index: 1000;
+      width: 10px;
+      height: 10px;
+      margin-top: 45px;
+    }
 
-.write_select_date_start > p{
-background-color: transparent;
-border:none;
-color: white;
-text-align: center;
-font-size: 30px;
-}
+    .write_select_date_start>p {
+      background-color: transparent;
+      border: none;
+      color: white;
+      text-align: center;
+      font-size: 30px;
+    }
 
-.write_select_date_start > div{
-display: inline;
-}
-.fa fa-plus-circle{
--ms-transform: rotate(90deg); // IE 9 이상에서 사용
--webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
-transform: rotate(90deg);
-}
-.travel_day{
-border-right:1px black solid;
-width:130px;
-display: inline-block;
-margin-top: 0px;
-vertical-align: top;
-margin-right: 15px;
-}
-.travel_day > div{
-display: inline-block;
-font-size:10px;
-}
-.tool_box{
-margin-top: 30px;
-display: inline-block;
+    .write_select_date_start>div {
+      display: inline;
+    }
 
-}
-.tool_box > textarea{
-width: 500px;
-resize: none;
-border: none;
-}
-.travel_detail_date{
-font-size:15px;
-display: inline-block;
-}
-.bb > #aa{
-width: 40%;
-border:1px solid white;
-}
-.day_list{
-margin-top: 20px;
-margin-bottom:20px;
-}
-.fa fa-plus-circle fa-3x:hover{
-}
+    .fa fa-plus-circle {
+      -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+      -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      transform: rotate(90deg);
+    }
 
-p{
-  display: inline-block;
+    .travel_day {
+      border-right: 1px black solid;
+      width: 130px;
+      display: inline-block;
+      margin-top: 0px;
+      vertical-align: top;
+      margin-right: 15px;
+    }
 
-}
+    .travel_day>div {
+      display: inline-block;
+      font-size: 10px;
+    }
 
-#title_in_text{
-  border: 1px solid white;
-  text-align: center;
-  font-size: 40px;
-  font-family: sans-serif;
-  margin-bottom: 40px;
-  width: 809px;
-}
+    .tool_box {
+      margin-top: 30px;
+      display: inline-block;
+    }
 
-.content_text{
-  border: 1px solid white;
-  margin-top: 20px;
-  margin-bottom: 100px;
-  width: 750px;
-  margin-left: 20px;
-  padding-left: 5px;
+    .tool_box>textarea {
+      width: 500px;
+      resize: none;
+      border: none;
+    }
 
-}
+    .travel_detail_date {
+      font-size: 15px;
+      display: inline-block;
+    }
 
-p{
-  word-break: keep-all;
-  font-size: 15px;
-  font-weight: 500;
-}
+    .bb>#aa {
+      width: 40%;
+      border: 1px solid white;
+    }
 
-/*사진1*/
-#one_whole_collage{
-  width: 809px;
-  height: 506px;
-  overflow: hidden;
-  display: inline-block;
-}
+    .day_list {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
 
-#one_whole_collage img{
-  margin: 15px 0 0 15px;
-  max-height: 506px;
-}
+    .fa fa-plus-circle fa-3x:hover {}
 
-.caption{
-  border: 1px solid white;
-  width: 750px;
-  font-size: 13px;
-  color: #91a1bc;
-  text-align: center;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  font-weight:600;
-}
+    p {
+      display: inline-block;
+    }
 
-#googleMap{
-  width:780px;
-  height:380px;
+    #title_in_text {
+      border: 1px solid white;
+      text-align: center;
+      font-size: 40px;
+      font-family: sans-serif;
+      margin-bottom: 40px;
+      width: 809px;
+    }
 
-}
+    .content_text {
+      border: 1px solid white;
+      margin-top: 20px;
+      margin-bottom: 100px;
+      width: 750px;
+      margin-left: 20px;
+      padding-left: 5px;
+    }
 
-/*6개*/
-  .whole_collage6{
-    width:824px;
-    height:824px;
-    background-color: white;
-  }
+    p {
+      word-break: keep-all;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    /*사진1*/
 
-  #big_collage{
-    width: 534px;
-    height: 534px;
-    overflow: hidden;
-    display: inline-block;
-  }
+    #one_whole_collage {
+      width: 809px;
+      height: 506px;
+      overflow: hidden;
+      display: inline-block;
+    }
 
-  #big_collage img{
+    #one_whole_collage img {
+      margin: 15px 0 0 15px;
+      max-height: 506px;
+    }
 
-    max-height: 534px;
-  }
+    .caption {
+      border: 1px solid white;
+      width: 750px;
+      font-size: 13px;
+      color: #91a1bc;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-left: 20px;
+      font-weight: 600;
+    }
 
-  #two_collage{
+    #googleMap {
+      width: 780px;
+      height: 380px;
+    }
+    /*6개*/
 
-    display: inline-block;
-    height: 534px;
-    width:265px;
-  }
-
-  #inner_two_collage{
-    width: 265px;
-    height: 265px;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  #inner_two_collage img{
-
-    max-height: 265px;
-  }
-
-  #bottom_three_collage{
-    width: 264px;
-    height: 260px;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  #bottom_three_collage img{
-
-    max-height: 260px;
-  }
-
-  /*3개*/
-    .whole_collage3{
-      width:824px;
-      height:549px;
+    .whole_collage6 {
+      width: 824px;
+      height: 824px;
       background-color: white;
     }
 
-    #big_collage{
+    #big_collage {
       width: 534px;
       height: 534px;
       overflow: hidden;
       display: inline-block;
     }
 
-    #big_collage img{
+    #big_collage img {
 
       max-height: 534px;
     }
 
-    #two_collage{
-      width:260px;
-      height:534px;
+    #two_collage {
+
+      display: inline-block;
+      height: 534px;
+      width: 265px;
+    }
+
+    #inner_two_collage {
+      width: 265px;
+      height: 265px;
+      overflow: hidden;
       display: inline-block;
     }
 
-    #inner_two_collage{
+    #inner_two_collage img {
+
+      max-height: 265px;
+    }
+
+    #bottom_three_collage {
+      width: 264px;
+      height: 260px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    #bottom_three_collage img {
+
+      max-height: 260px;
+    }
+    /*3개*/
+
+    .whole_collage3 {
+      width: 824px;
+      height: 549px;
+      background-color: white;
+    }
+
+    #big_collage {
+      width: 534px;
+      height: 534px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    #big_collage img {
+
+      max-height: 534px;
+    }
+
+    #two_collage {
+      width: 260px;
+      height: 534px;
+      display: inline-block;
+    }
+
+    #inner_two_collage {
       width: 260px;
       height: 265px;
       overflow: hidden;
       display: inline-block;
     }
 
-    #inner_two_collage img{
+    #inner_two_collage img {
 
       max-height: 260px;
     }
 
-    #list_heart_1{
+    #list_heart_1 {
       color: #fc5549;
     }
 
-    .heart{
+    .heart {
       margin-top: 100px;
       margin-left: 900px;
       margin-bottom: 200px;
     }
 
-    .without_heart_main{
+    .without_heart_main {
       border: 1px solid white;
       display: inline-block;
       margin-left: 53px;
     }
-
-    /*header*/
-header{
-  border: 1px solid #c9d1dd;
-  width: 100%;
-  height: 70px;
-  position: fixed;
-  z-index: 100;
-  background-color: white;
-
-
-}
-
-#logo{
-  max-height: 55px;
-  margin-top: 5px;
-  margin-left: 345px;
-}
-
-#start-my-journey{
-  border: 1px solid black;
-  width:140px;
-  height:40px;
-  border-radius: 20px;
-  background-color: white;
-  margin-left:398px;
-  margin-top:13px;
-  font-size: 17px;
-}
-
-#title_of_article{
-  border: 1px solid white;
-  font-size: 25px;
-  font-weight: bold;
-  margin-left:21%;
-}
-.tag{
-  border: 1px solid black;
-  width: 200px;
-  height: 100px;
-  margin-right: 100px;
-}
-
-.tag_hash{
-  font-weight: bold;
-  color: white;
-  margin-right: 7px;
-  font-size: 18px;
-}
-
-#KR_flag{
-  width:30px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.blank-one{
-  border: 1px solid black;
-  margin-top: 69px;
-}
-
-#gotop{
-  border: 1px solid black;
-  width:100px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 19px;
-  background-size: cover;
-  padding-top: 6px;
-  padding-bottom: 3px;
-
-  margin-left: 100px;
-  margin-top:50px;
-  position: fixed;
-  text-align: center;
-
-}
-
-.hidden {
-  transform: translateY(-100%);
-}
-
     /*header*/
 
+    header {
+      border: 1px solid #c9d1dd;
+      width: 100%;
+      height: 70px;
+      position: fixed;
+      z-index: 100;
+      background-color: white;
+    }
+
+    #logo {
+      max-height: 55px;
+      /*margin-top: 2px;*/
+      margin-left: 345px;
+    }
+
+    #start-my-journey {
+      border: 1px solid black;
+      width: 140px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: white;
+      margin-left: 398px;
+      margin-top: 13px;
+      font-size: 17px;
+    }
+
+    #title_of_article {
+      border: 1px solid white;
+      font-size: 25px;
+      font-weight: bold;
+      margin-left: 21%;
+    }
+    /*태그*/
+
+    .tag {
+      border: 1px solid black;
+      width: 200px;
+      height: 100px;
+      margin-right: 100px;
+    }
+
+    .tag_hash {
+      font-weight: bold;
+      color: white;
+      margin-right: 7px;
+      font-size: 18px;
+    }
+
+    #KR_flag {
+      width: 30px;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /*upper 사진*/
+
+    .blank-one {
+      border: 1px solid black;
+      margin-top: 69px;
+    }
+    /*맨위로 버튼*/
+
+    #gotop {
+      border: 1px solid black;
+      width: 100px;
+      height: 40px;
+      border-radius: 20px;
+      font-size: 19px;
+      background-size: cover;
+      padding-top: 6px;
+      padding-bottom: 3px;
+
+      margin-left: 100px;
+      margin-top: 50px;
+      position: fixed;
+      text-align: center;
+    }
+
+    .hidden {
+      transform: translateY(-100%);
+    }
+    /*header*/
     /*root*/
 
-.root{
-  border: 1px solid white;
-  width:811px;
-  height:auto;
-}
+    .root {
+      border: 1px solid white;
+      width: 811px;
+      height: auto;
+    }
 
 
 
-.root_way_first{
-  border: 1px solid white;
-  width:811px;
-  height: 90px;
-  margin-left: 20px;
-  margin-top: 10px;
-  padding-top: 10px;
-}
+    .root_way_first {
+      border: 1px solid white;
+      width: 811px;
+      height: 90px;
+      margin-left: 20px;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
 
-#root_way_first_img{
-  margin-right: 50px;
-}
+    #root_way_first_img {
+      margin-right: 50px;
+    }
 
-.root_way_more{
-  border: 1px solid white;
-  width:811px;
-  height: 90px;
-  margin-left: 20px;
-  margin-top: 3px;
+    .root_way_more {
+      border: 1px solid white;
+      width: 811px;
+      height: 90px;
+      margin-left: 20px;
+      margin-top: 3px;
+    }
 
-}
+    #rooting_img {
+      margin-right: 50px;
+    }
 
-#rooting_img{
-  margin-right: 50px;
+    .root_way_last {
+      border: 1px solid white;
+      width: 811px;
+      height: 90px;
+      margin-left: 20px;
+      padding-top: 15px;
+    }
 
-}
+    #rootend_img {
+      margin-right: 50px;
+    }
 
-.root_way_last{
-  border: 1px solid white;
-  width:811px;
-  height: 90px;
-  margin-left: 20px;
-  padding-top: 15px;
-}
-
-#rootend_img{
-  margin-right: 50px;
-}
-
-#name_root1,
-#name_root2,
-#name_root3{
-  font-size: 18px;
-  font-weight: bold;
-  color: #3a68b2;
-}
+    #name_root1,
+    #name_root2,
+    #name_root3 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3a68b2;
+    }
 
 
 
-#KR_root{
-width:30px;
-}
+    #KR_root {
+      width: 30px;
+    }
 
-#next_flag{
-  color: #a0abbc;
-  font-weight: bold;
-}
+    #next_flag {
+      color: #a0abbc;
+      font-weight: bold;
+    }
 
-#airplane{
-  height: 50px;
-}
+    #airplane {
+      height: 50px;
+    }
 
-.faces{
-  /*border: 1px solid black;*/
-  height: 60px;
-  min-width: 300px;
-  margin-left: 1200px;
-  margin-top:70px;
-}
-.faces > div{
-  margin-left: 15px;
-}
+    .faces {
+      /*border: 1px solid black;*/
+      height: 60px;
+      min-width: 300px;
+      margin-left: 1200px;
+      margin-top: 70px;
+    }
 
-.face{
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  border-radius: 50%;
-display: inline-block;
+    .faces>div {
+      margin-left: 15px;
+    }
 
+    .face {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-}
+    #yunakim {
+      width: 50px;
+    }
 
-#yunakim{
-  width:50px;
-}
+    .face2 {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-.face2{
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  border-radius: 50%;
-  display: inline-block;
-
-
-}
-
-#Emma{
-  height:50px;
-}
-
-
-</style>
+    #Emma {
+      height: 50px;
+    }
+  </style>
 
 
 
 </head>
-  <body>
-    <!--header-->
 
-<header class="header">
-<img id="logo" src="./pictures/ourlogo.png">
-<p id="title_of_article">여행기 제목</p>
-<button type="button" id="start-my-journey">여행기 작성</button>
-</header>
-   <!--header-->
+<body>
+  <!--header-->
+
+  <header class="header">
+    <img id="logo" src="./pictures/ourlogo.png">
+    <p id="title_of_article">여행기 제목</p>
+    <button type="button" id="start-my-journey">여행기 작성</button>
+  </header>
+  <!--header-->
 
 
-<!--글쓰기랑 이이디 클래스 이름 똑같음-->
-<div class="header" id="header"></div>
-    <div id="blank-one" class="blank-one">
+  <!--글쓰기랑 이이디 클래스 이름 똑같음-->
+  <div class="header" id="header"></div>
+  <div id="blank-one" class="blank-one">
     <textarea placeholder="우주인의 자동차 로드 트립"></textarea>
     <div class="bb">
 
-      <a href="#" class="write_select_date_start"><p class="write_start_date">2016.3.16</p><p>~</p><p class="write_end_date">2017.12.25</p></a>
+      <a href="#" class="write_select_date_start">
+        <p class="write_start_date">2016.3.16</p>
+        <p>~</p>
+        <p class="write_end_date">2017.12.25</p>
+      </a>
       <hr id="aa">
     </div>
 
@@ -549,25 +553,25 @@ display: inline-block;
       <span class="tag_hash">#태그</span>
       <span class="tag_hash">#태그</span>
     </div>
-    <img src="./pictures/KR.png" id="KR_flag" >
+    <img src="./pictures/KR.png" id="KR_flag">
 
-   <div class="faces">
-     <div class="face">
-       <img src="./pictures/yunakim.jpg" id="yunakim">
-     </div>
-     <div class="face2">
-       <img src="./pictures/emma.jpg" id="Emma">
-     </div>
-   </div>
+    <div class="faces">
+      <div class="face">
+        <img src="./pictures/yunakim.jpg" id="yunakim">
+      </div>
+      <div class="face2">
+        <img src="./pictures/emma.jpg" id="Emma">
+      </div>
+    </div>
   </div>
 
-<!--내용상자-->
-    <div class="container_main">
+  <!--내용상자-->
+  <div class="container_main">
 
 
-      <div class="day_list">
-<div class="travel_day">
-  <h2>1일차<h2>
+    <div class="day_list">
+      <div class="travel_day">
+        <h2>1일차<h2>
   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
   <div class="travel_detail_date">2017.05.05</div>
 </div>
