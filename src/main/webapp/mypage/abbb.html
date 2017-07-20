@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>move picture</title>
+  <style>
+    .editor_container {
+      border: 1px solid black;
+      width: 1000px;
+      height: 800px;
+    }
+
+    .inner_line {
+      border: 1px solid black;
+      width: 950px;
+      height: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 25px;
+    }
+
+    div[class*=picture_container] {
+      border: 1px solid blue;
+      width: 900px;
+      height: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      cursor: move;
+      z-index: 1;
+    }
+
+    .inner_picture_div {
+      border: 1px solid red;
+      width: 100px;
+      height: 100px;
+      background-image: url();
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .inner_picture_div>img {
+      max-height: 200px;
+      display: inline-block;
+    }
+
+    div[id*=ab] {
+      margin-left: -35px;
+      position: absolute;
+      display: inline-block;
+      z-index: 30;
+      width: 50px;
+      height: 50px;
+      background-repeat: no-repeat;
+      background-image: url(./img/checked.png);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="editor_container">
+    <div class="inner_line">
+      <div class="picture_container">
+        <a href="#" onclick="aa('ab');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab" style="display:none"></div>
+        </a>
+        <a href="#" onclick="aa('ab1');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab1" style="display:none"></div>
+        </a>
+        <a href="#" onclick="aa('ab2');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab2" style="display:none"></div>
+        </a>
+        <a href="#" onclick="aa('ab3');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab3" style="display:none"></div>
+        </a>
+        <a href="#" onclick="aa('ab4');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab4" style="display:none"></div>
+        </a>
+        <a href="#" onclick="aa('ab5');">
+          <div class="inner_picture_div"><img src="./italy.png"></img>
+          </div>
+          <div id="ab5" style="display:none"></div>
+        </a>
+      </div>
+
+      <button id="ungroup" onclick="ungroup();" type="button">ungroup</button>
+      <button id="ungroup" onclick="group();" type="button">group</button>
+    </div>
+  </div>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    function aa(ab) {
+      var ac = document.getElementById(ab)
+      console.log($(ac).css('display'))
+      if ($(ac).css('display') == 'block') {
+        $(ac).css('display', 'none')
+        $(ac).removeClass();
+
+      } else {
+        $(ac).addClass('checked');
+        $(ac).css('display', 'inline-block')
+      }
+    }
+
+    function ungroup() {
+      console.log($('.checked'));
+
+      // $('<div class="picture_container2">').html($('.checked')).appendTo($('.inner_line'));
+      $('.checked').parent().appendTo($('<div class="picture_container2">').insertAfter($('.picture_container')));
+      $('.checked').css('display', 'none');
+
+      $('.checked').removeClass();
+
+      $('.inner_line > div:empty').remove();
+
+
+      $('.ui selected').parent().appendTo($('<div class="picture_container2">').insertAfter($('.picture_container')));
+      $('.ui selected').css('display', 'none');
+
+      $('.ui selected').removeClass();
+
+      $('.inner_line > div:empty').remove();
+      $('picture_container > div:empty').remove();
+    }
+
+    function group() {
+      var divs = $('.checked').toArray();
+      console.log(divs.length)
+      for (i = 0; i < divs.length; i++) {
+        $(divs[i]).parent().appendTo($('<div class="picture_container2">').insertAfter($('.picture_container')));
+      }
+            $('.inner_line > div:empty').remove();
+      $('.checked').css('display', 'none');
+      $('.checked').removeClass()
+      $('.inner_line > div:empty').remove();
+    }
+    // $('<div class="picture_container2">').html($('.checked')).appendTo($('.inner_line'));
+    // $('.checked').parent().appendTo($('<div class="picture_container2">').insertAfter($('.picture_container')));
+  </script>
+</body>
+
+</html>

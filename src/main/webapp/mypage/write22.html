@@ -213,17 +213,22 @@ margin-bottom: 2px;
   </head>
 <body>
 
-      <div id="blank-one" class="blank-one">
-        <h2>사진으로 여행기를 쉽게~</h2>
-        <a href="#" type="button" class="help_btn"></a>
-      </div>
-      <div class="header" id="header"></div>
+          <form name="Form" method="post" action="">
+                          <input type="file" name="file" style="display:none;">
+                              <a class='MIME' class='MIME' href="javascript:file_browse()">
+                              <IMG SRC="D:\04_Messenger\감자도리\띠떼프_배경.gif" BORDER=0>
+                              </a>
+           </form>
 
 
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-
+function file_browse()
+{
+    document.Form.file.click();
+    document.Form.text1.value=document.Form.file.value;
+}
 
 </script>
 </body>
