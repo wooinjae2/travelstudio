@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>travel_log</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./main.css">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
+</script>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Ropa+Sans);
+
+*, *:before, *:after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+div{
+
+}
+a {
+color: inherit;
+}
+a:link {
+border: none;
+outline: 0;
+}
+/*div{
+border:1px solid black;
+}*/
+
+a:-webkit-any-link {
+/*color: -webkit-link;*/
+cursor: auto;
+text-decoration: none;
+}
+
+.blank-one {
+position: relative;
+background: url('travel.jpg') center center no-repeat fixed;
+text-align: center;
+width: 100%;
+height: 700px;
+font-family: 'Ropa Sans', sans-serif;
+margin-bottom: 20px;
+}
+
+
+.blank-one textarea {
+font-size: 40px;
+text-transform: uppercase;
+width: 1000px;
+color: rgb(255, 255, 255);
+margin: 250px auto 0px auto;
+text-shadow: 1px 1px 2px #000;
+background-color:transparent;
+border:none;
+text-align: center;
+font-style:white;
+text-decoration-color: white;
+
+}
+::-webkit-input-placeholder { color:white; }
+
+#header {
+box-sizing: border-box;
+position: relative;
+height: 15%;
+width: 100%;
+border-bottom: solid 1px #d2d2d2;
+}
+
+
+.container_main {
+border: solid 1px white;
+width: 1220px;
+height: auto;
+
+
+
+}
+.icons{
+width: 130px;
+height: 400px;
+position: absolute;
+margin-left: 100px;
+margin-top: 150px;
+}
+.icons > div1{
+position: absolute;
+margin-left: 1000px;
+}
+
+.icons > a > i{
+z-index: 1000;
+width: 10px;
+height: 10px;
+margin-top: 45px;
+
+}
+
+.write_select_date_start > p{
+background-color: transparent;
+border:none;
+color: white;
+text-align: center;
+font-size: 30px;
+}
+
+.write_select_date_start > div{
+display: inline;
+}
+.fa fa-plus-circle{
+-ms-transform: rotate(90deg); // IE 9 이상에서 사용
+-webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+transform: rotate(90deg);
+}
+.travel_day{
+border-right:1px black solid;
+width:130px;
+display: inline-block;
+margin-top: 0px;
+vertical-align: top;
+margin-right: 15px;
+}
+.travel_day > div{
+display: inline-block;
+font-size:10px;
+}
+.tool_box{
+margin-top: 30px;
+display: inline-block;
+
+}
+.tool_box > textarea{
+width: 500px;
+resize: none;
+border: none;
+}
+.travel_detail_date{
+font-size:15px;
+display: inline-block;
+}
+.bb > #aa{
+width: 40%;
+border:1px solid white;
+}
+.day_list{
+margin-top: 20px;
+margin-bottom:20px;
+}
+.fa fa-plus-circle fa-3x:hover{
+}
+
+p{
+  display: inline-block;
+
+}
+
+#title_in_text{
+  border: 1px solid white;
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  margin-bottom: 40px;
+  width: 809px;
+}
+
+.content_text{
+  border: 1px solid white;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  width: 750px;
+  margin-left: 20px;
+  padding-left: 5px;
+
+}
+
+p{
+  word-break: keep-all;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/*사진1*/
+#one_whole_collage{
+  width: 809px;
+  height: 506px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#one_whole_collage img{
+  margin: 15px 0 0 15px;
+  max-height: 506px;
+}
+
+.caption{
+  border: 1px solid white;
+  width: 750px;
+  font-size: 13px;
+  color: #91a1bc;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  font-weight:600;
+}
+
+#googleMap{
+  width:780px;
+  height:380px;
+
+}
+
+/*6개*/
+  .whole_collage6{
+    width:824px;
+    height:824px;
+    background-color: white;
+  }
+
+  #big_collage{
+    width: 534px;
+    height: 534px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  #big_collage img{
+
+    max-height: 534px;
+  }
+
+  #two_collage{
+
+    display: inline-block;
+    height: 534px;
+    width:265px;
+  }
+
+  #inner_two_collage{
+    width: 265px;
+    height: 265px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  #inner_two_collage img{
+
+    max-height: 265px;
+  }
+
+  #bottom_three_collage{
+    width: 264px;
+    height: 260px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  #bottom_three_collage img{
+
+    max-height: 260px;
+  }
+
+  /*3개*/
+    .whole_collage3{
+      width:824px;
+      height:549px;
+      background-color: white;
+    }
+
+    #big_collage{
+      width: 534px;
+      height: 534px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    #big_collage img{
+
+      max-height: 534px;
+    }
+
+    #two_collage{
+      width:260px;
+      height:534px;
+      display: inline-block;
+    }
+
+    #inner_two_collage{
+      width: 260px;
+      height: 265px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    #inner_two_collage img{
+
+      max-height: 260px;
+    }
+
+    #list_heart_1{
+      color: #fc5549;
+    }
+
+    .heart{
+      margin-top: 100px;
+      margin-left: 900px;
+      margin-bottom: 200px;
+    }
+
+    .without_heart_main{
+      border: 1px solid white;
+      display: inline-block;
+      margin-left: 53px;
+    }
+
+    /*header*/
+header{
+  border: 1px solid #c9d1dd;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+
+
+}
+
+#logo{
+  max-height: 55px;
+  margin-top: 5px;
+  margin-left: 345px;
+}
+
+#start-my-journey{
+  border: 1px solid black;
+  width:140px;
+  height:40px;
+  border-radius: 20px;
+  background-color: white;
+  margin-left:398px;
+  margin-top:13px;
+  font-size: 17px;
+}
+
+#title_of_article{
+  border: 1px solid white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left:21%;
+}
+.tag{
+  border: 1px solid black;
+  width: 200px;
+  height: 100px;
+  margin-right: 100px;
+}
+
+.tag_hash{
+  font-weight: bold;
+  color: white;
+  margin-right: 7px;
+  font-size: 18px;
+}
+
+#KR_flag{
+  width:30px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blank-one{
+  border: 1px solid black;
+  margin-top: 69px;
+}
+
+#gotop{
+  border: 1px solid black;
+  width:100px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 19px;
+  background-size: cover;
+  padding-top: 6px;
+  padding-bottom: 3px;
+
+  margin-left: 100px;
+  margin-top:50px;
+  position: fixed;
+  text-align: center;
+
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+    /*header*/
+
+    /*root*/
+
+.root{
+  border: 1px solid white;
+  width:811px;
+  height:auto;
+}
+
+
+
+.root_way_first{
+  border: 1px solid white;
+  width:811px;
+  height: 90px;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#root_way_first_img{
+  margin-right: 50px;
+}
+
+.root_way_more{
+  border: 1px solid white;
+  width:811px;
+  height: 90px;
+  margin-left: 20px;
+  margin-top: 3px;
+
+}
+
+#rooting_img{
+  margin-right: 50px;
+
+}
+
+.root_way_last{
+  border: 1px solid white;
+  width:811px;
+  height: 90px;
+  margin-left: 20px;
+  padding-top: 15px;
+}
+
+#rootend_img{
+  margin-right: 50px;
+}
+
+#name_root1,
+#name_root2,
+#name_root3{
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a68b2;
+}
+
+
+
+#KR_root{
+width:30px;
+}
+
+#next_flag{
+  color: #a0abbc;
+  font-weight: bold;
+}
+
+#airplane{
+  height: 50px;
+}
+
+.faces{
+  /*border: 1px solid black;*/
+  height: 60px;
+  min-width: 300px;
+  margin-left: 1200px;
+  margin-top:70px;
+}
+.faces > div{
+  margin-left: 15px;
+}
+
+.face{
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+display: inline-block;
+
+
+}
+
+#yunakim{
+  width:50px;
+}
+
+.face2{
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+
+
+}
+
+#Emma{
+  height:50px;
+}
+
+
+</style>
+
+
+
+</head>
+  <body>
+    <!--header-->
+
+<header class="header">
+<img id="logo" src="./pictures/ourlogo.png">
+<p id="title_of_article">여행기 제목</p>
+<button type="button" id="start-my-journey">여행기 작성</button>
+</header>
+   <!--header-->
+
+
+<!--글쓰기랑 이이디 클래스 이름 똑같음-->
+<div class="header" id="header"></div>
+    <div id="blank-one" class="blank-one">
+    <textarea placeholder="우주인의 자동차 로드 트립"></textarea>
+    <div class="bb">
+
+      <a href="#" class="write_select_date_start"><p class="write_start_date">2016.3.16</p><p>~</p><p class="write_end_date">2017.12.25</p></a>
+      <hr id="aa">
+    </div>
+
+    <div class="tags">
+      <span class="tag_hash">#태그</span>
+      <span class="tag_hash">#태그</span>
+      <span class="tag_hash">#태그</span>
+      <span class="tag_hash">#태그</span>
+      <span class="tag_hash">#태그</span>
+    </div>
+    <img src="./pictures/KR.png" id="KR_flag" >
+
+   <div class="faces">
+     <div class="face">
+       <img src="./pictures/yunakim.jpg" id="yunakim">
+     </div>
+     <div class="face2">
+       <img src="./pictures/emma.jpg" id="Emma">
+     </div>
+   </div>
+  </div>
+
+<!--내용상자-->
+    <div class="container_main">
+
+
+      <div class="day_list">
+<div class="travel_day">
+  <h2>1일차<h2>
+  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  <div class="travel_detail_date">2017.05.05</div>
+</div>
+
+
+<div class="without_heart_main">
+
+  <div class="root">
+  <div class="root_way_first">
+    <img id="root_way_first_img" src="./pictures/rootstart.PNG">
+    <p id="name_root1">인천국제공항<br><img id="KR_root"src="./pictures/KR.png"><span id="next_flag">KR</span></p>
+  </div>
+
+  <span><img id="airplane" src="./pictures/airplane.png"></span>
+
+  <div class="root_way_more">
+    <img id="rooting_img" src="./pictures/rooting.PNG">
+
+    <p id="name_root2">비엔나 국제 공항<br><img src="./pictures/austria.png"><span id="next_flag">AT</span></p>
+  </div>
+
+  <span><img id="airplane" src="./pictures/airplane.png"></span>
+
+  <div class="root_way_last">
+     <img id="rootend_img" src="./pictures/rootend.PNG">
+     <p id="name_root3">오를리 국제 공항<br><img id="FR_root" src="./pictures/france.png"><span id="next_flag">FR</span></p>
+  </div>
+  </div>
+
+<div class="tool_box">
+  <div id="title_in_text">여행의 시작은 기내식</div>
+  <div id="googleMap"></div>
+  <div class="content_text">
+
+  <p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을 설치면서 훨씬 일찍 깨게 된다. 그럼 또 억울해서 1, 20분 더 자려고 들고, 그런 악순환의 반복이다. 아침에 짐 정리해야지, 라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다. 여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다. 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는 생각까지 했었건만. 자가예지력 짱임. 나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다. 뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...지만 지금은 다 캐리어 안에 있네. 으흐흐흐. 여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
+</div>
+
+
+  <div class="whole_collage1">
+  <div  id="one_whole_collage"><img id="img_4" src="./pictures/ca.jpg"></div>
+
+</div>
+<div class="caption">캡션캡션캡션캡션캡션캡션</div>
+<div class="content_text">
+<p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을<br> 설치면서 훨씬 일찍 깨게 된다.
+  <br> 그럼 또 억울해서 1, 20분 더 자려고 들고,<br>
+  그런 악순환의 반복이다.<br> 아침에 짐 정리해야지, <br>
+  라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다.
+  <br>여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...<br>
+  으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다.<br> 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는<br>
+  생각까지 했었건만. 자가예지력 짱임. <br>
+  나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다.<br>
+  뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...<br>
+  지만 지금은 다 캐리어 안에 있네. 으흐흐흐. <br>
+  여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
+  </div>
+
+  <!--하나짜리 큰거-->
+  <div  id="big_collage"><img id="img_4" src="./pictures/ca.jpg"></div>
+
+  <div id="two_collage">
+ <div id="inner_two_collage"><img src="./pictures/mrbike.PNG"></div>
+ <div id="inner_two_collage"><img src="./pictures/mrbike.PNG"></div>
+  </div>
+  <div class="caption">캡션캡션캡션캡션캡션캡션</div>
+  <div class="content_text">
+  <p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을<br> 설치면서 훨씬 일찍 깨게 된다.
+    <br> 그럼 또 억울해서 1, 20분 더 자려고 들고,<br>
+    그런 악순환의 반복이다.<br> 아침에 짐 정리해야지, <br>
+    라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다.
+    <br>여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...<br>
+    으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다.<br> 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는<br>
+    생각까지 했었건만. 자가예지력 짱임. <br>
+    나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다.<br>
+    뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...<br>
+    지만 지금은 다 캐리어 안에 있네. 으흐흐흐. <br>
+    여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
+    </div>
+
+</div><!--whole_collage-->
+</div>
+</div>
+<a id="gotop"href="#top" title="맨 위로가는 버튼"></i>▲TOP</a>
+</div>
+<br>
+<div class="heart">
+<a id="list_heart" href="javascript:;"><i id="list_heart_1" class="fa fa-heart-o fa-3x" aria-hidden="true"></i></a>
+</div>
+
+
+
+<!--내용상자-->
+
+<!--구글지도-->
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+   <script>
+      function initialize()
+      {
+       var mapProp = {
+         center: new google.maps.LatLng(37.250943, 127.028344),
+         zoom:7,
+         zoomControl:true,
+         zoomControlOptions: {
+           style:google.maps.ZoomControlStyle.SMALL
+         },
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+       };
+       var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+ <!--하트 -->
+     $("#list_heart").on({
+       'click':function(){
+
+        //  class="fa fa-heart fa-2x"
+        //  class="fa fa-heart-o fa-2x"
+         var color = ($('#list_heart>i').attr('class') === 'fa fa-heart-o fa-3x')
+                ? 'fa fa-heart fa-3x'
+                : 'fa fa-heart-o fa-3x';
+
+
+    $('#list_heart_1').attr('class',color);
+        }
+     })
+
+<!--header숨는거-->
+        var prev = 0;
+        var view = $(window);
+        var mast = $('.header');
+
+        view.on('scroll', function(){
+        var scrollTop = view.scrollTop();
+        mast.toggleClass('hidden', scrollTop > prev);
+        console.log(scrollTop);
+        prev = scrollTop;
+        });
+
+
+
+
+
+   </script>
+
+
+  </body>
+</html>

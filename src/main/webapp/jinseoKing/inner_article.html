@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <title>travel_log</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="./main.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
   </script>
 
@@ -68,7 +68,7 @@ border:1px solid black;
       text-decoration-color: white;
     }
 
-     ::-webkit-input-placeholder {
+    ::-webkit-input-placeholder {
       color: white;
     }
 
@@ -85,6 +85,7 @@ border:1px solid black;
       border: solid 1px white;
       width: 1220px;
       height: auto;
+      margin: 0px auto;
     }
 
     .icons {
@@ -161,6 +162,7 @@ border:1px solid black;
     }
 
     .day_list {
+      border: 1px solid black;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -339,7 +341,7 @@ border:1px solid black;
 
     #logo {
       max-height: 55px;
-      /*margin-top: 2px;*/
+      margin-top: 5px;
       margin-left: 345px;
     }
 
@@ -360,7 +362,6 @@ border:1px solid black;
       font-weight: bold;
       margin-left: 21%;
     }
-    /*태그*/
 
     .tag {
       border: 1px solid black;
@@ -382,13 +383,11 @@ border:1px solid black;
       margin-left: auto;
       margin-right: auto;
     }
-    /*upper 사진*/
 
     .blank-one {
       border: 1px solid black;
       margin-top: 69px;
     }
-    /*맨위로 버튼*/
 
     #gotop {
       border: 1px solid black;
@@ -399,7 +398,8 @@ border:1px solid black;
       background-size: cover;
       padding-top: 6px;
       padding-bottom: 3px;
-
+      /*padding-left: 17px;*/
+      /*padding-right: 18px;*/
       margin-left: 100px;
       margin-top: 50px;
       position: fixed;
@@ -514,6 +514,50 @@ border:1px solid black;
 
     #Emma {
       height: 50px;
+    }
+    /*댓글*/
+
+    .comment_container {
+      border: 1px solid black;
+      width: 809px;
+      height: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title_comment_container {
+      border: 1px solid black;
+      font-size: 20px;
+    }
+
+    #replyer {
+      max-height: 50px;
+      max-width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: block;
+    }
+
+    #replyer>img {
+      height: 50px;
+    }
+
+    li {
+      border: 1px solid black;
+      height: 100px;
+      padding-left: 20px;
+    }
+
+    .content_reply {
+      border: 1px solid black;
+      float: left;
+      display: block;
+      margin-left: 70px;
+      margin-top: -50px;
+    }
+
+    #id {
+      border: 1px solid black;
     }
   </style>
 
@@ -653,12 +697,28 @@ border:1px solid black;
 
 </div><!--whole_collage-->
 </div>
-</div>
 <a id="gotop"href="#top" title="맨 위로가는 버튼"></i>▲TOP</a>
+</div>
 </div>
 <br>
 <div class="heart">
 <a id="list_heart" href="javascript:;"><i id="list_heart_1" class="fa fa-heart-o fa-3x" aria-hidden="true"></i></a>
+</div>
+
+<div class="comment_container">
+<div class="title_comment_container">댓글</div>
+<hr>
+<li>
+  <div id="replyer"><img src="./pictures/emma.jpg"></div>
+  <span class="content_reply">
+
+  <a id="id">emmaHi</a><br>
+  <textarea name="name" rows="4" cols="93" placeholder="작가와 직접 소통하세요.">
+
+  </textarea>
+  <button type="button" name="button"></button>
+</span>
+</li>
 </div>
 
 
@@ -666,7 +726,7 @@ border:1px solid black;
 <!--내용상자-->
 
 <!--구글지도-->
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
    <script>
       function initialize()
       {
