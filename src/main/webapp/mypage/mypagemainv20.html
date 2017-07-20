@@ -7,559 +7,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="mypage.css">
 
 <style>
-/*div{
-border: 1px solid black;
-}*/
-#header{
-  height: 121px;
-}
-#container{
-width: 1220px;
-height:1000px;
-margin-left: auto;
-margin-right: auto;
-}
-#write{
-width: 140px;
-height: 40px;
-}
-#header-s{
-  margin-left: 65%;
-}
-#header-padding{
-  width: 5px;
-}
-#mypage{
-  padding-left: 20px;
-  width:100%;
-  height: 100%;
-  padding-right: 50px;
-}
-#profile{
-  margin-top: 80px;
-  margin-left: 20px;
-}
-.profile_photo{
-  width:169px;
-  height:171px;
-  display: inline-block;
-
-
-}
-
-
-.profile_desc{
-  margin-left: 15px;
-  height:120px;
-  display: inline-block;
-}
-.user_name{
-  font-size: 30px;
-  margin-top: 10px;
-}
-.info_write{
-  width:110px;
-  display: inline-block;
-}
-.info_nation{
-width:110px;
-display: inline-block;
-}
-ul > li > img{
-  width:27px;
-  height:27px;
-  display: inline;
-}
-ul> li{
-  display: inline;
-}
-#aa{
-  display: inline-block;
-  height:30px;
-}
-.user_desc{
-  margin-top: 10px;
-}
-.dot{
-  width:27px;
-  height: 27px;
-}
-.card_bottom > img{
-  margin-top: 5px;
-  width: 33px;
-  height: 33px;
-}
-.travel_item{
-  width:255px;
-  display: inline-block;
-  margin-right: 15px;
-}
-.list_img{
-  width:250px;
-  padding-right: 0px;
-  height:200px;
-}
-.travle_list > li{
-
-}
-.cont_card{
-  margin-top: 130px;
-}
-div.card_title span{
-  width: 230px;
-  height: 30px;
-}
-.card_bottom> span{
-  width: 200px;
-}
-.mypage_list_heart{
-  margin-top: 10px;
-  float: right;
-}
-.list_title > a{
-  font: black;
-}
-.fa fa-align-justify{
-  display: inline-block;
-  float: right;
-}
-.list_title{
-  display: inline-block;
-  width: 200px;
-  font-size: 22px;
-}
-
-
-.header-container{
-  border: 1px solid white;
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-}
-.in-header-container{
-  border:1px solid white;
-  width: 1024px;
-  height: 130px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-}
-i{
-  margin-top: 7px;
-  margin-left: 10px;
-}
-#edit-start-button{
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 5px;
-  float: right;
-  width: 120px;
-  height: 40px;
-  margin-top:40px;
-  font-weight: bold;
-}
-#search-bar {
-  border: 1px solid white;
-  border-bottom: 2px solid black;
-  width: 500px;
-  height: 40px;
-  margin-left: 100px;
-  margin-top: 40px;
-}
-#logo{
-  height: 100px;
-  margin-bottom: 20px;
-}
-.cate{
-display: inline-block;
-float:right;
-align: right;
-padding-right: 4px;
-width: 30px;
-}
-
-
-@import "compass/css3";
-
-/* Setting things up */
-
-a {
-  text-decoration: none;
-  color: black;
-
-}
-
-/* Important stuff */
-
-nav {
-  position: relative;
-}
-.dropdown-toggle {
-
-  background: white;
-}
-
-
-ul.dropdown {
-  display:none;
-  position: absolute;
-  top: 100%;
-  margin-top: .5em;
-  background: white;
-  min-width: 10em;
-  padding: 0;
-font-size: 20px;
-
-  border:darkgray solid 1px;
-    li {
-      list-style-type: none;
-      a {
-        text-decoration: none;
-        padding: .5em 1em;
-        display: block;
-      }
-   }
-}
-.item_card{
-  height:350px;
-  width:260px;
-  padding-right: 5px;
-  margin-right: 1000px;
-  padding-left: 5px;
-
-}
-.card_bottom{
-  margin-top: 15px;
-}
-
-.travle_list > li{
-  padding-right:
-}
-
-
-
-
-/*팝업*/
-
-#popup_h2 {
-  color: #007fed;
-  font-weight: bold;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-p {
-  color: #001818;
-}
-
-.wrap {
-  position: absolute;
-  overflow: hidden;
-  top: 10%;
-  right: 10%;
-  bottom: 85px;
-  left: 10%;
-
-margin-left: auto;
-margin-right: auto;
-  display: block;
-  background: white;
-  border-radius: 4px;
-  width:400px;
-  height:550px;
-  transform: translateY(20px);
-  visibility: hidden;
-}
-.wrap .content {
-  opacity: 0;
-}
-.wrap:before {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  background: white;
-  content: "";
-  bottom: 10px;
-  left: 50%;
-  top: 95%;
-  color: #fff;
-  border-radius: 50%;
-}
-.wrap.active {
-  display: block;
-  visibility: visible;
-  box-shadow: 2px 3px 16px silver;
-}
-.wrap.active:before {
-  height: 2000px;
-  width: 2000px;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-
-  display: block;
-}
-.wrap.active .content {
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-}
-
-.join_user_list{
-  margin-left: auto;
-  margin-right: auto;
-}
-.join_user_list > img{
-  width:40px;
-  height:40px;
-}
-/*팝업*/
-
-
-/*친구 초대하기 서치바*/
-
-.search-container{
-  width: 270px;
-  display: block;
-  margin: 0 auto;
-}
-
-
-.wrap11 {
-  position: absolute;
-  overflow: hidden;
-  top: 10%;
-  right: 10%;
-  bottom: 85px;
-  left: 10%;
-
-  margin-left: auto;
-  margin-right: auto;
-    display: block;
-    background: white;
-    border-radius: 4px;
-    width:400px;
-    height:550px;
-    transform: translateY(20px);
-    visibility: hidden;
-}
-
-input#f_search-bar{
-  margin: 0 auto;
-  width: 100%;
-  height: 35px;
-  padding: 0 20px;
-  border: 1px solid #D0CFCE;
-  outline: none;
-  &:focus{
-    border: 1px solid #008ABF;
-    transition: 0.35s ease;
-    color: #008ABF;
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease;
-  	 opacity: 0;
-     }
-   }
- }
-
-.f_search-icon{
-  position: relative;
-  float: right;
-  width: 60px;
-  height: 60px;
-  top: -49px;
-  right: -45px;
-}
-
-/*친구 초대하기 서치바*/
-.content_a{
-  margin-top: 70px;
-  text-align: center;
-}
-
-.save_btn{
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  width:275px;
-  height: auto;
-}
-
-
-
-/* 공유 서치바 */
-
-
-#popup_h2 {
-  color: #007fed;
-  font-weight: bold;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-p {
-  color: #001818;
-}
-
-.wrap {
-  position: absolute;
-  overflow: hidden;
-  top: 10%;
-  right: 10%;
-  bottom: 85px;
-  left: 10%;
-
-margin-left: auto;
-margin-right: auto;
-  display: block;
-  background: white;
-  border-radius: 4px;
-  width:400px;
-  height:550px;
-  transform: translateY(20px);
-  visibility: hidden;
-}
-.wrap .content {
-  opacity: 0;
-}
-.wrap:before {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  background: white;
-  content: "";
-  bottom: 10px;
-  left: 50%;
-  top: 95%;
-  color: #fff;
-  border-radius: 50%;
-}
-.wrap.active {
-  display: block;
-  visibility: visible;
-  box-shadow: 2px 3px 16px silver;
-}
-.wrap.active:before {
-  height: 2000px;
-  width: 2000px;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-
-  display: block;
-}
-.wrap.active .content {
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-}
-
-.join_user_list{
-  margin-left: auto;
-  margin-right: auto;
-}
-.join_user_list > img{
-  width:40px;
-  height:40px;
-}
-
-
-.share_wrap{
-  border: 1px solid #c0cee5;
-  width: 480px;
-  height: auto;
-  border-radius: 3px;
-  text-align: center;
-  box-shadow: 3px 3px 3px #888888;
-
-}
-
-.sns_share{
-  border: 1px solid white;
-  width: 380px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  font-size: 20px;
-
-
-}
-
-.buttons{
-  border: 1px solid white;
-  width: 450px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
-  color: #9cb2d6;
-}
-
- #facebook_button, #twitter_button{
-   border: 5px solid #9cb2d6;
-   border-radius: 50%;
-   width:50px;
-   height:50px;
-   background-color: white;
-   margin-left: 20px;
-   margin-right: 20px;
-
- }
-
-
-
- .link_copy{
-   border: 1px solid white;
-   width: 450px;
-   height: auto;
-   margin-left: auto;
-   margin-right: auto;
-   padding: 30px;
- }
-
- #word_copy{
-   border:1px solid white;
-   width:auto;
-   height:auto;
-   font-size: 20px;
-   margin-bottom: 20px;
-
- }
-
-
-
-
- #close_button{
-   width:120px;
-   height:40px;
-   border-radius: 20px;
-   background-color: white;
-   border: 2px solid #9cb2d6;
-   margin-top: 40px;
- }
-
- /* 공유 서치바 */
-
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body, table, div, p, textarea {font-family:'Nanum Gothic';}
 
     </style>
   </head>
 <body>
+    <div id="modal"></div>
   <div class="header-container">
         <div class="in-header-container">
-         <img src="logo.PNG" id="logo">
+         <img src="logo1.PNG" id="logo">
         <input id="search-bar" type="text" name="search" placeholder="search">
 
       <i class="fa fa-search fa-2x" aria-hidden="true"></i>
@@ -567,6 +27,7 @@ margin-right: auto;
       </div>
     </div>
     <hr>
+
   <!-- <hr style="margin-top:-8px;"> -->
 <div id="container">
   <div id="mypage">
@@ -610,6 +71,7 @@ margin-right: auto;
   <ul class="travle_list">
     <li class="travel_item">
       <div class="item_card">
+        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
       <div class="img_card">
         <a href="#">
           <img class="list_img" src="./Turkey.jpg"></img>
@@ -617,15 +79,17 @@ margin-right: auto;
       </div>
       <div class="card_desc">
 <div class="card_title">
-  <div class="list_title"><a href="#">첫번째22 여행기</a></div>
+  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
   <div class="cate">
       <nav>
       <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
       <ul class="dropdown">
-        <li href="#"><a href="#">친구 초대하기</a></li><br>
-        <li href="#"><a href="#">여행기 공유하기</a></li><br>
-        <li><a href="#">여행기 삭제하기</a></li><br>
-        <li><a href="#">나만 보기</a></li><br>
+        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
+
+
+        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
       </ul>
       </nav>
 </div>
@@ -633,7 +97,7 @@ margin-right: auto;
 <div class="card_bottom">
   <img src="./usercircle.png"></img>
   <span>swanpurple</span>
-  <div class="mypage_list_heart">
+    <div class="mypage_list_heart">
   <i class="fa fa-heart-o" aria-hidden="true"></i>
   <span class="heart_num">3</span>
 </div>
@@ -645,6 +109,46 @@ margin-right: auto;
 
     <li class="travel_item">
       <div class="item_card">
+        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
+      <div class="img_card">
+        <a href="#">
+          <img class="list_img" src="./Turkey.jpg"></img>
+        </a>
+      </div>
+      <div class="card_desc">
+  <div class="card_title">
+  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
+  <div class="cate">
+      <nav>
+      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+      <ul class="dropdown">
+        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
+
+
+        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
+      </ul>
+      </nav>
+  </div>
+  </div>
+  <div class="card_bottom">
+  <img src="./usercircle.png"></img>
+  <span>swanpurple</span>
+    <div class="mypage_list_heart">
+  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <span class="heart_num">3</span>
+  </div>
+  </div>
+      </div>
+    </div>
+    </li>
+
+
+
+    <li class="travel_item">
+      <div class="item_card">
+        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
       <div class="img_card">
         <a href="#">
           <img class="list_img" src="./Turkey.jpg"></img>
@@ -652,15 +156,17 @@ margin-right: auto;
       </div>
       <div class="card_desc">
 <div class="card_title">
-  <div class="list_title"><a href="#">첫번째 여행기</a></div>
+  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
   <div class="cate">
       <nav>
-      <a class="dropdown-toggle" href="javascript:;"  title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
       <ul class="dropdown">
-        <li><a href="#">친구 초대하기</a></li><br>
-        <li><a href="#">여행기 공유하기</a></li><br>
-        <li><a href="#">여행기 삭제하기</a></li><br>
-        <li><a href="#">나만 보기</a></li><br>
+        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
+
+
+        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
       </ul>
       </nav>
 </div>
@@ -679,44 +185,9 @@ margin-right: auto;
 
 
 
-        <li class="travel_item">
-          <div class="item_card">
-          <div class="img_card">
-            <a href="#">
-              <img class="list_img" src="./Turkey.jpg"></img>
-            </a>
-          </div>
-          <div class="card_desc">
-    <div class="card_title">
-      <div class="list_title"><a href="#">첫번째 여행기</a></div>
-      <div class="cate">
-          <nav>
-          <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-          <ul class="dropdown">
-            <li><a href="#">친구 초대하기</a></li><br>
-            <li><a href="#">여행기 공유하기</a></li><br>
-            <li><a href="#">여행기 삭제하기</a></li><br>
-            <li><a href="#">나만 보기</a></li><br>
-          </ul>
-          </nav>
-    </div>
-    </div>
-    <div class="card_bottom">
-      <img src="./usercircle.png"></img>
-      <span>swanpurple</span>
-        <div class="mypage_list_heart">
-      <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <span class="heart_num">3</span>
-    </div>
-    </div>
-  </div>
-          </div>
-        </li>
-
-
-
             <li class="travel_item">
               <div class="item_card">
+                <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
               <div class="img_card">
                 <a href="#">
                   <img class="list_img" src="./Turkey.jpg"></img>
@@ -729,12 +200,12 @@ margin-right: auto;
               <nav>
               <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
               <ul class="dropdown">
-                <li><a class="invite_f" href="#">친구 초대하기</a></li><br>
+                <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
 
 
-                <li><a class="share_travel"href="#">여행기 공유하기</a></li><br>
-                <li><a class="delete_travel" href="#">여행기 삭제하기</a></li><br>
-                <li><a class="lock_travel" href="#">나만 보기</a></li><br>
+                <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+                <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+                <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
               </ul>
               </nav>
         </div>
@@ -783,7 +254,7 @@ margin-right: auto;
 
 
 
-<div class='wrap'>
+<div id='invite_f_container'>
   <div class='content_a'>
     <h4>참여자</h4>
     <div class="join_user_list">
@@ -791,14 +262,14 @@ margin-right: auto;
     </div>
     <hr>
     <h4>여행가 찾기</h4>
-    <form class="search-container">
+    <form class="f_search">
   <input type="text" id="f_search-bar" placeholder="ID를 입력해주세요">
   <a href="#"><img class="f_search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 </form>
 
 <br>
 <br>
-<div class="save_btn"><button type="button" id="save-btn">나가기</button></div>
+<div class="save_btn"><button type="button" id="close1-btn" onclick="test1('modal'); test('invite_f_container');">나가기</button></div>
   </div>
 </div>
 
@@ -806,10 +277,10 @@ margin-right: auto;
 
 
 
-<div class='wrap11'>
+<div id='delete_wrap'>
     <h4>여행기를 삭제하시겠습니까?</h4>
 
-<div class=""><button type="button" id="no-btn">아니요</button> <button type="button" id="yes-btn">예</button></div>
+<div class="delete_wrap_btns"><button type="button" id="no-btn" onclick="test1('modal'); test('delete_wrap');">아니요</button> <button type="button" id="yes-btn" onclick="test1('modal'); test('delete_wrap');">예</button></div>
 </div>
 
 
@@ -818,7 +289,7 @@ margin-right: auto;
 
 
 
-<div class="share_wrap">
+<div id="share_wrap">
   <div class="sns_share">SNS로 공유하기
   </div>
 
@@ -840,7 +311,7 @@ margin-right: auto;
       </div>
     </div>
   </form>
-<button id="share_close_button">나가기</button>
+<button id="close2_button" onclick="test1('modal'); test('share_wrap');">나가기</button>
 </div>
 
 </div>
@@ -848,7 +319,6 @@ margin-right: auto;
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-
 
 $(function() {
 
@@ -867,15 +337,34 @@ $(document).click(function(e) {
 });
 
 
-$('.invite_f').on('click', function(){
-  $('.wrap').toggleClass('active');
+function test1(idMyDiv) {
+  var objDiv = document.getElementById(idMyDiv);
+  if (objDiv.style.display == "inline-block") {
+    objDiv.style.display = "none";
+  } else {
+    objDiv.style.display = "inline-block";
+  }
+}
 
-  return false;
-});
+function test(idMyDiv) {
+  var objDiv = document.getElementById(idMyDiv);
+  if (objDiv.style.display == "inline-block") {
+    objDiv.style.display = "none";
+  } else {
+    objDiv.style.display = "inline-block";
+  }
+}
 
-$(".wrap > div").click(function () {
-        $('.wrap').toggleClass('active');
-    });
+//
+// $('.invite_f').on('click', function(){
+//   $('.wrap').toggleClass('active');
+//
+//   return false;
+// });
+//
+// $(".wrap > div").click(function () {
+//         $('.wrap').toggleClass('active');
+//     });
 
 
 

@@ -9,15 +9,16 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css"> -->
+
 </head>
 <body>
 	<div id="modal"></div>
 	<div id="blank-one" class="blank-one">
 		<div class="icons">
-			<a href="#"><div>
+			<a href="javascript:file_browse()"><div>
 					<span><i id="icons_i" class="fa fa-picture-o fa-3x"
 						aria-hidden="true"></i></span><br>
-					<span class="title_hidden">표지사진</span>
+					<span class="title_hidden">표지사진</span><input id="file1" type="file" style="display:none"></input>
 				</div></a><br> <a href="#"><div>
 					<span><i id="icons_i" class="fa fa-lock fa-3x"
 						aria-hidden="true"></i></span><br>
@@ -45,7 +46,7 @@
 
 	<div class="container_main">
 		<div class="day_list">
-			<div class="day1">
+			<div class="day1" onmouseover="onfocus1(ab);" onmouseleave="onblur1(ab);">
 				<div class="write_day">
 					<h2>
 						1일차
@@ -57,12 +58,11 @@
 					<a href="#" onclick="test('testdiv'); return false;"><span id="ab"
 						class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
 					<div id="testdiv" style="display: none">
-						<a href="#"
-							onclick="test('testdiv_1'); test1('modal'); return false;"><img
-							id="testdiv_1" src="./image.png"></a> <a href="#"
-							onclick="test('map_container'); initialize(); test1('modal'); return false;"><img
-							id="testdiv_2" src="./marker.png"></a> <a href="#"
-							onclick="test('testdiv_3'); return false;"><img
+						<a href="javascript:file_browse()" ><img id="testdiv_1" src="./image.png"><input id="file1" type="file" style="display:none"></input></a>
+							 <a href="#" onclick="test('map_container'); initialize(); test1('modal'); return false;"><img
+							id="testdiv_2" src="./marker.png"></a>
+							<a href="#"
+							onclick="test('route_container'); initialize(); test1('modal'); return false;"><img
 							id="testdiv_2" src="./route.png"></img></a>
 						<!-- <span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span> -->
 
@@ -84,8 +84,8 @@
 									</div>
 								</div>
 							</form>
-							<div class="search_list">
-								<ul>
+
+								<ul class="search_list">
 									<li><a href="#"><div>비트캠프</div>
 											<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
 									<li><a href="#"><div>비트캠프</div>
@@ -96,7 +96,7 @@
 									<li><a href="#"><div>ㅁㅁ</div></a></li>
 								</ul>
 							</div>
-						</div>
+
 						<div id="googleMap" style="width: 500px; height: 380px;"></div>
 
 						<div class="buttons">
@@ -107,11 +107,51 @@
 								id="login-summit">등록</button>
 						</div>
 					</div>
+<!-- map_container 끝 -->
+<div id="route_container">
+	<br>
+	<h3>경로를 추가하세요</h3>
+	<br>
+	<div class='search_bar'>
+		<form class="navbar-form" role="search">
+			<div class="input-group add-on">
+				<input class="form-control" placeholder="여행지를 입력해주세요"
+					name="srch-term" id="srch-term" type="text">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+
+			<ul class="search_list">
+				<li><a href="#"><div>비트캠프</div>
+						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+				<li><a href="#"><div>비트캠프</div>
+						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+				<li><a href="#"><div>비트캠프</div>
+						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+				<li><a href="#"><div>ㅁㅁ</div></a></li>
+				<li><a href="#"><div>ㅁㅁ</div></a></li>
+			</ul>
+		</div>
+
+	<div id="googleMap" style="width: 500px; height: 380px;"></div>
+
+	<div class="buttons">
+		<button type="button" id="cancel-login"
+			onclick="test('route_container'); test1('modal');">취소</button>
+		<button type="button"
+			onclick="test('route_container'); test1('modal');"
+			id="login-summit">등록</button>
+	</div>
+</div>
 
 					<!-- 글작성 부분 -->
 					<textarea
-						onchange="addition_p('write_addition','testdiv')"
-						class="text_write_box" placeholder="내용을 입력하세요" onfocus="onfocus1(ab)" onblur="onblur1(ab)"></textarea>
+						onchange="addition_p('write_addition','testdiv'); cmaTextareaSize('cc', 30);" onkeyup="cmaTextareaSize('cc', 30);"
+						class="text_write_box" id="cc" placeholder="내용을 입력하세요" onblur="onblur1(ab)"></textarea>
 					<!-- 글작성 addition_p를 호출한다 -->
 					<br>
 
@@ -137,98 +177,159 @@
 	<script
 		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"></script>
 	<script>
+  // 텍스트상자 크기 자동조절
+  function cmaTextareaSize(obj, bsize) { // 객체명, 기본사이즈
+      var sTextarea = document.getElementById(obj);
+      var csize = (sTextarea.scrollHeight >= bsize) ? sTextarea.scrollHeight+"px" : bsize+"px";
+      sTextarea.style.height = bsize+"px";
+      sTextarea.style.height = csize;
+  }
+// 끝
+
+// 작은 + 구현
+function test(idMyDiv) {
+  var objDiv = document.getElementById(idMyDiv);
+	// console.log(objDiv);
+	console.log($('#testdiv'));
+
+  if (objDiv.style.display == "inline-block") {
+    objDiv.style.display = "none";
+
+  } else {
+    objDiv.style.display = "inline-block";
+  }
+}
+
+function file_browse()
+{
+    $('#file1').click();
+    // document.Form.text1.value=document.Form.file.value;
+}
+
+
+
+//
+// function file_f(){
+// 	e.preventDefault();
+// 	$('#file1').click();
+// }
+// ;() {
+// $('.file_btn').click(function (e) {
+// e.preventDefault();
+//
+// });
+// });
+
+
+
+function test1(idMyDiv) {
+  var objDiv = document.getElementById(idMyDiv);
+  if (objDiv.style.display == "inline-block") {
+    objDiv.style.display = "none";
+  } else {
+    objDiv.style.display = "inline-block";
+  }
+}
+// 작은 + 끝
+
+// 큰 +버튼 생성
+function addition_p(aa, bb) {
+  var objDiv = document.getElementById(aa);
+  objDiv.style.display = "inline-block";
+
+}
+var count = 0;
+
+// 큰+버튼시 글상자창 추가
 		var tbody = $('.day_list')
+    function adddiv() {
 
-		function test(idMyDiv) {
-			var objDiv = document.getElementById(idMyDiv);
-			if (objDiv.style.display == "inline-block") {
-				objDiv.style.display = "none";
-			} else {
-				objDiv.style.display = "inline-block";
+
+      $("<div class='day1' onmouseover='onfocus2(ab"+count+", day_btn"+count+")' onmouseleave='onblur2("+"ab"+count+", day_btn"+count+", testdiv"+count+")'>")
+      .html(
+        "<div class='write_day'> <button onclick='changebuttontoday(day_btn"+count+")' id='day_btn"+count+"'>+ 일차</button>"
+        + "<div class='travel_detail_date'></div></div><div class='tool_box'>"
+        + "<a href='#' onclick='test("
+        + '&#39;'
+        + "testdiv"
+        + count
+        + '&#39;'
+        + "); return false;'><span id='ab"+count+"' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>"
+        + "<div id='testdiv"+count+"' style='display:none'>"
+        + "<a href='#' onclick='test('testdiv_1'); return false;'><img id='testdiv_1' src='./image.png'></a>"
+        + "<a href='#' onclick='test("
+        + '&#39;'
+        + "map_container"
+        + '&#39;'
+        + "); initialize(); test1("
+        + '&#39;'
+        + "modal"
+        + '&#39;'
+        + "); return false;'><img id='testdiv_2' src='./marker.png'></a>"
+        + "<a href='#' onclick='test('testdiv_3'); return false;'><img id='testdiv_2' src='./route.png'></img></a>"
+        + "</div><br><textarea id='cc' onchange='addition_p("
+        + '&#39;'
+        + "write_addition"
+        + '&#39;'
+        + ",&#39;testdiv"+count+"&#39;);' onkeydown='resize(this)' onkeyup='resize(this)' class='text_write_box' placeholder='내용을 입력하세요'></textarea><br></div>")
+        .appendTo(tbody)
+        count++;
+
+
+        $('#write_addition').css('display', "none");
+
+
+      }
+
+			function resize(obj) {
+			  obj.style.height = "1px";
+			  obj.style.height = (12+obj.scrollHeight)+"px";
 			}
-		}
 
-		function test1(idMyDiv) {
-			var objDiv = document.getElementById(idMyDiv);
-			if (objDiv.style.display == "inline-block") {
-				objDiv.style.display = "none";
-			} else {
-				objDiv.style.display = "inline-block";
+// +일차 버튼 클릭시
+function changebuttontoday(ab){
+$('<h2>').html("2일차</h2><br><i class='fa fa-pencil-square-o' aria-hidden='true'></i>"
+  +"<div class='travel_detail_date' >2017.05.05</div><span id='"+$(ab).attr('id')+"'></span>").appendTo($(ab).closest('div'))
+ab.remove();
+}
 
-			}
-		}
-
-		function addition_p(aa, bb) {
-			var objDiv = document.getElementById(aa);
-			objDiv.style.display = "inline-block";
-
-		}
-		var count = 0;
-
-
+// 마우스 오버시 작은+와 +날짜 보이게
 function onfocus1(objDiv){
-  $('#objDiv').show();
-objDiv.style.display = "inline-block";
+  objDiv.style.display = "inline-block";
 }
 
 function onblur1(objDiv){
-  $('#objDiv').hide();
+	console.log('kdkdkdkdk')
   // $('#objDiv').css('display','none');
 objDiv.style.display = "none";
+// if($(objDiv).closest("a").siblings('#testdiv').display=="undefined"){
+// 	$(objDiv).closest("a").siblings('#testdiv').display='none';
+// 	}
+if($("#testdiv").css("display")=="inline-block"){
+ $("#testdiv").css("display","none")
 }
 
-function onfocus1(objDiv,bb){
+
+}
+			// if($(objDiv).attr('display')=="inline-block"){
+
+function onfocus2(objDiv,bb){
   $('#objDiv').show();
 objDiv.style.display = "inline-block";
+$('#bb').show();
+bb.style.display = "inline-block";
 }
 
-function onblur1(objDiv,bb){
+function onblur2(objDiv,bb,cc){
   $('#objDiv').hide();
-  // $('#objDiv').css('display','none');
 objDiv.style.display = "none";
+console.log(bb)
+$('#bb').hide();
+bb.style.display = "none";
+$(cc).css("display","none")
 }
+// 마우스 오버시 작은 + 와 날짜 보이게 끝
 
-
-		function adddiv() {
-
-
-			$("<div class='day1'>")
-					.html(
-							"<div class='write_day'> <button class='day_btn_"+count+"'>+ 일차</button>"
-									+ ""
-									+ "<div class='travel_detail_date'></div></div><div class='tool_box'>"
-									+ "<a href='#' onclick='test("
-									+ '&#39;'
-									+ "testdiv"
-									+ count
-									+ '&#39;'
-									+ "); return false;'><span id='ab"+count+"' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>"
-									+ "<div id='testdiv"+count+"' style='display:none'>"
-									+ "<a href='#' onclick='test('testdiv_1'); return false;'><img id='testdiv_1' src='./image.png'></a>"
-									+ "<a href='#' onclick='test("
-									+ '&#39;'
-									+ "map_container"
-									+ '&#39;'
-									+ "); initialize(); test1("
-									+ '&#39;'
-									+ "modal"
-									+ '&#39;'
-									+ "); return false;'><img id='testdiv_2' src='./marker.png'></a>"
-									+ "<a href='#' onclick='test('testdiv_3'); return false;'><img id='testdiv_2' src='./route.png'></img></a>"
-									+ "</div><br><textarea onchange='addition_p("
-									+ '&#39;'
-									+ "write_addition"
-									+ '&#39;'
-									+ ",&#39;testdiv"+count+"&#39;)'class='text_write_box'  onfocus='onfocus1("+"ab"+count+")' onblur='onblur1("+"ab"+count+")'"
-                  +"placeholder='내용을 입력하세요'></textarea><br></div>")
-					.appendTo(tbody)
-			count++;
-
-
-			$('#write_addition').css('display', "none");
-
-
-		}
 
 
 		// 지도
