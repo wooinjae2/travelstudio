@@ -68,7 +68,7 @@ border:1px solid black;
       text-decoration-color: white;
     }
 
-    ::-webkit-input-placeholder {
+     ::-webkit-input-placeholder {
       color: white;
     }
 
@@ -162,7 +162,7 @@ border:1px solid black;
     }
 
     .day_list {
-      border: 1px solid black;
+      border: 1px solid white;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -319,8 +319,8 @@ border:1px solid black;
 
     .heart {
       margin-top: 100px;
-      margin-left: 900px;
-      margin-bottom: 200px;
+      margin-left: 940px;
+      margin-bottom: 100px;
     }
 
     .without_heart_main {
@@ -515,10 +515,58 @@ border:1px solid black;
     #Emma {
       height: 50px;
     }
+    /*구독 버튼 있는 곳*/
+
+    .author_pic {
+      max-width: 90px;
+      max-height: 90px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #author {
+      width: 90px;
+    }
+
+    .alias {
+      border: 1px solid white;
+      font-size: 17px;
+      font-weight: bolder;
+      width: 100%;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+     #short_intro {
+       text-align: center;
+       width: 100%;
+       font-size: 15px;
+       color:#a2a4a5;
+    }
+    .sub_box{
+      border: 1px solid white;
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 100px;
+    }
+
+    #subsc_btn{
+      border: 1px solid black;
+      width:90px;
+      height: 35px;
+      color:black;
+      background-color: white;
+      border-radius: 17.5px;
+    }
+
+
     /*댓글*/
 
     .comment_container {
-      border: 1px solid black;
+      border: none;
       width: 809px;
       height: 500px;
       margin-left: auto;
@@ -526,8 +574,11 @@ border:1px solid black;
     }
 
     .title_comment_container {
-      border: 1px solid black;
+      border: none;
+
       font-size: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     #replyer {
@@ -543,22 +594,124 @@ border:1px solid black;
     }
 
     li {
-      border: 1px solid black;
-      height: 100px;
+      border: none;
+      border-top: 1px solid #d6d7d8;
+      height: 150px;
+      ;
       padding-left: 20px;
+      list-style: none;
+      padding: 16px;
+      padding-bottom: 10px;
+    }
+
+    #posted {
+      min-height: 150px;
+      height: auto;
+    }
+
+    #posted:hover {
+      min-height: 150px;
+      height: auto;
+      background-color: #f2f2f2;
+    }
+
+    #posted_command_wrap {
+      border: none;
+      width: 698px;
+      min-height: 108px;
+      height: auto;
+      border-radius: 2px;
+    }
+
+    .command_box {
+      border: none;
+      width: 625px;
+      min-height: 100px;
+      height: auto;
+      margin-top: 6px;
+    }
+
+    #singo {
+      margin-top: -80px;
+      float: right;
+      margin-right: 15px;
+      display: none;
     }
 
     .content_reply {
-      border: 1px solid black;
-      float: left;
+      border: none;
       display: block;
       margin-left: 70px;
       margin-top: -50px;
     }
 
-    #id {
-      border: 1px solid black;
+    #text_relpy {
+      height: auto;
+      border: 1px solid white;
+      resize: none;
+      font-size: 14px;
+
+      -ms-overflow-style: none;
     }
+
+     ::-webkit-scrollbar {
+      display: none;
+    }
+
+    #id {
+      border: none;
+      text-decoration: none;
+      margin-right: 5px;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+
+
+    #posted_date {
+      display: inline-block;
+      margin-left: 20px;
+      font-size: 13px;
+      font-weight: bolder;
+      color: #93a4bf;
+      font-style: italic;
+    }
+
+    #send_btn {
+      border: 1px solid #858787;
+      width: 48px;
+      height: 28px;
+      background-color: white;
+      border-radius: 15px;
+      float: right;
+      margin-right: 10px;
+      margin-top: 70px;
+      font-size: 13px;
+      color: #858787;
+    }
+
+    #textarea_plus_button {
+      border: 1px solid #bbcdea;
+      width: 698px;
+      height: 108px;
+      border-radius: 2px;
+    }
+
+    #inner_command {
+      font-size: 13px;
+    }
+
+/*
+   .other_article_of_author{
+     border:1px solid black;
+     max-height: 200px;
+     overflow: hidden;
+   }
+    #prev, #after{
+      display: inline-block;
+      width: 48%;
+    }*/
   </style>
 
 
@@ -569,7 +722,7 @@ border:1px solid black;
   <!--header-->
 
   <header class="header">
-    <img id="logo" src="./pictures/ourlogo.png">
+    <a href="#"><img id="logo" src="./pictures/ourlogo.png"></a>
     <p id="title_of_article">여행기 제목</p>
     <button type="button" id="start-my-journey">여행기 작성</button>
   </header>
@@ -601,10 +754,10 @@ border:1px solid black;
 
     <div class="faces">
       <div class="face">
-        <img src="./pictures/yunakim.jpg" id="yunakim">
+        <a href="#"><img src="./pictures/yunakim.jpg" id="yunakim"></a>
       </div>
       <div class="face2">
-        <img src="./pictures/emma.jpg" id="Emma">
+        <a href="#"><img src="./pictures/emma.jpg" id="Emma"></a>
       </div>
     </div>
   </div>
@@ -705,21 +858,57 @@ border:1px solid black;
 <a id="list_heart" href="javascript:;"><i id="list_heart_1" class="fa fa-heart-o fa-3x" aria-hidden="true"></i></a>
 </div>
 
+<!--글쓴이 프로필-->
+<div class="author_pic">
+  <a href="#"><img id="author" src="./pictures/yunakim.jpg"></a>
+</div>
+<p class="alias">빙판 위의 YUNA킴</p><br>
+<p id="short_intro">일곱 살, 빨간 스케이트화를 신었던 그날이 내 운명의 날이 될 줄이야.<br>
+나는 줄곧 우연이라고 생각해왔지만, <br>
+사실은 필연이었는지도 모른다.<br>
+세렌디피티 serendipity 라고 해야 하나?</p>
+<div class="sub_box">
+<button type="button" id="subsc_btn">구독하기</button>
+</div>
+
+
+
+
 <div class="comment_container">
 <div class="title_comment_container">댓글</div>
-<hr>
+
+<li id="posted">
+  <div id="replyer"><img src="./pictures/emma.jpg"></div>
+  <span class="content_reply">
+
+  <a id="id">EmmaHi</a><span id="posted_date"> 2017.03.16</span>
+  <div id="posted_command_wrap">
+    <div class="command_box">
+    <p id="inner_command">좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.좋은글이네요. 감사합니다.</p>
+  </div>
+  <span><a href="#" id="singo">신고</a></span>
+  </div>
+</span>
+</li>
+
 <li>
   <div id="replyer"><img src="./pictures/emma.jpg"></div>
   <span class="content_reply">
 
-  <a id="id">emmaHi</a><br>
-  <textarea name="name" rows="4" cols="93" placeholder="작가와 직접 소통하세요.">
 
-  </textarea>
-  <button type="button" name="button"></button>
+  <div id="textarea_plus_button">
+    <textarea id="text_relpy" rows="5" cols="86" placeholder="작가와 직접 소통하세요."></textarea>
+  <span><button type="button" id="send_btn">확인</button></span>
+  </div>
 </span>
 </li>
 </div>
+
+<!-- <div class="other_article_of_author">
+  <a href="#"><img id="prev" src="./pictures/indian.jpg"></a>
+  <a href="#"><img id="after" src="./pictures/spain.jpg"></a>
+</div> -->
+
 
 
 
@@ -773,6 +962,30 @@ border:1px solid black;
         prev = scrollTop;
         });
 
+
+<!---->
+        $('#posted').mouseover(function(){
+          $('#singo').css("display", "inline-block");
+        });
+
+
+        $('#posted').mouseleave(function(){
+          $("#singo").hide();
+        });
+
+        $('#subsc_btn').click(function(){
+          console.log($(this).css('color')=='rgb(0, 0, 0)')
+          if($(this).css('color')=='rgb(0, 0, 0)'){
+            $(this).css({"border": "1px solid #2be5a4", "color": "#2be5a4"});
+          }
+          else{
+            $(this).css({"border": "1px solid black", "color": "black"});
+          }
+        });
+
+        // $('#subsc_btn').click(function(){
+        //   $(this).css({"border": "1px solid #2be5a4", "color": "#2be5a4"});
+        // });
 
 
 
