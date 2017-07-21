@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>travel_log</title>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.theme.default.min.css">
 <link rel="stylesheet" type="text/css" href="main.css">
-
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
 </head>
@@ -31,6 +32,8 @@
             <li><img src="img/FR.png" alt=""></li>
             <li><img src="img/FR.png" alt=""></li>
           </ul>
+          
+          
 
           <div class="user_visited">
             <div class="user_write">
@@ -60,15 +63,17 @@
   </div>
   <!-- 슬라이드 메뉴바 호출 끝 -->
 
+
+
 </div>
 <div class="cover_dimmed"></div>
 
 
   <!--여기서부터 header html-->
-  <div class="header-container">
+ <!--  <div class="header-container">
     <div class="in-header-container">
       <div class="icon_wrap">
-        <img src="img/slidecall.png" id="slide_icon">
+       
         <img src="img/logo.PNG" id="logo">
         <input id="search-bar" type="text" name="search" placeholder="search">
       </div>
@@ -76,7 +81,15 @@
   <i class="fa fa-search fa-2x" aria-hidden="true"></i>
   <button type="button"  onclick="location.href='../jinseoKing/login.html'" id="edit-start-button">start
   </div>
-</div>
+</div> -->
+
+  <header class="header">
+   <img src="img/slidecall.png" id="slide_icon">
+    <img id="logo" src="./pictures/ourlogo.png">
+    <input type="search" id="search_bar" placeholder="검색">
+    <button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
+    <button type="button" id="start-my-journey">여행기 작성</button>
+  </header>
 
 <!-- 메인화면 사진 HTML -->
   <div id="blank-one" class="blank-one">
