@@ -23,7 +23,7 @@
   transform: translate(-50%, -50%);
   /*box-sizing: border-box;*/
   position: fixed;
-  width: 1000px;
+  width: 1300px;
   height: 700px;
   background-color: rgba(255, 255, 255, 1);
   margin: 50px auto 0;
@@ -41,8 +41,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   float:none;
-  width: 950px;
-  height: 665px;
+  width: 1284px;
+  height: 685px;
   border: 1px solid #D0D0D0;
   text-align: center;
   color: #767676;
@@ -50,7 +50,10 @@
 }
 
 .edit_settings {
-  position: relative;
+  /*display: inline-block;*/
+  /*position: absolute;*/
+  top: 0;
+  right: 0;
   float: right;
   border-left: solid 1px  #D0D0D0;
   width: 150px;
@@ -61,53 +64,66 @@
   padding: auto;
 }
 
+.contents_wrap {
+  position: relative;
+  height: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+
+}
 .edit_settings .contents {
   position: relative;
-  top: 45%;
-  height: 665px;
-  /*padding-top: 30%;*/
-  /*padding-bottom: auto;*/
+  height: 685px;
   text-align: center;
   vertical-align: middle;
   margin: auto 0;
 }
 
+a:link {
+  border:none;
+  text-decoration: none;
+  outline: 0
+}
+
 .edit_settings .contents .group {
-  position: absolute;
-  /*line-height: 300px;*/
-  border: 1px red solid;
-  /*margin-top: 100%;*/
-  /*margin-bottom: auto;*/
+  position: relative;
+  margin-bottom: 100px;
 }
 
 
 .edit_settings .contents .group div {
+  cursor: pointer;
   border-radius: 15px;
   width: 100px;
   height: 30px;
   line-height: 28px;
   font-weight: 600;
   background-color: #fff;
-  border: 1px solid #4265EE;
-  color: #4265EE;
-  margin: 10px 24.5px;
+  border: 1px solid #767676;
+  color: #767676;
+  margin: 10px auto;
+}
+
+
+.edit_settings .contents .save {
+  margin-bottom: 50px;
 }
 
 .edit_settings .contents .save div {
+  cursor: pointer;
   border-radius: 15px;
   width: 100px;
   height: 30px;
   line-height: 28px;
   font-weight: 600;
-  background-color: #4265EE;
-  /*border: 1px solid #fff;*/
-  color: #fff;
-  margin: 10px 24.5px;
+  background-color: #fff;
+  border: 1px solid #767676;
+  color: #767676;
+  margin: 10px auto;
 }
 
 .edit_settings li {
   /*display: inline-block;*/
-
   color: #4265EE;
   font-weight: 600;
   opacity: 0.7;
@@ -116,10 +132,10 @@
 }
 
 
-.edit_group, .edit_settings img {
+/*.edit_group, .edit_settings img {
   display: inline-block;
 
-}
+}*/
 
 .edit_done {
   position: absolute;
@@ -127,89 +143,105 @@
 
 /*파일 나열 되는 곳*/
 .files_container {
-  /*box-sizing: inherit;*/
+  position: relative;
+  /*display: inline-block;*/
   float: left;
-  width: 798px;
-  height: 665px;
+  width: 1130px;
+  height: 685px;
+  overflow: auto;
 }
-
-.files_container #tbfiles {
+div {
   /*border: solid 1px red;*/
-  width: 100%;
-  /*height: 10px;*/
+
+}
+div[class*=table_files] {
+  width: 1119px;
+  height: 179px;
+  /*padding-right: 14px*/
+  /*position: absolute;*/
   text-align: left;
 
 }
 
-.files_container #tbfiles tbody tr{
-  position: relative;
-  float: left;
-  width: 76px;
-  height: auto;
-  margin: 5px;
+.files_container div[class*=table_files] .file {
+  /*float: left;*/
+  width: 100px;
+  height: 124px;
+  margin: 10px 0 10px 14px;
   /*border: solid 1px green;*/
   border-bottom: 1px solid #E7E8EA;
   overflow: hidden;
   background: transparent;
+  display: inline-block;
 }
-
-.files_container #tbfiles tr .file_icon {
-  position: relative;
-  background: transparent;
-  float:left;
-  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
-		 url('img/plain.png');
+.files_container div[class*=table_files] .file_icon {
+  /*position: absolute;*/
+  /*background: transparent;*/
+  /*float:left;*/
+background-position: center;
   background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
 }
 
-#tbfiles tr .file_icon .thumb{
-  width: 76px;
-  height: 76px;
+div[class*=table_files] .file_icon .thumb {
+  height: 100%;
   background: transparent center center no-repeat;
   float: left;
-}
-
-.files_container #tbfiles tr .name {
-  width: 76px;
-  position: relative;
-  text-align: center;
-  font-size: 50%;
-}
-
-.files_container #tbfiles th{
-  position: relative;
-  float: left;
-  width: auto;
-  height: auto;
-  margin: 5px;
-  border-bottom: 1px solid #E7E8EA;
+  /*margin-top: 15%;*/
   overflow: hidden;
-  background: transparent;
+}
+
+.files_container div[class*=table_files] .name {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  /*vertical-align: center;*/
+  font-size: 80%;
+  /*margin: 7px;*/
+}
+
+.files_container div[class*=table_files] div[class*=files_date]  {
+  /*position: fixed;*/
+  /*float: left;*/
+  font-weight: 600;
+  width: 180px;
+  /*max-width: 170px;*/
+  height: 20px;
+  max-height: 20px;
+  /*margin-top: 20px;*/
+  overflow:hidden;
+  display: inline-block;
+  padding-left: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  /*border: 1px blue solid;*/
+
 }
 
 
+.files_container div[class*=table_files] .files_wrap{
+  /*border: 1px blue solid;*/
+  display:inline-block;
+  padding: 0 14px;
+  width: 1100px;
+}
 
-/*사진 체크 in 이미지*/
-.file_icon input[type="checkbox"]{
-    display:none;
-}
-.file_icon input[type="checkbox"] + label{
-    cursor:pointer;
-}
-.file_icon input[type="checkbox"]:checked + label{
-    background:#0080FF;
-}
-.file_icon input[type="checkbox"]:checked + label:before{
-    position:absolute;
-    content:'';
-    top:25%;
-    left:25%;
-    width:50%;
-    height:50%;
-    background:url("img/checked.png");
-    background-repeat:no-repeat;
-    background-size: 100% 100%;
-    opacity:0.8;
-  }
-  /*사진 체크 in 이미지 끝*/
+
 /*파일 나열 끝*/
+
+
+div[id*=ab] {
+  margin-left: -87px;
+  margin-top: 30px;
+  position: absolute;
+  display: inline-block;
+  z-index: 30;
+  width: 64px;
+  height: 64px;
+  opacity: 0.6;
+  background-repeat: no-repeat;
+  background-image: url("./img/checked.PNG");
+}
