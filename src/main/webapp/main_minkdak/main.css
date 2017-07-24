@@ -45,6 +45,7 @@ a:-webkit-any-link {
   font-family: 'Ropa Sans', sans-serif;
   margin-bottom: 20px;
   vertical-align: center;
+  border:1px solid black;
 
 }
 
@@ -96,11 +97,16 @@ display: inline-block;
 #cancel_icon {
   float: right;
   padding-right: 15px;
+  
   display: inline-block;
 }
 #cancel_icon, #slide_icon:hover {
   cursor: pointer;
 
+}
+#slide_icon{
+	margin-left:345px;
+	float:none;
 }
 /*슬라이드 바 취소 버튼 끝  */
 
@@ -258,7 +264,7 @@ line-height: 35px;
     #logo {
       max-height: 55px;
       margin-top: 7px;
-      margin-left: 345px;
+      mar-left: 20px;
       display: inline;
     }
 
