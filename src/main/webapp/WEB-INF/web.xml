@@ -5,12 +5,12 @@
   id="WebApp_ID" 
   version="3.1">
 
-  <display-name>project01-bit</display-name>
+  <display-name>travelstudio</display-name>
   
   <!-- contextLoaderListener가 사용할 스프링 설정 파일의 정보 -->
  <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:bitcamp/java93/application-context.xml</param-value>
+        <param-value>classpath:travelstudio/application-context.xml</param-value>
     </context-param>
 
 <!-- 리스너 등록 -->
