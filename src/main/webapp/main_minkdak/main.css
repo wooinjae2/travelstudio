@@ -45,7 +45,7 @@ a:-webkit-any-link {
   font-family: 'Ropa Sans', sans-serif;
   margin-bottom: 20px;
   vertical-align: center;
-  border:1px solid black;
+  /* border:1px solid black; */
 
 }
 
