@@ -1,6 +1,6 @@
 var tbody = $('.content-container');
 
-$.getJSON('/notice/postlist/list.json', function(result) {
+$.getJSON('/travelstudio/post/list.json', function(result) {
 
    console.log(result.data.list);
        var template = Handlebars.compile($('#content-template').html())
