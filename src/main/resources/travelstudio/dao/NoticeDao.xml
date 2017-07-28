@@ -2,39 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="travelstudio.dao.ProfileDao">
+<mapper namespace="travelstudio.dao.NoticeDao">
 
-  <resultMap type="profile" id="profileMap">
-    <id column="mno" property="no"/>
-    <result column="email" property="email"/>
-    <result column="alias" property="alias"/>
-    <result column="intro" property= "intro"/>
-    <result column="mpto" property= "memberPhoto"/>
+  <resultMap type="notice" id="noticeMap">
+    <id column="nono" property="no"/>
+    <result column="title" property="title"/>
+    <result column="cont" property="content"/>
+    <result column="post_dt" property="date"/>
   </resultMap>
 
-  <select id="selectList" resultMap="profileMap" parameterType="map">
-    select  * from member;
+  <select id="selectList" resultMap="noticeMap" parameterType="map">
+    select  * from notice
+    
   </select>
   
-   <select id="selectOne" resultMap="profileMap" parameterType="int">
-    select alias, intro, email, mpto from member
+<!--   <select id="selectOne" resultMap="teacherMap" parameterType="int">
+    select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path
+    from tcher t inner join memb m on t.tno=m.mno
+                 left outer join tch_phot tp on t.tno=tp.tno
     where mno = #{memberNo}
   </select>
   
-  <update id="update" parameterType="profile">
-    update member set 
-      alias=#{alias}, 
-      intro=#{intro} 
-    where mno=#{no}
-  </update>
-  
-  <update id="insertPhoto" parameterType="string">
-    update member set
-    mpto=#{mpto}
-    where mno=1
-  </update>
- 
   <select id="selectOneByEmailPassword" resultMap="teacherMap" parameterType="map">
     select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path
     from tcher t inner join memb m on t.tno=m.mno
@@ -56,6 +44,13 @@
     delete from tcher where tno=#{teacherNo}
   </delete>
   
+  <update id="update" parameterType="teacher">
+    update tcher set 
+      hmpg=#{homepage}, 
+      fcbk=#{facebook}, 
+      twit=#{twitter} 
+    where tno=#{no}
+  </update>
   
   <insert id="insertPhoto" parameterType="map">
     insert into tch_phot(tno,path) 
@@ -71,7 +66,7 @@
   <delete id="deletePhoto" parameterType="int">
     delete from tch_phot
     where tno=#{teacherNo}
-  </delete>
+  </delete> -->
 </mapper>
 
 

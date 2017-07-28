@@ -9,25 +9,25 @@ package travelstudio.domain;
 
 
 public class Member {
-  int no;
+  String no;
   String email;
   String password;
   String alias;
   String intro;
-  
+  String pwd;
   String mPhoto;
   
-
-  public int getNo() {
-    return no;
-  }
-  public void setNo(int no) {
-    this.no = no;
-  }
   @Override
   public String toString() {
     return "Member [no=" + no + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro=" + intro
-        + ", mPhoto=" + mPhoto + "]";
+        + ", pwd=" + pwd + ", mPhoto=" + mPhoto + "]";
+  }
+  
+  public String getNo() {
+    return no;
+  }
+  public void setNo(String no) {
+    this.no = no;
   }
   public String getEmail() {
     return email;
@@ -53,7 +53,12 @@ public class Member {
   public void setIntro(String intro) {
     this.intro = intro;
   }
-
+  public String getPwd() {
+    return pwd;
+  }
+  public void setPwd(String pwd) {
+    this.pwd = pwd;
+  }
   public String getmPhoto() {
     return mPhoto;
   }

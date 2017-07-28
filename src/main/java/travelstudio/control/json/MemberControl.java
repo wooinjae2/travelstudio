@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import net.coobird.thumbnailator.Thumbnails;
 import travelstudio.domain.Member;
 import travelstudio.service.MemberService;
 
@@ -70,7 +69,7 @@ public Object upload1(MultipartFile[] files) throws Exception {
 }
 
 
-@RequestMapping(path="add")
+/*@RequestMapping(path="add")
 public Object add(MultipartFile files) throws Exception {
   HashMap<String,Object> resultMap = new HashMap<>();
   
@@ -103,7 +102,7 @@ public Object add(MultipartFile files) throws Exception {
       
   
   return new JsonResult(JsonResult.SUCCESS, "ok");
-}
+}*/
 
 /*우인재*/
 @RequestMapping("add.json")

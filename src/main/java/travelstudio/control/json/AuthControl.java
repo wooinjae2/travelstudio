@@ -28,10 +28,13 @@ public class AuthControl {
   @RequestMapping(path="login", method=RequestMethod.POST)
   public JsonResult login(String email, String password, String saveEmail, 
       Model model, HttpServletRequest request ,HttpServletResponse response) throws Exception {
-
+    
     Member member = null;
 //    if (userType.equals("teacher")) {
+    System.out.println(email);
+    System.out.println(password);
       member = memberService.getByEmailPassword(email, password);
+      System.out.println(member);
 //    }
     
     if (member != null) { 
@@ -73,7 +76,7 @@ public class AuthControl {
   @RequestMapping("logout")
   public JsonResult logout(HttpSession session, SessionStatus status) throws Exception {
     status.setComplete();
-    session.invalidate();  
+    session.invalidate();  // 세션 무효화.
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

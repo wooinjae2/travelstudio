@@ -8,8 +8,11 @@
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.theme.default.min.css">
 <link rel="stylesheet" type="text/css" href="main.css">
+
+<!-- <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
+<script src="./main.js"></script>
+<script src="./OwlCarousel/dist/owl.carousel.min.js"></script> -->
 </head>
 <body>
   <div class="slide_bar">
@@ -510,11 +513,11 @@
     
 
 </script>
-
-</body>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./main.js"></script>
+<script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
+
 <script>
 function slideCall() {
 $('#slide_icon').click(function (){
@@ -541,6 +544,7 @@ $(document).ready(slide_off)
 // (slideCall);
 
 $(document).ready(function(){
+	console.log("여기")
   //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
   $(".owl-carousel").owlCarousel({
     items:1,
@@ -550,7 +554,6 @@ $(document).ready(function(){
     autoplayHoverPause:true
   });
 });
-
 $('.owl-carousel').owlCarousel({
   loop:false,
   margin:10,
@@ -568,5 +571,8 @@ $('.owl-carousel').owlCarousel({
     }
   }
 })
+
 </script>
+
+</body>
 </html>
