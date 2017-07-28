@@ -1,4 +1,6 @@
-package bitcamp.java93.domain;
+package travelstudio.domain;
+
+
 /* 역할: memb 테이블의 값을 보관할 때 사용할 클래스
  * => 복합 데이터를 다룰 때, 이렇게 클래스를 정의하여 사용한다.
  * => 이런 복합 데이터를 보관하는 용도로 사용하는 클래스를
@@ -7,34 +9,33 @@ package bitcamp.java93.domain;
 
 
 public class Member {
-  int no;
-  String name;
-  String tel;
+  String mno;
   String email;
   String password;
+  String alias;
+  String intro;
+  String pwd;
   
-  @Override
-  public String toString() {
-    return "Member [no=" + no + ", name=" + name + ", tel=" + tel + ", email=" + email + ", password=" + password + "]";
+public String getPwd() {
+    return pwd;
   }
-  
-  public int getNo() {
-    return no;
+  public void setPwd(String pwd) {
+    this.pwd = pwd;
   }
-  public void setNo(int no) {
-    this.no = no;
+  //  String no;
+//  
+//  
+//  public String getNo() {
+//    return no;
+//  }
+//  public void setNo(String no) {
+//    this.no = no;
+//  }
+  public String getMno() {
+    return mno;
   }
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  public String getTel() {
-    return tel;
-  }
-  public void setTel(String tel) {
-    this.tel = tel;
+  public void setMno(String mno) {
+    this.mno = mno;
   }
   public String getEmail() {
     return email;
@@ -42,12 +43,33 @@ public class Member {
   public void setEmail(String email) {
     this.email = email;
   }
-  public String getPassword() {
+  public String getPassword() { 
     return password;
   }
   public void setPassword(String password) {
     this.password = password;
   }
+  public String getAlias() {
+    return alias;
+  }
+  public void setAlias(String alias) {
+    this.alias = alias;
+  }
+  public String getIntro() {
+    return intro;
+  }
+  public void setIntro(String intro) {
+    this.intro = intro;
+  }
+  
+  @Override
+  public String toString() {
+    return "Member [mno=" + mno + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro="
+        + intro + "]";
+  }
+  
+  
+  
   
   
 }
