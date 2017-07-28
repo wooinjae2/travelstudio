@@ -1,4 +1,4 @@
-package bitcamp.java93.control.json;
+package travelstudio.control.json;
 
 public class JsonResult {
   public static final String SUCCESS = "success";

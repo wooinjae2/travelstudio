@@ -9,33 +9,25 @@ package travelstudio.domain;
 
 
 public class Member {
-  String mno;
+  int no;
   String email;
   String password;
   String alias;
   String intro;
   String pwd;
+  String mPhoto;
   
-public String getPwd() {
-    return pwd;
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro=" + intro
+        + ", pwd=" + pwd + ", mPhoto=" + mPhoto + "]";
   }
-  public void setPwd(String pwd) {
-    this.pwd = pwd;
+  
+  public int getNo() {
+    return no;
   }
-  //  String no;
-//  
-//  
-//  public String getNo() {
-//    return no;
-//  }
-//  public void setNo(String no) {
-//    this.no = no;
-//  }
-  public String getMno() {
-    return mno;
-  }
-  public void setMno(String mno) {
-    this.mno = mno;
+  public void setNo(int no) {
+    this.no = no;
   }
   public String getEmail() {
     return email;
@@ -43,7 +35,7 @@ public String getPwd() {
   public void setEmail(String email) {
     this.email = email;
   }
-  public String getPassword() { 
+  public String getPassword() {
     return password;
   }
   public void setPassword(String password) {
@@ -61,11 +53,17 @@ public String getPwd() {
   public void setIntro(String intro) {
     this.intro = intro;
   }
-  
-  @Override
-  public String toString() {
-    return "Member [mno=" + mno + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro="
-        + intro + "]";
+  public String getPwd() {
+    return pwd;
+  }
+  public void setPwd(String pwd) {
+    this.pwd = pwd;
+  }
+  public String getmPhoto() {
+    return mPhoto;
+  }
+  public void setmPhoto(String mPhoto) {
+    this.mPhoto = mPhoto;
   }
   
   

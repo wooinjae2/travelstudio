@@ -5,42 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import travelstudio.dao.ProfileDao;
-import travelstudio.domain.Profile;
-import travelstudio.service.ProfileService;
+import travelstudio.dao.NoticeDao;
+import travelstudio.domain.Notice;
+import travelstudio.service.NoticeService;
 
 @Service
-public class ProfileServiceImpl implements ProfileService {
+public class NoticeServiceImpl implements NoticeService {
   
   
   @Autowired
-  ProfileDao profileDao;
+  NoticeDao noticeDao;
   
-  public List<Profile> info() throws Exception {
+  public List<Notice> list() throws Exception {
    
     
-    return profileDao.selectList();
+    return noticeDao.selectList();
   }
 
   
-  public Profile get(int no) throws Exception {
-    return profileDao.selectOne(no);
-  }
-  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
-  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-  public void update(Profile profile) throws Exception {
-    System.out.println(profile);
-    int count = profileDao.update(profile);
-    if (count < 1) {
-      throw new Exception(profile.getNo() + "번 강사를 찾을 수 없습니다.");
-    }
+  /*public Teacher get(int no) throws Exception {
+    return teacherDao.selectOne(no);
   }
   
-  public void insertPhoto(String newFile){
-    profileDao.insertPhoto(newFile);
-  }
-  
-  /*
   public Teacher getByEmailPassword(String email, String password) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("email", email);
@@ -48,6 +34,7 @@ public class ProfileServiceImpl implements ProfileService {
     
     return teacherDao.selectOneByEmailPassword(valueMap);
   }
+  
   @Override
   public int getSize() throws Exception {
     return teacherDao.countAll();
@@ -61,6 +48,13 @@ public class ProfileServiceImpl implements ProfileService {
     this.insertPhoto(teacher.getNo(), teacher.getPhotoList()); // 강사 사진 추가
   }
   
+  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
+  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+  public void update(Teacher teacher) throws Exception {
+    int count = memberDao.update(teacher);
+    if (count < 1) {
+      throw new Exception(teacher.getNo() + "번 강사를 찾을 수 없습니다.");
+    }
     
     count = teacherDao.update(teacher);
     if (count < 1) {

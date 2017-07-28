@@ -7,11 +7,20 @@ import travelstudio.domain.Member;
 
 public interface MemberDao {
   List<Member> selectList();
-//  int getSize();
-//  List<Member> selectListByNames(Map<String,Object> valueMap);
-//  Member selectOne(int no);
+  Member selectOne(int no);
+//  Notice selectOneByEmailPassword(Map<String,Object> valueMap);
+//  int countAll();
+//  int insert(Notice notice);
+//  int delete(int no);
+  int update(Member member);
+  
+  void insertPhoto(String newFile);
+//  void insertPhoto(Map<String,Object> valueMap);
+//  List<String> selectPhotoList(int teacherNo);
+//  void deletePhoto(int teacherNo);
+  
+  
+  /*우인재*/
   Member selectOneByEmailPassword(Map<String,Object> valueMap);
-int insert(Member member);
-//  int update(Member member);
-//  int delete(int no) throws Exception;
+  int insert(Member member);
 }

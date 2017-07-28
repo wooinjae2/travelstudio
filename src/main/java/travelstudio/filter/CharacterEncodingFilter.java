@@ -1,4 +1,4 @@
-package bitcamp.java93.filter;
+/*package travelstudio.filter;
 
 import java.io.IOException;
 
@@ -30,3 +30,4 @@ public class CharacterEncodingFilter implements Filter {
   public void destroy() {}
 
 }
+*/

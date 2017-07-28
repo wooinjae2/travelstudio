@@ -1,8 +1,4 @@
-package bitcamp.java93.control;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+package travelstudio.control;
 
 import javax.servlet.ServletContext;
 
@@ -10,30 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import bitcamp.java93.domain.Teacher;
-import bitcamp.java93.service.TeacherService;
+import travelstudio.service.NoticeService;
 
 @Controller
-@RequestMapping("/teacher/")
-public class TeacherControl {
+@RequestMapping("/notice/")
+public class NoticeControl {
   
   @Autowired ServletContext servletContext;
-  @Autowired TeacherService teacherService;
+  @Autowired NoticeService noticeService;
   
   @RequestMapping("list")
-  public String list(
-      @RequestParam(defaultValue="1") int pageNo, 
-      @RequestParam(defaultValue="5") int pageSize, 
-      Model model) throws Exception {
+  public String list(Model model) throws Exception {
     
-    model.addAttribute("list", teacherService.list(pageNo, pageSize));
+    model.addAttribute("list", noticeService.list());
     
-    return "teacher/list";
+    return "notice/list";
   }
-  
+  /*
   @RequestMapping("detail")
   public String detail(int no, Model model) throws Exception {
     Teacher teacher = teacherService.get(no);
@@ -86,7 +76,7 @@ public class TeacherControl {
       count = 0;
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-  }
+  }*/
 }
 
 
