@@ -20,46 +20,7 @@
 
     <!-- 슬라이드 메뉴바 호출 -->
     <div class="slide_bar_content">
-      <div class="member_slide">
-        <div class="member_info">
-          <div class="user_photo">
-            <img src="img/user_default.png">
-          </div>
-          <div class="user_id">InJaeZzang</div>
-          <div class="user_url">http://injaezzang.travel_log.com</div>
-          <a href="../mypage/mypagemainv20.html"><div class="user_mypage">마이페이지</div></a>
-          <ul class="user_nation">
-            <li><img src="img/FR.png" alt=""></li>
-            <li><img src="img/FR.png" alt=""></li>
-          </ul>
-          
-          
-
-          <div class="user_visited">
-            <div class="user_write">
-              <img src="img/textbook.png" alt="">
-              <span>여행기</span>
-              <span class="counting">1</span>
-            </div>
-            <div class="user_visited_count">
-              <img src="img/aeroplane.png" alt="">
-              <span>여행국가</span>
-              <span class="counting">2</span>
-            </div>
-          </div>
-          <hr class="slide_bar_classify">
-
-          <div class="slide_bar_menu">
-            <ul class="list_menu">
-              <li><a href="#">공지사항</a></li>
-              <li><a href="./find_pwd.html">비밀번호 변경</a></li>
-              <li><a href="#">탈퇴하기</a></li>
-              <li><a href="#">로그아웃</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
+  
   </div>
   <!-- 슬라이드 메뉴바 호출 끝 -->
 
@@ -500,8 +461,60 @@
 
   </div>
   <!-- container_main 태그 -->
+  
+   <script id="tbody-template2" type="text/x-handlebars-template">
+
+    <div class="member_slide">
+        <div class="member_info">
+          <div class="user_photo">
+            <img src="img/user_default.png">
+          </div>
+          <div class="user_id">{{alias}}</div>
+          <div class="user_url">{{email}}</div>
+     
+          <a href="../mypage/mypagemainv20.html?no={{mno}}"><div class="user_mypage">마이페이지</div></a>
+          <ul class="user_nation">
+            <li><img src="img/FR.png" alt=""></li>
+            <li><img src="img/FR.png" alt=""></li>
+          </ul>
+          
+  
+
+          <div class="user_visited">
+            <div class="user_write">
+              <img src="img/textbook.png" alt="">
+              <span>여행기</span>
+              <span class="counting1"><br></span>
+            </div>
+            <div class="user_visited_count">
+              <img src="img/aeroplane.png" alt="">
+              <span>여행국가</span>
+              <span class="counting2">2</span>
+            </div>
+          </div>
+          <hr class="slide_bar_classify">
+
+          <div class="slide_bar_menu">
+            <ul class="list_menu">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="./find_pwd.html">비밀번호 변경</a></li>
+              <li><a href="#">탈퇴하기</a></li>
+              <li><a href="#">로그아웃</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>  
+
+
+    
+
+</script>
 
 </body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./main.js"></script>
 <script>
 function slideCall() {
 $('#slide_icon').click(function (){
