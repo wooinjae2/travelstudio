@@ -5,7 +5,7 @@
     <title>header</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <style>
 
 .header-container{
@@ -117,7 +117,7 @@ i{
   margin-right: auto;
 }
 
-#facebook-login, #login-summit{
+#signup-btn, #login-summit{
   border: 2px solid #6a7991;
   width: 272px;
   height: 50px;
@@ -128,7 +128,7 @@ i{
   margin-bottom: 15px;
 }
 
-#facebook-login {
+#signup-btn {
   color: white;
   font-weight: bold;
   background-color: #6a7991;
@@ -194,14 +194,14 @@ margin-top:50px;
     <p id="title-email">이메일</p>
     <input type="sumit" id="email-input" placeholder="이메일">
     <p id="title-password">비밀번호</p>
-    <input type="sumit" id="password-input" placeholder="비밀번호">
+    <input type="password" id="password-input" placeholder="비밀번호">
     <p id="title-password2">비밀번호 확인</p>
-    <input type="sumit" id="password2-input" placeholder="비밀번호 확인">
+    <input type="password" id="password2-input" placeholder="비밀번호 확인">
 
   </div>
 <br>
   <div class="login-button-box">
-    <button type="button" id="facebook-login">회원 가입</button>
+    <button type="button" id="signup-btn">회원 가입</button>
 <br>
 <div>
     <span>이미 회원이세요?</span><a id="find-password" href="#">로그인 하기</a>
@@ -214,6 +214,8 @@ margin-top:50px;
 <div class="footer">
   <h1>footer</h1>
 </div>
-
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./sign-up.js"></script>
   </body>
 </html>

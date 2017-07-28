@@ -17,17 +17,17 @@ public class Member {
   
   String mPhoto;
   
-  @Override
-  public String toString() {
-    return "Member [no=" + no + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro=" + intro
-        + ", pwd=" + pwd + ", mPhoto=" + mPhoto + "]";
-  }
-  
+
   public int getNo() {
     return no;
   }
   public void setNo(int no) {
     this.no = no;
+  }
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", email=" + email + ", password=" + password + ", alias=" + alias + ", intro=" + intro
+        + ", mPhoto=" + mPhoto + "]";
   }
   public String getEmail() {
     return email;
@@ -53,12 +53,7 @@ public class Member {
   public void setIntro(String intro) {
     this.intro = intro;
   }
-  public String getPwd() {
-    return pwd;
-  }
-  public void setPwd(String pwd) {
-    this.pwd = pwd;
-  }
+
   public String getmPhoto() {
     return mPhoto;
   }
