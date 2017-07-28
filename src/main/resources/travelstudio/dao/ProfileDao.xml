@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
 <mapper namespace="travelstudio.dao.ProfileDao">
 
   <resultMap type="profile" id="profileMap">
@@ -33,7 +34,7 @@
     mpto=#{mpto}
     where mno=1
   </update>
-<!--  
+ 
   <select id="selectOneByEmailPassword" resultMap="teacherMap" parameterType="map">
     select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path
     from tcher t inner join memb m on t.tno=m.mno
@@ -70,9 +71,8 @@
   <delete id="deletePhoto" parameterType="int">
     delete from tch_phot
     where tno=#{teacherNo}
-  </delete> -->
+  </delete>
 </mapper>
-
 
 
 

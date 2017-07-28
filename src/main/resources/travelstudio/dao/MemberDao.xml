@@ -13,10 +13,10 @@
     <result column="pwd" property="pwd"/>
   </resultMap> 
 
-  <!--  <sql id="select1">
+   <sql id="select1">
     select *
     from member
-  </sql>   -->
+  </sql>  
 
  
   <insert id="insert" parameterType="member" 
@@ -33,7 +33,7 @@
  <select id="selectList" resultMap="memberMap" parameterType="map">
     select * from member
   </select>
-  <!-- 
+  
   <select id="selectListByNames" resultMap="memberMap" parameterType="map">
     <include refid="select1"/>
     <if test="names != null">
@@ -68,7 +68,7 @@
   <delete id="delete" parameterType="int">
     delete from memb 
     where mno=#{memberNo}
-  </delete> -->
+  </delete>
 
 </mapper>
 

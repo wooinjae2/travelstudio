@@ -14,7 +14,7 @@ public class Member {
   String password;
   String alias;
   String intro;
-  String pwd;
+  
   String mPhoto;
   
   @Override
