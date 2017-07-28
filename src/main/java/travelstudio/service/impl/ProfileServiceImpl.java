@@ -1,36 +1,46 @@
-package bitcamp.java93.service.impl;
+package travelstudio.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bitcamp.java93.dao.MemberDao;
-import bitcamp.java93.dao.TeacherDao;
-import bitcamp.java93.domain.Teacher;
-import bitcamp.java93.service.TeacherService;
+import travelstudio.dao.ProfileDao;
+import travelstudio.domain.Profile;
+import travelstudio.service.ProfileService;
 
 @Service
-public class TeacherServiceImpl implements TeacherService {
-  @Autowired
-  MemberDao memberDao;
+public class ProfileServiceImpl implements ProfileService {
+  
   
   @Autowired
-  TeacherDao teacherDao;
+  ProfileDao profileDao;
   
-  public List<Teacher> list(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
+  public List<Profile> info() throws Exception {
+   
     
-    return teacherDao.selectList(valueMap);
+    return profileDao.selectList();
+  }
+
+  
+  public Profile get(int no) throws Exception {
+    return profileDao.selectOne(no);
+  }
+  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
+  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+  public void update(Profile profile) throws Exception {
+    System.out.println(profile);
+    int count = profileDao.update(profile);
+    if (count < 1) {
+      throw new Exception(profile.getNo() + "번 강사를 찾을 수 없습니다.");
+    }
   }
   
-  public Teacher get(int no) throws Exception {
-    return teacherDao.selectOne(no);
+  public void insertPhoto(String newFile){
+    profileDao.insertPhoto(newFile);
   }
   
+  /*
   public Teacher getByEmailPassword(String email, String password) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("email", email);
@@ -38,7 +48,6 @@ public class TeacherServiceImpl implements TeacherService {
     
     return teacherDao.selectOneByEmailPassword(valueMap);
   }
-  
   @Override
   public int getSize() throws Exception {
     return teacherDao.countAll();
@@ -52,13 +61,6 @@ public class TeacherServiceImpl implements TeacherService {
     this.insertPhoto(teacher.getNo(), teacher.getPhotoList()); // 강사 사진 추가
   }
   
-  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
-  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-  public void update(Teacher teacher) throws Exception {
-    int count = memberDao.update(teacher);
-    if (count < 1) {
-      throw new Exception(teacher.getNo() + "번 강사를 찾을 수 없습니다.");
-    }
     
     count = teacherDao.update(teacher);
     if (count < 1) {
@@ -95,7 +97,7 @@ public class TeacherServiceImpl implements TeacherService {
     try {
       count = memberDao.delete(no);
     } catch (Exception e) {}
-  }
+  }*/
 }
 
 

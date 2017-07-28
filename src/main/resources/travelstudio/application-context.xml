@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-<<<<<<< HEAD
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:aop="http://www.springframework.org/schema/aop"
-  xmlns:tx="http://www.springframework.org/schema/tx"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans 
-=======
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
->>>>>>> origin/master
       http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context
       http://www.springframework.org/schema/context/spring-context.xsd
@@ -21,60 +13,6 @@
       http://www.springframework.org/schema/tx
       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-<<<<<<< HEAD
-  <context:component-scan base-package="bitcamp.java93">
-    <context:exclude-filter type="aspectj" expression="bitcamp.java93.control.*"/>
-  </context:component-scan>
-
-  <context:property-placeholder
-    location="classpath:bitcamp/java93/jdbc.properties" />
-
-  <bean id="dataSource"
-    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="driverClassName" value="${jdbc.driverClassName}" />
-    <property name="url" value="${jdbc.url}" />
-    <property name="username" value="${jdbc.username}" />
-    <property name="password" value="${jdbc.password}" />
-  </bean>
-
-  <bean id="txManager"
-    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource" />
-  </bean>
-
-  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-    <property name="dataSource" ref="dataSource" />
-    <property name="typeAliasesPackage" value="bitcamp.java93.domain" />
-    <property name="mapperLocations" value="classpath*:bitcamp/java93/dao/*Dao.xml" />
-  </bean>
-
-  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="bitcamp.java93.dao" />
-  </bean>
-
-
-  <bean id="multipartResolver"
-    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="10000000" />
-  </bean>
-
-  <aop:config>
-    <aop:pointcut id="defaultServiceOperation"
-      expression="execution(* bitcamp.java93.service.*Service.*(..))" />
-    <aop:advisor pointcut-ref="defaultServiceOperation"
-      advice-ref="defaultTxAdvice" />
-  </aop:config>
-  <tx:advice id="defaultTxAdvice" transaction-manager="txManager">
-    <tx:attributes>
-      <tx:method name="get*" read-only="true" />
-      <tx:method name="list" read-only="true" />
-      <tx:method name="*"/> 
-    </tx:attributes>
-  </tx:advice>
-  
-  <tx:annotation-driven transaction-manager="txManager"/>
-</beans>
-=======
   <!-- 페이지 컨트롤러를 제외한 웹에서 사용할 공통 객체 준비-->
   <context:component-scan base-package="travelstudio">
     <context:exclude-filter type="aspectj" expression="travelstudio.control.*"/>
@@ -132,4 +70,3 @@
 </beans>
 
 
->>>>>>> origin/master

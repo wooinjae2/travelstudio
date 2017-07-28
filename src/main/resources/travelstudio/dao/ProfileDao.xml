@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="travelstudio.dao.ProfileDao">
+
+  <resultMap type="profile" id="profileMap">
+    <id column="mno" property="no"/>
+    <result column="email" property="email"/>
+    <result column="alias" property="alias"/>
+    <result column="intro" property= "intro"/>
+    <result column="mpto" property= "memberPhoto"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="profileMap" parameterType="map">
+    select  * from member;
+  </select>
+  
+   <select id="selectOne" resultMap="profileMap" parameterType="int">
+    select alias, intro, email, mpto from member
+    where mno = #{memberNo}
+  </select>
+  
+  <update id="update" parameterType="profile">
+    update member set 
+      alias=#{alias}, 
+      intro=#{intro} 
+    where mno=#{no}
+  </update>
+  
+  <update id="insertPhoto" parameterType="string">
+    update member set
+    mpto=#{mpto}
+    where mno=1
+  </update>
+<!--  
+  <select id="selectOneByEmailPassword" resultMap="teacherMap" parameterType="map">
+    select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path
+    from tcher t inner join memb m on t.tno=m.mno
+                 left outer join tch_phot tp on t.tno=tp.tno
+    where email=#{email} and pwd=password(#{password})
+  </select>
+  
+  <select id="countAll" resultType="int">
+    select count(*)
+    from tcher t inner join memb m on t.tno=m.mno
+  </select>
+  
+  <insert id="insert" parameterType="teacher">
+    insert into tcher(tno, hmpg, fcbk, twit) 
+    values(#{no}, #{homepage}, #{facebook}, #{twitter})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from tcher where tno=#{teacherNo}
+  </delete>
+  
+  
+  <insert id="insertPhoto" parameterType="map">
+    insert into tch_phot(tno,path) 
+    values(#{teacherNo}, #{photoPath})
+  </insert>
+  
+  <select id="selectPhotoList" parameterType="int">
+    select tpno, tno, path
+    from tch_phot
+    where tno=#{teacherNo}
+  </select>
+  
+  <delete id="deletePhoto" parameterType="int">
+    delete from tch_phot
+    where tno=#{teacherNo}
+  </delete> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

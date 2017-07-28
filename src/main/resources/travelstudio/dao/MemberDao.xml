@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="travelstudio.dao.MemberDao">
+  
+  <resultMap type="member" id="memberMap">
+    <id column="mno" property="mno"/>
+    <result column="email" property="email"/>
+    <result column="alias" property="alias"/>
+    <result column="intro" property="intro"/>
+    <result column="pwd" property="pwd"/>
+  </resultMap> 
+
+  <!--  <sql id="select1">
+    select *
+    from member
+  </sql>   -->
+
+ 
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno">
+    insert into member(email, pwd, alias,intro) 
+    values(#{email},password(#{password}),#{alias},'1')
+  </insert>
+  
+<select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
+    select * from member where email=#{email} and pwd=password(#{password})
+  </select>
+  
+  
+ <select id="selectList" resultMap="memberMap" parameterType="map">
+    select * from member
+  </select>
+  <!-- 
+  <select id="selectListByNames" resultMap="memberMap" parameterType="map">
+    <include refid="select1"/>
+    <if test="names != null">
+      <where>
+        name in 
+        <foreach collection="names" item="name" open="(" close=")" separator=",">
+          #{name}
+        </foreach>
+      </where> 
+    </if>    
+    order by name asc 
+    limit #{startIndex}, #{pageSize}
+  </select>
+  
+  <select id="selectOne" resultMap="memberMap" parameterType="int">
+    <include refid="select1"/> 
+    where mno = #{memberNo}
+  </select>
+  
+  
+ 
+  
+  <update id="update" parameterType="member">
+    update memb set 
+      name=#{name}, 
+      tel=#{tel}, 
+      email=#{email}, 
+      pwd=password(#{password}) 
+    where mno=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from memb 
+    where mno=#{memberNo}
+  </delete> -->
+
+</mapper>
+
+
+
+
