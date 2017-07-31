@@ -59,28 +59,49 @@ $.getJSON('/travelstudio/member/info.json', function(result) {
   
   
   /* 댓글 insert. 좋아요와 신고는 아직 적용못함.*/
-//$('#send_btn').click(function() {
+$('#send_btn').click(function() {
+   
+   $.ajax({
+      type: 'POST',
+      url: '../comment/add.json',
+      data: {cont : $('#text_reply').val(), postno:"1"}, 
+      async: false,
+      success: function(data) {
+    	  
+      
+         $.getJSON('../comment/list.json', function(result){
+        	 console.log(result.data.list);
+            let templateFn = Handlebars.compile($('#comment-template').text())
+            let generatedHTML5 = templateFn(result.data.list[0]) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+            $('#posted li:first').prepend(generatedHTML5) // 새 tr 태그들로 설정한다.
+         })
+      }
+   });
+   
+})
+  
+  
+//  
+//  $('.submit-reply').click(function() {
 //   
 //   $.ajax({
 //      type: 'POST',
-//      url: 'travelstudio/comment/add.json',
-//      data: {content : $('#text_reply').val()}, 
+//      url: 'reply/add.json',
+//      data: {content : $('.input-reply').val(), zzalnumber : "200"}, 
 //      async: false,
 //      success: function(data) {
-//    	  
-//      }
-//         $.getJSON('/travelstudio/comment/list.json',function(result){
-//        	 console.log(result.data.list);
-//            let templateFn = Handlebars.compile($('#comment-template').text())
+//         $.getJSON('reply/list.json',function(result){
+//            let templateFn = Handlebars.compile($('   #reply-insert-template').text())
 //            let generatedHTML = templateFn(result.data.list[0]) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//            $('#posted li:first').prepend(generatedHTML) // 새 tr 태그들로 설정한다.
+//            $('.reply-list li:first').prepend(generatedHTML) // 새 tr 태그들로 설정한다.
 //         })
 //      }
 //   });
-  
-  
-  
-  
+//   
+//   $.getJSON('reply/countreply.json', function(result) {
+//      $('.replycnt span:first-child').html(result.data.countReply);
+//   })
+//})
   
   
 //  var sendbutton = $('#sendbutton');

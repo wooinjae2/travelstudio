@@ -6,7 +6,7 @@ import travelstudio.domain.Comment;
 
 public interface CommentDao {
   List<Comment> selectList();
- 
-  int insert(Comment commnet);
+
+  int insert(Comment commnet, int postno);
 
 }

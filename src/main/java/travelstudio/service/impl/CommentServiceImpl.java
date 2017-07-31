@@ -24,9 +24,9 @@ public class CommentServiceImpl implements CommentService {
     return commentDao.selectList();
   }
   
-  public void add(Comment comment) throws Exception {
+  public void add(Comment comment, int postno) throws Exception {
     
-    commentDao.insert(comment);
+    commentDao.insert(comment, postno);
   }
   
   

@@ -6,7 +6,7 @@ import travelstudio.domain.Comment;
 
 public interface CommentService {
   List<Comment> list() throws Exception;
-  void add(Comment comment) throws Exception;
+  void add(Comment comment, int postno) throws Exception;
 
 //  int getSize() throws Exception;
 }

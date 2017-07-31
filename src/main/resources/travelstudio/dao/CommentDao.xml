@@ -68,14 +68,14 @@
     <include refid="select1"/> 
     where email=#{email} and pwd=password(#{password})
   </select>
- 
+ -->
   <insert id="insert" parameterType="comment" 
-          useGeneratedKeys="true" keyColumn="reno" keyProperty="no">
-    insert into reply(cont) 
-    values(#{cont})
+          useGeneratedKeys="true" keyColumn="reno" keyProperty="reno">
+    insert into reply(cont, postno) 
+    values(#{arg0}, #{arg1})
   </insert>
   
- 
+ <!-- 
   <update id="update" parameterType="member">
     update memb set 
       name=#{name}, 

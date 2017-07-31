@@ -59,8 +59,8 @@ public class CommentControl {
 //  }  
 //  
   @RequestMapping("add")
-  public JsonResult add(Comment comment) throws Exception {
-    commentService.add(comment);
+  public JsonResult add(Comment comment, int postno) throws Exception {
+    commentService.add(comment, postno);
     System.out.println("1");
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }  
