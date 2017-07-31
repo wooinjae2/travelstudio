@@ -49,7 +49,7 @@ a:-webkit-any-link {
   font-family: 'Ropa Sans', sans-serif;
   margin-bottom: 20px;
   vertical-align: center;
-  border:1px solid black;
+  
 
 }
 
@@ -515,6 +515,7 @@ margin-bottom: 2px;
   padding: 30px auto 0;
   margin-bottom: 30px;
   background-color: #f2f9fb;
+  
 }
 
 .travel_writer .travel_writer_titl {

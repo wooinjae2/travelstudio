@@ -13,9 +13,9 @@ $.getJSON('/travelstudio/post/list.json', function(result) {
   
   var mainbox = $('.owl-stage');
 
-$.getJSON('/notice/profile/list.json', function(result) {
+$.getJSON('/travelstudio/member/info.json', function(result) {
 
-   console.log(result.data.list);
+   console.log(result.data.info);
        var template2 = Handlebars.compile($('#content-template-2').html())
        var generatedHTML2 = template2(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //       tbody.text('') // tbody의 기존 tr 태그들을 지우고

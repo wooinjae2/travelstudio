@@ -3,28 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="travelstudio.dao.PostDao">
+<mapper namespace="travelstudio.dao.CommentDao">
   
-  <resultMap type="post" id="postMap">
-    <id column="postno" property="postno"/>
-    <result column="title" property="title"/>
-    <result column="badge" property="badge"/>
-    <result column="tag" property="tag"/>
-    <result column="sdt" property="sdt"/>
-    <result column="edt" property="edt"/>
+
+  
+  <resultMap type="comment" id="commentMap">
+    <id column="mno" property="mno"/>
+    <result column="postno" property="postno"/>
+    <result column="reno" property="reno"/>
     <result column="cont" property="cont"/>
-    <result column="capt" property="capt"/>
-    <result column="detail" property="detail"/>
-    <result column="ispublic" property="ispublic"/>
-        <result column="mno" property="mno"/>
+    <result column="date" property="date"/>
+    <result column="good" property="good"/>
+    <result column="alias" property="alias"/>
+    
+    
   </resultMap> 
 
    <sql id="select1">
-    select *
-    from post where postno = 1;;
+    
+    select r.reno, r.postno, r.mno, r.cont, r.date, m.alias
+    from reply r natural join member m;
+   
+   
   </sql> 
 
-  <select id="selectList" resultMap="postMap" parameterType="map">
+  <select id="selectList" resultMap="commentMap" parameterType="map">
     <include refid="select1"/>
   <!--   <if test="search != null">
 	    <where>
@@ -65,13 +68,14 @@
     <include refid="select1"/> 
     where email=#{email} and pwd=password(#{password})
   </select>
-  
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
-    insert into memb(name,tel,email,pwd) 
-    values(#{name},#{tel},#{email},password(#{password}))
+ 
+  <insert id="insert" parameterType="comment" 
+          useGeneratedKeys="true" keyColumn="reno" keyProperty="no">
+    insert into reply(cont) 
+    values(#{cont})
   </insert>
   
+ 
   <update id="update" parameterType="member">
     update memb set 
       name=#{name}, 

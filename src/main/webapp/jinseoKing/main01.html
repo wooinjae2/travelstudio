@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>travel_log</title>
-  <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="./OwlCarousel/dist/assets/owl.theme.default.min.css">
 <link rel="stylesheet" type="text/css" href="./main.css">
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
 </head>
 <body>
@@ -105,12 +105,12 @@
           <span class="traveler_text">여행작가</span>가 되어보세요
         </p>
       </div>
-      <div class="travel_writer_slide_wrap">
-        <div class="travel_writer_slide owl-carousel owl-theme">
+      <div class="owl-stage-outer">
+        <div class="owl-stage">
         
-          <div class="item">
           <script id="content-template-2" type="text/x-handlebars-template">
      {{#each list}}
+          <div class="item">
           <a href="#">
             <div class="travel_writer_photozone">
               <img src="img/vally.jpg">
@@ -127,9 +127,9 @@
               <img src="img/kr.png">
             </div>
           </a>
+          </div>
      {{/each}}
           </script>
-          </div>
 
        
          
@@ -333,7 +333,7 @@ $('.owl-carousel').owlCarousel({
   }
 })
 </script>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./main.js"></script>
 </html>

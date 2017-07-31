@@ -14,7 +14,8 @@
   </resultMap>
 
   <select id="selectList" resultMap="memberMap" parameterType="map">
-    select  * from member;
+    select  * from member
+    where mno = 1;
   </select>
   
    <select id="selectOne" resultMap="memberMap" parameterType="int">
