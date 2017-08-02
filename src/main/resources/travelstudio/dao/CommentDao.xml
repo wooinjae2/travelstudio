@@ -69,26 +69,26 @@
     where email=#{email} and pwd=password(#{password})
   </select>
  -->
-  <insert id="insert" parameterType="comment" 
+  <insert id="insert" parameterType="map" 
           useGeneratedKeys="true" keyColumn="reno" keyProperty="reno">
-    insert into reply(cont, postno) 
-    values(#{arg0}, #{arg1})
+    insert into reply(cont, postno, mno, date) 
+    values(#{cont}, #{postno}, #{mno}, '2017-07-07')
   </insert>
   
- <!-- 
-  <update id="update" parameterType="member">
-    update memb set 
-      name=#{name}, 
-      tel=#{tel}, 
-      email=#{email}, 
-      pwd=password(#{password}) 
-    where mno=#{no}
+ 
+  <update id="update" parameterType="comment">
+    update reply set 
+      cont=#{cont}, 
+      date=#{date} 
+    where reno=#{no}
   </update>
   
+
   <delete id="delete" parameterType="int">
-    delete from memb 
-    where mno=#{memberNo}
-  </delete> -->
+    delete from reply 
+    where reno=#{no}
+  </delete> 
+ 
 
 </mapper>
 

@@ -1,6 +1,7 @@
 package travelstudio.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import travelstudio.domain.Post;
 
@@ -8,6 +9,7 @@ public interface PostDao {
   List<Post> selectList();
   List<Post> getWriteCount(Post post);
   int insert(Post post);
+  void insertPhoto(Map<String,Object> valueMap);
 //  int getSize();
 //  List<Member> selectListByNames(Map<String,Object> valueMap);
 //  Member selectOne(int no);

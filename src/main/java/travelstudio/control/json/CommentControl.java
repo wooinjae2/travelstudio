@@ -31,12 +31,30 @@ public class CommentControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-//  @RequestMapping("add")
-//  public JsonResult add(Comment comment) throws Exception {
-//    CommentService.add(comment);
-//    System.out.println("1");
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }
+
+  @RequestMapping("update")
+  public JsonResult update(Comment comment) throws Exception {
+    commentService.update(comment);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  
+  @RequestMapping("delete")
+  public JsonResult delete(int no) throws Exception {
+    commentService.remove(no);
+    System.out.println("delete ok");
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }  
+  
+  @RequestMapping("add")
+  public JsonResult add(Comment comment) throws Exception {
+    commentService.add(comment);
+    System.out.println("1");
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }  
+  
+}
+
+
 //  @RequestMapping("detail")
 //  public JsonResult detail(int no) throws Exception {
 //    Teacher teacher = teacherService.get(no);
@@ -46,28 +64,6 @@ public class CommentControl {
 //    return new JsonResult(JsonResult.SUCCESS, teacher);
 //  }
 //  
-//  @RequestMapping("update")
-//  public JsonResult update(Teacher teacher) throws Exception {
-//    teacherService.update(teacher);
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }
-//  
-//  @RequestMapping("delete")
-//  public JsonResult delete(int no) throws Exception {
-//    teacherService.remove(no);
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }  
-//  
-  @RequestMapping("add")
-  public JsonResult add(Comment comment, int postno) throws Exception {
-    commentService.add(comment, postno);
-    System.out.println("1");
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }  
-  
-}
-
-
 
 
 

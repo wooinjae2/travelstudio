@@ -24,12 +24,35 @@ public class CommentServiceImpl implements CommentService {
     return commentDao.selectList();
   }
   
-  public void add(Comment comment, int postno) throws Exception {
+  public void add(Comment comment) throws Exception {
     
-    commentDao.insert(comment, postno);
+    commentDao.insert(comment);
   }
   
+  public void remove(int no) throws Exception {
+    
+    int count = commentDao.delete(no);
+    if (count < 1) {
+      throw new Exception(no + "댓글을 삭제하지 못했습니다.");
+    }
+    
+    try {
+      count = commentDao.delete(no);
+    } catch (Exception e) {}
+  }
   
+  public void update(Comment comment) throws Exception {
+    int count = memberDao.update(comment);
+    if (count < 1) {
+      throw new Exception(comment.getNo() + "댓글을 찾을 수 없습니다.");
+    }
+    
+    count = commentDao.update(comment);
+    if (count < 1) {
+      throw new Exception(comment.getNo() + "댓글을 찾을 수 없습니다.");
+    }
+  }
+}
 
  
 // public void add(Comment comment) throws Exception {
@@ -93,20 +116,8 @@ public class CommentServiceImpl implements CommentService {
 //    }
 //  }
 //  
-//  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
-//  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-//  public void remove(int no) throws Exception {
-//    teacherDao.deletePhoto(no);
-//    int count = teacherDao.delete(no);
-//    if (count < 1) {
-//      throw new Exception(no + "번 강사를 찾을 수 없습니다.");
-//    }
-//    
-//    try {
-//      count = memberDao.delete(no);
-//    } catch (Exception e) {}
-//  }
-}
+  //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
+  //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 
 
 

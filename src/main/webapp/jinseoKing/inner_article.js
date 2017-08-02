@@ -1,130 +1,91 @@
-var reply = $('.comment_container');
 
-$.getJSON('/travelstudio/comment/list.json', function(result) {
+var content = $('#text_box');
 
-   console.log(result.data.list);
-       var template = Handlebars.compile($('#comment-template').html())
-       var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//       tbody.text('') // tbody의 기존 tr 태그들을 지우고
-       reply.append(generatedHTML) // 새 tr 태그들로 설정한다.
-
-  }) // getJSON()ile(title)
-  
-  
-    var content = $('#text_box');
-//        
 
 $.getJSON('/travelstudio/post/list.json', function(result) {
 
-   console.log(result.data.list);
-       var template2 = Handlebars.compile($('#content-template-2').html())
-       var generatedHTML2 = template2(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//       tbody.text('') // tbody의 기존 tr 태그들을 지우고
-       content.append(generatedHTML2) // 새 tr 태그들로 설정한다.
-       
-  }) // getJSON()ile(title)
-  
-  
-  
-      var title = $('#blank-one');
-        
+	console.log(result.data.list);
+	var template2 = Handlebars.compile($('#content-template-2').html())
+	var generatedHTML2 = template2(result.data)
+
+	content.append(generatedHTML2) 
+
+}) // getJSON()
+
+
+/*대표사진 div안에 들어가는 내용*/
+var title = $('#blank-one');
 $.getJSON('/travelstudio/post/list.json', function(result) {
+	console.log(result.data.list);
+	var template3 = Handlebars.compile($('#content-template-3').html())
+	var generatedHTML3 = template3(result.data) 
+	title.append(generatedHTML3) 
+}) // getJSON()
 
-   console.log(result.data.list);
-       var template3 = Handlebars.compile($('#content-template-3').html())
-       var generatedHTML3 = template3(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//       tbody.text('') // tbody의 기존 tr 태그들을 지우고
-       title.append(generatedHTML3) // 새 tr 태그들로 설정한다.
-       
-  }) // getJSON()ile(title)
-  
-
-   var writer = $('#profile_box');
-
+/*게시글이 끝날 때 나타나는 작성자 프로필*/
+var writer = $('#profile_box');
 $.getJSON('/travelstudio/member/info.json', function(result) {
+	console.log(result.data.info);
+	var template4 = Handlebars.compile($('#content-template-4').html())
+	var generatedHTML4 = template4(result.data) 
+	writer.append(generatedHTML4)
+}) // getJSON()
 
-   console.log(result.data.info);
-   console.log("11");
-       var template4 = Handlebars.compile($('#content-template-4').html())
-       var generatedHTML4 = template4(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//       tbody.text('') // tbody의 기존 tr 태그들을 지우고
-       writer.append(generatedHTML4) // 새 tr 태그들로 설정한다.
 
-  }) // getJSON()ile(title)
-  
-  
-  
-  
-  
-  
-  
-  /* 댓글 insert. 좋아요와 신고는 아직 적용못함.*/
-$('#send_btn').click(function() {
-   
-   $.ajax({
-      type: 'POST',
-      url: '../comment/add.json',
-      data: {cont : $('#text_reply').val(), postno:"1"}, 
-      async: false,
-      success: function(data) {
-    	  
-      
-         $.getJSON('../comment/list.json', function(result){
-        	 console.log(result.data.list);
-            let templateFn = Handlebars.compile($('#comment-template').text())
-            let generatedHTML5 = templateFn(result.data.list[0]) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-            $('#posted li:first').prepend(generatedHTML5) // 새 tr 태그들로 설정한다.
-         })
-      }
-   });
-   
+
+/*댓글 뿌리기*/
+var reply = $('.comment_container');
+$.getJSON('/travelstudio/comment/list.json', function(result) {
+	console.log(result.data.list);
+	var template = Handlebars.compile($('#comment-template').html())
+	var generatedHTML = template(result.data)
+	reply.append(generatedHTML) 
 })
-  
-  
-//  
-//  $('.submit-reply').click(function() {
-//   
-//   $.ajax({
-//      type: 'POST',
-//      url: 'reply/add.json',
-//      data: {content : $('.input-reply').val(), zzalnumber : "200"}, 
-//      async: false,
-//      success: function(data) {
-//         $.getJSON('reply/list.json',function(result){
-//            let templateFn = Handlebars.compile($('   #reply-insert-template').text())
-//            let generatedHTML = templateFn(result.data.list[0]) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//            $('.reply-list li:first').prepend(generatedHTML) // 새 tr 태그들로 설정한다.
-//         })
-//      }
-//   });
-//   
-//   $.getJSON('reply/countreply.json', function(result) {
-//      $('.replycnt span:first-child').html(result.data.countReply);
-//   })
-//})
-  
-  
-//  var sendbutton = $('#sendbutton');
-//      fiCont = $('#fi-cont'),
-//      fiDate = $('#fi-date'),
-//	  fiAlias = $('#fi-alias');
-//	  
+
+/* 댓글 insert. */
+$('#send_btn').click(function() {
+	console.log($('#text_reply').val())
+	if($('#text_reply').val()==''){
+		alert("내용을 입력하세요")
+	}else{
+		$.ajax({
+			type: 'POST',
+			url: '../comment/add.json',
+			data: {'cont' : $('#text_reply').val(), 'postno':1, 'mno':1}, 
+			async: false,
+			success: function(data) {
+
+//				/*새로 insert된거 어떻게 뿌림?*/
+//				$.getJSON('../comment/list.json', function(result){
+//					console.log(result.data.list);
 //
-//  var no = 0
-//  try {
-//	  no = location.href.split('?')[1].split('=')[1]
-//  }catch (err) {}
-//  
-//  if(no == 0) {
-//	   $('#sendbutton').click(function() {
-//		   $.post('add.json' , {
-//			   'cont': fiCont.val(),
-//			   'date': fiDate.val(),
-//			   'alias': fiAlias.val()
-//		   }, function(result) {
-//			   location.href = 'inner_article.html'
-//		   },'json')
-//	   
-//		   })
-	   
-//  }
+////					var template = Handlebars.compile($('#comment-template').html())
+////					var generatedHTML = template(result.data) 
+////					reply.append(generatedHTML) 
+//				})
+				
+			}
+		});// ajax작업 끝나고
+	}
+	$('#text_reply').val("");
+	$('.comment_container > #posted').remove();// 기존에 뿌려졌던 댓글 지워버림
+
+/*새로 포함된 댓글과 함께 뿌림..ha*/
+	var reply = $('.comment_container');
+	$.getJSON('/travelstudio/comment/list.json', function(result) {
+		console.log(result.data.list);
+		var template = Handlebars.compile($('#comment-template').html())
+		var generatedHTML = template(result.data)
+		reply.append(generatedHTML) 
+
+
+	})
+})
+
+
+
+
+
+
+
+

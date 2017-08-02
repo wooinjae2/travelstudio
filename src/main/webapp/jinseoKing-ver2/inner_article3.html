@@ -1,0 +1,80 @@
+
+   
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>google map</title>
+   <meta charset="utf-8">
+    <style>
+   html,body,#map-canvas {
+            height: 600px;
+            width: 800px;
+            margin: 0px;
+           padding: 0px;
+  }
+  
+  
+  
+  #panel {
+                            position: absolute;
+                            top: 5px;
+                            left: 50%;
+                            margin-left: -180px;
+                            z-index: 5;
+                            background-color: #fff;
+                            padding: 5px;
+                            border: 1px solid #999;
+                   }
+   </style>
+   
+   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=false"></script>
+   <script>
+   var map;
+   function initialize() {
+          var mapOptions = {
+                   zoom : 7,
+                   center : new google.maps.LatLng(37.5651, 
+126.98955), //서울
+                   mapTypeId : google.maps.MapTypeId.ROADMAP
+           };
+           map = new google.maps.Map(document.getElementById
+('map-canvas'), mapOptions);
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+   
+   
+   var geocoder;
+    function codeAddress() {
+      geocoder = new google.maps.Geocoder();
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                    var lat = results[0]['geometry']['location']['lat']();
+                    var lng = results[0]['geometry']['location']['lng']();
+                    alert(address+"의 위도는 " + lat + " 이며, 경도는" + lng + " 입니다.");
+                    map.setCenter(results[0].geometry.location);    
+                    var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                            draggable:false,
+                            animation:google.maps.Animation.DROP,
+                            title:address
+                    });
+            } else {
+              alert('Geocode was not successful for the followingn reason: ' + status);
+            }
+      });
+    }
+   </script>
+   </head>
+   <body>
+     <div id="panel">
+                   <input id="address" type="textbox" value="Seoul"> 
+                   <input type="button" value="GO" onclick="codeAddress()">
+           <div id="map-canvas"></div>
+           
+   </body>
+   </html>
+
+  </body>
+</html>
