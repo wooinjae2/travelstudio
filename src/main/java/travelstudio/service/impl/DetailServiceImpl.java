@@ -1,40 +1,23 @@
 package travelstudio.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import travelstudio.dao.PictureDao;
-import travelstudio.domain.Picture;
-import travelstudio.service.PictureService;
+import travelstudio.dao.DetailDao;
+import travelstudio.domain.Detail;
+import travelstudio.service.DetailService;
 
 @Service
-public class PictureServiceImpl implements PictureService {
-  @Autowired PictureDao pictureDao;
-  
+public class DetailServiceImpl implements DetailService {
+  @Autowired DetailDao detailDao;
   
  
-//  
-//  public List<Post> list() throws Exception {
-//    
-//    return postDao.selectList();
-//  }
-//  
-//  
-// public List<Post> getWriteCount(Post post) throws Exception {
-//    
-//    return postDao.getWriteCount(post);
-//  }
-// 
- public void add(String filename) throws Exception {
-   pictureDao.insert(filename);
+  
+ 
+ public void sadd(Detail detail) throws Exception {
+   detailDao.insert(detail);
    
  }
- public List<Picture> selectPicNo(String path){
-   return pictureDao.selectPicNo(path);
-   
- };
 //  
 //  public Teacher get(int no) throws Exception {
 //    return teacherDao.selectOne(no);
@@ -47,6 +30,8 @@ public class PictureServiceImpl implements PictureService {
 //    
 //    return teacherDao.selectOneByEmailPassword(valueMap);
 //  }
+
+
   
 //  @Override
 //  public int getSize() throws Exception {

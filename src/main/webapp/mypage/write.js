@@ -162,7 +162,7 @@ for(i=0;i<=count;i++){
 //      
 //    }
 //});
-
+console.log(ficont.val())
 $('#write_save_btn').click(function() {
 	if(fititle.val() == null){
 		alert("제목을 입력해주세요")
@@ -214,7 +214,7 @@ $('.file1').fileupload({
 			console.log(no)
 			/*console.log(no)*/
 
-			var imagesDiv = $("#text_parent_"+aaa+"").parent().empty();
+			var imagesDiv = $("#text_parent_"+aaa+"").empty();
 			adddiv()
 			imagesDiv.html("");
 			for (var i = 0; i < data.files.length; i++) {
@@ -227,7 +227,7 @@ $('.file1').fileupload({
 					}
 				} catch (err) {}
 			}
-			$('#write_save_btn').unbind("click");
+			/*$('#write_save_btn').unbind("click");*/
 			
 		}, 
 		
@@ -288,7 +288,7 @@ $('#title_fileupload').fileupload({
 					}
 				} catch (err) {}
 			}
-			$('#write_save_btn').unbind("click");
+			/*$('#write_save_btn').unbind("click");*/
 			
 		}, 
 		
