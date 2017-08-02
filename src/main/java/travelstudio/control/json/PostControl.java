@@ -46,6 +46,13 @@ public class PostControl {
     return new JsonResult(JsonResult.SUCCESS,dataMap);
   }
   
+  @RequestMapping("add")
+  public String add(Post post) throws Exception {
+    System.out.println("1");
+    postService.add(post);
+    return "a";
+    
+  }  
   
 }
 
