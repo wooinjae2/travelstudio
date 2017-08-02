@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import net.coobird.thumbnailator.Thumbnails;
+import travelstudio.service.PictureService;
 
 @RestController
 @RequestMapping("/File/") 
 public class FileControl {
   
   @Autowired ServletContext ctx;
+  @Autowired PictureService pictureService;
   
   @RequestMapping(path="upload")
   public Object upload(MultipartFile[] files) throws Exception {
@@ -57,6 +59,43 @@ public class FileControl {
     resultMap.put("fileList", fileList);
     return resultMap;
   }
+  
+
+
+  
+  @RequestMapping(path="upload3")
+  public Object upload3(MultipartFile[] files) throws Exception {
+    
+    ArrayList<Object> fileList = new ArrayList<>();
+    
+    for (int i = 0; i < files.length; i++) {
+      if (files[i].isEmpty()) 
+        continue;
+      
+      String newFilename = this.getNewFilename();
+      File file = new File(ctx.getRealPath("/mypage/upload/" + newFilename));
+      System.out.println(file);
+//      System.out.println();
+      files[i].transferTo(file);
+      pictureService.add("/mypage/upload/" + newFilename);
+      
+      File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_700"));
+      Thumbnails.of(file).size(761, 506).outputFormat("png").toFile(thumbnail); 
+
+     
+        
+      HashMap<String,Object> fileMap = new HashMap<>();
+      fileMap.put("filename", newFilename);
+      fileMap.put("filesize", files[i].getSize());
+      fileList.add(fileMap);
+    }
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("fileList", fileList);
+    return resultMap;
+  }
+  
+
   
   int count = 0;
   synchronized private String getNewFilename() {

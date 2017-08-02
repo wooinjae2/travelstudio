@@ -3,77 +3,86 @@
 <head>
 <meta charset="utf-8">
 <title>travel_log</title>
-<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet"
+	href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" type="text/css" href="write.css">
 <link rel="stylesheet"
 	href="./font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+<link rel="stylesheet"
+	href="/maps/documentation/javascript/demos/demos.css">
 
 </head>
 <body>
 
-<header class="header">
-    <a href="../main_minkdak/main.html"><img id="logo" src="./pictures/ourlogo.png"></a>
-    <p id="title_of_article">여행기 제목</p>
-    <button type="button" id="start-my-journey">여행기 작성</button>
-  </header>
+	<header class="header">
+		<a href="../main_minkdak/main.html"><img id="logo"
+			src="./pictures/ourlogo.png"></a>
+		<p id="title_of_article">여행기 제목</p>
+		<button type="button" id="start-my-journey">여행기 작성</button>
+	</header>
 
 	<div id="modal"></div>
 	<div id="blank-one" class="blank-one">
 		<div class="icons">
-			<a href="javascript:file_browse()"><div>
+			<a href="javascript:title_file_browse()"><div>
 					<span><i id="icons_i" class="fa fa-picture-o fa-3x"
-						aria-hidden="true"></i></span><br>
-					<span class="title_hidden">표지사진</span><input id="file1" type="file" style="display:none"></input>
+						aria-hidden="true"></i></span><br> <span class="title_hidden">표지사진</span><input
+						id="title_fileupload" type="file" style="display: none"></input>
 				</div></a><br> <a href="#"><div>
 					<span><i id="icons_i" class="fa fa-lock fa-3x"
-						aria-hidden="true"></i></span><br>
-					<span class="title_hidden">모두에게 공개</span>
+						aria-hidden="true"></i></span><br> <span class="title_hidden">모두에게
+						공개</span>
 				</div></a><br> <a href="#"><div>
 					<span><i id="icons_i" class="fa fa-calendar-check-o fa-3x"
-						aria-hidden="true"></i></span><br>
-					<span class="title_hidden">자동 날짜 기록</span>
+						aria-hidden="true"></i></span><br> <span class="title_hidden">자동
+						날짜 기록</span>
 				</div></a><br>
 		</div>
-		<textarea placeholder="여행기 제목을 입력해 주세요"></textarea>
+		<textarea id="wirte_title" placeholder="여행기 제목을 입력해 주세요"></textarea>
 		<div class="bb">
 			<i class="fa fa-calendar fa-2x" aria-hidden="true"></i> <a href="#"
-				class="write_select_date_start">
-				<input class="write_start_date"	type="text" placeholder="여행 시작일" id="datepicker">
+				class="write_select_date_start"> <input class="write_start_date"
+				type="text" placeholder="여행 시작일" id="datepicker">
 				<div id="write_data_arrow" class="write_data_arrow">
 					<i class="fa fa-arrow-right " aria-hidden="true"></i>
-				</div>
-				<input class="write_end_date" type="text" placeholder="여행 종료일" id="datepicker1"></a>
+				</div> <input class="write_end_date" type="text" placeholder="여행 종료일"
+				id="datepicker1"></a>
 			<hr id="aa">
 		</div>
 
 	</div>
 	<div class="header" id="header"></div>
-<div class="all_photo_select"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i><a class="help_btn" href="#"  onclick="test1('modal')"> <i class="fa fa-object-group fa-2x" aria-hidden="true"></i></a> </div>
+	<div class="all_photo_select">
+		<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i><a
+			class="help_btn" href="#" onclick="test1('modal')"> <i
+			class="fa fa-object-group fa-2x" aria-hidden="true"></i></a>
+	</div>
 	<div class="container_main">
 		<div class="day_list">
-			<div class="day1" onmouseover="onfocus1(ab);" onmouseleave="onblur1(ab);">
+			<div class="day1" onmouseover="onfocus1(ab);"
+				onmouseleave="onblur1(ab);">
 				<div class="write_day">
 					<h2>
+						<button id="write_save_btn">aaa</button>
 						1일차
 						<h2>
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							<div class="travel_detail_date">2017.05.05</div>
 				</div>
+
 				<div class="tool_box">
-					<a href="#" onclick="test('testdiv'); return false;"><span id="ab"
-						class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
+					<a href="#" onclick="test('testdiv'); return false;"><span
+						id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
 					<div id="testdiv" style="display: none">
-						<a href="javascript:file_browse()" ><img id="testdiv_1" src="./image.png"><input id="file1" type="file" style="display:none"></input></a>
-							 <a href="#" onclick="test('map_container'); initialize(); test1('modal'); return false;"><img
-							id="testdiv_2" src="./marker.png"></a>
-							<a href="#"
-							onclick="test('route_container'); initialize(); test1('modal'); return false;"><img
-							id="testdiv_2" src="./route.png"></img></a>
+						<a href="javascript:file_browse(0)"><img id="testdiv_1" src="./image.png"><input value='0' type="file" style="display: none" name="files" class="file1_0 file1" multiple></input></a>
+						<a href="#" onclick="test('map_container'); initialize(); test1('modal'); return false;"><img id="testdiv_2" src="./marker.png"></a> 
+						<a href="#" onclick="test('route_container'); initialize(); test1('modal'); return false;">
+						<img id="testdiv_2" src="./route.png"></img></a>
 						<!-- <span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span> -->
 
 					</div>
@@ -95,17 +104,17 @@
 								</div>
 							</form>
 
-								<ul class="search_list">
-									<li><a href="#"><div>비트캠프</div>
-											<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-									<li><a href="#"><div>비트캠프</div>
-											<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-									<li><a href="#"><div>비트캠프</div>
-											<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-									<li><a href="#"><div>ㅁㅁ</div></a></li>
-									<li><a href="#"><div>ㅁㅁ</div></a></li>
-								</ul>
-							</div>
+							<ul class="search_list">
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+							</ul>
+						</div>
 
 						<div id="googleMap" style="width: 500px; height: 380px;"></div>
 
@@ -117,51 +126,54 @@
 								id="login-summit">등록</button>
 						</div>
 					</div>
-<!-- map_container 끝 -->
-<div id="route_container">
-	<br>
-	<h3>경로를 추가하세요</h3>
-	<br>
-	<div class='search_bar'>
-		<form class="navbar-form" role="search">
-			<div class="input-group add-on">
-				<input class="form-control" placeholder="여행지를 입력해주세요"
-					name="srch-term" id="srch-term" type="text">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="submit">
-						<i class="glyphicon glyphicon-search"></i>
-					</button>
-				</div>
-			</div>
-		</form>
+					<!-- map_container 끝 -->
+					<div id="route_container">
+						<br>
+						<h3>경로를 추가하세요</h3>
+						<br>
+						<div class='search_bar'>
+							<form class="navbar-form" role="search">
+								<div class="input-group add-on">
+									<input class="form-control" placeholder="여행지를 입력해주세요"
+										name="srch-term" id="srch-term" type="text">
+									<div class="input-group-btn">
+										<button class="btn btn-default" type="submit">
+											<i class="glyphicon glyphicon-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
 
-			<ul class="search_list">
-				<li><a href="#"><div>비트캠프</div>
-						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-				<li><a href="#"><div>비트캠프</div>
-						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-				<li><a href="#"><div>비트캠프</div>
-						<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-				<li><a href="#"><div>ㅁㅁ</div></a></li>
-				<li><a href="#"><div>ㅁㅁ</div></a></li>
-			</ul>
-		</div>
+							<ul class="search_list">
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+							</ul>
+						</div>
 
-	<div id="googleMap" style="width: 500px; height: 380px;"></div>
+						<div id="googleMap" style="width: 500px; height: 380px;"></div>
 
-	<div class="buttons">
-		<button type="button" id="cancel-login"
-			onclick="test('route_container'); test1('modal');">취소</button>
-		<button type="button"
-			onclick="test('route_container'); test1('modal');"
-			id="login-summit">등록</button>
-	</div>
-</div>
+						<div class="buttons">
+							<button type="button" id="cancel-login"
+								onclick="test('route_container'); test1('modal');">취소</button>
+							<button type="button"
+								onclick="test('route_container'); test1('modal');"
+								id="login-summit">등록</button>
+						</div>
+					</div>
 
 					<!-- 글작성 부분 -->
-					<textarea
-						onchange="addition_p('write_addition','testdiv'); cmaTextareaSize('cc', 30);" onkeyup="cmaTextareaSize('cc', 30);"
-						class="text_write_box" id="cc" placeholder="내용을 입력하세요" onblur="onblur1(ab)"></textarea>
+					<div id="text_parent_0">
+						<textarea
+							onchange="addition_p('write_addition','testdiv'); cmaTextareaSize('cc', 30);"
+							onkeyup="cmaTextareaSize('cc', 30);" class="text_write_box"
+							id="cc" placeholder="내용을 입력하세요" onblur="onblur1(ab)"></textarea>
+					</div>
 					<!-- 글작성 addition_p를 호출한다 -->
 					<br>
 
@@ -179,152 +191,153 @@
 
 
 	</div>
-	
-	
-  <div class="edit_react_window">
-    <div class="edit_window">
-      <div class="edit_input">
-
-        <div class="files_container">
-          <div class="table_files" id="tbfiles">
-            <div class="files_date">2017. 07. 23, 계곡9999999999999999dfdfasdfsda99999999999</div>
-
-            <div class="files_wrap">
-
-            <a href="#" onclick="checked('checked_mark');">
-              <div class="file" type="image">
-                <div class="file_icon">
-                  <img class="thumb" src='./img/vally.jpg' style="background-size: contain;">
-                </div>
-                <div class="name">vally.jpg</div>
-              </div>
-              <div id="checked_mark" style="display: none">
-              </div>
-            </a>
-
-          <a href="#" onclick="checked('checked_mark2');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/vally.jpg' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark2" style="display: none"></div>
-
-          </a>
-
-          <a href="#" onclick="checked('checked_mark3');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/vally.jpg' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark3" style="display: none"></div>
-
-          </a>
 
 
-          <a href="#" onclick="checked('checked_mark4');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/FR.png' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark4" style="display: none"></div>
+	<div class="edit_react_window">
+		<div class="edit_window">
+			<div class="edit_input">
 
-          </a>
+				<div class="files_container">
+					<div class="table_files" id="tbfiles">
+						<div class="files_date">2017. 07. 23,
+							계곡9999999999999999dfdfasdfsda99999999999</div>
 
+						<div class="files_wrap">
 
-          <a href="#" onclick="checked('checked_mark5');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/FR.png' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark5" style="display: none"></div>
+							<a href="#" onclick="checked('checked_mark');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/vally.jpg'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark" style="display: none"></div>
+							</a> <a href="#" onclick="checked('checked_mark2');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/vally.jpg'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark2" style="display: none"></div>
 
-          </a>
+							</a> <a href="#" onclick="checked('checked_mark3');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/vally.jpg'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark3" style="display: none"></div>
 
+							</a> <a href="#" onclick="checked('checked_mark4');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/FR.png'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark4" style="display: none"></div>
 
-          <a href="#" onclick="checked('checked_mark6');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/FR.png' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark6" style="display: none"></div>
+							</a> <a href="#" onclick="checked('checked_mark5');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/FR.png'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark5" style="display: none"></div>
 
-          </a>
+							</a> <a href="#" onclick="checked('checked_mark6');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/FR.png'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark6" style="display: none"></div>
 
+							</a> <a href="#" onclick="checked('checked_mark7');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/FR.png'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark7" style="display: none"></div>
 
-          <a href="#" onclick="checked('checked_mark7');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/FR.png' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark7" style="display: none"></div>
+							</a> <a href="#" onclick="checked('checked_mark8');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='./img/FR.png'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark8" style="display: none"></div>
+							</a> <a href="#" onclick="checked('checked_mark9');">
+								<div class="file" type="image">
+									<div class="file_icon">
+										<img class="thumb" src='img/dlfqks.jpg'
+											style="background-size: contain;">
+									</div>
+									<div class="name">vally.jpg</div>
+								</div>
+								<div id="checked_mark9" style="display: none"></div>
+							</a>
+						</div>
+						<!-- files_wrap -->
 
-          </a>
+					</div>
+					<!-- "table_files" -->
+				</div>
 
-
-          <a href="#" onclick="checked('checked_mark8');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='./img/FR.png' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark8" style="display: none"></div>
-          </a>
-
-          <a href="#" onclick="checked('checked_mark9');">
-            <div class="file" type="image">
-              <div class="file_icon">
-                <img class="thumb" src='img/dlfqks.jpg' style="background-size: contain;">
-              </div>
-              <div class="name">vally.jpg</div>
-            </div>
-            <div id="checked_mark9" style="display: none"></div>
-          </a>
-        </div>
-        <!-- files_wrap -->
-
-          </div>
-          <!-- "table_files" -->
-        </div>
-
-        <!--"files_container"-->
-        <div class="edit_settings">
-          <div class="contents">
-            <div class="contents_wrap">
-              <div class="group">
-                <div class="edit_group">새 그룹</div>
-                <div class="edit_ungroup">해제</div>
-                <div class="edit_delete">삭제</div>
-              </div>
-              <div class="save">
-                <div class="edit_save">저장</div>
-                <div class="edit_cancel">취소</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- edit_settings -->
-      </div>
-    </div>
-  </div>
-  </div>
-
+				<!--"files_container"-->
+				<div class="edit_settings">
+					<div class="contents">
+						<div class="contents_wrap">
+							<div class="group">
+								<div class="edit_group">새 그룹</div>
+								<div class="edit_ungroup">해제</div>
+								<div class="edit_delete">삭제</div>
+							</div>
+							<div class="save">
+								<div class="edit_save">저장</div>
+								<div class="edit_cancel">취소</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- edit_settings -->
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="images-div"></div>
 	<!-- container_main 태그 -->
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<script
+		src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+	<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script
+		src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+	<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<script
+		src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+	<script
+		src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+	<script src="./write.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script
 		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"></script>
 	<script>
@@ -353,27 +366,15 @@ function test(idMyDiv) {
 
 
 
-function file_browse()
-{
-    $('#file1').click();
-    // document.Form.text1.value=document.Form.file.value;
+function file_browse(a){
+	aaa=a;
+	$('.file1').click()
+		console.log($('.file1').click($(this)));
+	console.log(aaa)
 }
-
-
-
-//
-// function file_f(){
-// 	e.preventDefault();
-// 	$('#file1').click();
-// }
-// ;() {
-// $('.file_btn').click(function (e) {
-// e.preventDefault();
-//
-// });
-// });
-
-
+function title_file_browse(){
+	$('#title_fileupload').click()
+}
 
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
@@ -389,14 +390,15 @@ function test1(idMyDiv) {
 function addition_p(aa, bb) {
   var objDiv = document.getElementById(aa);
   objDiv.style.display = "inline-block";
+ 
 
 }
-var count = 0;
+var count = 1;
 
 // 큰+버튼시 글상자창 추가
 		var tbody = $('.day_list')
     function adddiv() {
-
+console.log(count)
 
       $("<div class='day1' onmouseover='onfocus2(ab"+count+", day_btn"+count+")' onmouseleave='onblur2("+"ab"+count+", day_btn"+count+", testdiv"+count+")'>")
       .html(
@@ -409,7 +411,7 @@ var count = 0;
         + '&#39;'
         + "); return false;'><span id='ab"+count+"' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>"
         + "<div id='testdiv"+count+"' style='display:none'>"
-        + "<a href='#' onclick='test('testdiv_1'); return false;'><img id='testdiv_1' src='./image.png'></a>"
+        + "<a href='javascript:file_browse("+count+")' onclick='test('testdiv_1'); return false;' multiple><img id='testdiv_1' src='./image.png'><input id='file' value="+count+" type='file' style='display:none' name='files' class='file1_"+count+" file1' multiple ></input></a>"
         + "<a href='#' onclick='test("
         + '&#39;'
         + "map_container"
@@ -420,11 +422,11 @@ var count = 0;
         + '&#39;'
         + "); return false;'><img id='testdiv_2' src='./marker.png'></a>"
         + "<a href='#' onclick='test('testdiv_3'); return false;'><img id='testdiv_2' src='./route.png'></img></a>"
-        + "</div><br><textarea id='cc' onchange='addition_p("
+        + "</div><br><div id='text_parent_"+count+"'><textarea id='cc' onchange='addition_p("
         + '&#39;'
         + "write_addition"
         + '&#39;'
-        + ",&#39;testdiv"+count+"&#39;);' onkeydown='resize(this)' onkeyup='resize(this)' class='text_write_box' placeholder='내용을 입력하세요'></textarea><br></div>")
+        + ",&#39;testdiv"+count+"&#39;);' onkeydown='resize(this)' onkeyup='resize(this)' class='text_write_box' placeholder='내용을 입력하세요'></textarea></div><br></div>")
         .appendTo(tbody)
         count++;
 
@@ -452,12 +454,7 @@ function onfocus1(objDiv){
 }
 
 function onblur1(objDiv){
-	console.log('kdkdkdkdk')
-  // $('#objDiv').css('display','none');
 objDiv.style.display = "none";
-// if($(objDiv).closest("a").siblings('#testdiv').display=="undefined"){
-// 	$(objDiv).closest("a").siblings('#testdiv').display='none';
-// 	}
 if($("#testdiv").css("display")=="inline-block"){
  $("#testdiv").css("display","none")
 }
@@ -465,8 +462,8 @@ if($("#testdiv").css("display")=="inline-block"){
 
 }
 			// if($(objDiv).attr('display')=="inline-block"){
-
-function onfocus2(objDiv,bb){
+ 
+ function onfocus2(objDiv,bb){
   $('#objDiv').show();
 objDiv.style.display = "inline-block";
 $('#bb').show();
@@ -480,7 +477,7 @@ console.log(bb)
 $('#bb').hide();
 bb.style.display = "none";
 $(cc).css("display","none")
-}
+}  
 // 마우스 오버시 작은 + 와 날짜 보이게 끝
 
 
