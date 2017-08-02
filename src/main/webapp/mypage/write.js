@@ -195,7 +195,7 @@ $('#write_save_btn').click(function() {
 /*미리보기 파일업로드*/
 
 $('.file1').fileupload({
-	url: '../File/upload.json',        // 서버에 요청할 URL
+	url: '../File/upload3.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
 	singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
@@ -251,7 +251,7 @@ $('.file1').fileupload({
 
 /*back file 업로드 시작*/
 $('#title_fileupload').fileupload({
-	url: '../File/upload.json',        // 서버에 요청할 URL
+	url: '../File/upload3.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
 	singleFileUploads: true, // 한 요청에 여러 개의 파일을 전송시키기.
