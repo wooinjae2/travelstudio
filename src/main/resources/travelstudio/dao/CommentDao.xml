@@ -72,7 +72,7 @@
   <insert id="insert" parameterType="map" 
           useGeneratedKeys="true" keyColumn="reno" keyProperty="reno">
     insert into reply(cont, postno, mno, date) 
-    values(#{cont}, #{postno}, #{mno}, '2017-07-07')
+    values(#{cont}, #{postno}, #{mno}, current_timestamp())
   </insert>
   
  

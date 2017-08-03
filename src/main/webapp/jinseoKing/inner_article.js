@@ -55,7 +55,7 @@ $('#send_btn').click(function() {
 			async: false,
 			success: function(data) {
 
-//				/*새로 insert된거 어떻게 뿌림?*/
+//				/*새로 insert된거만 어떻게 뿌림?*/
 //				$.getJSON('../comment/list.json', function(result){
 //					console.log(result.data.list);
 //

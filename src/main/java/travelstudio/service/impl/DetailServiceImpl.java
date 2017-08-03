@@ -14,8 +14,9 @@ public class DetailServiceImpl implements DetailService {
  
   
  
- public void sadd(Detail detail) throws Exception {
-   detailDao.insert(detail);
+ public void add(Detail detail) throws Exception {
+   /*detailDao.insert(detail);*/
+   detailDao.insert_map(detail);
    
  }
 //  

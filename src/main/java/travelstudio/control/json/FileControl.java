@@ -92,7 +92,7 @@ public class FileControl {
       Detail detail = new Detail();
       detail.setPicno(picNoList.get(0).getPicno());
       detail.setWriter(loginMember.getEmail());
-      detailService.sadd(detail);
+      detailService.add(detail);
       
       File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_700"));
       Thumbnails.of(file).size(761, 506).outputFormat("png").toFile(thumbnail); 

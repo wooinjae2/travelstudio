@@ -26,11 +26,12 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" partName="travel.exerd" title="travel.exerd" tooltip="C:\Users\BitCamp\git\travelstudio\src\main\webapp\jinseoKing\travel.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" partName="travel.exerd" title="travel.exerd" tooltip="C:\Users\BitCamp\git\travelstudio\src\main\webapp\jinseoKing\travel.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/BitCamp/git/travelstudio/src/main/webapp/jinseoKing/travel.exerd"/>
 </editor>
 </editors>
@@ -40,6 +41,10 @@
 <filters>
 <filter element=".*" isEnabled="false"/>
 </filters>
+<expanded>
+<element path="/workspace"/>
+<element path="/workspace/Jinseoking"/>
+</expanded>
 </viewState>
 </view>
 <view id="com.tomato.exerd.ui.views.thumbnail" partName="썸네일">
@@ -161,11 +166,13 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/travelstudio/travel.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/java93/db01-bit/model01/model.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/travelstudio/src/main/webapp/jinseoKing/travel.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/travelstudio/travel.exerd"/>
 </editors>
 <item historyLabel="travel.exerd" index="0"/>
 <item historyLabel="model.exerd" index="1"/>
 <item historyLabel="travel.exerd" index="0"/>
-<item active="true" historyLabel="travel.exerd" index="2"/>
+<item historyLabel="travel.exerd" index="2"/>
+<item active="true" historyLabel="travel.exerd" index="3"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -183,14 +190,14 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" tooltip="C:\Users\BitCamp\git\travelstudio\travel.exerd">
+<persistable uri="file:/C:/Users/BitCamp/git/travelstudio/travel.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" tooltip="C:\Users\BitCamp\git\travelstudio\src\main\webapp\jinseoKing\travel.exerd">
 <persistable uri="file:/C:/Users/BitCamp/git/travelstudio/src/main/webapp/jinseoKing/travel.exerd"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="model.exerd" tooltip="C:\Users\BitCamp\git\java93\db01-bit\model01\model.exerd">
 <persistable uri="file:/C:/Users/BitCamp/git/java93/db01-bit/model01/model.exerd"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" tooltip="C:\Users\BitCamp\git\travelstudio\travel.exerd">
-<persistable uri="file:/C:/Users/BitCamp/git/travelstudio/travel.exerd"/>
 </file>
 </mruList>
 </workbench>
