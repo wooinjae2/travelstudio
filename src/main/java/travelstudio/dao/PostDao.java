@@ -10,6 +10,7 @@ public interface PostDao {
   List<Post> getWriteCount(Post post);
   int insert(Post post);
   void insertPhoto(Map<String,Object> valueMap);
+  Post selectOne(String postno);
 //  int getSize();
 //  List<Member> selectListByNames(Map<String,Object> valueMap);
 //  Member selectOne(int no);

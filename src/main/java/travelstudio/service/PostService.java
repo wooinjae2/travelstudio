@@ -12,6 +12,7 @@ public interface PostService {
   List<Post> list() throws Exception;
   void add(Post post) throws Exception;
   List<Post> getWriteCount(Post post) throws Exception;
+  Post selectOne(String postno)throws Exception;
 //  int getSize() throws Exception;
 }
 

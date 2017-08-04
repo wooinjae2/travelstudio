@@ -31,6 +31,12 @@ public class PostServiceImpl implements PostService {
    postDao.insert(post);
    
  }
+ 
+ public Post selectOne(String postno) throws Exception {
+   
+   return postDao.selectOne(postno);
+ }
+ 
 //  
 //  public Teacher get(int no) throws Exception {
 //    return teacherDao.selectOne(no);

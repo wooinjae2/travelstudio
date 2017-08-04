@@ -19,13 +19,24 @@
         <result column="mno" property="mno"/>
   </resultMap> 
 
-   <sql id="select1">
-    select *
-    from post where postno = 1;;
-  </sql> 
 
-  <select id="selectList" resultMap="postMap" parameterType="map">
-    <include refid="select1"/>
+    
+    
+    
+    
+<insert id="insert" parameterType="post" useGeneratedKeys="true" keyColumn="postno" >
+    insert into post(postno, title, sdt, edt, cont, pdt, mno) 
+    values(null, #{title}, #{sdt},#{edt},#{cont},'2017-07-07',#{mno})
+    
+    <selectKey keyProperty="postno" resultType="int">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+
+  
+  <select id="selectOne" resultMap="postMap" parameterType="String">
+    select * 
+    from post where postno=#{postno}
   <!--   <if test="search != null">
 	    <where>
 	      <choose>
@@ -36,6 +47,23 @@
     order by name asc 
     limit #{startIndex}, #{pageSize} -->
   </select>
+  <select id="selectList" resultMap="postMap" parameterType="map">
+    <include refid="select1"/>
+  </select>
+  
+  <select id="getWriteCount" resultMap="postMap" parameterType="map">
+  	select count(*) from post where mno=#{mno}
+  </select>
+  <!--   <if test="search != null">
+	    <where>
+	      <choose>
+		      <when test="search == 'email'">email = #{value}</when>
+		     </choose>
+	    </where>
+    </if>    
+    order by name asc 
+    limit #{startIndex}, #{pageSize} -->
+
   <!--  
   <select id="getWriteCount" resultMap="postMap" parameterType="map">
   	select count(*) from post where mno=#{mno}

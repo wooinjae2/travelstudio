@@ -9,72 +9,77 @@ package travelstudio.domain;
 
 
 public class Detail {
-  int picno;
-  String  postno, cont, date, capt, writer, address;
-  float longit, lati;
+  int picno, postno;
+  String cont, date, lati, capt, longit, writer;
+
   public int getPicno() {
     return picno;
   }
+
   public void setPicno(int picno) {
     this.picno = picno;
   }
-  public String getPostno() {
+
+  public int getPostno() {
     return postno;
   }
-  public void setPostno(String postno) {
+
+  public void setPostno(int postno) {
     this.postno = postno;
   }
+
   public String getCont() {
     return cont;
   }
+
   public void setCont(String cont) {
     this.cont = cont;
   }
+
   public String getDate() {
     return date;
   }
+
   public void setDate(String date) {
     this.date = date;
   }
+
+  public String getLati() {
+    return lati;
+  }
+
+  public void setLati(String lati) {
+    this.lati = lati;
+  }
+
   public String getCapt() {
     return capt;
   }
+
   public void setCapt(String capt) {
     this.capt = capt;
   }
+
+  public String getLongit() {
+    return longit;
+  }
+
+  public void setLongit(String longit) {
+    this.longit = longit;
+  }
+
   public String getWriter() {
     return writer;
   }
+
   public void setWriter(String writer) {
     this.writer = writer;
   }
-  public String getAddress() {
-    return address;
-  }
-  public void setAddress(String address) {
-    this.address = address;
-  }
-  public float getLongit() {
-    return longit;
-  }
-  public void setLongit(float longit) {
-    this.longit = longit;
-  }
-  public float getLati() {
-    return lati;
-  }
-  public void setLati(float lati) {
-    this.lati = lati;
-  }
+
   @Override
   public String toString() {
-    return "Detail [picno=" + picno + ", postno=" + postno + ", cont=" + cont + ", date=" + date + ", capt=" + capt
-        + ", writer=" + writer + ", address=" + address + ", longit=" + longit + ", lati=" + lati + "]";
+    return "Detail [picno=" + picno + ", postno=" + postno + ", cont=" + cont + ", date=" + date + ", lati=" + lati
+        + ", capt=" + capt + ", longit=" + longit + ", writer=" + writer + "]";
   }
   
-  
-  
 }
-
-
-

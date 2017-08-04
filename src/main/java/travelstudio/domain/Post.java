@@ -1,5 +1,6 @@
 package travelstudio.domain;
 
+import java.util.Arrays;
 
 /* 역할: memb 테이블의 값을 보관할 때 사용할 클래스
  * => 복합 데이터를 다룰 때, 이렇게 클래스를 정의하여 사용한다.
@@ -21,8 +22,6 @@ public class Post {
   String detail;
   String ispublic;
   int mno;
-  
-  
   public int getPostno() {
     return postno;
   }
@@ -65,6 +64,7 @@ public class Post {
   public void setPdt(String pdt) {
     this.pdt = pdt;
   }
+
   public String getCont() {
     return cont;
   }
@@ -95,13 +95,14 @@ public class Post {
   public void setMno(int mno) {
     this.mno = mno;
   }
-  
   @Override
   public String toString() {
     return "Post [postno=" + postno + ", title=" + title + ", badge=" + badge + ", tag=" + tag + ", sdt=" + sdt
         + ", edt=" + edt + ", pdt=" + pdt + ", cont=" + cont + ", capt=" + capt + ", detail=" + detail + ", ispublic="
         + ispublic + ", mno=" + mno + "]";
   }
+  
+ 
   
   
 }

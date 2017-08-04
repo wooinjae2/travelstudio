@@ -36,6 +36,16 @@ public class detailControl {
     
   }  
   
+  @RequestMapping("selectedOneDetail")
+  public JsonResult selectedOneDetail(String number) throws Exception {
+    
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", detailService.selectedOneDetail(number));
+//    dataMap.put("totalCount", noticeService.getSize());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
   
   
 }

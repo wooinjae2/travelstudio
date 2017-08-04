@@ -20,13 +20,13 @@ public class Comment extends Member {
  
 
 
+
+
 @Override
 public String toString() {
   return "Comment [reno=" + reno + ", postno=" + postno + ", mno=" + mno + ", cont=" + cont + ", date=" + date
-      + ", isGood=" + isGood + ", no=" + no + ", email=" + email + ", password=" + password + ", alias=" + alias
-      + ", intro=" + intro + ", pwd=" + pwd + ", mPhoto=" + mPhoto + "]";
+      + ", isGood=" + isGood + "]";
 }
-
 public int getReno() {
   return reno;
 }

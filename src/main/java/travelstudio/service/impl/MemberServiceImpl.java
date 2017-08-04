@@ -14,6 +14,10 @@ import travelstudio.service.MemberService;
 public class MemberServiceImpl implements MemberService {
   
   
+  public List<Member> list() throws Exception {
+    return memberDao.selectList();
+  }
+  
   @Autowired
   MemberDao memberDao;
   
@@ -33,7 +37,7 @@ public class MemberServiceImpl implements MemberService {
     System.out.println(member);
     int count = memberDao.update(member);
     if (count < 1) {
-      throw new Exception(member.getNo() + "번 강사를 찾을 수 없습니다.");
+      throw new Exception(member.getMno() + "번 강사를 찾을 수 없습니다.");
     }
   }
   

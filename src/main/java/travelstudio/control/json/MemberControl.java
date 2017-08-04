@@ -24,7 +24,7 @@ public class MemberControl {
   @Autowired MemberService memberService;
   
   @RequestMapping("info")
-  public JsonResult list() throws Exception {
+  public JsonResult info() throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("info", memberService.info());
     return new JsonResult(JsonResult.SUCCESS, dataMap);
@@ -119,6 +119,17 @@ public Member header(HttpServletRequest req, HttpServletResponse res) throws Exc
   System.out.println('1');
   System.out.println(loginMember);
   return loginMember;
+}
+
+@RequestMapping("list")
+public JsonResult list() throws Exception {
+  
+  
+  HashMap<String,Object> dataMap = new HashMap<>();
+  dataMap.put("list", memberService.list());
+//  dataMap.put("totalCount", noticeService.getSize());
+  
+  return new JsonResult(JsonResult.SUCCESS, dataMap);
 }
 
 /*    

@@ -32,7 +32,7 @@
 			<a href="javascript:title_file_browse()"><div>
 					<span><i id="icons_i" class="fa fa-picture-o fa-3x"
 						aria-hidden="true"></i></span><br> <span class="title_hidden">표지사진</span><input
-						id="title_fileupload" type="file" style="display: none"></input>
+						id="title_fileupload" type="file" name="files" style="display: none"></input>
 				</div></a><br> <a href="#"><div>
 					<span><i id="icons_i" class="fa fa-lock fa-3x"
 						aria-hidden="true"></i></span><br> <span class="title_hidden">모두에게
@@ -434,6 +434,8 @@ console.log(count)
         $('#write_addition').css('display', "none");
 
 
+        
+        
       }
 
 			function resize(obj) {
@@ -498,6 +500,11 @@ $(cc).css("display","none")
 
 			google.maps.event.addListener(map, 'click', function(event) {
 				placeMarker(event.latLng);
+			 mapProp = {
+						center : myCenter,
+						zoom : 2,
+						mapTypeId : google.maps.MapTypeId.ROADMAP
+					};
 			});
 		}
 

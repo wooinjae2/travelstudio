@@ -14,6 +14,7 @@ public interface PictureDao {
   Member selectOneByEmailPassword(Map<String,Object> valueMap);
 int insert(String filename);
 List<Picture> selectPicNo(String path);
+Picture selectByPost(String pictureno);
 //  int update(Member member);
 //  int delete(int no) throws Exception;
 }

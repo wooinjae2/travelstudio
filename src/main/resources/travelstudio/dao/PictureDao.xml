@@ -24,15 +24,18 @@
     values(#{filename})
   </insert>
   
-   <insert id="insert2" parameterType="String"> 
+<!--    <insert id="insert2" parameterType="String"> 
     insert into virtual(path)
     values(#{filename})
   </insert>
-  
+   -->
   <select id="selectPicNo" resultMap="pictureMap" parameterType="String">
   	select picno from pic where path=#{path}
   </select>
   
+    <select id="selectByPost" resultMap="pictureMap" parameterType="String">
+  	select * from pic where picno=#{pictureno}
+  </select>
  <!--  <select id="selectList" resultMap="postMap" parameterType="map">
     <include refid="select1"/>
     <if test="search != null">

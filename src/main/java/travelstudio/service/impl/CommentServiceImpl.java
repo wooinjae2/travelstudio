@@ -44,12 +44,12 @@ public class CommentServiceImpl implements CommentService {
   public void update(Comment comment) throws Exception {
     int count = memberDao.update(comment);
     if (count < 1) {
-      throw new Exception(comment.getNo() + "댓글을 찾을 수 없습니다.");
+      throw new Exception(comment.getMno() + "댓글을 찾을 수 없습니다.");
     }
     
     count = commentDao.update(comment);
     if (count < 1) {
-      throw new Exception(comment.getNo() + "댓글을 찾을 수 없습니다.");
+      throw new Exception(comment.getMno() + "댓글을 찾을 수 없습니다.");
     }
   }
 }
