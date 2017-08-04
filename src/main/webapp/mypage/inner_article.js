@@ -4,7 +4,7 @@ var content = $('#text_box');
 var no = location.href.split('?')[1].split('=')[1]
 console.log(no)
 
-$.post('/woojinseop2/detail/selectedOneDetail.json', {
+$.post('/travelstudio/detail/selectedOneDetail.json', {
 	'number': no
 	},function(result) {
 	console.log(result.data.list);
@@ -25,7 +25,7 @@ $.post('/woojinseop2/detail/selectedOneDetail.json', {
 	jQuery.ajaxSettings.traditional = true;
 	
 	var pictures = $('.whole_collage1');
-	$.post('/woojinseop2/picture/selectByPost.json', {
+	$.post('/travelstudio/picture/selectByPost.json', {
 		'pictureno': picno
 	}, function(result) {
 		console.log(result.fileList);
@@ -50,7 +50,7 @@ var title = $('#blank-one');
 */
 
 
-	$.post('/woojinseop2/post/selectOne.json', {
+	$.post('/travelstudio/post/selectOne.json', {
 		'number': no
 	}, function(result) {
 		console.log(result.data.selectedPost);
@@ -64,7 +64,7 @@ var title = $('#blank-one');
 
 /*게시글이 끝날 때 나타나는 작성자 프로필*/
 var writer = $('#profile_box');
-$.getJSON('/woojinseop2/member/info.json', function(result) {
+$.getJSON('/travelstudio/member/info.json', function(result) {
 	console.log(result.data.info);
 	var template4 = Handlebars.compile($('#content-template-4').html())
 	var generatedHTML4 = template4(result.data) 
@@ -75,7 +75,7 @@ $.getJSON('/woojinseop2/member/info.json', function(result) {
 
 /*댓글 뿌리기*/
 var reply = $('.comment_container');
-$.getJSON('/woojinseop2/comment/list.json', function(result) {
+$.getJSON('/travelstudio/comment/list.json', function(result) {
 	console.log(result.data.list);
 	var template = Handlebars.compile($('#comment-template').html())
 	var generatedHTML = template(result.data)
@@ -112,7 +112,7 @@ $('#send_btn').click(function() {
 
 /*새로 포함된 댓글과 함께 뿌림..ha*/
 	var reply = $('.comment_container');
-	$.getJSON('/woojinseop2/comment/list.json', function(result) {
+	$.getJSON('/travelstudio/comment/list.json', function(result) {
 		console.log(result.data.list);
 		var template = Handlebars.compile($('#comment-template').html())
 		var generatedHTML = template(result.data)

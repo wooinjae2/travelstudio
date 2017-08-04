@@ -47,9 +47,9 @@
     order by name asc 
     limit #{startIndex}, #{pageSize} -->
   </select>
-  <select id="selectList" resultMap="postMap" parameterType="map">
-    <include refid="select1"/>
-  </select>
+   <select id="selectList" resultMap="postMap" parameterType="map">
+    select * from post
+  </select> 
   
   <select id="getWriteCount" resultMap="postMap" parameterType="map">
   	select count(*) from post where mno=#{mno}
