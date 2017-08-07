@@ -87,36 +87,22 @@
 
 					</div>
 					<br>
-					<div id="map_container">
-						<br>
-						<h3>여행지를 추가하세요</h3>
-						<br>
-						<div class='search_bar'>
-							<form class="navbar-form" role="search">
-								<div class="input-group add-on">
-									<input class="form-control" placeholder="여행지를 입력해주세요"
-										name="srch-term" id="srch-term" type="text">
-									<div class="input-group-btn">
+					<div id="map_box">
+              <div id="panel">
+                <input id="address" type="textbox" value="Seoul">
+                 <input type="button" value="장소 검색" onclick="codeAddress()">
+              </div>
+						  <button id="appear_map" onclick="test('map-canvas')">지도 나타나기</button>
+           <div id="map-canvas"></div>
+                   <button id="search_place" type="button" value="저장" onclick="saveMap(); location.href='./inner_article.html'">지도 삽입</button>
 										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>
 										</button>
-									</div>
-								</div>
-							</form>
+         </div>
+					
+						
 
-							<ul class="search_list">
-								<li><a href="#"><div>비트캠프</div>
-										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-								<li><a href="#"><div>비트캠프</div>
-										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-								<li><a href="#"><div>비트캠프</div>
-										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
-								<li><a href="#"><div>ㅁㅁ</div></a></li>
-								<li><a href="#"><div>ㅁㅁ</div></a></li>
-							</ul>
-						</div>
-
-						<div id="googleMap" style="width: 500px; height: 380px;"></div>
+						
 
 						<div class="buttons">
 							<button type="button" id="cancel-login"
@@ -327,7 +313,7 @@
 		src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 	<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
 	<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script
 		src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 	<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
@@ -335,11 +321,11 @@
 		src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
 	<script
 		src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
-	<script src="./write.js"></script>
+	<script src="write.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script
-		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"></script>
+	<<script type="text/javascript" src="https://maps.googleapis.
+com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false, places"></script>
 	<script>
   // 텍스트상자 크기 자동조절
   function cmaTextareaSize(obj, bsize) { // 객체명, 기본사이즈
@@ -484,53 +470,89 @@ $(cc).css("display","none")
 
 
 
-		// 지도
-		var map;
-		var myCenter = new google.maps.LatLng(37.250943, 127.028344);
 
-		function initialize() {
-			var mapProp = {
-				center : myCenter,
-				zoom : 5,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			};
+var lat
+var lng
+var map;
+function initialize() {
+        var mapOptions = {
+                zoom : 7,
+                center : new google.maps.LatLng(37.5651, 126.98955), //서울
+                mapTypeId : google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 
-			map = new google.maps.Map(document.getElementById("googleMap"),
-					mapProp);
 
-			google.maps.event.addListener(map, 'click', function(event) {
-				placeMarker(event.latLng);
-			 mapProp = {
-						center : myCenter,
-						zoom : 2,
-						mapTypeId : google.maps.MapTypeId.ROADMAP
-					};
-			});
-		}
+<!--위치를 입력하면 지도에 핀을 꽂아주기-->
+var geocoder;
 
-		function placeMarker(location) {
-			var marker = new google.maps.Marker({
-				position : location,
-				map : map,
-			});
-			var infowindow = new google.maps.InfoWindow({
-				content : 'Latitude: ' + location.lat() + '<br>Longitude: '
-						+ location.lng()
-			});
-			infowindow.open(map, marker);
-		}
-		$( function() {
-		    $( "#datepicker" ).datepicker({
-		      showButtonPanel: true
-		    });
-		  } );
-		
-		$( function() {
-		    $( "#datepicker1" ).datepicker({
-		      showButtonPanel: true
-		    });
-		  } );
-		google.maps.event.addDomListener(window, 'load', initialize);
+ function codeAddress() {//지역을 입력받아 위도, 경도로 변환하여 그 위치에 마커를 찍어주는 역할을 한다.
+   geocoder = new google.maps.Geocoder();
+
+
+   var address = document.getElementById('address').value;
+   geocoder.geocode( { 'address': address}, function(results, status) {
+         if (status == google.maps.GeocoderStatus.OK) {
+                  lat = results[0]['geometry']['location']['lat']();
+                  lng = results[0]['geometry']['location']['lng']();
+
+                 console.log(lat);
+                 console.log(lng);
+                 console.log(address);
+
+                 map.setCenter(results[0].geometry.location);
+                 var marker = new google.maps.Marker({
+                         map: map,
+                         position: results[0].geometry.location,
+                         draggable:false,
+                         animation:google.maps.Animation.DROP,
+                         title:address
+                 });
+
+         } else {
+           alert("장소를 찾을 수 없습니다.");
+         }
+   });
+ }
+
+<!--지도에서 받은 위도, 경도 타이핑 정보를 데이터베이스로 넘긴다.-->
+   function saveMap(){
+	  console.log(lat);
+	  console.log(lng);
+	  console.log($("#address"));
+
+ 	$.post('../detail/add.json', {
+         'lati': lat,
+         'longit': lng,
+         'address':$("#address").val()
+       }, function(result) {
+       	console.log("위도 경도 넘어간다.");
+         location.href = 'map.html'
+       }, 'json')
+     }
+
+
+   $('#appear_map').click(function(){
+ 	  $('#map-canvas').attr('display','block');
+ 	  $('#panel').css('display','block');
+   })
+
+function test(idMyDiv) {
+var objDiv = document.getElementById(idMyDiv);
+	// console.log(objDiv);
+	console.log($('#testdiv'));
+
+if (objDiv.style.display == "inline-block") {
+ objDiv.style.display = "none";
+ $('#panel').css('display','none');
+} else {
+ objDiv.style.display = "inline-block";
+ $('#panel').css('display','inline-block');
+initialize()
+}
+   }
 		
 
 /*  */

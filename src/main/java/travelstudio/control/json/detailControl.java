@@ -26,6 +26,15 @@ public class detailControl {
   @Autowired ServletContext servletContext;
   @Autowired DetailService detailService;
   
+  @RequestMapping("list")
+  public JsonResult list() throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", detailService.list());
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  
 // 9
   
   @RequestMapping("add")

@@ -5,6 +5,7 @@ import java.util.List;
 import travelstudio.domain.Detail;
 
 public interface DetailDao {
+  List<Detail> selectList();
   int insert(Detail detail);
   void insert_map(Detail detail);
 //  int getSize();

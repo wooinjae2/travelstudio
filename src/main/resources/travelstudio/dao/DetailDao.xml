@@ -26,6 +26,10 @@
     values(#{lati},#{longit}, #{address})
   </insert>
   
+   <select id="selectList" resultMap="detailMap" parameterType="map">
+    select lati, longit, postno from detail where postno = 1;
+    
+  </select> 
   
   
   <update id="insertDetailByEmail" parameterType="detail" >

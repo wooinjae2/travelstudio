@@ -13,7 +13,9 @@ import travelstudio.service.DetailService;
 public class DetailServiceImpl implements DetailService {
   @Autowired DetailDao detailDao;
   
- 
+  public List<Detail> list() throws Exception {
+    return detailDao.selectList();
+  }
   
  
  public void add(Detail detail) throws Exception {

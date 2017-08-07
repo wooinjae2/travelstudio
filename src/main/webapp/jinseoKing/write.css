@@ -3,26 +3,30 @@
 
 
 
-#map-canvas {
+#map_box{
+	border:1px solid black;
+
+
+}
+
+  #map-canvas {
             height: 600px;
-            margin: 0px;
+            
            width: 800px;
-           padding: 0px
+           padding: 0px;
+           display: none;
+           
            
   }
-  
+
    #panel {
      position: absolute;
-     top: 95px;
-     left: 50%;
       margin-left: 100px;
-      
       z-index: 5;
       background-color: #fff;
-      padding: 5px;
       border: 1px solid #999;
-      width: 290px;
-      height
+      display: ;
+      margin-left: 500px;
                   }
                   
  #address {

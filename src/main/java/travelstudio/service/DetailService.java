@@ -9,6 +9,7 @@ import java.util.List;
 import travelstudio.domain.Detail;
 
 public interface DetailService {
+  List<Detail> list() throws Exception;
   void add(Detail detail) throws Exception;
   void sadd(Detail detail) throws Exception;
 //int getSize() throws Exception;

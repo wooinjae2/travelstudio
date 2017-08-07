@@ -10,9 +10,9 @@ package travelstudio.domain;
 
 public class Detail {
   int picno, postno;
-  String cont, date, lati, capt, longit, writer, address;
+  String cont, date, capt, writer, address;
   
-
+  double lati, longit;
 
   
   @Override
@@ -44,10 +44,10 @@ public class Detail {
   public void setDate(String date) {
     this.date = date;
   }
-  public String getLati() {
+  public double getLati() {
     return lati;
   }
-  public void setLati(String lati) {
+  public void setLati(double lati) {
     this.lati = lati;
   }
   public String getCapt() {
@@ -56,10 +56,10 @@ public class Detail {
   public void setCapt(String capt) {
     this.capt = capt;
   }
-  public String getLongit() {
+  public double getLongit() {
     return longit;
   }
-  public void setLongit(String longit) {
+  public void setLongit(double longit) {
     this.longit = longit;
   }
   public String getWriter() {
