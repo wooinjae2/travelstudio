@@ -5,7 +5,7 @@
 <mapper namespace="travelstudio.dao.MemberDao">
 
   <resultMap type="member" id="memberMap">
-    <id column="mno" property="no"/>
+    <id column="mno" property="mno"/>
     <result column="email" property="email"/>
     <result column="alias" property="alias"/>
     <result column="intro" property= "intro"/>

@@ -8,24 +8,26 @@ package travelstudio.domain;
  */
 
 
-public class Comment extends Member {
+public class Comment {
  int reno;
  int postno;
- int mno;
+ int memberno;
  String cont;
  String date;
  boolean isGood;
  
  
- 
-
-
-
 
 @Override
 public String toString() {
-  return "Comment [reno=" + reno + ", postno=" + postno + ", mno=" + mno + ", cont=" + cont + ", date=" + date
+  return "Comment [reno=" + reno + ", postno=" + postno + ", memberno=" + memberno + ", cont=" + cont + ", date=" + date
       + ", isGood=" + isGood + "]";
+}
+public int getMemberno() {
+  return memberno;
+}
+public void setMemberno(int memberno) {
+  this.memberno = memberno;
 }
 public int getReno() {
   return reno;
@@ -39,12 +41,12 @@ public int getPostno() {
 public void setPostno(int postno) {
   this.postno = postno;
 }
-public int getMno() {
+/*public int getMno() {
   return mno;
 }
 public void setMno(int mno) {
   this.mno = mno;
-}
+}*/
 public String getCont() {
   return cont;
 }

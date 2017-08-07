@@ -34,7 +34,7 @@ public class CommentControl {
 
   @RequestMapping("update")
   public JsonResult update(Comment comment) throws Exception {
-    commentService.update(comment);
+    /*commentService.update(comment);*/
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

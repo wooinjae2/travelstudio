@@ -38,7 +38,7 @@ public class PictureControl {
   public Object selectByPost(String[] pictureno) throws Exception{
     List<Picture> fileList = new ArrayList();
     /*List<Picture> file = new List<>();*/
-    System.out.println(pictureno[1]);
+    /*System.out.println(pictureno[1]);*/
     
     /*System.out.println(Arrays.toString(pictureno));*/
     

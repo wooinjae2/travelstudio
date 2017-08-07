@@ -8,7 +8,7 @@
 
   
   <resultMap type="comment" id="commentMap">
-    <id column="mno" property="mno"/>
+    <result column="mno" property="memeberno"/>
     <result column="postno" property="postno"/>
     <result column="reno" property="reno"/>
     <result column="cont" property="cont"/>

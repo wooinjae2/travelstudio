@@ -6,7 +6,7 @@
 <mapper namespace="travelstudio.dao.DetailDao">
   
   <resultMap type="detail" id="detailMap">
-    <id column="picno" property="pictno"/>
+    <id column="picno" property="picno"/>
     <result column="postno" property="postno"/>
     <result column="cont" property="cont"/>
     <result column="date" property="date"/>
