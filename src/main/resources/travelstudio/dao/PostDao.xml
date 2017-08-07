@@ -20,7 +20,9 @@
   </resultMap> 
 
 
-    
+    <select id="info1" resultMap="postMap" parameterType="String">
+    select * from post natural join member where postno=#{number}
+  </select>
     
     
     
@@ -36,7 +38,7 @@
   
   <select id="selectOne" resultMap="postMap" parameterType="String">
     select * 
-    from post where postno=#{postno}
+    from post natural join member where postno=#{postno}
   <!--   <if test="search != null">
 	    <where>
 	      <choose>
@@ -48,7 +50,7 @@
     limit #{startIndex}, #{pageSize} -->
   </select>
    <select id="selectList" resultMap="postMap" parameterType="map">
-    select * from post
+    select * from post natural join member order by postno desc
   </select> 
   
   <select id="getWriteCount" resultMap="postMap" parameterType="map">

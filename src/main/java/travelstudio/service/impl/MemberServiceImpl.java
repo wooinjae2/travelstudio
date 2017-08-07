@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import travelstudio.dao.MemberDao;
 import travelstudio.domain.Member;
+import travelstudio.domain.Post;
 import travelstudio.service.MemberService;
 
 @Service
@@ -22,10 +23,9 @@ public class MemberServiceImpl implements MemberService {
   MemberDao memberDao;
   
   public List<Member> info() throws Exception {
-   
-    
     return memberDao.selectList();
   }
+  
 
   
   public Member get(int no) throws Exception {
@@ -40,6 +40,7 @@ public class MemberServiceImpl implements MemberService {
       throw new Exception(member.getMno() + "번 강사를 찾을 수 없습니다.");
     }
   }
+  
   
   public void insertPhoto(String newFile){
     memberDao.insertPhoto(newFile);
@@ -60,6 +61,9 @@ public class MemberServiceImpl implements MemberService {
     memberDao.insert(member);
     
   }
+
+
+
   
   /*
   public Teacher getByEmailPassword(String email, String password) throws Exception {

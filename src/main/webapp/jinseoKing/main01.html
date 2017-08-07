@@ -155,7 +155,7 @@
         </p>
         </div>
         <div class="more">
-        <a href="../jinseoKing/searchList/listplusheaderfooter.html">+더보기</a>
+        <a href="../mypage/list.html">+더보기</a>
         </div>
       </div>
       
@@ -164,19 +164,19 @@
              <script id="content-template" type="text/x-handlebars-template">
 {{#each list}}
         <div class="item select_item">
-          <a href="../jinseoKing/inner_article.html">
+          <a href="../mypage/inner_article.html?postno={{postno}}">
             <div class="item_thumb">
-              <img src="img/vally.jpg" alt="응 계곡이야" class="hidden_mobile">
+              <img src="..{{cont}}" alt="응 계곡이야" class="hidden_mobile">
             </div>
             <div class="item_in">
               <div class="titl">{{title}}</div>
               <div class="tag">{{tag}}</div>
               <div class="bottom_msg">
               <i style="
-              background:url('https://image.withvolo.com/05ba592adabcde294bd49a2859e6c206/ff6b1126-21d0-4224-b42a-b548fc1ee7c5-709cc6d3345fc6424c2eed32705adb25efb52c88.jpg'); background-size:cover;"
+              background:url(..{{path}}); background-size:cover;"
               alt="outofmap"
               class="circle_photo">
-              </i>
+              </i>{{alias}}
               </div>
             </div>
           </a>
@@ -333,7 +333,7 @@ $('.owl-carousel').owlCarousel({
   }
 })
 </script>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./main.js"></script>
 </html>

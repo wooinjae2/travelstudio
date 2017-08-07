@@ -530,14 +530,16 @@ $(cc).css("display","none")
 			infowindow.open(map, marker);
 		}
 		$( function() {
-		    $( "#datepicker" ).datepicker({
-		      showButtonPanel: true
+		    $("#datepicker").datepicker({
+		      showButtonPanel: true,
+		      dateFormat:'yy/mm/dd'
 		    });
 		  } );
 		
 		$( function() {
-		    $( "#datepicker1" ).datepicker({
-		      showButtonPanel: true
+		    $("#datepicker1").datepicker({
+		      showButtonPanel: true,
+		      dateFormat:'yy/mm/dd'
 		    });
 		  } );
 		google.maps.event.addDomListener(window, 'load', initialize);

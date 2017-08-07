@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.coobird.thumbnailator.Thumbnails;
 import travelstudio.domain.Detail;
 import travelstudio.domain.Member;
 import travelstudio.domain.Post;
@@ -34,12 +35,19 @@ public class PostControl {
   
   @RequestMapping("list")
   public JsonResult list() throws Exception {
-    
-    
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", postService.list());
 //    dataMap.put("totalCount", noticeService.getSize());
     
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+
+  @RequestMapping("info1")
+  public JsonResult info1(String number) throws Exception {
+    System.out.println(number);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("info", postService.info1(number));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
@@ -61,7 +69,7 @@ public class PostControl {
   
   @RequestMapping("selectOne")
   public JsonResult selectOne(String number) throws Exception {
-    System.out.printf("%s 셀렉트원",number);
+    /*System.out.printf("%s 셀렉트원",number);*/
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("selectedPost", postService.selectOne(number));
 //    dataMap.put("totalCount", noticeService.getSize());
@@ -77,17 +85,20 @@ public class PostControl {
     /*System.out.println(files[0]);*/
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/mypage/upload/" + newFilename));
-    /*System.out.println(file);*/
-//    System.out.println();
+    
+    
     System.out.println(post);
+    
     if(files!=null){
     files[0].transferTo(file);
-    
     post.setCont("/mypage/upload/" + newFilename);
     }
+    
     post.setMno(loginMember.getMno());
     postService.add(post);
     
+    File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_1920"));
+    Thumbnails.of(file).size(1920, 1400).outputFormat("png").toFile(thumbnail);
     
     /*System.out.println(post.getCont());*/
     /*System.out.println(post);

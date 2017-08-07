@@ -11,6 +11,8 @@ public interface PostDao {
   int insert(Post post);
   void insertPhoto(Map<String,Object> valueMap);
   Post selectOne(String postno);
+  
+  List<Post> info1(String number);
 //  int getSize();
 //  List<Member> selectListByNames(Map<String,Object> valueMap);
 //  Member selectOne(int no);

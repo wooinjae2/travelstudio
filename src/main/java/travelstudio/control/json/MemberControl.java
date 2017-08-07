@@ -30,6 +30,8 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  
+  
 @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
   System.out.println(no);

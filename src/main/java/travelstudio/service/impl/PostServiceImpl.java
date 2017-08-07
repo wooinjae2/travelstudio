@@ -20,7 +20,11 @@ public class PostServiceImpl implements PostService {
     
     return postDao.selectList();
   }
-  
+  @Override
+  public List<Post> info1(String number) throws Exception {
+    return postDao.info1(number);
+  }
+
   
  public List<Post> getWriteCount(Post post) throws Exception {
     

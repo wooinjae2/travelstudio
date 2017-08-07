@@ -15,7 +15,15 @@ public class Member {
   String alias;
   String intro;
   String pwd;
+  String path;
   
+  
+public String getPath() {
+    return path;
+  }
+  public void setPath(String path) {
+    this.path = path;
+  }
 public String getPwd() {
     return pwd;
   }

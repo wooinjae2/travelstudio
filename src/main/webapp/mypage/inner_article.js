@@ -3,11 +3,12 @@ var content = $('#text_box');
 
 var no = location.href.split('?')[1].split('=')[1]
 console.log(no)
-
+var memberno=0;
+/*detail 출력*/
 $.post('/travelstudio/detail/selectedOneDetail.json', {
 	'number': no
 	},function(result) {
-	console.log(result.data.list);
+	console.log(result);
 	var template2 = Handlebars.compile($('#content-template-2').html())
 	var generatedHTML2 = template2(result.data)
 	content.append(generatedHTML2) 
@@ -40,6 +41,8 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 	}, 'json')
 	
 }) // getJSON()
+/*detail 출력 끝*/
+
 
 
 /*대표사진 div안에 들어가는 내용*/
@@ -53,24 +56,40 @@ var title = $('#blank-one');
 	$.post('/travelstudio/post/selectOne.json', {
 		'number': no
 	}, function(result) {
-		console.log(result.data.selectedPost);
+		console.log(result.data.selectedPost.path);
+		memberno=result.data.selectedPost.mno
 		var template3 = Handlebars.compile($('#content-template-3').html())
 		
 		var generatedHTML3 = template3(result.data) 
 		title.append(generatedHTML3) 
+		$('#blank-one').css("background-image", "url(.."+result.data.selectedPost.cont+"_1920.png)");  
 		/*console.log(result.data)*/
+		
 	}, 'json')
-
+	
+/*대표사진 div안에 들어가는 내용 끝*/
 
 /*게시글이 끝날 때 나타나는 작성자 프로필*/
 var writer = $('#profile_box');
-$.getJSON('/travelstudio/member/info.json', function(result) {
+/*$.getJSON('/travelstudio/member/info.json', function(result) {
 	console.log(result.data.info);
 	var template4 = Handlebars.compile($('#content-template-4').html())
 	var generatedHTML4 = template4(result.data) 
 	writer.append(generatedHTML4)
 }) // getJSON()
+*/
 
+
+$.post('/travelstudio/post/info1.json', {
+		'number': no
+	}, function(result) {
+		console.log(result.data.info);
+		var template4 = Handlebars.compile($('#content-template-4').html())
+		var generatedHTML4 = template4(result.data) 
+		writer.append(generatedHTML4)
+		console.log(result.data)
+	}, 'json')
+	
 
 
 /*댓글 뿌리기*/
