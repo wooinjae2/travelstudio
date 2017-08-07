@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import travelstudio.domain.Detail;
-import travelstudio.domain.Post;
+
 import travelstudio.service.DetailService;
-import travelstudio.service.PostService;
+
 
 
 

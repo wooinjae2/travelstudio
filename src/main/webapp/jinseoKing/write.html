@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <title>travel_log</title>
 <link rel="stylesheet"
 	href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="./resources/demos/style.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" type="text/css" href="write.css">
 <link rel="stylesheet"
 	href="./font-awesome-4.7.0/css/font-awesome.min.css">
@@ -33,7 +32,7 @@
 			<a href="javascript:title_file_browse()"><div>
 					<span><i id="icons_i" class="fa fa-picture-o fa-3x"
 						aria-hidden="true"></i></span><br> <span class="title_hidden">표지사진</span><input
-						id="title_fileupload" type="file" style="display: none"></input>
+						id="title_fileupload" type="file" name="files" style="display: none"></input>
 				</div></a><br> <a href="#"><div>
 					<span><i id="icons_i" class="fa fa-lock fa-3x"
 						aria-hidden="true"></i></span><br> <span class="title_hidden">모두에게
@@ -95,28 +94,36 @@
 						<div class='search_bar'>
 							<form class="navbar-form" role="search">
 								<div class="input-group add-on">
-								
+									<input class="form-control" placeholder="여행지를 입력해주세요"
+										name="srch-term" id="srch-term" type="text">
 									<div class="input-group-btn">
-									
+										<button class="btn btn-default" type="submit">
 											<i class="glyphicon glyphicon-search"></i>
 										</button>
 									</div>
 								</div>
 							</form>
 
-						
+							<ul class="search_list">
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>비트캠프</div>
+										<div id="address">서울특별시 서초구 비트아카데미 빌딩 3층</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+								<li><a href="#"><div>ㅁㅁ</div></a></li>
+							</ul>
 						</div>
-             <div id="panel">
-                   <input id="address" type="textbox" value="Seoul"> 
-                   <input type="button" value="검색" onclick="codeAddress()">
-           </div>
-						<div id="map-canvas" style="width: 500px; height: 380px;"></div>
 
+						<div id="googleMap" style="width: 500px; height: 380px;"></div>
 
 						<div class="buttons">
-							 <button id="search_place" type="button" value="저장" onclick="saveMap(); test('map_container'); test1('modal');">지도 삽입</button>
 							<button type="button" id="cancel-login"
 								onclick="test('map_container'); test1('modal');">취소</button>
+							<button type="button"
+								onclick="test('map_container'); test1('modal');"
+								id="login-summit">등록</button>
 						</div>
 					</div>
 					<!-- map_container 끝 -->
@@ -125,7 +132,17 @@
 						<h3>경로를 추가하세요</h3>
 						<br>
 						<div class='search_bar'>
-						
+							<form class="navbar-form" role="search">
+								<div class="input-group add-on">
+									<input class="form-control" placeholder="여행지를 입력해주세요"
+										name="srch-term" id="srch-term" type="text">
+									<div class="input-group-btn">
+										<button class="btn btn-default" type="submit">
+											<i class="glyphicon glyphicon-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
 
 							<ul class="search_list">
 								<li><a href="#"><div>비트캠프</div>
@@ -321,8 +338,8 @@
 	<script src="./write.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	 <script type="text/javascript" src="https://maps.googleapis.
-com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false, places"></script>
+	<script
+		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"></script>
 	<script>
   // 텍스트상자 크기 자동조절
   function cmaTextareaSize(obj, bsize) { // 객체명, 기본사이즈
@@ -417,6 +434,8 @@ console.log(count)
         $('#write_addition').css('display', "none");
 
 
+        
+        
       }
 
 			function resize(obj) {
@@ -481,6 +500,11 @@ $(cc).css("display","none")
 
 			google.maps.event.addListener(map, 'click', function(event) {
 				placeMarker(event.latLng);
+			 mapProp = {
+						center : myCenter,
+						zoom : 2,
+						mapTypeId : google.maps.MapTypeId.ROADMAP
+					};
 			});
 		}
 
@@ -587,73 +611,6 @@ $(document).ready(function() {
 
   })
 })
-
-
-var lat
-var lng
-var map;
-function initialize() {
-        var mapOptions = {
-                zoom : 10,
-                center : new google.maps.LatLng(37.5651, 126.98955), //서울
-                mapTypeId : google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
-<!--위치를 입력하면 지도에 핀을 꽂아주기-->
-var geocoder;
-
- function codeAddress() {//지역을 입력받아 위도, 경도로 변환하여 그 위치에 마커를 찍어주는 역할을 한다.
-   geocoder = new google.maps.Geocoder();
-   
-   
-   var address = document.getElementById('address').value;
-   geocoder.geocode( { 'address': address}, function(results, status) {
-         if (status == google.maps.GeocoderStatus.OK) {
-                  lat = results[0]['geometry']['location']['lat']();
-                  lng = results[0]['geometry']['location']['lng']();
-                 
-                 console.log(lat);
-                 console.log(lng);
-                 console.log(address);
-                 
-                 map.setCenter(results[0].geometry.location);    
-                 var marker = new google.maps.Marker({
-                         map: map,
-                         position: results[0].geometry.location,
-                         draggable:false,
-                         animation:google.maps.Animation.DROP,
-                         title:address,
-                         
-                 });
-                 
-         } else {
-           alert("장소를 찾을 수 없습니다.");
-         }
-   });
-           
-   
- }
- 
-<!--지도에서 받은 위도, 경도 타이핑 정보를 데이터베이스로 넘긴다.-->
-   function saveMap(){
-	  console.log(lat);
-	  console.log(lng);
-	  console.log($("#address"));
-	  
- 	$.post('../detail/add.json', {
-         'lati': lat,
-         'longit': lng,
-         'address':$("#address").val()
-       }, function(result) {
-       	console.log("위도 경도 넘어간다.");
-         location.href = 'map.html'
-       }, 'json')
-     }
-   
 
 	</script>
 

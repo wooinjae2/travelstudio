@@ -10,76 +10,70 @@ package travelstudio.domain;
 
 public class Detail {
   int picno, postno;
-  String cont, date, lati, capt, longit, writer;
+  String cont, date, lati, capt, longit, writer, address;
+  
 
-  public int getPicno() {
-    return picno;
-  }
 
-  public void setPicno(int picno) {
-    this.picno = picno;
-  }
-
-  public int getPostno() {
-    return postno;
-  }
-
-  public void setPostno(int postno) {
-    this.postno = postno;
-  }
-
-  public String getCont() {
-    return cont;
-  }
-
-  public void setCont(String cont) {
-    this.cont = cont;
-  }
-
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public String getLati() {
-    return lati;
-  }
-
-  public void setLati(String lati) {
-    this.lati = lati;
-  }
-
-  public String getCapt() {
-    return capt;
-  }
-
-  public void setCapt(String capt) {
-    this.capt = capt;
-  }
-
-  public String getLongit() {
-    return longit;
-  }
-
-  public void setLongit(String longit) {
-    this.longit = longit;
-  }
-
-  public String getWriter() {
-    return writer;
-  }
-
-  public void setWriter(String writer) {
-    this.writer = writer;
-  }
-
+  
   @Override
   public String toString() {
     return "Detail [picno=" + picno + ", postno=" + postno + ", cont=" + cont + ", date=" + date + ", lati=" + lati
-        + ", capt=" + capt + ", longit=" + longit + ", writer=" + writer + "]";
+        + ", capt=" + capt + ", longit=" + longit + ", writer=" + writer + ", address=" + address + "]";
   }
-  
+  public int getPicno() {
+    return picno;
+  }
+  public void setPicno(int picno) {
+    this.picno = picno;
+  }
+  public int getPostno() {
+    return postno;
+  }
+  public void setPostno(int postno) {
+    this.postno = postno;
+  }
+  public String getCont() {
+    return cont;
+  }
+  public void setCont(String cont) {
+    this.cont = cont;
+  }
+  public String getDate() {
+    return date;
+  }
+  public void setDate(String date) {
+    this.date = date;
+  }
+  public String getLati() {
+    return lati;
+  }
+  public void setLati(String lati) {
+    this.lati = lati;
+  }
+  public String getCapt() {
+    return capt;
+  }
+  public void setCapt(String capt) {
+    this.capt = capt;
+  }
+  public String getLongit() {
+    return longit;
+  }
+  public void setLongit(String longit) {
+    this.longit = longit;
+  }
+  public String getWriter() {
+    return writer;
+  }
+  public void setWriter(String writer) {
+    this.writer = writer;
+  }
+  public String getAddress() {
+    return address;
+  }
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+ 
 }
