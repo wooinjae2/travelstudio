@@ -1,7 +1,7 @@
 var userDesc= $('.user_desc');
 
 
-$.getJSON('../profile/info.json', function(result) {
+$.getJSON('../member/info.json', function(result) {
 
    console.log(result.data);
        var template = Handlebars.compile($('#user-info-template').html())
