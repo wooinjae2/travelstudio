@@ -364,4 +364,56 @@ console.log(content)
 		
 });
 
+
+/* 민섭 파일 전체 올리기*/
+$('#fileAllUpload').fileupload({
+	url: '../File/upload4.json',        // 서버에 요청할 URL
+	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+	singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+	autoUpload: true,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+	disableImageResize: /Android(?!.*Chrome)|Opera/
+		.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+		previewMaxWidth: 700,   // 미리보기 이미지 너비
+		previewMaxHeight: 560,  // 미리보기 이미지 높이 
+		previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+		processalways: function(e, data) {
+
+			console.log('fileuploadprocessalways()...');
+			console.log($(this).val())
+			console.log(data.files);
+			/*console.log(no)*/
+
+			var imagesDiv = $("#text_parent_"+aaa+"").empty();
+			adddiv()
+			imagesDiv.html("");
+			for (var i = 0; i < data.files.length; i++) {
+				try {
+//					console.log($(this).attr('class').split(' ')[1]);
+//					no = location.href.split('?')[1].split('=')[1]
+					if (data.files[i].preview.toDataURL) {
+						console.log($("#text_parent_" + aaa))
+						$("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '100px').appendTo(imagesDiv);
+					}
+				} catch (err) {}
+			}
+			$('#write_save_btn').unbind("click");
+			
+		}, 
+		
+		
+		done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+			console.log('done()...');
+			console.log(data.result);
+			var file = data.result.fileList;
+			/*$('<p/>').text("name : " + data.result.name).appendTo(document.body);
+			$('<p/>').text("age : " + data.result.age).appendTo(document.body);*/
+			$.each(data.result.fileList, function(index, file) {
+				$('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
+			});
+		}
+});
+
+
+
 /*back file up 끝*/

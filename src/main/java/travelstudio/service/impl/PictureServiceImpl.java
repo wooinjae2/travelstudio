@@ -18,6 +18,12 @@ public class PictureServiceImpl implements PictureService {
    pictureDao.insert(filename);
    
  }
+ 
+ public void add1(Picture picture) throws Exception {
+   pictureDao.insert1(picture);
+   
+ }
+ 
  public List<Picture> selectPicNo(String path){
    return pictureDao.selectPicNo(path);
    

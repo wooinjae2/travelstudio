@@ -24,6 +24,12 @@
     values(#{filename})
   </insert>
   
+    <insert id="insert1" parameterType="picture" 
+          useGeneratedKeys="true" keyColumn="picno">
+    insert into pic(path, lati, longit, time)
+    values(#{path}, #{lati}, #{longit}, #{time})
+  </insert>
+  
 <!--    <insert id="insert2" parameterType="String"> 
     insert into virtual(path)
     values(#{filename})

@@ -57,11 +57,16 @@
 
 	</div>
 	<div class="header" id="header"></div>
-	<div class="all_photo_select">
-		<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i><a
-			class="help_btn" href="#" onclick="test1('modal')"> <i
-			class="fa fa-object-group fa-2x" aria-hidden="true"></i></a>
-	</div>
+	
+	
+  <div class="all_photo_select">
+    <a href="javascript:file_browse_none()" id="fileAllup"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a>
+    <input type="file" id="fileAllUpload" name="files" style="display:none" multiple></input>
+    
+    <a class="help_btn" href="#" onclick="test1('modal')"> <i
+      class="fa fa-object-group fa-2x" aria-hidden="true"></i></a>
+  </div>
+  
 	<div class="container_main">
 		<div class="day_list">
 			<div class="day1" onmouseover="onfocus1(ab);"
@@ -375,6 +380,11 @@ function file_browse(a){
 function title_file_browse(){
 	$('#title_fileupload').click()
 }
+
+function file_browse_none(){
+    $('#fileAllup').click()
+    $('#fileAllUpload').click();
+  }
 
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
