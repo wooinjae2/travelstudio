@@ -19,9 +19,9 @@ public class CommentServiceImpl implements CommentService {
   @Autowired 
   CommentDao commentDao;
   
-  public List<Comment> list() throws Exception {
+  public List<Comment> list(String no) throws Exception {
     
-    return commentDao.selectList();
+    return commentDao.selectList(no);
   }
   
   public void add(Comment comment) throws Exception {

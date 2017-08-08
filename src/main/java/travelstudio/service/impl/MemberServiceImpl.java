@@ -36,14 +36,14 @@ public class MemberServiceImpl implements MemberService {
   public void update(Member member) throws Exception {
     System.out.println(member);
     int count = memberDao.update(member);
-    if (count < 1) {
+   /* if (count < 1) {
       throw new Exception(member.getMno() + "번 강사를 찾을 수 없습니다.");
-    }
+    }*/
   }
   
   
-  public void insertPhoto(String newFile){
-    memberDao.insertPhoto(newFile);
+  public void insertPhoto(Member member){
+    memberDao.insertPhoto(member);
   }
   
   /*우인재*/

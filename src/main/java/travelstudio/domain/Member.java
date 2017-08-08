@@ -24,9 +24,12 @@ public String getPath() {
   public void setPath(String path) {
     this.path = path;
   }
+ 
 public String getPwd() {
     return pwd;
   }
+
+
   public void setPwd(String pwd) {
     this.pwd = pwd;
   }

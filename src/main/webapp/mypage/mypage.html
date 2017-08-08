@@ -76,7 +76,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 <div class="cont_card">
   <div class="inner_card">
   <ul class="travle_list">
-    <li class="travel_item">
+<!--     <li class="travel_item">
       <div class="item_card">
         <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
       <div class="img_card">
@@ -149,8 +149,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
   </div>
       </div>
     </div>
-    </li>
-
+    </li> 
 
 
     <li class="travel_item">
@@ -189,6 +188,51 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
       </div>
     </div>
     </li>
+-->
+
+
+
+            <script id="content-template" type="text/x-handlebars-template">
+{{#each list}}
+            <li class="travel_item">
+              <div class="item_card">
+                <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
+              <div class="img_card">
+                <a href="../mypage/inner_article.html?postno={{postno}}">
+                  <img class="list_img" src="../{{cont}}"></img>
+                </a>
+              </div>
+              <div class="card_desc">
+        <div class="card_title">
+          <div class="list_title"><a href="#">{{title}}</a></div>
+          <div class="cate">
+              <nav>
+              <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+                <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
+
+
+                <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+                <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+                <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
+              </ul>
+              </nav>
+        </div>
+        </div>
+        <div class="card_bottom">
+          <img src="../upload/{{path}}" style='border-radius:100%'></img>
+          <span>{{alias}}</span>
+            <div class="mypage_list_heart">
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <span class="heart_num">3</span>
+        </div>
+        </div>
+              </div>
+            </div>
+            </li>
+{{/each}}
+		       </script>
+
 
 
 
@@ -230,28 +274,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
             </li>
 
 
-
-    <li class="travel_item">
-      <div class="img_card">
-        <a href="#">
-          <img class="list_img" src="./Turkey.jpg"></img>
-        </a>
-      </div>
-      <div class="card_desc">
-<div class="card_title">
-  <div class="list_title"><a href="#">첫번째 여행기</a></div>
-  <i class="fa fa-align-justify" aria-hidden="true"></i>
-</div>
-<div class="card_bottom">
-  <img src="./usercircle.png"></img>
-  <span>swanpurple</span>
-    <div class="mypage_list_heart">
-  <i class="fa fa-heart-o" aria-hidden="true"></i>
-  <span class="heart_num">3</span>
-</div>
-</div>
-      </div>
-    </li>
+ 
 </ul>
   </div>
 

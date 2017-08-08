@@ -49,7 +49,7 @@
     <img id="logo" src="./pictures/ourlogo.png">
     <input type="search" id="search_bar" placeholder="검색">
     <button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
-    <button type="button" id="start-my-journey">여행기 작성</button>
+    <button type="button" id="start-my-journey" onclick="location.href='../jinseoKing/login.html'">여행기 작성</button>
   </header>
 
 <!-- 메인화면 사진 HTML -->
@@ -135,7 +135,7 @@
               <div class="tag">{{tag}}</div>
               <div class="bottom_msg">
               <i style="
-              background:url(..{{path}}); background-size:cover;"
+              background:url(../upload/{{path}}); background-size:cover;"
               alt="outofmap"
               class="circle_photo">
               </i>{{alias}}
@@ -249,7 +249,7 @@
           <div class="user_id">{{alias}}</div>
           <div class="user_url">{{email}}</div>
      
-          <a href="../mypage/mypage.html?no={{mno}}"><div class="user_mypage">마이페이지</div></a>
+          <a href="../mypage/mypage.html"><div class="user_mypage">마이페이지</div></a>
           <ul class="user_nation">
             <li><img src="img/FR.png" alt=""></li>
             <li><img src="img/FR.png" alt=""></li>

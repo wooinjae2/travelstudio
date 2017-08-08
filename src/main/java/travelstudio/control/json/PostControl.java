@@ -80,25 +80,29 @@ public class PostControl {
   
   @RequestMapping("add")
   public JsonResult add(Post post, String[] content, HttpServletRequest req, MultipartFile[] files) throws Exception {
+    
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     /*System.out.println(files[0]);*/
-    String newFilename = this.getNewFilename();
-    File file = new File(ctx.getRealPath("/mypage/upload/" + newFilename));
+    
+    
     
     
     System.out.println(post);
     
     if(files!=null){
+      String newFilename = this.getNewFilename();
+      File file = new File(ctx.getRealPath("/mypage/upload/" + newFilename));
     files[0].transferTo(file);
     post.setCont("/mypage/upload/" + newFilename);
+    File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_1920"));
+    Thumbnails.of(file).size(1920, 1400).outputFormat("png").toFile(thumbnail);
     }
     
     post.setMno(loginMember.getMno());
     postService.add(post);
     
-    File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_1920"));
-    Thumbnails.of(file).size(1920, 1400).outputFormat("png").toFile(thumbnail);
+    
     
     /*System.out.println(post.getCont());*/
     /*System.out.println(post);
@@ -115,6 +119,7 @@ public class PostControl {
     System.out.println(content);
     for(int i=0;i<content.length;i++){
       detail.setCont(content[i]);
+      System.out.println(content[i]);
       detailService.insertDetailContent(detail);
     }
     

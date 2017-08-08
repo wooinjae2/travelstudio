@@ -16,5 +16,5 @@ var fiid = $('#id-input'),
      console.log(result)
     }, 'json')
     
-    location.href="../main_minkdak/main.html"
+    location.href="../jinseoKing/main01.html"
   })

@@ -8,7 +8,7 @@
 
   
   <resultMap type="comment" id="commentMap">
-    <result column="mno" property="memeberno"/>
+    <result column="mno" property="mno"/>
     <result column="postno" property="postno"/>
     <result column="reno" property="reno"/>
     <result column="cont" property="cont"/>
@@ -19,25 +19,11 @@
     
   </resultMap> 
 
-   <sql id="select1">
-    
-    select r.reno, r.postno, r.mno, r.cont, r.date, m.alias
-    from reply r natural join member m;
-   
-   
-  </sql> 
 
-  <select id="selectList" resultMap="commentMap" parameterType="map">
-    <include refid="select1"/>
-  <!--   <if test="search != null">
-	    <where>
-	      <choose>
-		      <when test="search == 'email'">email = #{value}</when>
-		     </choose>
-	    </where>
-    </if>    
-    order by name asc 
-    limit #{startIndex}, #{pageSize} -->
+  <select id="selectList" resultMap="commentMap" parameterType="String">
+  select r.reno, r.postno, r.mno, r.cont, r.date, m.alias
+    from reply r natural join member m where r.postno=#{postno};
+    
   </select>
   <!--  
   <select id="getWriteCount" resultMap="postMap" parameterType="map">

@@ -332,12 +332,12 @@ $('#title_fileupload').fileupload({
 			    console.log('submit()...');
 			    $('.text_write_box').each(function () {
 	    		     /*console.log($(this).val())*/
-	    		     content.push($(this).val())
+	    		     content.push(decodeURIComponent($(this).val()))
 	    		   console.log(data.files[0])
 	    		  })
-console.log(content)
+	    		  console.log(content)
 			    data.formData = {
-			    		title : fititle.val(),
+			    		title : decodeURIComponent(fititle.val()),
 			    		sdt: fisdt.val(),
 			    		edt: fiedt.val(),
 			    		mno: mno,

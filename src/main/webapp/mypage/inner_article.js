@@ -93,15 +93,26 @@ $.post('/travelstudio/post/info1.json', {
 
 
 /*댓글 뿌리기*/
-var reply = $('.comment_container');
+/*var reply = $('.comment_container');
 $.getJSON('/travelstudio/comment/list.json', function(result) {
 	console.log(result.data.list);
 	var template = Handlebars.compile($('#comment-template').html())
 	var generatedHTML = template(result.data)
 	reply.append(generatedHTML) 
-})
+})*/
+var reply = $('.comment_container');
+$.post('/travelstudio/comment/list.json', {
+		'number': no
+	}, function(result) {
+		console.log(result.data.list);
+		var template = Handlebars.compile($('#comment-template').html())
+		var generatedHTML = template(result.data)
+		reply.append(generatedHTML) 
+	}, 'json')
 
 /* 댓글 insert. */
+	
+	
 $('#send_btn').click(function() {
 	console.log($('#text_reply').val())
 	if($('#text_reply').val()==''){
@@ -110,7 +121,7 @@ $('#send_btn').click(function() {
 		$.ajax({
 			type: 'POST',
 			url: '../comment/add.json',
-			data: {'cont' : $('#text_reply').val(), 'postno':1, 'mno':1}, 
+			data: {'cont' : $('#text_reply').val(), 'postno':no}, 
 			async: false,
 			success: function(data) {
 
@@ -131,14 +142,14 @@ $('#send_btn').click(function() {
 
 /*새로 포함된 댓글과 함께 뿌림..ha*/
 	var reply = $('.comment_container');
-	$.getJSON('/travelstudio/comment/list.json', function(result) {
+	$.post('/travelstudio/comment/list.json', {
+		'number': no
+	}, function(result) {
 		console.log(result.data.list);
 		var template = Handlebars.compile($('#comment-template').html())
 		var generatedHTML = template(result.data)
 		reply.append(generatedHTML) 
-
-
-	})
+	}, 'json')
 })
 
 

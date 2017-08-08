@@ -8,10 +8,10 @@ package travelstudio.domain;
  */
 
 
-public class Comment {
+public class Comment extends Member{
  int reno;
  int postno;
- int memberno;
+ 
  String cont;
  String date;
  boolean isGood;
@@ -20,15 +20,15 @@ public class Comment {
 
 @Override
 public String toString() {
-  return "Comment [reno=" + reno + ", postno=" + postno + ", memberno=" + memberno + ", cont=" + cont + ", date=" + date
+  return "Comment [reno=" + reno + ", postno=" + postno + ", mno=" + mno + ", cont=" + cont + ", date=" + date
       + ", isGood=" + isGood + "]";
 }
-public int getMemberno() {
+/*public int getMemberno() {
   return memberno;
 }
 public void setMemberno(int memberno) {
   this.memberno = memberno;
-}
+}*/
 public int getReno() {
   return reno;
 }

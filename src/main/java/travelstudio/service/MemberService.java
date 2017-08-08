@@ -12,7 +12,7 @@ public interface MemberService {
   List<Member> list() throws Exception;
   Member getByEmailPassword(String email, String password) throws Exception;
   void update(Member member) throws Exception;
-  void insertPhoto(String newFile);
+  void insertPhoto(Member member);
   
   /*우인재*/
 }

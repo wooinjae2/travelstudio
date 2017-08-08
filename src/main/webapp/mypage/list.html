@@ -170,16 +170,17 @@ div.connect:after {
 
 
 
-.face_pic {
+.face_pic>img{
 	border: 1xp solid white;
 	width: 50px;
 	height: 50px;
-	overflow: hidden;
+	 overflow: hidden; 
 	margin-left:5px;
-	margin-top:3px;
+	margin-top:5px;
 	border-radius: 50%;
 }
-
+.face_pic>span{
+}
 
 
 /*여기서부터 footer css*/
@@ -249,7 +250,11 @@ color:#fc8f8f;
  a:link { color: black; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
  a:hover { color: black; text-decoration: none;}
-
+#user_alias{
+margin-top:30px;
+margin-left:5px;
+font-size:16px;
+}
 
 </style>
 
@@ -281,8 +286,8 @@ color:#fc8f8f;
 							
 						</div>
 							<div class="face_pic">
-							<img id="circle_pic_user" src="..{{path}}">
-							
+							<img id="circle_pic_user" src="../upload/{{path}}"></img>
+							<span id="user_alias">{{alias}}</span>
             </div>
 						
 					</div>

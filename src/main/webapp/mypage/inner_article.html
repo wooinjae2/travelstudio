@@ -673,7 +673,7 @@ line-height: 35px;
       max-width: 90px;
       max-height: 90px;
       overflow: hidden;
-      border-radius: 50%;
+      border-radius: 100%;
       margin-left: auto;
       margin-right: auto;
     }
@@ -924,10 +924,10 @@ line-height: 35px;
 
     <div class="faces">
       <div class="face">
-        <a href="#"><img src="..{{path}}" ></a>
+        <a href="#"><img src="../upload/{{path}}" ></a>
       </div>
       <div class="face2">
-        <a href="#"><img src="../{{path}}" id="Emma"></a>
+        <a href="#"><img src="../upload/{{path}}" id="Emma"></a>
       </div>
     </div>
 {{/selectedPost}}
@@ -1017,7 +1017,7 @@ line-height: 35px;
 	<script id="content-template-4" type="text/x-handlebars-template">
 {{#each info}}
 <div class="author_pic">
-  <a href="#"><img id="author" src="..{{path}}"></a>
+  <a href="#"><img id="author" src="../upload/{{path}}"></a>
 </div>
 
 <p class="alias">{{alias}}</p><br>

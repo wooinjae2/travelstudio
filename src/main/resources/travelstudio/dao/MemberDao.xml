@@ -31,7 +31,7 @@
     update member set 
       alias=#{alias}, 
       intro=#{intro} 
-    where mno=#{no}
+    where mno=#{mno}
   </update>
   
   <insert id="insert" parameterType="member" 
@@ -40,10 +40,10 @@
     values(#{email},password(#{password}),#{alias},'1')
   </insert>
   
-  <update id="insertPhoto" parameterType="string">
+  <update id="insertPhoto" parameterType="member">
     update member set
-    mpto=#{mpto}
-    where mno=1
+    path=#{path}
+    where mno=#{mno}
   </update>
   <!-- 우인재 -->
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">

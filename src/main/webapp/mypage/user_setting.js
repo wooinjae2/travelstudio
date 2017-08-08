@@ -36,9 +36,10 @@ $('#save-btn').click(function() {
 	console.log(aliasIp.val())
   $.post('../member/update.json', {
 	  'alias': aliasIp.val(),
-	  'intro': introIp.val()  
+	  'intro': introIp.val()
   }, function(result) {
-	 location.href = 'mypage.html'
+	  console.log('완료')
+	 /*location.href = 'mypage.html'*/
   }, 'json')
 })
 
@@ -92,12 +93,13 @@ $('#fileupload').fileupload({
 
 
 $.getJSON('../member/header.json',function(result){
-	let str = result.memberPhoto;
+	console.log(result)
+	let str = result.path;
 	var path = window.location.pathname;
-	console.log(path)
+	
 	console.log(str)
 	$('.user_photo_change').css({
-		  'background': 'url("/upload/' + str +'")' + 'center center no-repeat'
+		  'background': 'url("../mypage/upload/' + str +'")' + 'center center no-repeat'
 		  
 	})
 }) 
