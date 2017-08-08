@@ -1,4 +1,3 @@
-
 $.getJSON('/travelstudio/post/list.json', function(result) {
 
    console.log(result.data.list);
@@ -48,4 +47,3 @@ $.getJSON('/travelstudio/member/header.json', function(result) {
   })
 
   }) // getJSON()
-

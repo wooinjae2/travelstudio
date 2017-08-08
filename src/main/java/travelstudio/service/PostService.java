@@ -14,6 +14,7 @@ public interface PostService {
   List<Post> info1(String number) throws Exception;
   List<Post> getWriteCount(Post post) throws Exception;
   Post selectOne(String postno)throws Exception;
+  List<Post> search(String keyword)throws Exception;
 //  int getSize() throws Exception;
 }
 

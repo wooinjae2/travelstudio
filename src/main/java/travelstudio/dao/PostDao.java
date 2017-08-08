@@ -11,6 +11,7 @@ public interface PostDao {
   int insert(Post post);
   void insertPhoto(Map<String,Object> valueMap);
   Post selectOne(String postno);
+  List<Post> search(String keyword);
   
   List<Post> info1(String number);
 //  int getSize();

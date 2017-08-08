@@ -38,7 +38,6 @@
         <img src="img/logo.PNG" id="logo">
         <input id="search-bar" type="text" name="search" placeholder="search">
       </div>
-
   <i class="fa fa-search fa-2x" aria-hidden="true"></i>
   <button type="button"  onclick="location.href='../jinseoKing/login.html'" id="edit-start-button">start
   </div>
@@ -244,7 +243,7 @@
     <div class="member_slide">
         <div class="member_info">
           <div class="user_photo">
-            <img src="img/user_default.png">
+            <img src="../upload/{{path}}">
           </div>
           <div class="user_id">{{alias}}</div>
           <div class="user_url">{{email}}</div>
@@ -292,25 +291,20 @@ $('#slide_icon').click(function (){
   $('.slide_bar').animate({left:0}, 350);
   $('.cover_dimmed').show();
 })
-
 $('#cancel_icon').click(function () {
   $('.slide_bar').animate({left:-320}, 350);
   $('.cover_dimmed').hide();
 })
-
 }
-
 function slide_off() {
   $('.cover_dimmed').click(function () {
     $('.slide_bar').animate({left:-320}, 350);
     $('.cover_dimmed').hide();
 })
 }
-
 $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
-
 $(document).ready(function(){
   //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
   $(".owl-carousel").owlCarousel({
@@ -321,7 +315,6 @@ $(document).ready(function(){
     autoplayHoverPause:true
   });
 });
-
 $('.owl-carousel').owlCarousel({
   loop:false,
   margin:10,
