@@ -15,13 +15,11 @@
     <result column="date" property="date"/>
     <result column="good" property="good"/>
     <result column="alias" property="alias"/>
-    
-    
   </resultMap> 
 
 
   <select id="selectList" resultMap="commentMap" parameterType="String">
-  select r.reno, r.postno, r.mno, r.cont, r.date, m.alias
+  select r.reno, r.postno, r.mno, r.cont, r.date, m.alias, m.path
     from reply r natural join member m where r.postno=#{postno};
     
   </select>

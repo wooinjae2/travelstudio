@@ -11,6 +11,7 @@ package travelstudio.domain;
 public class Comment extends Member{
  int reno;
  int postno;
+ 
  String cont;
  String date;
  boolean isGood;
