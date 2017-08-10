@@ -8,61 +8,61 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 <style>
 
-.header-container{
-  border: 1px solid white;
-  width: 100%;
-  height: 150px;
 
+    body {
+      margin: 0;
+    }
 
-}
+    header {
+      border: 1px solid #c9d1dd;
+      width: 100%;
+      height: 70px;
+      z-index: 100;
+      background-color: white;
+    }
 
-.in-header-container{
-  border:1px solid white;
-  width: 1024px;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
+    #logo {
+      max-height: 55px;
+      margin-top: 7px;
+      margin-left: 420px;
+      display: inline;
+    }
 
-}
+    #title_of_article {
+      border: 1px solid white;
+      font-size: 25px;
+      font-weight: bold;
+      margin-left: 21%;
+      margin-top: 11px;
+      display: inline;
+      position: absolute;
+    }
 
-i{
-  margin-top: 7px;
-  margin-left: 10px;
-}
+    #start-my-journey {
+      border: 1px solid black;
+      width: 140px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: white;
+      margin-left: 938px;
+      margin-top: 13px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      position: absolute;
+      display: inline;
+    }
 
-#edit-start-button{
-  border: 2px solid black;
-  background-color: white;
-  border-radius: 5px;
-  float: right;
-  width: 120px;
-  height: 40px;
-  margin-top:40px;
-  font-weight: bold;
-}
-
-#search-bar {
-  border: 1px solid white;
-  border-bottom: 1px solid black;
-  width: 700px;
-  height: 40px;
-  margin-left: 70px;
-  margin-top: 40px;
-}
-
-#logo{
-  height: 60px;
-  margin-bottom: 20px;
-}
 /*여기까지 header*/
 
 /*여기서부터 로그인--*/
 .sign-in-container{
   border: 1px solid white;
-  width: 600px;
-  height: 500px;
+  width: 700px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 120px;
 
 }
 
@@ -102,6 +102,7 @@ i{
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 25px;
+ 
 
 
 
@@ -117,13 +118,25 @@ i{
   margin-right: auto;
 }
 
-#facebook-login, #login-summit{
+#facebook-login{
+  border: 2px solid #6a7991;
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+ #login-summit {
   border: 2px solid #6a7991;
   width: 272px;
   height: 50px;
   border-radius: 25px;
   font-size: 17px;
   margin-bottom: 15px;
+  display: inline-block;
 }
 
 #facebook-login {
@@ -167,17 +180,11 @@ i{
 
   </head>
   <body>
-    <div class="header-container">
-      <!--<img id="logo" src="logo2.PNG">-->
-      <div class="in-header-container">
-       <a href="login.html"><img src="logo.PNG" id="logo"></a>
-      <input id="search-bar" type="text" name="search" placeholder="search">
-
-    <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-    <button type="button" id="edit-start-button">start
-    </div>
-    <hr>
-  </div>
+    <header class="header">
+    <img id="logo" src="./pictures/ourlogo.png">
+    <p id="title_of_article">여행기 제목</p>
+    <button type="button" id="start-my-journey">여행기 작성</button>
+  </header>
 <!--header-->
 
 <!-- sign in-->

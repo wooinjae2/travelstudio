@@ -6,13 +6,14 @@ package travelstudio.control.json;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import travelstudio.domain.Detail;
-
+import travelstudio.domain.Member;
 import travelstudio.service.DetailService;
 
 
@@ -41,6 +42,16 @@ public class detailControl {
   public String add(Detail detail) throws Exception {
     System.out.println("1");
     detailService.add(detail);
+    return "a";
+  }  
+  
+  @RequestMapping("addMap")
+  public String addMap(Detail detail, HttpServletRequest req) throws Exception {
+    HttpServletRequest httpRequest = (HttpServletRequest) req;
+    Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
+    detail.setWriter(loginMember.getEmail());
+    System.out.println(detail);
+    detailService.addMap(detail);
     return "a";
     
   }  

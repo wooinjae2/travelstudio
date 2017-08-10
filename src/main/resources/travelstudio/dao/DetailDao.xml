@@ -22,8 +22,8 @@
   </insert>
   
    <insert id="insert_map" parameterType="detail"> 
-    insert into detail(lati, longit, address)
-    values(#{lati},#{longit}, #{address})
+    insert into detail(lati, longit, writer)
+    values(#{lati},#{longit}, #{writer})
   </insert>
   
    <select id="selectList" resultMap="detailMap" parameterType="map">
