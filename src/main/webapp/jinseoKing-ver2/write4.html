@@ -3,18 +3,28 @@
 <head>
 <meta charset="utf-8">
 <title>travel_log</title>
+<meta name="viewport" content="initial-scale=1.0">
 <link rel="stylesheet"
 	href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
-<link rel="stylesheet" type="text/css" href="write3.css">
+<link rel="stylesheet" type="text/css" href="write4.css">
 <link rel="stylesheet"
 	href="./font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="/maps/documentation/javascript/demos/demos.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -92,24 +102,41 @@
 
 					</div>
 					<br>
+			<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-target="#myModal" onClick="resize()">주소검색</button>
 					<div id="map_container">
 						<br>
 						<h3>여행지를 추가하세요</h3>
 						<br>
 						
 
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-	<div id="map"></div>
-	<button id="save" onclick="saveMap();createMap();">save</button>
-
-						<div class="buttons">
-							<button type="button" id="cancel-login"
-								onclick="test('map_container'); test1('modal');">취소</button>
-							<button type="button"
-								onclick="test('map_container'); test1('modal');"
-								id="login-summit">등록</button>
-						</div>
-					</div>
+	<!-- 모달창 -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content" style="width: 730px; height: 750px;">
+				<!-- 주소찾기 -->
+				<div class="modal-header" style="">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">
+						<i class="fa fa-map-o" style="font-size: 24px"></i>주소찾기
+					</h4>
+				</div>
+				<div class="modal-body" style="height: 84%; padding: 10px;">
+					<!-- 구글 맵 검색input -->
+					<input id="pac-input" class="controls" type="text"
+						placeholder="주소 검색">
+					<!-- 구글 맵  -->
+					<div id="map"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+						onclick="saveMap(); createMap()">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="newMap"></div>
 					<!-- map_container 끝 -->
 				
 
@@ -117,7 +144,7 @@
 	 
    
 
-	<div id="newMap"></div>
+
 					<!-- 글작성 부분 -->
 					<div id="text_parent_0">
 						<textarea
@@ -350,111 +377,95 @@ function test1(idMyDiv) {
  
  
 }
-var latNum;
-var lngNum;
-var center;
-var count = 0;
-
+/***** Google Map Init *****/
 function initAutocomplete() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 		center : {
-			lat : -33.8688,
-			lng : 151.2195
+			lat : 37.946295,
+			lng : 126.000023
 		},
-		zoom : 10,
-		mapTypeId : 'roadmap'
+
+		zoom : 8,
+		mapTypeId : google.maps.MapTypeId.ROADMAP
 	});
 
-var clickcount=0;
-var a;
-var b;
 	// Create the search box and link it to the UI element.
 	var input = document.getElementById('pac-input');
 	var searchBox = new google.maps.places.SearchBox(input);
 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 	// Bias the SearchBox results towards current map's viewport.
+	var clickcount = 0;
 	map.addListener('bounds_changed', function() {
 		searchBox.setBounds(map.getBounds());
-
 		console.log(map.center.lat());
 		console.log(map.center.lng());
 		map.addListener('click', function(e) {
-			if(clickcount==0){
-			placeMarkerAndPanTo(e.latLng, map);
-clickcount++;
-			}else{
+			if (clickcount == 0) {
+				placeMarkerAndPanTo(e.latLng, map);
+				clickcount++;
+			} else {
 				marker.setMap(null);
-				
 				placeMarkerAndPanTo(e.latLng, map);
 			}
-
 			latNum = map.center.lat()
 			lngNum = map.center.lng()
-
 			console.log(latNum);
 			console.log(lngNum);
-
 		});
-		var marker=new google.maps.Marker();
+
+		var marker = new google.maps.Marker();
 		function placeMarkerAndPanTo(latLng, map) {
-			 marker = new google.maps.Marker({
+			marker = new google.maps.Marker({
 				position : latLng,
 				map : map,
 			});
-
 			map.panTo(latLng);
 			map.setZoom(14);
 			console.log("마크 찍힘");
 			console.log(marker);
 
 		}
-	
+
 	});
-	
-	
 
 	var markers = [];
+	// [START region_getplaces]
 	// Listen for the event fired when the user selects a prediction and retrieve
 	// more details for that place.
 	searchBox.addListener('places_changed', function() {
 		var places = searchBox.getPlaces();
-
 		if (places.length == 0) {
 			return;
 		}
 
 		// Clear out the old markers.
-		/*markers.forEach(function(marker) {
-		  marker.setMap(null);
+		markers.forEach(function(marker) {
+			marker.setMap(null);
 		});
-		markers = [];*/
 
+		markers = [];
 		// For each place, get the icon, name and location.
 		var bounds = new google.maps.LatLngBounds();
 		places.forEach(function(place) {
-			if (!place.geometry) {
-				console.log("Returned place contains no geometry");
-				return;
-			}
-			/*
-			var icon = {
-			  url: place.icon,
-			  size: new google.maps.Size(71, 71),
-			  origin: new google.maps.Point(0, 0),
-			  anchor: new google.maps.Point(17, 34),
-			  scaledSize: new google.maps.Size(25, 25)
+		/*	var icon = {
+				url : place.icon,
+				size : new google.maps.Size(71, 71),
+				origin : new google.maps.Point(0, 0),
+				anchor : new google.maps.Point(17, 34),
+				scaledSize : new google.maps.Size(25, 25)
 			};
-			 */
+			console.log(bounds.hd);
+*/
 			// Create a marker for each place.
-			/*   markers.push(new google.maps.Marker({
-			     map: map,
-			     icon: icon,
-			     title: place.name,
-			     position: place.geometry.location
-			   }));
-			 */
-
+		/*	markers.push(new google.maps.Marker({
+				map : map,
+				title : place.name,
+				animation : google.maps.Animation.DROP,
+				position : place.geometry.location
+			}));*/
+			
+			console.log(place);
 			if (place.geometry.viewport) {
 				// Only geocodes have viewport.
 				bounds.union(place.geometry.viewport);
@@ -463,94 +474,94 @@ clickcount++;
 			}
 		});
 		map.fitBounds(bounds);
-
 	});
-
 }
-  
-  /*2번 맵*/
-  	function initMap2(mapDelId, slati, slongit) {
-			var map2 = new google.maps.Map(document.getElementById(mapDelId), {
-				zoom : 8,
-				center : {
-					lat : 40.731,
-					lng : -73.997
-				}
-			});
-			var geocoder = new google.maps.Geocoder;
-			var infowindow = new google.maps.InfoWindow;
 
-			/* window.onload=geocodeLatLng(geocoder, map2, infowindow);*/
-			geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
+//모달창이 띄어질 경우 구글 맵 리사이즈
+function resize() {
+	$('#myModal').on('shown.bs.modal', function() {
+		google.maps.event.trigger(map, "resize");
+	});
+}
+
+/**/
+function initMap2(mapDelId, slati, slongit) {
+	var map2 = new google.maps.Map(document.getElementById(mapDelId), {
+		zoom : 8,
+		center : {
+			lat : 40.731,
+			lng : -73.997
 		}
+	});
+	var geocoder = new google.maps.Geocoder;
+	var infowindow = new google.maps.InfoWindow;
 
-		function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
+	/* window.onload=geocodeLatLng(geocoder, map2, infowindow);*/
+	geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
+}
 
-			/* var input = document.getElementById('latlng').value;*/
+function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 
-			/* var latlngStr = input.split(',', 2); */
-			var latlng = {
-				lat : parseFloat(slati),
-				lng : parseFloat(slongit)
-			};
-			geocoder.geocode({
-				'location' : latlng
-			}, function(results, status) {
-				if (status === 'OK') {
-					if (results[1]) {
-						map2.setZoom(14);
-						map2.setCenter(results[0].geometry.location);
-						var marker = new google.maps.Marker({
-							position : latlng,
-							map : map2
-						});																
+	/* var input = document.getElementById('latlng').value;*/
 
-						infowindow.setContent(results[1].formatted_address);
-						infowindow.open(map2, marker);
+	/* var latlngStr = input.split(',', 2); */
+	var latlng = {
+		lat : parseFloat(slati),
+		lng : parseFloat(slongit)
+	};
+	geocoder.geocode({
+		'location' : latlng
+	}, function(results, status) {
+		if (status === 'OK') {
+			if (results[1]) {
+				map2.setZoom(14);
+				map2.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					position : latlng,
+					map : map2
+				});																
 
-					}
-				}
-			});
+				infowindow.setContent(results[1].formatted_address);
+				infowindow.open(map2, marker);
+
+			}
 		}
-		
-		
-		var body33=$('#newMap')
-		console.log($('#newMap'))
-			 var mapcount=3;
-		function createMap(){
-			slati=latNum.toFixed(8);
-			  slongit=lngNum.toFixed(8);
-			$("<div id='map"+mapcount+"' style='width:300px; height:300px; border:1px solid black;'>").appendTo($('#newMap'))
-				/* $("<div class='map5'>").appendTo($('#newMap')) */
-				/* $("<div class='map5'>").insertAfter(body33) */
-		/* $("<div id='map'"+mapcount+">").appendTo(body33) */
-		console.log("aaaa")
-		 var mapDelId='map'+mapcount
-		 console.log(mapDelId,slati,slongit)
-		/*  $.getJSON('/travelstudio/detail/list.json', function(result) {
-		console.log(result.data.list); 
+	});
+}
 
+/*지도 복사하는 함수*/
+var body33 = $('#newMap')
+console.log($('#newMap'))
+var mapcount = 3;
+function createMap() {
+	slati = latNum.toFixed(8);
+	slongit = lngNum.toFixed(8);
+	$(
+			"<div id='map"+mapcount+"' style='width:300px; height:300px; border:1px solid black;'>").appendTo($('#newMap'))
 
-		}) // getJSON(*/
-		initMap2(mapDelId,slati,slongit)
-		mapcount++
-			  
-		};
+	console.log("aaaa")
+	var mapDelId = 'map' + mapcount
+	console.log(mapDelId, slati, slongit)
 
-		var slati;
-		var slongit;
-		function saveMap(){
-			  console.log("위치 데이터 넘어감");
-			$.post('../detail/addMap.json', {
-		        'lati': latNum.toFixed(8),
-		        'longit': lngNum.toFixed(8)
-		        
-		      }, function(result) {
-		    	  
-		      	console.log("위도 경도 넘어간다.");
-		        location.href = 'map.html'
-		      }, 'json')  
-		    }
+	initMap2(mapDelId, slati, slongit)
+	mapcount++
+
+};
+
+var slati;
+var slongit;
+function saveMap() {
+	console.log("위치 데이터 넘어감");
+	$.post('../detail/addMap.json', {
+		'lati' : latNum.toFixed(8),
+		'longit' : lngNum.toFixed(8)
+
+	}, function(result) {
+
+		console.log("위도 경도 넘어간다.");
+		location.href = 'map.html'
+	}, 'json')
+}
 		
 // 작은 + 끝
 
