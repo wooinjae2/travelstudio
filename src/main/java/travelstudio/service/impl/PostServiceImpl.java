@@ -14,7 +14,9 @@ import travelstudio.service.PostService;
 public class PostServiceImpl implements PostService {
   @Autowired PostDao postDao;
   
- 
+ public List<Post> selectOneUserPost(int number) throws Exception{
+   return postDao.selectOneUserPost(number);
+ }
   
   public List<Post> list() throws Exception {
     

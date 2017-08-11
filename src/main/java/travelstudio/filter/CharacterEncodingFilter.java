@@ -1,4 +1,4 @@
-/*package travelstudio.filter;
+package travelstudio.filter;
 
 import java.io.IOException;
 
@@ -30,4 +30,3 @@ public class CharacterEncodingFilter implements Filter {
   public void destroy() {}
 
 }
-*/

@@ -13,7 +13,7 @@ public interface MemberDao {
 //  int insert(Notice notice);
 //  int delete(int no);
   int update(Member member);
-
+  Member searchOneUser(String alias);
   
   void insertPhoto(Member member);
 //  void insertPhoto(Map<String,Object> valueMap);

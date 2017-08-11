@@ -15,10 +15,10 @@
   display: none;
 
 }
-div{
-	border:1px solid black;
-}
 
+.day1{
+	width:1150px;
+}
 .help_btn {
 
   background-color: black;
@@ -129,7 +129,9 @@ a:link {
   color: #767676;
   margin: 10px auto;
 }
-
+div{
+	border:1px solid black;
+}
 .edit_settings li {
   /*display: inline-block;*/
   color: #4265EE;
@@ -138,7 +140,13 @@ a:link {
   margin: 10px 0 0 10px;
   vertical-align: center
 }
-
+ .text_parent{
+	
+	width:900px;
+	min-height:150px;
+	border:1px solid black;
+	display:inline-block;
+}
 
 /*.edit_group, .edit_settings img {
   display: inline-block;
@@ -158,10 +166,7 @@ a:link {
   height: 685px;
   overflow: auto;
 }
-#text_parent {
-/*   border: solid 1px red; */
 
-}
 div[class*=table_files] {
   width: 1119px;
   height: 179px;
@@ -438,6 +443,7 @@ a:-webkit-any-link {
   vertical-align: top;
   margin-right: 15px;
   height: 125px;
+  
 }
 
 .write_day>div {
@@ -468,7 +474,7 @@ a:-webkit-any-link {
 .day_list {
   margin-top: 20px;
   margin-bottom: 40px;
-  height: 125px;
+  height: auto;
   display: inline-block;
 }
 
@@ -544,6 +550,7 @@ a:-webkit-any-link {
 
 .day1 {
   margin-top: 30px;
+  height:auto;
 }
 
 div[id*='testdiv']>a>img {

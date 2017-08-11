@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import travelstudio.domain.Member;
 import travelstudio.service.MemberService;
+import travelstudio.service.PostService;
 
 @RestController
 @RequestMapping("/member/")
@@ -22,6 +23,7 @@ public class MemberControl {
   
   @Autowired ServletContext servletContext;
   @Autowired MemberService memberService;
+  @Autowired PostService postService;
   
   @RequestMapping("info")
   public JsonResult info() throws Exception {
@@ -30,6 +32,7 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+
   
   
 @RequestMapping("detail")
@@ -86,43 +89,8 @@ public Object upload1(MultipartFile[] files, HttpServletRequest req) throws Exce
 }
 
 
-/*@RequestMapping(path="add")
-public Object add(MultipartFile files) throws Exception {
-  HashMap<String,Object> resultMap = new HashMap<>();
-  
-  System.out.println("서버 응답 완료!"); 
-  
-  
-  ArrayList<Object> fileList = new ArrayList<>();
-  
-      System.out.println(files.getOriginalFilename());
-      HashMap<String,Object> fileMap = new HashMap<>();
-
-      String newFilename = files.getOriginalFilename();
-      File file = new File(servletContext.getRealPath("/upload/" + newFilename));
-      files.transferTo(file);
-      
-      File thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_80"));
-      Thumbnails.of(file).size(80, 80).outputFormat("png").toFile(thumbnail); 
-
-      thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_140"));
-      Thumbnails.of(file).size(140, 140).outputFormat("png").toFile(thumbnail);
-      
-      thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_200"));
-      Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
-        
-      fileMap.put("filename", newFilename);
-      fileMap.put("filesize", files.getSize());
-      fileList.add(fileMap);
-      
-      resultMap.put("fileList", fileList);    
-      
-  
-  return new JsonResult(JsonResult.SUCCESS, "ok");
-}*/
-
 /*우인재*/
-@RequestMapping("add.json")
+@RequestMapping("add")
 public JsonResult add(Member member) throws Exception {
   memberService.add(member);
   System.out.println("1");
@@ -130,12 +98,31 @@ public JsonResult add(Member member) throws Exception {
 }
 
 @RequestMapping("header")
-public Member header(HttpServletRequest req, HttpServletResponse res) throws Exception {
+public JsonResult header(HttpServletRequest req, HttpServletResponse res) throws Exception {
   HttpServletRequest httpRequest = (HttpServletRequest) req;
   Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
-  System.out.println('1');
   System.out.println(loginMember);
-  return loginMember;
+  HashMap<String,Object> dataMap = new HashMap<>();
+  dataMap.put("loginMember", loginMember);
+  return new JsonResult(JsonResult.SUCCESS, dataMap);
+  
+}
+
+@RequestMapping("searchOneUser")
+public JsonResult searchOneUser(String alias) throws Exception {
+  
+  /*alias="'"+alias+"'";*/
+  System.out.println(alias);
+  HashMap<String,Object> dataMap = new HashMap<>();
+  Member member = memberService.searchOneUser(alias);
+  
+  dataMap.put("Member", member);
+  dataMap.put("list", postService.selectOneUserPost(member.getMno()));
+  
+//  dataMap.put("list", postService.selectOne(String.valueOf(member.getMno())));
+//  dataMap.put("totalCount", noticeService.getSize());
+  
+  return new JsonResult(JsonResult.SUCCESS, dataMap);
 }
 
 @RequestMapping("list")

@@ -28,7 +28,9 @@
     select * from post natural join member where title like concat('%',#{keyword},'%')
   </select>
     
-    
+     <select id="selectOneUserPost" resultMap="postMap" parameterType="int">
+    select * from post natural join member where mno=#{number}
+  </select>
     
 <insert id="insert" parameterType="post" useGeneratedKeys="true" keyColumn="postno" >
     insert into post(postno, title, sdt, edt, cont, pdt, mno) 

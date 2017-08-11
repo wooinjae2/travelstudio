@@ -26,6 +26,7 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.selectList();
   }
   
+ 
 
   
   public Member get(int no) throws Exception {
@@ -60,6 +61,15 @@ public class MemberServiceImpl implements MemberService {
   public void add(Member member) throws Exception {
     memberDao.insert(member);
     
+  }
+
+
+
+
+  @Override
+  public Member searchOneUser(String alias) {
+    
+    return memberDao.searchOneUser(alias);
   }
 
 

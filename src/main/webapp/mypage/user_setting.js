@@ -15,11 +15,11 @@ console.log(no)
 //$("document").ready(function(){]
 $.getJSON('../member/header.json', function(result) {
 	var data = result.data
-	console.log(result)
-	txtAlias.text(result.alias)
-	txtEmail.text(result.email)
-	aliasIp.val(result.alias)
-	introIp.val(result.intro)
+	console.log(result.data.loginMember)
+	txtAlias.text(result.data.loginMember.alias)
+	txtEmail.text(result.data.loginMember.email)
+	aliasIp.val(result.data.loginMember.alias)
+	introIp.val(result.data.loginMember.intro)
 	
 });
 /*$.getJSON('../member/detail.json', {'no': no}, function(result) {
@@ -94,7 +94,7 @@ $('#fileupload').fileupload({
 
 $.getJSON('../member/header.json',function(result){
 	console.log(result)
-	let str = result.path;
+	let str = result.data.loginMember.path;
 	var path = window.location.pathname;
 	
 	console.log(str)

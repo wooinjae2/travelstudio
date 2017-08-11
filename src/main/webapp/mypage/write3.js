@@ -12,173 +12,18 @@ $.getJSON('../member/header.json', function(result) {
 	mno=parseInt(result.data.loginMember.mno);
 	var template = Handlebars.compile($('#tbody-template2').html())
 	var generatedHTML = template(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//	tbody.text('') // tbody의 기존 tr 태그들을 지우고
 	tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
 })
 
 var d = new Date(); 
 var localeDate  =  d.toLocaleDateString(); 
 
-/*
-$('#write_save_btn').click(function() {
-
-	$.post('../post/add.json', {
-		'title': fititle.val(),
-		'sdt': fisdt.val(),
-		'edt': fiedt.val(),
-		'cont':ficont.val(),
-		'mno': mno
-		 'pdt': localeDate,
-      'cont': ficont.val()
-	}, function(result) {
-//		location.href = '../main_minkdak/main.html'
-	}, 'json')
-	
-	var pictures=[];
-	for(i=0;i<=count;i++){
-		if($('#text_parent_'+i+'> img')){
-			console.log($('#text_parent_'+i+' > img'))
-			pictures[i]=$('#text_parent_'+i+' > img')
-		}
-		console.log(pictures)
-	}
-	*/
-	/*$.post('../post/add.json', {
-		'title': fititle.val(),
-		'sdt': fisdt.val(),
-		'edt': fiedt.val(),
-		'cont':ficont.val(),
-		'mno': mno
-		 'pdt': localeDate,
-      'cont': ficont.val()
-	}, function(result) {
-//		location.href = '../main_minkdak/main.html'
-	}, 'json')
-	
-	
-})*/
-
-//$('#file1').fileupload({
-//url: '../File/upload.json',        // 서버에 요청할 URL
-//dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
-//done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-//console.log('done()...');
-//console.log(data.result);
-//var file = data.result.fileList[0];
-//$.each(data.result.fileList, function(index, file) {
-//$('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
-
-//});
-
-//}
-//});
 
 
 
-var aaa=0;
-
-/*
-
-$('#write_save_btn').click(function() {
-if(savecount==1){
-	return;
-}
-jQuery.ajaxSettings.traditional = true;
-$.post('../post/add.json', {
-	'title': fititle.val(),
-	'sdt': fisdt.val(),
-	'edt': fiedt.val(),
-	'cont':ficont.val(),
-	'mno': mno,
-  'cont': ficont.val()
-}, function(result) {
-//	location.href = '../main_minkdak/main.html'
-}, 'json')
-
-var pictures=[];
-for(i=0;i<=count;i++){
-	if($('#text_parent_'+i+'> img')){
-		console.log($('#text_parent_'+i+' > img'))
-		pictures[i]=$('#text_parent_'+i+' > img')
-	}
-	console.log(pictures)
-}
-});*/
 
 
 
-//$('.file1').fileupload({
-//    url: '../File/upload.json',        // 서버에 요청할 URL
-//    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
-//    done: function (e, data) {
-//
-//		console.log($(this).val())
-//		console.log(data.files);
-//		var no = $(this).attr('class').split('_')[1].split(' ')[0]
-//		console.log(no)
-//		/*console.log(no)*/
-//
-//		var imagesDiv = $("#text_parent_"+aaa+"").empty();
-//		adddiv()
-//		imagesDiv.html("");
-//		for (var i = 0; i < data.files.length; i++) {
-//			try {
-////				console.log($(this).attr('class').split(' ')[1]);
-////				no = location.href.split('?')[1].split('=')[1]
-//				if (data.files[i].preview.toDataURL) {
-//					console.log($("#text_parent_" + aaa))
-//					$("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '700px').appendTo(imagesDiv);
-//				}
-//			} catch (err) {}
-//		}
-//		$('#write_save_btn').unbind("click");
-//		$('#write_save_btn').click(function() {
-//			$.post('../post/add.json', {
-//				'title': fititle.val(),
-//				'sdt': fisdt.val(),
-//				'edt': fiedt.val(),
-//				'cont':ficont.val(),
-//				'mno': mno
-//				/* 'pdt': localeDate,
-//		      'cont': ficont.val()*/
-//			}, function(result) {
-////				location.href = '../main_minkdak/main.html'
-//			}, 'json')
-//			
-//			var pictures=[];
-//			for(i=0;i<=count;i++){
-//				if($('#text_parent_'+i+'> img')){
-//					console.log($('#text_parent_'+i+' > img'))
-//					pictures[i]=$('#text_parent_'+i+' > img')
-//				}
-//				console.log(pictures)
-//		}
-//			
-//		});
-//	 // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-////      console.log('done()...');
-////      console.log(data.result);
-//      /*
-//      var file = data.result.fileList[0];
-//      $.each(data.result.fileList, function(index, file) {
-//        $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
-//      });*/
-//      
-//    }
-//});
-
-/*	var content=[];
-console.log()
-for(i=0; i<$('.text_write_box').length;i++){
-	content[i]=$('.text_write_box').val();
-	console.log(content[i])
-}*/
-/*var tempArray = new Array();
-$('.text_write_box').each(function(){
-    tempArray.push($(this).attr('value'));
-});
-console.log(tempArray)
-*/
 var date = new Date();
 var content = []
 $('#write_save_btn').click(function() {
@@ -211,24 +56,23 @@ $('#write_save_btn').click(function() {
 	}, function(result) {
 		console.log(result.data)
 		
-//		location.href = '../main_minkdak/main.html'
 	}, 'json')
 	}
 });
-/*	var pictures=[];
-	for(i=0;i<=count;i++){
-		if($('#text_parent_'+i+'> img')){
-			console.log($('#text_parent_'+i+' > img'))
-			pictures[i]=$('#text_parent_'+i+' > img')
-		}
-		console.log(pictures)
-	}*/
+
 	
+var aaa=0;
+//injaeUpload();
 
+console.log($('.file1').fileupload())
 
+//function injaeUpload(){
+	console.log("호우")
+$('.file1').on('click', function(){
+	console.log($(this))
 /*미리보기 파일업로드*/
-
-$('.file1').fileupload({
+	
+$(this).fileupload({
 	url: '../File/upload.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
@@ -240,7 +84,8 @@ $('.file1').fileupload({
 		previewMaxHeight: 560,  // 미리보기 이미지 높이 
 		previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 		processalways: function(e, data) {
-
+			
+			injaeUpload();
 			console.log('fileuploadprocessalways()...');
 			console.log($(this).val())
 			console.log(data.files);
@@ -248,7 +93,7 @@ $('.file1').fileupload({
 			console.log(no)
 			/*console.log(no)*/
 
-			var imagesDiv = $("#text_parent_"+aaa+"").empty();
+			var imagesDiv = $("#text_parent_"+aaa+"");
 			adddiv()
 			imagesDiv.html("");
 			for (var i = 0; i < data.files.length; i++) {
@@ -271,15 +116,16 @@ $('.file1').fileupload({
 			console.log('done()...');
 			console.log(data.result);
 			var file = data.result.fileList[0];
-			/*$('<p/>').text("name : " + data.result.name).appendTo(document.body);
-			$('<p/>').text("age : " + data.result.age).appendTo(document.body);*/
+			$('<p/>').text("age : " + data.result.age).appendTo(document.body);
 			$.each(data.result.fileList, function(index, file) {
 				$('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
 			});
 		}
-});
+ }); //fileupload
 
+});	
 
+//}// injae
 
 
 /*미리보기 파일업로드 끝*/

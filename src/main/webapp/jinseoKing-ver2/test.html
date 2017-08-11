@@ -108,7 +108,7 @@
 
 	<!-- 모달창을 띄울 버튼 -->
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal" onClick="resize()">주소검색</button>
+		data-target="#myModal" onClick="resize2()">주소검색</button>
 	<!-- 모달창 -->
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
@@ -239,9 +239,9 @@
 		}
 
 		//모달창이 띄어질 경우 구글 맵 리사이즈
-		function resize() {
+		function resize2() {
 			$('#myModal').on('shown.bs.modal', function() {
-				google.maps.event.trigger(map, "resize");
+				google.maps.event.trigger(map, "resize2");
 			});
 		}
 		
