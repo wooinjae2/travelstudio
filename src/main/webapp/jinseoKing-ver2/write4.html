@@ -103,7 +103,7 @@
 					</div>
 					<br>
 			<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal" onClick="resize()">주소검색</button>
+		data-target="#myModal" onClick="resize2()">주소검색</button>
 					<div id="map_container">
 						<br>
 						<h3>여행지를 추가하세요</h3>
@@ -478,9 +478,9 @@ function initAutocomplete() {
 }
 
 //모달창이 띄어질 경우 구글 맵 리사이즈
-function resize() {
+function resize2() {
 	$('#myModal').on('shown.bs.modal', function() {
-		google.maps.event.trigger(map, "resize");
+		google.maps.event.trigger(map, "resize2");
 	});
 }
 

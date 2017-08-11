@@ -85,7 +85,7 @@
 						id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
 					<div id="testdiv" style="display: none">
 						<a href="javascript:file_browse(0)"><img id="testdiv_1" src="./image.png"><input value='0' type="file" style="display: none" name="files" class="file1_0 file1" multiple></input></a>
-						<a href="#" onclick="test('map_container'); test1('modal'); callback=initAutocomplete; return false;"><img id="testdiv_2" src="./marker.png"></a> 
+						<a href="#" onclick="test('map_container'); test1('modal'); return false;"><img id="testdiv_2" src="./marker.png"></a> 
 						<a href="#" onclick="test('route_container'); test1('modal'); return false;">
 						<img id="testdiv_2" src="./route.png"></img></a>
 						<!-- <span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span> -->
@@ -98,7 +98,7 @@
 						<br>
 						
 
-			<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+			<input id="pac-input" class="controls" type="text" placeholder="장소를 검색하세요">
 	<div id="map"></div>
 	<button id="save" onclick="saveMap();createMap();">save</button>
 
@@ -294,7 +294,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"
 	async defer></script>
 	<script>
   // 텍스트상자 크기 자동조절
@@ -520,7 +520,7 @@ clickcount++;
 		function createMap(){
 			slati=latNum.toFixed(8);
 			  slongit=lngNum.toFixed(8);
-			$("<div id='map"+mapcount+"' style='width:300px; height:300px; border:1px solid black;'>").appendTo($('#newMap'))
+			$("<div id='map"+mapcount+"'style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;'>").appendTo($('#newMap'))
 				/* $("<div class='map5'>").appendTo($('#newMap')) */
 				/* $("<div class='map5'>").insertAfter(body33) */
 		/* $("<div id='map'"+mapcount+">").appendTo(body33) */

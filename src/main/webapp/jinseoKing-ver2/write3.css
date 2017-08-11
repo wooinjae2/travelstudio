@@ -538,7 +538,7 @@ a:-webkit-any-link {
 /*모달 지도*/
 #map {
 	height: 400px;
-	width: 700px;
+	width: 798px;
 }
 
 .controls {
@@ -557,11 +557,11 @@ a:-webkit-any-link {
 	font-family: Roboto;
 	font-size: 15px;
 	font-weight: 300;
-	margin-left: 50px;
+	margin-left: 150px;
 	padding: 0 11px 0 13px;
 	text-overflow: ellipsis;
 	width: 300px;
-	border: 1px solid black;
+ 
 	
 }
 
