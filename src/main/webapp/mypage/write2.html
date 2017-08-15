@@ -34,10 +34,6 @@
 
 
 <!-- Google map Library -->
-<!-- 
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete"
-	async defer></script> -->
 
 
 
@@ -118,8 +114,7 @@
 							<a href="javascript:file_browse(0)" class='bbbb'><img
 								id="testdiv_1" src="./image.png"><input value='0'
 								type="file" style="display: none" name="files"
-								class="file1_0 file1" multiple></input></a> <a href="#"
-								onclick="test('map_container'); initialize(); test1('modal'); return false;"><img
+								class="file1_0 file1" multiple></input></a> <a href="#" onclick="test('map_container'); test1('modal'); return false;"><img
 								id="testdiv_2" src="./marker.png"></a> <a href="#" returnfalse;"><img
 								id="testdiv_2" src="./route.png"></img></a> <a href="javascript:;"
 								onclick="createtextbox(0)"><i class="fa fa-pencil"
@@ -310,6 +305,7 @@
 
 	
 	<!-- container_main 태그 -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete" async defer></script>
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 	<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
@@ -325,15 +321,22 @@
 		src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 	<script src="./write2.js"></script>
 
+	
+
 	<!-- <script type="text/javascript" src="https://maps.googleapis.
 com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false, places"></script> -->
 	<script>
 
 $(document.body).on('mouseover', '.day1', function(event) {
 	console.log("===========>>>>>> mouseover")
+	console.log(this)
+	/* console.log($(this'>.text_parent > .toolbox > #testdiv')) */
+	/* $(this'> .text_parent>.toolbox>#testdiv').attr('display','inline-block') */
 });
+
 $(document.body).on('mouseleave', '.day1', function(event) {
 	console.log("===========>>>>>> mouseleave")
+	/* $(this>'.text_parent>.toolbox>#testdiv').attr('display','none') */
 });
 	
 	
@@ -350,8 +353,7 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 
 		function createtextbox(parentno) {
 			$('#text_parent_' + parentno).empty();
-			$('<textarea style="width:800px; height:150px;">').appendTo(
-					$('#text_parent_' + parentno))
+			$('<textarea style="width:800px; height:150px;">').appendTo($('#text_parent_' + parentno))
 			addition_p('write_addition', 'testdiv');
 
 		}
@@ -474,7 +476,7 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 									+ "<a href='javascript:file_browse("
 									+ count
 									+ ")' multiple><img id='testdiv_1' src='./image.png'><input value="+count+" type='file' style='display: none' name='files' class='file1_"+count+" file1' multiple></input></a>"
-									+ "<a href='#' onclick='test(&#39;map_container&#39;); initialize(); test1('modal'); return false;'><img id='testdiv_2' src='./marker.png'></a> "
+									+ "<a href='#' onclick='test(&#39;map_container&#39;); test1('modal'); return false;'><img id='testdiv_2' src='./marker.png'></a> "
 									+ "<a href='#' return false;'><img id='testdiv_2' src='./route.png'></img></a>"
 									+ "<a href='javascript:;' onclick='createtextbox("
 									+ count
@@ -803,13 +805,16 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 				map.fitBounds(bounds);
 			});
 		}
-
 		//모달창이 띄어질 경우 구글 맵 리사이즈
 		function resize2() {
 			$('#myModal').on('shown.bs.modal', function() {
 				google.maps.event.trigger(map, "resize2");
 			});
+		
+				
 		}
+		
+		
 
 		/**/
 		function initMap2(mapDelId, slati, slongit) {
