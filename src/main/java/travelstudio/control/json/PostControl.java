@@ -104,7 +104,7 @@ public class PostControl {
     files[0].transferTo(file);
     post.setCont("/mypage/upload/" + newFilename);
     File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_1920"));
-    Thumbnails.of(file).size(1920, 1400).outputFormat("png").toFile(thumbnail);
+    Thumbnails.of(file).size(2500, 2500).outputFormat("png").toFile(thumbnail);
     }
     
     post.setMno(loginMember.getMno());

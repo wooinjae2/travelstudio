@@ -434,9 +434,6 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 //		       tbody.text('') // tbody의 기존 tr 태그들을 지우고
 		       tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
 		       count++;
-		 
-		
-			 
 			$('#write_addition').css('display', "none");
 		}
 
@@ -519,31 +516,13 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 		}
 
 		var a = 0;
-		$(document)
-				.ready(
-						function() {
-							$(".edit_group")
-									.click(
-											function() {
-												$('<div>2017. 07. 29</div>')
-														.attr('class',
-																'files_date')
-														.appendTo(
-																$(
-																		'<div class="table_files'+a+'" + >')
-																		.insertAfter(
-																				$('.table_files')));
-												$('.checked')
-														.parent()
-														.appendTo(
-																$(
-																		'<div class="files_wrap">')
-																		.appendTo(
-																				$('.table_files'
-																						+ a)));
+		$(document).ready(function() {
+			$(".edit_group").click(function() {
+					$('<div>2017. 07. 29</div>').attr('class','files_date')
+						.appendTo($('<div class="table_files'+a+'" + >').insertAfter($('.table_files')));
+								$('.checked').parent().appendTo($('<div class="files_wrap">').appendTo($('.table_files'+ a)));
 												// $('.checked').parent().appendTo($('<div class="files_wrap">').appendTo($('<div class="table_files'+i+'" + >').insertAfter($('.table_files'))));
-												$('.checked').css('display',
-														'none');
+												$('.checked').css('display','none');
 
 												$('.checked').removeClass();
 
@@ -808,9 +787,11 @@ var mapcount = 3;
 function createMap() {
 	slati = latNum.toFixed(8);
 	slongit = lngNum.toFixed(8);
+	
 	$("<div id='map"+mapcount+"'style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;'>")
 			.appendTo($('#text_parent_0'))
 	console.log("aaaa")
+
 	var mapDelId = 'map' + mapcount
 	console.log(mapDelId, slati, slongit)
 

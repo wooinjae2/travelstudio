@@ -58,6 +58,15 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 		var generatedHTML2 = template2(array1)
 		
 		content.append(generatedHTML2) 
+		/*console.log($('#map').attr('data-lati'));*/
+		/*console.log($('#map').attr(longit));*/
+		console.log($('#map'))
+		console.log(array1)
+		for(i=0; i<array1.list.length;i++){
+			if(array1.list[i].lati!=0){
+				initMap('map'+array1.list[i].srtno)
+			}
+		}
 	}, 'json')
 	console.log(array1.list)
 	
@@ -99,10 +108,14 @@ var title = $('#blank-one');
 		
 		var generatedHTML3 = template3(result.data) 
 		title.append(generatedHTML3) 
-		$('#blank-one').css("background-image", "url(.."+result.data.selectedPost.cont+"_1920.png)");  
+		$('#blank-one').css({"background-image": "url(.."+result.data.selectedPost.cont+"_1920.png)",
+			                 "background-position" : "right-top",
+			                 "background-repeat" : "no-repeat",
+			                 "background-attachment" : "fixed"});  
+		})
 		/*console.log(result.data)*/
 		
-	}, 'json')
+/*	}, 'json')*/
 	
 /*대표사진 div안에 들어가는 내용 끝*/
 
