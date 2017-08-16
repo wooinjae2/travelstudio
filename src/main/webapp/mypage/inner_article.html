@@ -9,7 +9,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"> -->
   
   </script>
 
@@ -968,7 +968,7 @@ line-height: 35px;
 <div id="blank-one" class="blank-one">
   <script id="content-template-3" type="text/x-handlebars-template">
 {{#selectedPost}}
-    <textarea>{{title}}</textarea>
+    <textarea disabled>{{title}}</textarea>
     <div class="bb">
 
       <a href="#" class="write_select_date_start">
@@ -1043,12 +1043,7 @@ line-height: 35px;
 </div>
  -->
   <div class="whole_collage1">
-<script id="content-template-6" type="text/x-handlebars-template">
-{{#each fileList}}
-  <div  id="one_whole_collage"><img id="img_4" src="../{{path}}"></div>
-</div>
-{{/each}}
-</script>
+
 
 <div id="text_box">
 	<script id="content-template-2" type="text/x-handlebars-template">
@@ -1058,6 +1053,10 @@ line-height: 35px;
 <div class="content_text">
 <p>{{cont}}</p>
   </div>
+{{/if}}
+{{#if picno}}
+  <div  id="one_whole_collage"><img id="img_4" src="../{{picno}}_700.png"></div>
+</div>
 {{/if}}
 {{/each}}
 </script>
@@ -1161,22 +1160,7 @@ line-height: 35px;
 <script src="./inner_article.js"></script>
 
    <script>
-      function initialize()
-      {
-       var mapProp = {
-         center: new google.maps.LatLng(37.250943, 127.028344),
-         zoom:7,
-         zoomControl:true,
-         zoomControlOptions: {
-           style:google.maps.ZoomControlStyle.SMALL
-         },
-         mapTypeId: google.maps.MapTypeId.ROADMAP
-       };
-       var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-
+      
 
 
  <!-- 하트 -->
@@ -1202,7 +1186,7 @@ line-height: 35px;
         view.on('scroll', function(){
         var scrollTop = view.scrollTop();
         mast.toggleClass('hidden', scrollTop > prev);
-        console.log(scrollTop);
+        
         prev = scrollTop;
         });
         -->
@@ -1255,34 +1239,7 @@ $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
 
-$(document).ready(function(){
-  //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
-  $(".owl-carousel").owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:20,
-    autoplayHoverPause:true
-  });
-});
 
-$('.owl-carousel').owlCarousel({
-  loop:false,
-  margin:10,
-  nav:true,
-  autoWidth:true,
-  responsive:{
-    0:{
-      items:1
-    },
-    600:{
-      items:4
-    },
-    1000:{
-      items:5
-    }
-  }
-})
 
 
 

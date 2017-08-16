@@ -9,16 +9,23 @@ package travelstudio.domain;
 
 
 public class Detail {
-  int picno, postno;
+  int picno, postno, srtno;
   String cont, date, capt, writer, address;
   
   double lati, longit;
 
   
+  public int getSrtno() {
+    return srtno;
+  }
+  public void setSrtno(int srtno) {
+    this.srtno = srtno;
+  }
   @Override
   public String toString() {
-    return "Detail [picno=" + picno + ", postno=" + postno + ", cont=" + cont + ", date=" + date + ", lati=" + lati
-        + ", capt=" + capt + ", longit=" + longit + ", writer=" + writer + ", address=" + address + "]";
+    return "Detail [picno=" + picno + ", postno=" + postno + ", srtno=" + srtno + ", cont=" + cont + ", date=" + date
+        + ", capt=" + capt + ", writer=" + writer + ", address=" + address + ", lati=" + lati + ", longit=" + longit
+        + "]";
   }
   public int getPicno() {
     return picno;

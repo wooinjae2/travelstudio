@@ -353,9 +353,26 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 
 		function createtextbox(parentno) {
 			$('#text_parent_' + parentno).empty();
-			$('<textarea style="width:800px; height:150px;">').appendTo($('#text_parent_' + parentno))
+			$('<textarea class="text_write_box" style="width:800px; height:150px;">').appendTo($('#text_parent_' + parentno))
 			addition_p('write_addition', 'testdiv');
-
+			addTextfunc()
+		}
+		function addTextfunc(){
+			if($('.text_write_box').val()==""){
+				$('.text_write_box').keyup( function(event){
+					console.log(this)
+				    if (event.keyCode == 8) {             // 13이 enter키 코드 값이다.
+				        alert('backspace!');                          // 여기에 실행하고자 하는 코드를 넣으면 된다. 
+				    }
+				});
+			}
+		$('.text_write_box').keyup( function(event){
+			console.log($('.text_write_box').val())
+			console.log(this)
+		    if (event.keyCode == 13) {             // 13이 enter키 코드 값이다.
+		        alert('enter!');                          // 여기에 실행하고자 하는 코드를 넣으면 된다. 
+		    }
+		});
 		}
 
 		// 작은 + 구현

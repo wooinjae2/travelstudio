@@ -132,18 +132,24 @@ function setFileUploadToInputTag() {
 			imagesDiv.html("");
 			for (var i = 0; i < data.files.length; i++) {
 				try {
-
-//					console.log($(this).attr('class').split(' ')[1]);
-//					no = location.href.split('?')[1].split('=')[1]
 					if (data.files[i].preview.toDataURL) {
 						console.log($("#text_parent_" + aaa))
 						$("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '700px').appendTo(imagesDiv);
 					}
 				} catch (err) {}
 			}
-			/*$('#write_save_btn').unbind("click");*/
+			data.submit();
+		}, submit: function (e, data){ // 서버에 전송하기 직전에 호출된다.
+			console.log('submit()...');
+			console.log(aaa)
+			data.formData = {
+				srtno: aaa
+			}
+			/*  name: $('#name').val(),
+			        age: $('#age').val()
+			    };*/
 
-		}, 
+		},
 
 
 		done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -208,7 +214,10 @@ $('#title_fileupload').fileupload({
 			console.log('submit()...');
 			$('.text_write_box').each(function () {
 				/*console.log($(this).val())*/
+				content.push($(this).parent().attr('id').split('_')[2])
 				content.push(decodeURIComponent($(this).val()))
+				console.log($(this).parent().attr('id').split('_')[2])
+				/*.attr('class').split('_')[1]*/
 				console.log(data.files[0])
 			})
 			console.log(content)

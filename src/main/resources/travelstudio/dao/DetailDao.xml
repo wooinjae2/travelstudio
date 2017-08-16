@@ -8,6 +8,7 @@
   <resultMap type="detail" id="detailMap">
     <id column="picno" property="picno"/>
     <result column="postno" property="postno"/>
+    <result column="srtno" property="srtno"/>
     <result column="cont" property="cont"/>
     <result column="date" property="date"/>
     <result column="lati" property="lati"/>
@@ -17,8 +18,8 @@
   </resultMap> 
 
    <insert id="insert" parameterType="detail"> 
-    insert into detail(picno, writer)
-    values(#{picno},#{writer})
+    insert into detail(picno, writer,srtno)
+    values(#{picno},#{writer},#{srtno})
   </insert>
   
    <insert id="insert_map" parameterType="detail"> 
@@ -41,12 +42,12 @@
   </update>
   
    <insert id="insertDetailContent" parameterType="detail"> 
-    insert into detail(cont, postno)
-    values(#{cont},#{postno})
+    insert into detail(cont, postno, srtno)
+    values(#{cont},#{postno}, #{srtno})
   </insert>
   
   <select id="selectedOneDetail" resultMap="detailMap" parameterType="String">
-  select * from detail where postno=#{postno}
+  select * from detail where postno=#{postno} order by srtno asc
   </select>
   
 

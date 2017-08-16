@@ -125,8 +125,9 @@ public class PostControl {
     detail.setWriter(loginMember.getEmail());
     
     System.out.println(content);
-    for(int i=0;i<content.length;i++){
-      detail.setCont(content[i]);
+    for(int i=0;i<content.length;i+=2){
+      detail.setCont(content[i+1]);
+      detail.setSrtno(Integer.parseInt((content[i])));
       System.out.println(content[i]);
       detailService.insertDetailContent(detail);
     }

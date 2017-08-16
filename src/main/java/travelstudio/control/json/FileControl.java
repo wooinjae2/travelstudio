@@ -41,11 +41,12 @@ public class FileControl {
   
 
   @RequestMapping(path="upload")
-  public Object upload(MultipartFile[] files, HttpServletRequest req) throws Exception {
+  public Object upload(MultipartFile[] files, int srtno, HttpServletRequest req) throws Exception {
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     ArrayList<Object> fileList = new ArrayList<>();
     
+    System.out.println(srtno);
     for (int i = 0; i < files.length; i++) {
       if (files[i].isEmpty()) 
         continue;
@@ -62,6 +63,7 @@ public class FileControl {
       Detail detail = new Detail();
       detail.setPicno(picNoList.get(0).getPicno());
       detail.setWriter(loginMember.getEmail());
+      detail.setSrtno(srtno);
       detailService.sadd(detail);
       
       File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_700"));
