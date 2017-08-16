@@ -131,7 +131,7 @@
 							<button type="button" id="cancel-login"
 								onclick="test('map_container'); test1('modal');">취소</button>
 							<button type="button"
-								onclick="saveMap();createMap(); test('map_container'); test1('modal');"
+								onclick="createMap(); test('map_container'); test1('modal');"
 								id="login-summit">등록</button>
 						</div>
 					<hr>
@@ -775,6 +775,7 @@ function initMap2(mapDelId, slati, slongit) {
 	geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
 }
 
+var address;
 function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 
 
@@ -795,7 +796,12 @@ function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 				});
 
 				infowindow.setContent(results[1].formatted_address);
+				console.log(results[1].formatted_address)
 				infowindow.open(map2, marker);
+				address = results[1].formatted_address;
+				console.log("-------------------------->")
+				console.log(address);
+				saveMap();
 
 			}
 		}
@@ -811,9 +817,9 @@ function createMap() {
 	$("<div id='map"+mapcount+"'style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;'>")
 			.appendTo($('#text_parent_0'))
 	console.log("aaaa")
+	
 	var mapDelId = 'map' + mapcount
 	console.log(mapDelId, slati, slongit)
-
 
 
 	initMap2(mapDelId, slati, slongit)
@@ -827,12 +833,12 @@ function saveMap() {
 	console.log("위치 데이터 넘어감");
 	$.post('../detail/addMap.json', {
 		'lati' : latNum.toFixed(8),
-		'longit' : lngNum.toFixed(8)
+		'longit' : lngNum.toFixed(8),
+	  'address': address
 
 	}, function(result) {
 
-		console.log("위도 경도 넘어간다.");
-		location.href = 'map.html'
+
 	}, 'json')
 }
 	</script>
