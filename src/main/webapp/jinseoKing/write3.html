@@ -802,6 +802,7 @@ function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 				console.log("-------------------------->")
 				console.log(address);
 				saveMap();
+				saveMap2();
 
 			}
 		}
@@ -835,6 +836,17 @@ function saveMap() {
 		'lati' : latNum.toFixed(8),
 		'longit' : lngNum.toFixed(8),
 	  'address': address
+
+	}, function(result) {
+
+
+	}, 'json')
+}
+
+function saveMap2() {
+	console.log("위치 데이터 넘어감");
+	$.post('../post/add.json', {
+	  'badge': address
 
 	}, function(result) {
 
