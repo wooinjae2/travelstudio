@@ -9,3 +9,5 @@ $.getJSON('/travelstudio/post/list.json', function(result) {
        tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
 
   }) // getJSON()ile(title)
+  
+  /**/

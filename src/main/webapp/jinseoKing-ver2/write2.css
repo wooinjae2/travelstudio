@@ -16,6 +16,9 @@
 
 }
 
+.day1{
+	width:1150px;
+}
 .help_btn {
 
   background-color: black;
@@ -126,7 +129,9 @@ a:link {
   color: #767676;
   margin: 10px auto;
 }
-
+div{
+	border:1px solid black;
+}
 .edit_settings li {
   /*display: inline-block;*/
   color: #4265EE;
@@ -135,7 +140,13 @@ a:link {
   margin: 10px 0 0 10px;
   vertical-align: center
 }
-
+ .text_parent{
+	
+	width:900px;
+	min-height:150px;
+	border:1px solid black;
+	display:inline-block;
+}
 
 /*.edit_group, .edit_settings img {
   display: inline-block;
@@ -155,10 +166,7 @@ a:link {
   height: 685px;
   overflow: auto;
 }
-#text_parent {
-/*   border: solid 1px red; */
 
-}
 div[class*=table_files] {
   width: 1119px;
   height: 179px;
@@ -435,6 +443,7 @@ a:-webkit-any-link {
   vertical-align: top;
   margin-right: 15px;
   height: 125px;
+  
 }
 
 .write_day>div {
@@ -465,7 +474,7 @@ a:-webkit-any-link {
 .day_list {
   margin-top: 20px;
   margin-bottom: 40px;
-  height: 125px;
+  height: auto;
   display: inline-block;
 }
 
@@ -535,65 +544,13 @@ a:-webkit-any-link {
   display: block;
 }*/
 
-/*모달 지도*/
-#map {
-	height: 400px;
-	width: 400px;
+#googleMap {
+  margin-left: 15px;
 }
-
-.controls {
-	margin-top: 10px;
-	border: 1px solid transparent;
-	border-radius: 2px 0 0 2px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	height: 32px;
-	outline: none;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#pac-input {
-	background-color: #fff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-	margin-left: 150px;
-	padding: 0 11px 0 13px;
-	text-overflow: ellipsis;
-	width: 300px;
- 
-	
-}
-
-#pac-input:focus {
-	border-color: #4d90fe;
-}
-
-.pac-container {
-	font-family: Roboto;
-}
-
-#type-selector {
-	color: #fff;
-	background-color: #4d90fe;
-	padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-	font-family: Roboto;
-	font-size: 13px;
-	font-weight: 300;
-}
-
-#target {
-	width: 345px;
-}
-
-           
-      
 
 .day1 {
   margin-top: 30px;
+  height:auto;
 }
 
 div[id*='testdiv']>a>img {
@@ -743,4 +700,72 @@ button[id*='day_btn'] {
 .buttons {
   margin-left: 210px;
   margin-top: 30px;
+}
+
+
+
+
+/***** Google maps CSS *****/
+#map {
+	height: 100%;
+	width: 100%;
+	border: 2px solid darkgrey;
+}
+
+.controls {
+	margin-top: 10px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 300px;
+}
+
+#pac-input:focus {
+	border-color: #4d90fe;
+}
+
+.pac-container {
+	font-family: Roboto;
+}
+
+#type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+.pac-container {
+	background-color: #FFF;
+	z-index: 20;
+	position: fixed;
+	display: inline-block;
+	float: left;
+}
+
+.modal {
+	z-index: 20;
+}
+
+.modal-backdrop {
+	z-index: 10;
 }

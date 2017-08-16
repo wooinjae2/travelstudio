@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="initial-scale=1.0">
 <meta charset="utf-8">
 <title>travel_log</title>
 <link rel="stylesheet"
 	href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="write3.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<link rel="stylesheet" type="text/css" href="write2.css">
 <link rel="stylesheet"
 	href="./font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet"
+	href="/maps/documentation/javascript/demos/demos.css"> -->
+
+
+
+<!-- 고진서님구글맵 -->
+
+<!--  Style Sheet (bootstrap) -->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- font-awesome (css icon) -->
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+
+<!-- Google map Library -->
+
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"
+	async defer></script>
+
+
+
+
+
+
+
 
 </head>
 <body>
@@ -68,8 +101,7 @@
 
 	<div class="container_main">
 		<div class="day_list">
-			<div class="day1" onmouseover="onfocus1(ab);"
-				onmouseleave="onblur1(ab);">
+<div class="day1">
 				<div class="write_day">
 					<h2>
 						<button id="write_save_btn">aaa</button>
@@ -78,71 +110,70 @@
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							<div class="travel_detail_date">2017.05.05</div>
 				</div>
-
-				<div class="tool_box">
-					<a href="#" onclick="test('testdiv'); return false;"><span
-						id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
-					<div id="testdiv" style="display: none">
-						<a href="javascript:file_browse(0)"><img id="testdiv_1"
-							src="./image.png"><input value='0' type="file"
-							style="display: none" name="files" class="file1_0 file1" multiple></input></a>
-						<a href="#"
-							onclick="test('map_container'); test1('modal'); return false;"><img
-							id="testdiv_2" src="./marker.png"></a> <a href="#"
-							onclick="test('route_container'); test1('modal'); return false;">
-							<img id="testdiv_2" src="./route.png"></img>
-						</a>
-						<!-- <span><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-map fa-2x" aria-hidden="true"></i></span> -->
-
-					</div>
-					<br>
-					<div id="map_container">
+				<div class="text_parent" id="text_parent_0">
+					<div class="tool_box">
+						<a href="#" onclick="test('testdiv'); return false;"><span
+							id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></span></a>
+						<div id="testdiv" style="display: none">
+							<a href="javascript:file_browse(0)" class='bbbb'><img
+								id="testdiv_1" src="./image.png"><input value='0'
+								type="file" style="display: none" name="files"
+								class="file1_0 file1" multiple></input></a> <a href="#"
+								onclick="test('map_container'); test1('modal'); return false;"><img
+								id="testdiv_2" src="./marker.png"></a> <a href="#" returnfalse;"><img
+								id="testdiv_2" src="./route.png"></img></a> <a href="javascript:;"
+								onclick="createtextbox(0)"><i class="fa fa-pencil"
+								aria-hidden="true"></i></a>
+						</div>
 						<br>
-						<h3>여행지를 추가하세요</h3>
-						<br> <!-- <input id="pac-input" class="controls" type="text"
-							placeholder="장소를 검색하세요">
-						<div id="map"></div>
-						<button id="save" onclick="saveMap();createMap();">save</button>
-
-						<div class="buttons">
-							<button type="button" id="cancel-login"
-								onclick="test('map_container'); test1('modal');">취소</button>
-							<button type="button"
-								onclick="test('map_container'); test1('modal');"
-								id="login-summit">등록</button>
-						</div> -->
 					</div>
-					<!-- map_container 끝 -->
 
-
-
-
-
-<!-- 
-					<div id="newMap"></div> -->
-					<!-- 글작성 부분 -->
-					<div id="text_parent_0">
-						<textarea
+					<!-- <textarea
 							onchange="addition_p('write_addition','testdiv'); cmaTextareaSize('cc', 30);"
 							onkeyup="cmaTextareaSize('cc', 30);" class="text_write_box"
-							id="cc" placeholder="내용을 입력하세요" onblur="onblur1(ab)"></textarea>
-					</div>
-					<!-- 글작성 addition_p를 호출한다 -->
-					<br>
-
+							id="cc" placeholder="내용을 입력하세요" onblur="onblur1(ab)"></textarea> -->
 				</div>
 			</div>
+
+
+			
+
 		</div>
-
-
-
-
 		<br> <a href="#" onclick="adddiv(); return false;"><i
 			id="write_addition" class="fa fa-plus-circle fa-3x"
 			aria-hidden="true"></i></a>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModal" onClick="initAutocomplete(); resize2();">주소검색</button>
 
-
-
+		<!-- map_container 시작 -->
+		<!-- <div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				Modal content
+				<div class="modal-content" style="width: 730px; height: 750px;">
+					주소찾기
+					<div class="modal-header" style="">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">
+							<i class="fa fa-map-o" style="font-size: 24px"></i>주소찾기
+				    </h4>
+					</div>
+					<div class="modal-body" style="height: 84%; padding: 10px;">
+						구글 맵 검색input
+						<input id="pac-input" class="controls" type="text"
+							placeholder="주소 검색">
+						구글 맵 
+						<div id="map"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal"
+							onclick="saveMap(); createMap()">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		 -->
+		<div id="newMap"></div>
+		<!-- map_container 끝 -->
 
 
 
@@ -278,31 +309,56 @@
 	</div>
 	</div>
 	<div id="images-div"></div>
+	<script id="dayplus-template" type="text/x-handlebars-template">
+{{#each aa}}
+			<div class="day1">
+		    <div class='write_day'>
+									<h2><button onclick='changebuttontoday(day_btn{{count}})' id='day_btn{{count}}>+ 일차</button>1일차<h2>"
+									<i class='fa fa-pencil-square-o' aria-hidden='true'></i>
+									<div class='travel_detail_date'>2017.05.05</div></div>
+									<div class='text_parent' id='text_parent_{{count}}'>
+									<div class='tool_box'>
+									<a href='#' onclick="test('testdiv{{count}}'); return false;">
+									<span id='ab{{count}}' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>
+									<div id='testdiv{{count}}' style='display: none'>
+									<a href='javascript:file_browse({{count}})' multiple><img id='testdiv_1' src='./image.png'><input value={{count}} type='file' style='display: none' name='files' class='file1_{{count}} file1' multiple></input></a>
+									<a href='#' onclick="test('map_container'); test1('modal'); return false;"><img id='testdiv_2' src='./marker.png'></a> 
+									<a href='#' return false;'><img id='testdiv_2' src='./route.png'></img></a>
+									<a href='javascript:;' onclick='createtextbox({{count}})'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+									</div><br></div></div></div>  
+{{/each}}
+		       </script>
+	
 	<!-- container_main 태그 -->
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-	<script
-		src="./node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-	<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script
-		src="./node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
-	<script
-		src="./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script src="./node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="./node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="./node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+	<script src="./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 	<script
 		src="./node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-	<script
-		src="./node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<script src="./node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
 	<script
 		src="./node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
 	<script
 		src="./node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
-	<script src="./write.js"></script>
-	<script src=""></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"
-		async defer></script>
+	<script src="./write2.js"></script>
+
+
+	<!-- <script type="text/javascript" src="https://maps.googleapis.
+com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false, places"></script> -->
 	<script>
+
+$(document.body).on('mouseover', '.day1', function(event) {
+	console.log("===========>>>>>> mouseover")
+});
+$(document.body).on('mouseleave', '.day1', function(event) {
+	console.log("===========>>>>>> mouseleave")
+});
+	
+	
 		// 텍스트상자 크기 자동조절
 		function cmaTextareaSize(obj, bsize) { // 객체명, 기본사이즈
 			var sTextarea = document.getElementById(obj);
@@ -314,9 +370,18 @@
 		}
 		// 끝
 
+		function createtextbox(parentno) {
+			$('#text_parent_' + parentno).empty();
+			$('<textarea style="width:800px; height:150px;">').appendTo(
+					$('#text_parent_' + parentno))
+			addition_p('write_addition', 'testdiv');
+
+		}
+
 		// 작은 + 구현
 		function test(idMyDiv) {
 			var objDiv = document.getElementById(idMyDiv);
+			console.log(idMyDiv)
 			// console.log(objDiv);
 			console.log($('#testdiv'));
 
@@ -329,10 +394,21 @@
 		}
 
 		function file_browse(a) {
+			console.log("==============>")
 			aaa = a;
+			/* fileup('.file1_'+aaa) */
+
+			console.log($('.file1'))
 			$('.file1').click()
-			console.log($('.file1').click($(this)));
-			console.log(aaa)
+			/* $('.file1_'+aaa).click($(this)).click */
+		}
+
+		function file_browse1(a) {
+			aaa = a;
+			/* fileup('.file1_'+aaa) */
+
+			$('.file2').click()
+			/* $('.file1_'+aaa).click($(this)).click */
 		}
 		function title_file_browse() {
 			$('#title_fileupload').click()
@@ -342,224 +418,15 @@
 			$('#fileAllup').click()
 			$('#fileAllUpload').click();
 		}
-		/*모달창 띄우가*/
+
 		function test1(idMyDiv) {
 			var objDiv = document.getElementById(idMyDiv);
 			if (objDiv.style.display == "inline-block") {
 				objDiv.style.display = "none";
 			} else {
-				
 				objDiv.style.display = "inline-block";
-				console.log("test1()")
-				initAutocomplete();
-				console.log("initAutocomplete()")
 			}
-			
 		}
-
-	/* 	var latNum;
-		var lngNum;
-		var center;
-		var count = 0;
-
-		function initAutocomplete() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				center : {
-					lat : -33.8688,
-					lng : 151.2195
-				},
-				zoom : 10,
-				mapTypeId : 'roadmap'
-			});
-			console.log("11111");
-
-			var clickcount = 0;
-			var a;
-			var b;
-			// Create the search box and link it to the UI element.
-			var input = document.getElementById('pac-input');
-			var searchBox = new google.maps.places.SearchBox(input);
-			
-			
-
-
-			var markers = [];
-			// Listen for the event fired when the user selects a prediction and retrieve
-			// more details for that place.
-			searchBox.addListener('places_changed', function() {
-				var places = searchBox.getPlaces();
-
-				if (places.length == 0) {
-					return;
-				}
-
-				// Clear out the old markers.
-				markers.forEach(function(marker) {
-				  marker.setMap(null);
-				});
-				markers = [];
-
-				// For each place, get the icon, name and location.
-				var bounds = new google.maps.LatLngBounds();
-				places.forEach(function(place) {
-					if (!place.geometry) {
-						console.log("Returned place contains no geometry");
-						return;
-					}
-					
-					var icon = {
-					  url: place.icon,
-					  size: new google.maps.Size(71, 71),
-					  origin: new google.maps.Point(0, 0),
-					  anchor: new google.maps.Point(17, 34),
-					  scaledSize: new google.maps.Size(25, 25)
-					};
-					
-					// Create a marker for each place.
-					   markers.push(new google.maps.Marker({
-					     map: map,
-					     icon: icon,
-					     title: place.name,
-					     position: place.geometry.location
-					   }));
-					
-
-					if (place.geometry.viewport) {
-						// Only geocodes have viewport.
-						bounds.union(place.geometry.viewport);
-					} else {
-						bounds.extend(place.geometry.location);
-					}
-				});
-				map.fitBounds(bounds);
-
-			});
-
-		}
-		
-		
-		
-		function createNewMap() {
-			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-			// Bias the SearchBox results towards current map's viewport.
-			map.addListener('bounds_changed', function() {
-				searchBox.setBounds(map.getBounds());
-
-				console.log(map.center.lat());
-				console.log(map.center.lng());
-				map.addListener('click', function(e) {
-					if (clickcount == 0) {
-						placeMarkerAndPanTo(e.latLng, map);
-						clickcount++;
-					} else {
-						marker.setMap(null);
-
-						placeMarkerAndPanTo(e.latLng, map);
-					}
-
-					latNum = map.center.lat()
-					lngNum = map.center.lng()
-
-					console.log(latNum);
-					console.log(lngNum);
-
-				});
-				var marker = new google.maps.Marker();
-				function placeMarkerAndPanTo(latLng, map) {
-					marker = new google.maps.Marker({
-						position : latLng,
-						map : map,
-					});
-
-					map.panTo(latLng);
-					map.setZoom(14);
-					console.log("마크 찍힘");
-					console.log(marker);
-
-				}
-
-			});
-
-		}
-
-
-		function initMap2(mapDelId, slati, slongit) {
-			var map2 = new google.maps.Map(document.getElementById(mapDelId), {
-				zoom : 8,
-				center : {
-					lat : 40.731,
-					lng : -73.997
-				}
-			});
-			var geocoder = new google.maps.Geocoder;
-			var infowindow = new google.maps.InfoWindow;
-
-			geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
-		}
-
-		function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
-
-
-			var latlng = {
-				lat : parseFloat(slati),
-				lng : parseFloat(slongit)
-			};
-			geocoder.geocode({
-				'location' : latlng
-			}, function(results, status) {
-				if (status === 'OK') {
-					if (results[1]) {
-						map2.setZoom(14);
-						map2.setCenter(results[0].geometry.location);
-						var marker = new google.maps.Marker({
-							position : latlng,
-							map : map2
-						});
-
-						infowindow.setContent(results[1].formatted_address);
-						infowindow.open(map2, marker);
-
-					}
-				}
-			});
-		}
-
-		var body33 = $('#newMap')
-		console.log($('#newMap'))
-		var mapcount = 3;
-		function createMap() {
-			slati = latNum.toFixed(8);
-			slongit = lngNum.toFixed(8);
-			$(
-					"<div id='map"+mapcount+"'style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;'>")
-					.appendTo($('#newMap'))
-			console.log("aaaa")
-			var mapDelId = 'map' + mapcount
-			console.log(mapDelId, slati, slongit)
-
-
-			}) // getJSON(
-			initMap2(mapDelId, slati, slongit)
-			mapcount++
-
-		};
-
-		var slati;
-		var slongit;
-		function saveMap() {
-			console.log("위치 데이터 넘어감");
-			$.post('../detail/addMap.json', {
-				'lati' : latNum.toFixed(8),
-				'longit' : lngNum.toFixed(8)
-
-			}, function(result) {
-
-				console.log("위도 경도 넘어간다.");
-				location.href = 'map.html'
-			}, 'json')
-		}
- */
 		// 작은 + 끝
 
 		// 큰 +버튼 생성
@@ -574,51 +441,15 @@
 		var tbody = $('.day_list')
 		function adddiv() {
 			console.log(count)
-
-			$(
-					"<div class='day1' onmouseover='onfocus2(ab" + count
-							+ ", day_btn" + count + ")' onmouseleave='onblur2("
-							+ "ab" + count + ", day_btn" + count + ", testdiv"
-							+ count + ")'>")
-					.html(
-							"<div class='write_day'> <button onclick='changebuttontoday(day_btn"
-									+ count
-									+ ")' id='day_btn"
-									+ count
-									+ "'>+ 일차</button>"
-									+ "<div class='travel_detail_date'></div></div><div class='tool_box'>"
-									+ "<a href='#' onclick='test("
-									+ '&#39;'
-									+ "testdiv"
-									+ count
-									+ '&#39;'
-									+ "); return false;'><span id='ab"+count+"' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>"
-									+ "<div id='testdiv"+count+"' style='display:none'>"
-									+ "<a href='javascript:file_browse("
-									+ count
-									+ ")' onclick='test('testdiv_1'); return false;' multiple><img id='testdiv_1' src='./image.png'><input id='file' value="+count+" type='file' style='display:none' name='files' class='file1_"+count+" file1' multiple ></input></a>"
-									+ "<a href='#' onclick='test("
-									+ '&#39;'
-									+ "map_container"
-									+ '&#39;'
-									+ "); test1("
-									+ '&#39;'
-									+ "modal"
-									+ '&#39;'
-									+ "); return false;'><img id='testdiv_2' src='./marker.png'></a>"
-									+ "<a href='#' onclick='test('testdiv_3'); return false;'><img id='testdiv_2' src='./route.png'></img></a>"
-									+ "</div><br><div id='text_parent_"+count+"'><textarea id='cc' onchange='addition_p("
-									+ '&#39;'
-									+ "write_addition"
-									+ '&#39;'
-									+ ",&#39;testdiv"
-									+ count
-									+ "&#39;);' onkeydown='resize(this)' onkeyup='resize(this)' class='text_write_box' placeholder='내용을 입력하세요'></textarea></div><br></div>")
-					.appendTo(tbody)
-			count++;
-
+			var data = {aa:[{count:count}]}
+			
+		       var template = Handlebars.compile($('#dayplus-template').html())
+		       var generatedHTML = template(data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//		       tbody.text('') // tbody의 기존 tr 태그들을 지우고
+		       tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
+		       count++;
+		 
 			$('#write_addition').css('display', "none");
-
 		}
 
 		function resize(obj) {
@@ -668,7 +499,21 @@
 		}
 		// 마우스 오버시 작은 + 와 날짜 보이게 끝
 
-		/*  */
+
+		$(function() {
+			$("#datepicker").datepicker({
+				showButtonPanel : true,
+				dateFormat : 'yy/mm/dd'
+			});
+		});
+
+		$(function() {
+			$("#datepicker1").datepicker({
+				showButtonPanel : true,
+				dateFormat : 'yy/mm/dd'
+			});
+		});
+	
 
 		var date = $('.files_date')
 		function checked(ab) {
@@ -787,7 +632,198 @@
 
 			})
 		})
+/* ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ여 */
+		
+		function initAutocomplete() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center : {
+					lat : 37.946295,
+					lng : 126.000023
+				},
+
+				zoom : 8,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			});
+
+			// Create the search box and link it to the UI element.
+			var input = document.getElementById('pac-input');
+			var searchBox = new google.maps.places.SearchBox(input);
+			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+			// Bias the SearchBox results towards current map's viewport.
+			var clickcount = 0;
+			map.addListener('bounds_changed', function() {
+				searchBox.setBounds(map.getBounds());
+				console.log(map.center.lat());
+				console.log(map.center.lng());
+				map.addListener('click', function(e) {
+					if (clickcount == 0) {
+						placeMarkerAndPanTo(e.latLng, map);
+						clickcount++;
+					} else {
+						marker.setMap(null);
+						placeMarkerAndPanTo(e.latLng, map);
+					}
+					latNum = map.center.lat()
+					lngNum = map.center.lng()
+					console.log(latNum);
+					console.log(lngNum);
+				});
+
+				var marker = new google.maps.Marker();
+				function placeMarkerAndPanTo(latLng, map) {
+					marker = new google.maps.Marker({
+						position : latLng,
+						map : map,
+					});
+					map.panTo(latLng);
+					map.setZoom(14);
+					console.log("마크 찍힘");
+					console.log(marker);
+
+				}
+
+			});
+
+			var markers = [];
+			// [START region_getplaces]
+			// Listen for the event fired when the user selects a prediction and retrieve
+			// more details for that place.
+			searchBox.addListener('places_changed', function() {
+				var places = searchBox.getPlaces();
+				if (places.length == 0) {
+					return;
+				}
+
+				// Clear out the old markers.
+				markers.forEach(function(marker) {
+					marker.setMap(null);
+				});
+
+				markers = [];
+				// For each place, get the icon, name and location.
+				var bounds = new google.maps.LatLngBounds();
+				places.forEach(function(place) {
+					/*	var icon = {
+							url : place.icon,
+							size : new google.maps.Size(71, 71),
+							origin : new google.maps.Point(0, 0),
+							anchor : new google.maps.Point(17, 34),
+							scaledSize : new google.maps.Size(25, 25)
+						};
+						console.log(bounds.hd);
+					 */
+					// Create a marker for each place.
+					/*	markers.push(new google.maps.Marker({
+							map : map,
+							title : place.name,
+							animation : google.maps.Animation.DROP,
+							position : place.geometry.location
+						}));*/
+
+					console.log(place);
+					if (place.geometry.viewport) {
+						// Only geocodes have viewport.
+						bounds.union(place.geometry.viewport);
+					} else {
+						bounds.extend(place.geometry.location);
+					}
+				});
+				map.fitBounds(bounds);
+			});
+		}
+
+		//모달창이 띄어질 경우 구글 맵 리사이즈
+		function resize2() {
+			$('#myModal').on('shown.bs.modal', function() {
+				google.maps.event.trigger(map, "resize2");
+			});
+		
+		}
+
+		/**/
+		function initMap2(mapDelId, slati, slongit) {
+			var map2 = new google.maps.Map(document.getElementById(mapDelId), {
+				zoom : 8,
+				center : {
+					lat : 40.731,
+					lng : -73.997
+				}
+			});
+			var geocoder = new google.maps.Geocoder;
+			var infowindow = new google.maps.InfoWindow;
+
+			/* window.onload=geocodeLatLng(geocoder, map2, infowindow);*/
+			geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
+		}
+
+		function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
+
+			/* var input = document.getElementById('latlng').value;*/
+
+			/* var latlngStr = input.split(',', 2); */
+			var latlng = {
+				lat : parseFloat(slati),
+				lng : parseFloat(slongit)
+			};
+			geocoder.geocode({
+				'location' : latlng
+			}, function(results, status) {
+				if (status === 'OK') {
+					if (results[1]) {
+						map2.setZoom(14);
+						map2.setCenter(results[0].geometry.location);
+						var marker = new google.maps.Marker({
+							position : latlng,
+							map : map2
+						});
+
+						infowindow.setContent(results[1].formatted_address);
+						infowindow.open(map2, marker);
+
+					}
+				}
+			});
+		}
+
+		/*지도 복사하는 함수*/
+		var body33 = $('#newMap')
+		console.log($('#newMap'))
+		var mapcount = 3;
+		function createMap() {
+			slati = latNum.toFixed(8);
+			slongit = lngNum.toFixed(8);
+			$(
+					"<div id='map"+mapcount+"' style='width:300px; height:300px; border:1px solid black;'>")
+					.appendTo($('#newMap'))
+
+			console.log("aaaa")
+			var mapDelId = 'map' + mapcount
+			console.log(mapDelId, slati, slongit)
+
+			initMap2(mapDelId, slati, slongit)
+			mapcount++
+
+		};
+
+		var slati;
+		var slongit;
+		function saveMap() {
+			console.log("위치 데이터 넘어감");
+			$.post('../detail/addMap.json', {
+				'lati' : latNum.toFixed(8),
+				'longit' : lngNum.toFixed(8)
+
+			}, function(result) {
+
+				console.log("위도 경도 넘어간다.");
+				location.href = 'map.html'
+			}, 'json')
+		}
+		
 	</script>
+		
+
 
 </body>
 </html>

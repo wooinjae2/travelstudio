@@ -58,8 +58,9 @@
    
    
    <!-- 화면에 지도 뿌려주기 -->
-   <script type="text/javascript" src="https://maps.googleapis.
-com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false"></script>
+   <script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete"
+	async defer></script>
    <script>
 
    function initAutocomplete() {
@@ -72,7 +73,7 @@ com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualizat
 			mapTypeId : 'roadmap'
 
 		});
-    
+   }
    </script>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="map.js"></script>
