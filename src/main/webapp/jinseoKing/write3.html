@@ -308,7 +308,7 @@
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 	 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzESHx5W3BeJDz0a0Tl7OpgBQyg4Vu-wk&libraries=places"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="./node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 	<script src="./node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
@@ -802,7 +802,6 @@ function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 				console.log("-------------------------->")
 				console.log(address);
 				saveMap();
-				saveMap2();
 
 			}
 		}
@@ -836,6 +835,7 @@ function saveMap() {
 		'lati' : latNum.toFixed(8),
 		'longit' : lngNum.toFixed(8),
 	  'address': address
+	  
 
 	}, function(result) {
 
@@ -843,16 +843,7 @@ function saveMap() {
 	}, 'json')
 }
 
-function saveMap2() {
-	console.log("위치 데이터 넘어감");
-	$.post('../post/add.json', {
-	  'badge': address
 
-	}, function(result) {
-
-
-	}, 'json')
-}
 	</script>
 		
 

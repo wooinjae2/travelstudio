@@ -57,6 +57,12 @@ public List<Detail> selectedOneDetail(String postno) {
   return detailDao.selectedOneDetail(postno);
 }
 
+
+@Override
+public List<Detail> selectAddress(int mno) throws Exception {
+  return detailDao.selectAddress(mno);
+}
+
 //  
 //  public Teacher get(int no) throws Exception {
 //    return teacherDao.selectOne(no);

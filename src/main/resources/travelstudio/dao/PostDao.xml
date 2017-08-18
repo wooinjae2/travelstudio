@@ -16,7 +16,7 @@
     <result column="capt" property="capt"/>
     <result column="detail" property="detail"/>
     <result column="ispublic" property="ispublic"/>
-        <result column="mno" property="mno"/>
+    <result column="mno" property="mno"/> 
   </resultMap> 
 
 
@@ -33,13 +33,15 @@
   </select>
     
 <insert id="insert" parameterType="post" useGeneratedKeys="true" keyColumn="postno" >
-    insert into post(postno, title, sdt, edt, cont, pdt, mno) 
-    values(null, #{title}, #{sdt},#{edt},#{cont},'2017-07-07',#{mno})
+    insert into post(postno, title, sdt, edt, cont, pdt, mno, badge) 
+    values(null, #{title}, #{sdt},#{edt},#{cont},'2017-07-07',#{mno}, #{badge})
     <selectKey keyProperty="postno" resultType="int">
         SELECT LAST_INSERT_ID()
     </selectKey>
-  </insert>
-
+ </insert>
+    
+   
+ 
   
   <select id="selectOne" resultMap="postMap" parameterType="String">
     select * 
@@ -54,6 +56,7 @@
     order by name asc 
     limit #{startIndex}, #{pageSize} -->
   </select>
+  
    <select id="selectList" resultMap="postMap" parameterType="map">
     select * from post natural join member order by postno desc
   </select> 
@@ -61,6 +64,13 @@
   <select id="getWriteCount" resultMap="postMap" parameterType="map">
   	select count(*) from post where mno=#{mno}
   </select>
+  
+
+
+  
+  
+  
+  
   <!--   <if test="search != null">
 	    <where>
 	      <choose>

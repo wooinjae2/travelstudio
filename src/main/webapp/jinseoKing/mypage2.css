@@ -1,9 +1,7 @@
 *div{
 border: 1px solid black;
 }*/
-#traveled_country > img{
-	margin-right: 15px;
-}
+
 
   body {
       margin: 0;
@@ -102,12 +100,6 @@ height: 40px;
  */
 }
 
-.tit_info{
-	font-size:20px;
-	font-weight: bold;
-	
-}
-
 
 .profile_desc{
   margin-left: 15px;
@@ -117,7 +109,6 @@ height: 40px;
 .user_name{
   font-size: 30px;
   margin-top: 10px;
- 
 }
 .info_write{
   width:110px;
@@ -139,7 +130,7 @@ ul> li{
 }
 
 #traveled_country{
-	border: 1px solid white;
+	border: 1px solid black;
 	display: inline-block;
 }
 /**/

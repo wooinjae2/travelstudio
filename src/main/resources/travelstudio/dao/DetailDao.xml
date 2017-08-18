@@ -27,8 +27,7 @@
   </insert>
   
    <select id="selectList" resultMap="detailMap" parameterType="map">
-    select lati, longit, postno from detail where postno = 1;
-    
+    select lati, longit, postno from detail where postno=#{postno};
   </select> 
   
   
@@ -48,6 +47,12 @@
   <select id="selectedOneDetail" resultMap="detailMap" parameterType="String">
   select * from detail where postno=#{postno}
   </select>
+  
+ <select id="selectAddress" resultMap="detailMap" parameterType="Integer">
+    select d.address
+    from post p inner join detail d on p.postno=d.postno
+    where mno=#{mno}
+  </select> 
   
 
 

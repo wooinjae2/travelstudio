@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="mypage.css">
+<link rel="stylesheet" type="text/css" href="mypage2.css">
 
 <style>
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
@@ -64,11 +64,11 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
       </div>
 
 
-<div id="traveled_country" style="border: 1px solid black;">
+<div id="traveled_country">
        <script id="flag-template" type="text/x-handlebars-template">
-{{#each selectAddress}}
+{{#each badgeList1}}
       <ul style=none;>
-        <li><img id="image_flag" src='{{address}}'>{{address}}</li>
+        <li><img src='{{badge}}'></li>
       </ul>
 {{/each}}
 </script>
@@ -254,7 +254,6 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
           <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
           <div class="cate">
               <nav>
-             
               <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
               <ul class="dropdown">
                 <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
@@ -416,8 +415,6 @@ function test(idMyDiv) {
     $(".delete_travel > #no-btn").click(function () {
             $('.wrap11, #b').toggleClass('active');
         });
-    
-    
 
 
 </script>
@@ -428,10 +425,10 @@ function test(idMyDiv) {
 </script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="./mypage.js" charset="utf-8"></script>
+<script src="./mypage2.js" charset="utf-8"></script>
 
 <script>
-
+"use strict"
 
 /* $('#fileupload').fileupload({
     url: '../member/upload2.json',        // 서버에 요청할 URL

@@ -21,6 +21,8 @@ public class Post extends Member{
   String capt;
   String detail;
   String ispublic;
+
+  
   /*int mno;*/
   public int getPostno() {
     return postno;

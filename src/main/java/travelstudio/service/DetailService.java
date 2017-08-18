@@ -18,4 +18,5 @@ void insertDetailByEmail(Detail detail);
 void deleteEmail(String writer);
 void insertDetailContent(Detail detail);
 List<Detail> selectedOneDetail(String postno);
+List<Detail> selectAddress(int mno) throws Exception;
 }

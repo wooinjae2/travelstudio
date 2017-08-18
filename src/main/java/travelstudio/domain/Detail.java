@@ -9,14 +9,15 @@ package travelstudio.domain;
 
 
 public class Detail {
-  int picno, postno;
+  int picno, postno, srtno;
   String cont, date, capt, writer, address;
   double lati, longit;
   
   @Override
   public String toString() {
-    return "Detail [picno=" + picno + ", postno=" + postno + ", cont=" + cont + ", date=" + date + ", capt=" + capt
-        + ", writer=" + writer + ", address=" + address + ", lati=" + lati + ", longit=" + longit + "]";
+    return "Detail [picno=" + picno + ", postno=" + postno + ", srtno=" + srtno + ", cont=" + cont + ", date=" + date
+        + ", capt=" + capt + ", writer=" + writer + ", address=" + address + ", lati=" + lati + ", longit=" + longit
+        + "]";
   }
 
   public int getPicno() {
@@ -33,6 +34,14 @@ public class Detail {
 
   public void setPostno(int postno) {
     this.postno = postno;
+  }
+
+  public int getSrtno() {
+    return srtno;
+  }
+
+  public void setSrtno(int srtno) {
+    this.srtno = srtno;
   }
 
   public String getCont() {
@@ -90,6 +99,8 @@ public class Detail {
   public void setLongit(double longit) {
     this.longit = longit;
   }
+  
+ 
 
 
  
