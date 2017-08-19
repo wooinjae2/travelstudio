@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import travelstudio.dao.PostDao;
-import travelstudio.domain.Member;
+
 import travelstudio.domain.Post;
 import travelstudio.service.PostService;
 
@@ -19,9 +19,9 @@ public class PostServiceImpl implements PostService {
  }
   
   public List<Post> list() throws Exception {
-    
     return postDao.selectList();
   }
+  
   @Override
   public List<Post> info1(String number) throws Exception {
     return postDao.info1(number);
@@ -52,6 +52,8 @@ public void like(Post post) throws Exception {
   postDao.updateLike(post);
   
 }
+ 
+
  
 //  
 //  public Teacher get(int no) throws Exception {

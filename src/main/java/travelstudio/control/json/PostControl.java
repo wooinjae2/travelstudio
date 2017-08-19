@@ -42,6 +42,16 @@ public class PostControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+@RequestMapping("selectOneUserPost")
+  public JsonResult selectOneUserPost(int number) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("selectOneUserPost", postService.selectOneUserPost(number));
+//    dataMap.put("totalCount", noticeService.getSize());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+
+  
 
   @RequestMapping("info1")
   public JsonResult info1(String number) throws Exception {
@@ -91,6 +101,7 @@ public class PostControl {
     
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
+    
     /*System.out.println(files[0]);*/
     
     
@@ -107,8 +118,7 @@ public class PostControl {
     Thumbnails.of(file).size(2500, 2500).outputFormat("png").toFile(thumbnail);
     }
     
-    post.setMno(loginMember.getMno());
-    postService.add(post);
+   
     
     
     
@@ -133,8 +143,14 @@ public class PostControl {
     }
     
     
+   
     detailService.insertDetailByEmail(detail);
     detailService.deleteEmail(loginMember.getEmail());
+    System.out.println();
+    
+    
+    
+    
     return new JsonResult(JsonResult.SUCCESS, post);
   }  
   
@@ -146,6 +162,8 @@ public class PostControl {
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
   }
   
+  
+
 }
 
 

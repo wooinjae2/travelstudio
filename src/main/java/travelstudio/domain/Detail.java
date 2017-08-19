@@ -11,76 +11,97 @@ package travelstudio.domain;
 public class Detail {
   int picno, postno, srtno;
   String cont, date, capt, writer, address;
-  
   double lati, longit;
-
   
-  public int getSrtno() {
-    return srtno;
-  }
-  public void setSrtno(int srtno) {
-    this.srtno = srtno;
-  }
   @Override
   public String toString() {
     return "Detail [picno=" + picno + ", postno=" + postno + ", srtno=" + srtno + ", cont=" + cont + ", date=" + date
         + ", capt=" + capt + ", writer=" + writer + ", address=" + address + ", lati=" + lati + ", longit=" + longit
         + "]";
   }
+
   public int getPicno() {
     return picno;
   }
+
   public void setPicno(int picno) {
     this.picno = picno;
   }
+
   public int getPostno() {
     return postno;
   }
+
   public void setPostno(int postno) {
     this.postno = postno;
   }
+
+  public int getSrtno() {
+    return srtno;
+  }
+
+  public void setSrtno(int srtno) {
+    this.srtno = srtno;
+  }
+
   public String getCont() {
     return cont;
   }
+
   public void setCont(String cont) {
     this.cont = cont;
   }
+
   public String getDate() {
     return date;
   }
+
   public void setDate(String date) {
     this.date = date;
   }
-  public double getLati() {
-    return lati;
-  }
-  public void setLati(double lati) {
-    this.lati = lati;
-  }
+
   public String getCapt() {
     return capt;
   }
+
   public void setCapt(String capt) {
     this.capt = capt;
   }
-  public double getLongit() {
-    return longit;
-  }
-  public void setLongit(double longit) {
-    this.longit = longit;
-  }
+
   public String getWriter() {
     return writer;
   }
+
   public void setWriter(String writer) {
     this.writer = writer;
   }
+
   public String getAddress() {
     return address;
   }
+
   public void setAddress(String address) {
     this.address = address;
   }
+
+  public double getLati() {
+    return lati;
+  }
+
+  public void setLati(double lati) {
+    this.lati = lati;
+  }
+
+  public double getLongit() {
+    return longit;
+  }
+
+  public void setLongit(double longit) {
+    this.longit = longit;
+  }
+  
+ 
+
 
  
 }

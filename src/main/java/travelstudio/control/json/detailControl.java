@@ -24,6 +24,7 @@ import travelstudio.service.DetailService;
 @RequestMapping("/detail/")
 public class detailControl {
   
+  private static final String String = null;
   @Autowired ServletContext servletContext;
   @Autowired DetailService detailService;
   
@@ -67,8 +68,17 @@ public class detailControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-  
+  @RequestMapping("selectAddress")
+  public JsonResult selectAddress(int mno) throws Exception {
+    System.out.println("------");
+   System.out.println(mno);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("selectAddress", detailService.selectAddress(mno));
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
 }
+  
+
 
 
 

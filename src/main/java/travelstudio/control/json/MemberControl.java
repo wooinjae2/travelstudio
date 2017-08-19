@@ -104,6 +104,7 @@ public JsonResult header(HttpServletRequest req, HttpServletResponse res) throws
   System.out.println(loginMember);
   HashMap<String,Object> dataMap = new HashMap<>();
   dataMap.put("loginMember", loginMember);
+
   return new JsonResult(JsonResult.SUCCESS, dataMap);
   
 }
