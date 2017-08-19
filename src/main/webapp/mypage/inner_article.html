@@ -25,6 +25,15 @@
     }
 
    
+   #delete_btn{
+   border: 1px solid gray;
+   width: 45px;
+   height: 25px;
+   background-color: white;
+   border-radius: 12.5px;
+   color: gray;
+   margin-left: 650px;
+   }
 
 
     a {
@@ -954,7 +963,8 @@ line-height: 35px;
     <input type="search" id="search_bar" placeholder="검색">
     <button id="search_icon" class="fa fa-search fa-2x" onclick="search()" aria-hidden="true"></button>
     <button type="button" id="start-my-journey">여행기 작성</button>
-  </div> -
+  </div> 
+  <br>
   
   
 <div id="blank-one" class="blank-one">
@@ -1068,7 +1078,7 @@ line-height: 35px;
 </div>
 <br>
 
-<a id="list_heart" href="javascript:;"><i id="list_heart_1" class="fa fa-heart-o fa-3x" aria-hidden="true"></i></a>
+<a id="list_heart" href="javascript:;"><i id="list_heart_1" class="fa fa-heart-o fa-3x" aria-hidden="true"></i></a><span id="heart-count"></span>
 
 
 <!--글쓴이 프로필-->
@@ -1089,7 +1099,7 @@ line-height: 35px;
 
 </div>
 <div class="sub_box">
-<button type="button" id="subsc_btn">구독하기</button>
+
 </div>
 
 
@@ -1129,7 +1139,7 @@ line-height: 35px;
 					<div class="command_box">
 						<p id="inner_command">{{cont}}</p>
 					</div><span><a href="../mypage/report.html" id="singo">신고</a></span>
-          <button id="edit_btn">수정</button>
+          
           <button type="button" id="delete_btn">삭제</button>
 				</div>
 		</span>
@@ -1205,18 +1215,105 @@ line-height: 35px;
  <!-- 하트 -->
      $("#list_heart").on({
        'click':function(){
-
+if(loginmemberno==undefined){
+	alert("'좋아요'를 하려면 로그인이 필요합니다.")
+}else{
+    	   var number;
         //  class="fa fa-heart fa-2x"
         //  class="fa fa-heart-o fa-2x"
          var color = ($('#list_heart>i').attr('class') === 'fa fa-heart-o fa-3x')
                 ? 'fa fa-heart fa-3x'
                 : 'fa fa-heart-o fa-3x';
-
-
+        	 number = parseInt($('#heart-count').html())
+        	 console.log(number)
+     	if(color=='fa fa-heart fa-3x'){
+    		$("#heart-count").html(number+1)
+     	}else{
+     		$("#heart-count").html(number-1)
+     	}
     $('#list_heart_1').attr('class',color);
+    likeclick(color,number); 
         }
-     })
+     }})
+     
+function likeclick(color,number){
+    	 console.log(number)
+    	 $.post('/travelstudio/good/searchBymnopostno.json', {
+		'postno': no,
+		'mno': loginmemberno
+	}, function(result) {
+		console.log('1')
+		console.log(result)
+		if(result.status!='success'){
+			number+=1;
+			$.post('/travelstudio/good/add.json', {
+    			'postno':no,
+    			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
+    			'gcnt':1,
+    			'number':number
+    		}, function(result) {
+    			/* $('<span id="heart-count">').html(number).insertAfter($('list_heart_1')) */
+    			/* $('#heart-count').html(parseInt($('#heart-count').html())+1) */
+    		})
+		}else{
+			number-=1;
+			$.post('/travelstudio/good/delete.json', {
+    			'postno':no,
+    			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
+    			'number':number
+    		}, function(result) {
+    			/* $("#heart-count").remove();
+    			$('<span id="heart-count">').html(number).insertAfter($('list_heart_1')) */
+    			/* $('#heart-count').html(parseInt($('#heart-count').html())-1) */
+    		})
+		}
+		
+	}, 'json')
+     }
+    	 /* 구독하기 시작 */
+    	 $(document).on("click",'#subsc_btn',function(){  
+    	 if(loginmemberno==undefined){
+    			alert("'좋아요'를 하려면 로그인이 필요합니다.")
+    		}else{
+         console.log($(this).css('color')=='rgb(0, 0, 0)')
+         if($(this).css('color')=='rgb(0, 0, 0)'){
+           $(this).css({"border": "1px solid #2be5a4", "color": "#2be5a4"});
+           subClick('add')
+         }
+         else{
+           $(this).css({"border": "1px solid black", "color": "black"});
+           subClick('del')
+         }
+    		}
+       });
+     /* 구독하기 끝*/
 
+     function subClick(res){
+    	 console.log(res)
+    		  $.post('/travelstudio/follow/searchBymnomno2.json', {
+    				'mno': loginmemberno,
+    				'mno2': writeMemberno
+    			}, function(result) {
+    				console.log(result) //로그인 회원 번호와 작성자 회원 번호로 데이터값 조회 
+    				if(result.status!='success'){ //만약 해당하는 데이터가 없다면 add 시키고 
+    					$.post('/travelstudio/follow/add.json', {
+    		    			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
+    		    			'mno2':writeMemberno,
+    		    			'postno':no
+    		    		}, function(result) {
+    		    			
+    		    		})
+    				}else{ //로그인 회원 번호와 작성자 회원 번호로 데이터값 조회 했을때 있다면 delete 시킨다.
+    					
+    					$.post('/travelstudio/follow/delete.json', {
+    						'mno': loginmemberno,
+   	    				'mno2': writeMemberno
+    		    		}, function(result) {
+    		    			console.log
+    		    		})
+   	 			 } //else 끝
+    			})
+     }
 <!--header숨는거
         var prev = 0;
         var view = $(window);
@@ -1239,19 +1336,9 @@ line-height: 35px;
           $("#singo").hide();
         });
 
-        $('#subsc_btn').click(function(){
-          console.log($(this).css('color')=='rgb(0, 0, 0)')
-          if($(this).css('color')=='rgb(0, 0, 0)'){
-            $(this).css({"border": "1px solid #2be5a4", "color": "#2be5a4"});
-          }
-          else{
-            $(this).css({"border": "1px solid black", "color": "black"});
-          }
-        });
+    
 
-        // $('#subsc_btn').click(function(){
-        //   $(this).css({"border": "1px solid #2be5a4", "color": "#2be5a4"});
-        // });
+      
 
 
 function slideCall() {

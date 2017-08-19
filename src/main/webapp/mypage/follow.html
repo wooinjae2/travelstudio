@@ -212,9 +212,9 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
                 <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
 
 
-                <li><a class="share_travel"href="javascript:;" data-value={{postno}} onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-                <li><a class="delete_travel" href="javascript:;" data-value={{postno}} onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-                <li><a class="lock_travel" href="javascript:;" data-value={{postno}} onclick="test1('lock')">나만 보기</a></li><br>
+                <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+                <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
+                <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
               </ul>
               </nav>
         </div>
@@ -350,8 +350,8 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
 
-function dropdown(){
 $(function() {
+
 // Dropdown toggle
 $('.dropdown-toggle').click(function(){
   $(this).next('.dropdown').toggle();
@@ -365,17 +365,7 @@ $(document).click(function(e) {
 });
 
 });
-}
 
-
-$(document).on("click",".share_travel",function(){
-test1(modal)
-console.log(this)
-}
-
-$(document).on("click",".delete_travel",function(){
-	console.log(this)
-}
 
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);

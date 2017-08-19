@@ -90,7 +90,7 @@
 			<div class="day1">
 				<div class="write_day">
 					<h2>
-						<button id="write_save_btn">aaa</button>
+						<button id="write_save_btn" onclick="location.href='./mypage.html'">aaa</button>
 						1일차
 						<h2>
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -126,8 +126,7 @@
 		<br> <a href="#" onclick="adddiv(); return false;"><i
 			id="write_addition" class="fa fa-plus-circle fa-3x"
 			aria-hidden="true"></i></a>
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-			data-target="#myModal" onClick="resize2()">주소검색</button>
+	
 
 					<!--모달 맵 시작  -->
 <div id="map_container">
@@ -379,17 +378,17 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 			if($('.text_write_box').val()==""){
 				$('.text_write_box').keyup( function(event){
 					console.log(this)
-				    if (event.keyCode == 8) {             // 13이 enter키 코드 값이다.
-				        alert('backspace!');                          // 여기에 실행하고자 하는 코드를 넣으면 된다. 
-				    }
+				   /*  if (event.keyCode == 8) {             // 13이 enter키 코드 값이다.
+				         alert('backspace!');                           // 여기에 실행하고자 하는 코드를 넣으면 된다. 
+				    } */
 				});
 			}
 		$('.text_write_box').keyup( function(event){
 			console.log($('.text_write_box').val())
 			console.log(this)
-		    if (event.keyCode == 13) {             // 13이 enter키 코드 값이다.
+		    /* if (event.keyCode == 13) {             // 13이 enter키 코드 값이다.
 		        alert('enter!');                          // 여기에 실행하고자 하는 코드를 넣으면 된다. 
-		    }
+		    } */
 		});
 		}
 

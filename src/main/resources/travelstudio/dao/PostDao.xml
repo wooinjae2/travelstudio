@@ -17,6 +17,7 @@
     <result column="detail" property="detail"/>
     <result column="ispublic" property="ispublic"/>
         <result column="mno" property="mno"/>
+        <result column="good" property="good"/>
   </resultMap> 
 
 
@@ -39,6 +40,16 @@
         SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
+  
+<!--   <update id="updateLike" parameterType="post" keyColumn="postno" >
+    update post set 
+    values(null, #{title}, #{sdt},#{edt},#{cont},'2017-07-07',#{mno})
+  </update> -->
+  
+  
+  <update id="updateLike" parameterType="post">
+    update post set good=#{good} where postno=#{postno}
+  </update>
 
   
   <select id="selectOne" resultMap="postMap" parameterType="String">

@@ -77,8 +77,8 @@ $('#send_btn').click(function() {
 		var template = Handlebars.compile($('#comment-template').html())
 		var generatedHTML = template(result.data)
 		reply.append(generatedHTML) 
-
-
+		
+		
 	})
 })
 
