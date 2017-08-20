@@ -102,7 +102,7 @@ var title = $('#blank-one');
 	$.post('/travelstudio/post/selectOne.json', {
 		'number': no
 	}, function(result) {
-		console.log(result.data.selectedPost.path);
+		console.log(result);
 		memberno=result.data.selectedPost.mno
 		var template3 = Handlebars.compile($('#content-template-3').html())
 		
@@ -197,6 +197,61 @@ $.getJSON('/travelstudio/member/header.json', function(result) {
 
   }) // getJSON()
 
+  
+  $.post('/travelstudio/detail/selectedOneDetail.json', {
+	'number': no
+	},function(result) {
+	console.log(result);
+	console.log(result.data.list[0].address);
+	var uniqueNames = [];
+	var flag_list=[];
+	/*var flag_list_show=new Array();*/
+	var flag_count=0;
+
+	for(i=0;i<result.data.list.length;i++){
+		if(result.data.list[i]!=null){
+		if(result.data.list[i].address!=undefined){
+			flag_list[flag_count++]=result.data.list[i].address
+			/*flag_list_show.push(result.data.selectAddress[i].address)*/
+		}
+		}
+	}
+	for(i=0;i<flag_list.length;i++){
+		console.log(flag_list[i].indexOf("대한민국"))
+		if(flag_list[i]!=undefined){
+			if(flag_list[i].indexOf("대한민국")!=-1){
+				flag_list[i] ='./flags/png/south-korea.png'
+			}else if(flag_list[i].indexOf("미국")!=-1){
+				flag_list[i]='./flags/png/united-states-of-america.png'
+			}else if(flag_list[i].indexOf("일본")!=-1){
+				flag_list[i]='./flags/png/japan.png'
+			}else if(flag_list[i].indexOf("영국")!=-1){
+				flag_list[i]='./flags/png/united-kingdom.png'
+			}else if(flag_list[i].indexOf("프랑스")!=-1){
+				flag_list[i]='./flags/png/france.png'
+			}else if(flag_list[i].indexOf("중국")!=-1){
+				flag_list[i]='./flags/png/china.png'
+			}else if(flag_list[i].indexOf("조선")!=-1){
+				flag_list[i]='./flags/png/north-korea.png'
+			}
+		}
+
+	}
+	
+	
+	$.each(flag_list, function(i, el){
+		if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+	});
+	console.log(uniqueNames)
+	for(i=0;i<=uniqueNames.length;i++){
+		$('<img id="KR_flag">').attr('src',uniqueNames[i]).css('margin-right','7px').insertAfter($('.tags'))
+	}
+	})
+	
+  
+  
+  
+  
 /*
 
 $.getJSON('/travelstudio/member/header.json', function(result) {

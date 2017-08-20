@@ -9,7 +9,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"> -->
   
   </script>
 
@@ -25,6 +25,8 @@
     }
 
    
+
+
 
 
     a {
@@ -257,6 +259,7 @@ line-height: 35px;
       height: 700px;
       font-family: 'Ropa Sans', sans-serif;
       margin-bottom: 20px;
+      
     }
 
 
@@ -737,6 +740,7 @@ line-height: 35px;
 
     #author {
       width: 90px;
+      height: 90px;
     }
 
     .alias {
@@ -806,7 +810,7 @@ line-height: 35px;
       border: none;
       border-top: 1px solid #d6d7d8;
       height: 150px;
-      ;
+      
       padding-left: 20px;
       list-style: none;
       padding: 16px;
@@ -906,6 +910,7 @@ line-height: 35px;
       width: 698px;
       height: 108px;
       border-radius: 2px;
+      margin-top:30px;
     }
 
     #inner_command {
@@ -924,17 +929,7 @@ line-height: 35px;
     border: 1px solid white;
     }
     
-   
-/*
-   .other_article_of_author{
-     border:1px solid black;
-     max-height: 200px;
-     overflow: hidden;
-   }
-    #prev, #after{
-      display: inline-block;
-      width: 48%;
-    }*/
+    
   </style>
 
 
@@ -968,7 +963,7 @@ line-height: 35px;
 <div id="blank-one" class="blank-one">
   <script id="content-template-3" type="text/x-handlebars-template">
 {{#selectedPost}}
-    <textarea>{{title}}</textarea>
+    <textarea disabled>{{title}}</textarea>
     <div class="bb">
 
       <a href="#" class="write_select_date_start">
@@ -983,11 +978,10 @@ line-height: 35px;
       <span class="tag_hash">{{tag}}</span>
       
     </div>
-    <img src="./pictures/KR.png" id="KR_flag">
 
     <div class="faces">
       <div class="face">
-        <a href="#"><img src="../upload/{{path}}" ></a>
+        <a href="#"><img src="../mypage/upload/{{path}}" ></a>
       </div>
       <div class="face2">
         <a href="#"><img src="../upload/{{path}}" id="Emma"></a>
@@ -996,6 +990,17 @@ line-height: 35px;
 {{/selectedPost}}
   </script>
   </div>
+  
+  <div id="traveled_country">
+       <script id="flag-template" type="text/x-handlebars-template">
+{{#each flag_list}}
+      <ul style=none;>
+        <li><img src='{{address}}'>{{address}}</li>
+      </ul>
+{{/each}}
+</script>
+
+</div>
 
   <!--내용상자-->
   <div class="container_main">
@@ -1043,15 +1048,11 @@ line-height: 35px;
 </div>
  -->
   <div class="whole_collage1">
-<script id="content-template-6" type="text/x-handlebars-template">
-{{#each fileList}}
-  <div  id="one_whole_collage"><img id="img_4" src="../{{path}}"></div>
-</div>
-{{/each}}
-</script>
+
 
 <div id="text_box">
 	<script id="content-template-2" type="text/x-handlebars-template">
+
 {{#each list}}
 {{#if cont}}
 <div class="caption">{{cont}}</div>
@@ -1059,7 +1060,16 @@ line-height: 35px;
 <p>{{cont}}</p>
   </div>
 {{/if}}
+{{#if picno}}
+  <div  id="one_whole_collage"><img id="img_4" src="../{{picno}}_700.png"></div>
+</div>
+{{/if}}
+{{#if lati}}
+<div style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;' id="map{{srtno}}" data-lati={{lati}} data-longit={{longit}}"}></div>
+{{/if}}
+
 {{/each}}
+
 </script>
 </div>
 
@@ -1156,27 +1166,52 @@ line-height: 35px;
 <!--내용상자-->
 
 <!--구글지도-->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./inner_article.js"></script>
 
    <script>
-      function initialize()
-      {
-       var mapProp = {
-         center: new google.maps.LatLng(37.250943, 127.028344),
-         zoom:7,
-         zoomControl:true,
-         zoomControlOptions: {
-           style:google.maps.ZoomControlStyle.SMALL
-         },
-         mapTypeId: google.maps.MapTypeId.ROADMAP
-       };
-       var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+   var mapname2;
+   function initMap(mapname) {
+	   console.log(mapname)
+	   mapname2=mapname
+       var map = new google.maps.Map(document.getElementById(mapname), {
+         zoom: 8,
+         center: {lat: parseFloat(document.getElementById(mapname).getAttribute('data-lati')), lng: parseFloat(document.getElementById(mapname).getAttribute('data-longit'))}
+       });
+       var geocoder = new google.maps.Geocoder;
+       var infowindow = new google.maps.InfoWindow;
 
+       geocodeLatLng(geocoder, map, infowindow);
+     }
 
+     function geocodeLatLng(geocoder, map, infowindow) {
+   	 
+       /* var input = document.getElementById('latlng').value; */
+       
+       /* var latlngStr = input.split(',', 2); */
+       var latlng = {lat: parseFloat(document.getElementById(mapname2).getAttribute('data-lati')), lng: parseFloat(document.getElementById(mapname2).getAttribute('data-longit'))};
+       geocoder.geocode({'location': latlng}, function(results, status) {
+         if (status === 'OK') {
+           if (results[1]) {
+             map.setZoom(14);
+             map.setCenter(results[0].geometry.location);
+             var marker = new google.maps.Marker({
+               position: latlng,
+               map: map
+             });
+             infowindow.setContent(results[1].formatted_address);
+             infowindow.open(map, marker);
+           } else {
+             window.alert('No results found');
+           }
+         } else {
+           window.alert('Geocoder failed due to: ' + status);
+         }
+       });
+     }
 
 
  <!-- 하트 -->
@@ -1202,7 +1237,7 @@ line-height: 35px;
         view.on('scroll', function(){
         var scrollTop = view.scrollTop();
         mast.toggleClass('hidden', scrollTop > prev);
-        console.log(scrollTop);
+        
         prev = scrollTop;
         });
         -->
@@ -1255,34 +1290,7 @@ $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
 
-$(document).ready(function(){
-  //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
-  $(".owl-carousel").owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:20,
-    autoplayHoverPause:true
-  });
-});
 
-$('.owl-carousel').owlCarousel({
-  loop:false,
-  margin:10,
-  nav:true,
-  autoWidth:true,
-  responsive:{
-    0:{
-      items:1
-    },
-    600:{
-      items:4
-    },
-    1000:{
-      items:5
-    }
-  }
-})
 
 
 
