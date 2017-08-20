@@ -46,6 +46,12 @@ public class PostServiceImpl implements PostService {
    
    return postDao.selectOne(postno);
  }
+
+@Override
+public void like(Post post) throws Exception {
+  postDao.updateLike(post);
+  
+}
  
 
  

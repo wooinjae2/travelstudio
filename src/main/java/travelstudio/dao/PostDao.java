@@ -14,9 +14,7 @@ public interface PostDao {
   List<Post> search(String keyword);
   List<Post> selectOneUserPost(int number);
   List<Post> info1(String number);
-  
-  
-  
+  void updateLike(Post post);
 //  int getSize();
 //  List<Member> selectListByNames(Map<String,Object> valueMap);
 //  Member selectOne(int no);

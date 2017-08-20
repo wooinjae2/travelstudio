@@ -129,9 +129,9 @@ a:link {
   color: #767676;
   margin: 10px auto;
 }
-/* div{
+div{
 	border:1px solid black;
-} */
+}
 .edit_settings li {
   /*display: inline-block;*/
   color: #4265EE;
@@ -509,7 +509,6 @@ a:-webkit-any-link {
   margin-left: 10px;
 }
 
-
 #map_container {
   display: none;
   position: absolute;
@@ -517,12 +516,9 @@ a:-webkit-any-link {
   background-color: white;
   border: solid 1px gray;
   border-radius: 1%;
-  height: 650px;
-  width: 850px;
-  margin-left: 215px;;
- 
+  height: 600px;
+  width: 800px;
 }
-
 
 #map_container>h3 {
   text-align: center;
@@ -683,13 +679,15 @@ button[id*='day_btn'] {
 }
 
 
-#cancel-login, #login-summit, #saveMap-summit {
+/*search 끝*/
+
+#cancel-login, #login-summit {
   border: 2px solid #6a7991;
-  width: 150px;
-  height: 45px;
+  width: 200px;
+  height: 40px;
   border-radius: 25px;
   font-size: 17px;
- 
+  margin-bottom: 15px;
 }
 
 #cancel-login {
@@ -700,82 +698,46 @@ button[id*='day_btn'] {
 }
 
 .buttons {
-  margin-left: 250px;
-  margin-top: 15px;
+  margin-left: 210px;
+  margin-top: 30px;
 }
 
-#login-summit, #saveMap-summit{
-	background-color: white;
-	color: #6a7991;
-	font-weight: bold;
-}
 
 
 
 /***** Google maps CSS *****/
 #map {
-	height: 400px;
-	width: 500px;
-	margin-left:20px;
-	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border: 2px solid darkgrey;
 }
 
 .controls {
+	margin-top: 10px;
 	border: 1px solid transparent;
 	border-radius: 2px 0 0 2px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	height: 32px;
 	outline: none;
-	
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-
-
-#mapPlusSearchbox{
-	width: 800px;
-	height: 410px;
-	margin-left: 30px;
-  
-	
-}
 #pac-input {
-	background-color: white;
+	background-color: #fff;
 	font-family: Roboto;
 	font-size: 15px;
 	font-weight: 300;
+	margin-left: 12px;
 	padding: 0 11px 0 13px;
 	text-overflow: ellipsis;
-	width: 230px;
-	height: 40px;
-  float: left;
-  display: inline-block;
-  border: 1px solid #e5e5e5;
-  border-right-color: white;
-  border-radius: 4px 0 0 4px;
-
+	width: 300px;
 }
 
-#cleanSearchBox{
-	background-color: white;
-	display: inline-block;
-	float:left;
-	height: 40px;
-	width: 30px;
-	font-weight: bold;
-	border: 1px solid #e5e5e5;
-	border-left-color: white;
-	border-radius: 0 4px 4px 0;
- 
-
-	
-}
-
-
- #pac-input:focus {
+#pac-input:focus {
 	border-color: #4d90fe;
-} 
- 
+}
+
 .pac-container {
 	font-family: Roboto;
 }
@@ -807,4 +769,3 @@ button[id*='day_btn'] {
 .modal-backdrop {
 	z-index: 10;
 }
-

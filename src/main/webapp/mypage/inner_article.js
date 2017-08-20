@@ -4,6 +4,7 @@ var content = $('#text_box');
 var no = location.href.split('?')[1].split('=')[1]
 console.log(no)
 var memberno=0;
+var writeMemberno=0;
 
 /*detail 출력*/
 $.post('/travelstudio/detail/selectedOneDetail.json', {
@@ -104,6 +105,8 @@ var title = $('#blank-one');
 	}, function(result) {
 		console.log(result.data.selectedPost.path);
 		memberno=result.data.selectedPost.mno
+		console.log(result.data.selectedPost.like)
+		$('#heart-count').html(result.data.selectedPost.good)
 		var template3 = Handlebars.compile($('#content-template-3').html())
 		
 		var generatedHTML3 = template3(result.data) 
@@ -112,6 +115,9 @@ var title = $('#blank-one');
 			                 "background-position" : "right-top",
 			                 "background-repeat" : "no-repeat",
 			                 "background-attachment" : "fixed"});  
+		
+		
+	
 		})
 		/*console.log(result.data)*/
 		
@@ -124,11 +130,15 @@ var writer = $('#profile_box');
 $.post('/travelstudio/post/info1.json', {
 		'number': no
 	}, function(result) {
-		console.log(result.data.info);
+		console.log(result.data);
+		writeMemberno=result.data.info[0].mno
+		console.log(result.data.info[0].mno)
 		var template4 = Handlebars.compile($('#content-template-4').html())
 		var generatedHTML4 = template4(result.data) 
 		writer.append(generatedHTML4)
 		console.log(result.data)
+		
+		setTimeout("pageloadsubsc()",30);
 	}, 'json')
 	
 
@@ -144,6 +154,9 @@ $.post('/travelstudio/comment/list.json', {
 		reply.append(generatedHTML) 
 	}, 'json')
 
+	
+	
+	
 /* 댓글 insert. */
 	
 	
@@ -188,52 +201,61 @@ $('#send_btn').click(function() {
 
 
 
-
+var loginmemberno;
 $.getJSON('/travelstudio/member/header.json', function(result) {
 	    var template = Handlebars.compile($('#comment-template-write').html())
 	    var generatedHTML = template(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+	    if(result.data.loginMember!=undefined){
+	    loginmemberno=result.data.loginMember.mno
+	    searchheart(loginmemberno)
+	    }
+	    console.log(loginmemberno)
 //	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
 	    $('#replyer').append(generatedHTML) // 새 tr 태그들로 설정한다.
 
   }) // getJSON()
 
-/*
-
-$.getJSON('/travelstudio/member/header.json', function(result) {
-	var mno=parseInt(result.mno);
-	if(mno==null){
+  function pageloadsubsc(){
+	console.log(writeMemberno)
+	console.log(loginmemberno)
+  $.post('/travelstudio/follow/searchBymnomno2.json', {
+    				'mno': loginmemberno,
+    				'mno2': writeMemberno
+    			}, function(result) {
+    				console.log(result)
+    			if(result.status=='success'){
+    				console.log('success')
+    				$('<button type="button" id="subsc_btn">').html('구독하기').css({"border": "1px solid #2be5a4", "color": "#2be5a4"}).appendTo(".sub_box")
+    				/*$('#subsc_btn').*/
+    			}else{
+    				console.log('11')
+    				$('<button type="button" id="subsc_btn">').html('구독하기').css({"border": "1px solid black", "color": "black"}).appendTo(".sub_box")
+    				/*$('#subsc_btn').css({"border": "1px solid black", "color": "black"});*/
+    			}
+    			})
+  
+    			}
+ function searchheart(loginmemberno){
+	 $.post('/travelstudio/good/searchBymnopostno.json', {
+		'postno': no,
+		'mno': loginmemberno
+	}, function(result) {
+		console.log('1')
+		console.log(result)
+		if(result.status==='success'){
+			$('#list_heart_1').attr('class','fa fa-heart fa-3x');
+		}else{
+			$('#list_heart_1').attr('class','fa fa-heart-o fa-3x');
+		}
 		
-		$('#start-my-journey').off('click');
-		$('#start-my-journey').click(function(){
-		   location.href="./login.html"
-		    //Other code etc.
-		});
-	}else if(mno=!memberno){
-		$('#slide_icon').css('display','inline-block');
-		$('#start-my-journey').off('click');
-		$('#start-my-journey').click(function(){
-		   location.href="../mypage/write.html"
-		    //Other code etc.
-		});
-	}else if(mno=!memberno){
-		
-	}
-	    var template = Handlebars.compile($('#tbody-template4').html())
-	    var generatedHTML = template(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
-	    $('.slide_bar_content').append(generatedHTML) // 새 tr 태그들로 설정한다.
-	      $.post('/post/count.json',
-	    		  {mno : mno}	
-	      , function(result) {
-	    	  console.log(result.data.list.length)
-	    	  
-	    var template = Handlebars.compile($('#tbody-template4').html())
-	    var generatedHTML = template(result.data.list) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
-	    generatedHTML='';
-	    $('.counting1').html(result.data.list.length) // 새 tr 태그들로 설정한다.
+	}, 'json')
+ 
+}
 
-  })
+ 
+ 
+ $.getJSON('/travelstudio/follow/listByloginMember.json', function(result) {
+	 console.log(result)
+	 console.log('11')
 
-  }) // getJSON()
-*/
+}) // getJSON()

@@ -129,9 +129,9 @@ a:link {
   color: #767676;
   margin: 10px auto;
 }
-div{
-	border:1px solid black;
-}
+/* div{
+	border:1px solid ;
+} */
 .edit_settings li {
   /*display: inline-block;*/
   color: #4265EE;
@@ -144,7 +144,7 @@ div{
 	
 	width:900px;
 	min-height:150px;
-	border:1px solid black;
+/* 	border:1px solid black; */
 	display:inline-block;
 }
 

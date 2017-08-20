@@ -131,7 +131,7 @@
 							<button type="button" id="cancel-login"
 								onclick="test('map_container'); test1('modal');">취소</button>
 							<button type="button"
-								onclick="createMap(); test('map_container'); test1('modal');"
+								onclick="saveMap();createMap(); test('map_container'); test1('modal');"
 								id="login-summit">등록</button>
 						</div>
 					<hr>
@@ -308,7 +308,7 @@
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 	 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzESHx5W3BeJDz0a0Tl7OpgBQyg4Vu-wk&libraries=places"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="./node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
 	<script src="./node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
@@ -434,9 +434,6 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 //		       tbody.text('') // tbody의 기존 tr 태그들을 지우고
 		       tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
 		       count++;
-		 
-		
-			 
 			$('#write_addition').css('display', "none");
 		}
 
@@ -519,31 +516,13 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 		}
 
 		var a = 0;
-		$(document)
-				.ready(
-						function() {
-							$(".edit_group")
-									.click(
-											function() {
-												$('<div>2017. 07. 29</div>')
-														.attr('class',
-																'files_date')
-														.appendTo(
-																$(
-																		'<div class="table_files'+a+'" + >')
-																		.insertAfter(
-																				$('.table_files')));
-												$('.checked')
-														.parent()
-														.appendTo(
-																$(
-																		'<div class="files_wrap">')
-																		.appendTo(
-																				$('.table_files'
-																						+ a)));
+		$(document).ready(function() {
+			$(".edit_group").click(function() {
+					$('<div>2017. 07. 29</div>').attr('class','files_date')
+						.appendTo($('<div class="table_files'+a+'" + >').insertAfter($('.table_files')));
+								$('.checked').parent().appendTo($('<div class="files_wrap">').appendTo($('.table_files'+ a)));
 												// $('.checked').parent().appendTo($('<div class="files_wrap">').appendTo($('<div class="table_files'+i+'" + >').insertAfter($('.table_files'))));
-												$('.checked').css('display',
-														'none');
+												$('.checked').css('display','none');
 
 												$('.checked').removeClass();
 
@@ -775,7 +754,6 @@ function initMap2(mapDelId, slati, slongit) {
 	geocodeLatLng(geocoder, map2, infowindow, slati, slongit)
 }
 
-var address;
 function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 
 
@@ -796,12 +774,7 @@ function geocodeLatLng(geocoder, map2, infowindow, slati, slongit) {
 				});
 
 				infowindow.setContent(results[1].formatted_address);
-				console.log(results[1].formatted_address)
 				infowindow.open(map2, marker);
-				address = results[1].formatted_address;
-				console.log("-------------------------->")
-				console.log(address);
-				saveMap();
 
 			}
 		}
@@ -814,12 +787,14 @@ var mapcount = 3;
 function createMap() {
 	slati = latNum.toFixed(8);
 	slongit = lngNum.toFixed(8);
+	
 	$("<div id='map"+mapcount+"'style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;'>")
 			.appendTo($('#text_parent_0'))
 	console.log("aaaa")
-	
+
 	var mapDelId = 'map' + mapcount
 	console.log(mapDelId, slati, slongit)
+
 
 
 	initMap2(mapDelId, slati, slongit)
@@ -833,17 +808,14 @@ function saveMap() {
 	console.log("위치 데이터 넘어감");
 	$.post('../detail/addMap.json', {
 		'lati' : latNum.toFixed(8),
-		'longit' : lngNum.toFixed(8),
-	  'address': address
-	  
+		'longit' : lngNum.toFixed(8)
 
 	}, function(result) {
 
-
+		console.log("위도 경도 넘어간다.");
+		location.href = 'map.html'
 	}, 'json')
 }
-
-
 	</script>
 		
 

@@ -167,7 +167,7 @@ function setFileUploadToInputTag() {
 /*미리보기 파일업로드 끝*/
 
 /*back file 업로드 시작*/
-
+var change=0;
 $('#title_fileupload').fileupload({
 	url: '../post/add.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -184,17 +184,8 @@ $('#title_fileupload').fileupload({
 			console.log('fileuploadprocessalways()...');
 			console.log($(this).val())
 			console.log(data.files);
-			/*var no = $(this).attr('class').split('_')[1].split(' ')[0]*/
-			/*console.log(no)*/
-			/*console.log(no)*/
-
-			/*var imagesDiv = $("#text_parent_"+aaa+"").empty();*/
-
-			/*imagesDiv.html("");*/
 			for (var i = 0; i < data.files.length; i++) {
 				try {
-//					console.log($(this).attr('class').split(' ')[1]);
-//					no = location.href.split('?')[1].split('=')[1]
 					if (data.files[i].preview.toDataURL) {
 						/*console.log($("#text_parent_" + aaa))*/
 						var a = data.files[i].preview.toDataURL()
@@ -211,8 +202,10 @@ $('#title_fileupload').fileupload({
 				data.submit();
 			}); 
 		}, submit: function (e, data){ // 서버에 전송하기 직전에 호출된다.
+			if(change==0){
 			console.log('submit()...');
 			$('.text_write_box').each(function () {
+				
 				/*console.log($(this).val())*/
 				content.push($(this).parent().attr('id').split('_')[2])
 				content.push(decodeURIComponent($(this).val()))
@@ -221,6 +214,7 @@ $('#title_fileupload').fileupload({
 				console.log(data.files[0])
 			})
 			console.log(content)
+			
 			data.formData = {
 				title : decodeURIComponent(fititle.val()),
 				sdt: fisdt.val(),
@@ -231,7 +225,8 @@ $('#title_fileupload').fileupload({
 			/*  name: $('#name').val(),
 			        age: $('#age').val()
 			    };*/
-
+			change=1;
+			}
 		}, 
 
 
@@ -296,6 +291,7 @@ $('#fileAllUpload').fileupload({
 			$.each(data.result.fileList, function(index, file) {
 				$('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
 			});
+			location.href="../jinseoKing/main01.html"
 		}
 });
 

@@ -180,14 +180,6 @@
 
   </head>
   <body>
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=1235472609913903";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
     <header class="header">
     <img id="logo" src="./pictures/ourlogo.png">
     <p id="title_of_article">여행기 제목</p>
@@ -207,8 +199,8 @@
   </div>
 
   <div class="login-button-box">
-    <button id="facebook-login" onClick="facebooklogin()"><i class="fa fa-facebook" aria-hidden="true"></i> 페이스북으로 로그인하기</button>
-    <button type="summit" id="login-summit" onclick="location.href='./mypage.html'">로그인</button><!--  onclick="location.href='../main_minkdak/main.html'" -->
+    <button type="button" id="facebook-login">페이스북으로 로그인하기</button>
+    <button type="summit" id="login-summit" >로그인</button><!--  onclick="location.href='../main_minkdak/main.html'" -->
     <a id="find-password" href="#">비밀번호 찾기</a>
     <a id="sign-up" href="#">회원가입</a>
 
@@ -222,6 +214,5 @@
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./login.js"></script>
-<script src="./facebook_login.js"></script>
   </body>
 </html>

@@ -33,7 +33,7 @@ $.getJSON('/travelstudio/member/header.json', function(result) {
 		$('#slide_icon').css('display','inline-block');
 		$('#start-my-journey').off('click');
 		$('#start-my-journey').click(function(){
-		   location.href="../mypage/write.html"
+		   location.href="../mypage/write2.html"
 		    //Other code etc.
 		});
 	}else{

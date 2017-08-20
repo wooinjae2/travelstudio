@@ -21,8 +21,14 @@ public class Post extends Member{
   String capt;
   String detail;
   String ispublic;
-
+  int good;
   
+  public int getGood() {
+    return good;
+  }
+  public void setGood(int good) {
+    this.good = good;
+  }
   /*int mno;*/
   public int getPostno() {
     return postno;
@@ -91,18 +97,12 @@ public class Post extends Member{
   public void setIspublic(String ispublic) {
     this.ispublic = ispublic;
   }
-/*  public int getMno() {
-    return mno;
-  }
-  public void setMno(int mno) {
-    this.mno = mno;
-  }*/
-  @Override
-  public String toString() {
-    return "Post [postno=" + postno + ", title=" + title + ", badge=" + badge + ", tag=" + tag + ", sdt=" + sdt
-        + ", edt=" + edt + ", pdt=" + pdt + ", cont=" + cont + ", capt=" + capt + ", detail=" + detail + ", ispublic="
-        + ispublic + ", mno=" + mno + "]";
-  }
+@Override
+public String toString() {
+  return "Post [postno=" + postno + ", title=" + title + ", badge=" + badge + ", tag=" + tag + ", sdt=" + sdt + ", edt="
+      + edt + ", pdt=" + pdt + ", cont=" + cont + ", capt=" + capt + ", detail=" + detail + ", ispublic=" + ispublic
+      + ", good=" + good + "]";
+}
   
  
   
