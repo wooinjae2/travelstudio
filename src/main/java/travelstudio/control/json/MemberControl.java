@@ -45,6 +45,8 @@ public class MemberControl {
     }
     return new JsonResult(JsonResult.SUCCESS, member);
   }
+
+
 @RequestMapping("update")
 public JsonResult update(Member member,HttpServletRequest req) throws Exception {
   HttpServletRequest httpRequest = (HttpServletRequest) req;
@@ -134,6 +136,15 @@ public JsonResult list() throws Exception {
   dataMap.put("list", memberService.list());
 //  dataMap.put("totalCount", noticeService.getSize());
   
+  return new JsonResult(JsonResult.SUCCESS, dataMap);
+}
+
+@RequestMapping("subMember")
+public JsonResult selectAddress(int mno) throws Exception {
+  System.out.println("------");
+ System.out.println(mno);
+  HashMap<String,Object> dataMap = new HashMap<>();
+  dataMap.put("subMember", memberService.subMember(mno));
   return new JsonResult(JsonResult.SUCCESS, dataMap);
 }
 

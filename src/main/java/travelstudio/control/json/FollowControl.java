@@ -69,8 +69,11 @@ public class FollowControl {
     
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", followService.listByloginMember(loginMember.getMno()));
+    System.out.println("listByloginMember---------------------");
+    System.out.println(loginMember.getMno());
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }  
+
 
   /*
   @RequestMapping("addMap")

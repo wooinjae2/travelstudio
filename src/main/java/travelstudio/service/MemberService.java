@@ -13,6 +13,7 @@ public interface MemberService {
   void update(Member member) throws Exception;
   void insertPhoto(Member member);
   Member searchOneUser(String alias);
+  Member subMember(int mno);
   
   /*우인재*/
 }

@@ -53,6 +53,13 @@
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
     select * from member where email=#{email} and pwd=password(#{password})
   </select>
+  
+  <select id="subMember" resultMap="memberMap" parameterType="map">
+   select alias, intro, mno from member 
+   where mno=#{mno}
+  </select>
+  
+  
 <!--  
   <select id="selectOneByEmailPassword" resultMap="teacherMap" parameterType="map">
     select  m.mno, m.name, m.tel, m.email, t.hmpg, t.fcbk, t.twit, tp.path

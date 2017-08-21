@@ -35,8 +35,7 @@ public void delete(Follow follow) throws Exception {
 
 @Override
 public List<Follow> listByloginMember(int mno) {
-  followDao.listByloginMember(mno);
-  return null;
+  return  followDao.listByloginMember(mno);
 }
 
 }

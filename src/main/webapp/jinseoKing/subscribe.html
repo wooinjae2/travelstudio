@@ -8,10 +8,12 @@
  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 <style>
+
+/*여기서부터 header css*/
+
 div{
 border: 1px solid black;
 }
-/*여기서부터 header css*/
 body {
       margin: 0;
     }
@@ -125,13 +127,15 @@ height: 100px;
  border:1px solid white;
  font-size: 27px;
   margin-top: 5px;
-  font-weight: bold;
+
+  
  }
 
  #intro{
   border:1px solid white;
   font-size: 21px;
   margin-top: 23px;
+   
  }
  
  #img_cont{
@@ -169,6 +173,12 @@ height: 100px;
       margin-top: 30px;
 
     }
+    
+
+
+ a:link { color: gray; text-decoration: none;}
+ a:visited { color: gray; text-decoration: none;}
+ a:hover { color: gray; text-decoration: none;}
 </style>
 
 
@@ -186,26 +196,36 @@ height: 100px;
 
 <div id="sub_container">
 <div id="title">내가 구독하는 여행자</div>
+
+	<script id="subMember-template" type="text/x-handlebars-template"> 
 <div id="conainerForOne">
+
 <div id="img_cont">
-<img id="sub_img" src="./pictures/emma.jpg">
+<a><img id="sub_img" src="./upload/{{path}}"></a>
 </div>
 <div id="empty"></div>
 <div id="profile">
-<div class="in_profile" id="alias">아리랑</div>
-<div class="in_profile" id="intro">여행가자 여행가자 여행가자 여행가자 여행가자 </div>
+<a><div class="in_profile" id="alias">{{alias}}</div></a>
+<a><div class="in_profile" id="intro">{{intro}} </div></a>
 </div>
 <div class="sub_box">
 <button type="button" id="subsc_btn">구독하기</button>
 </div>
+
 </div>
 <hr>
+</script>
+
 </div>
 
 
 
 
 
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./subscribe.js"></script>
 <script>
 $('#subsc_btn').click(function(){
     console.log($(this).css('color')=='rgb(0, 0, 0)')
@@ -223,8 +243,6 @@ $('#subsc_btn').click(function(){
 
 
 
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 
 </body>
 </html>

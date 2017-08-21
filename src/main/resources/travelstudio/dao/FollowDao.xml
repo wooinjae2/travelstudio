@@ -28,6 +28,13 @@
   <select id="listByloginMember" resultMap="followMap" parameterType="int">
   	select * from follow where mno=#{mno}
   </select> 
+
+<select id="subMember" resultMap="followMap" parameterType="int">
+   select f.mno2, m.mno
+  from member m left join follow f on f.mno=m.mno
+  where m.mno=#{mno}; 
+</select>
+
  
 </mapper>
 

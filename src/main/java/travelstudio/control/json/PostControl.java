@@ -118,7 +118,8 @@ public class PostControl {
     Thumbnails.of(file).size(2500, 2500).outputFormat("png").toFile(thumbnail);
     }
     
-   
+    post.setMno(loginMember.getMno());
+    postService.add(post);
     
     
     

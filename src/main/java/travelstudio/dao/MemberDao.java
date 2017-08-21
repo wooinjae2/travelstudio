@@ -24,4 +24,6 @@ public interface MemberDao {
   /*우인재*/
   Member selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Member member);
+  
+  Member subMember(int no);
 }

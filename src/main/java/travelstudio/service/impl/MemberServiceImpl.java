@@ -68,8 +68,11 @@ public class MemberServiceImpl implements MemberService {
 
   @Override
   public Member searchOneUser(String alias) {
-    
     return memberDao.searchOneUser(alias);
+  }
+  
+  public Member subMember(int mno) {
+    return memberDao.subMember(mno);
   }
 
 
