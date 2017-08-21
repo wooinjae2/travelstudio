@@ -6,6 +6,7 @@ import travelstudio.domain.Member;
 
 public interface MemberService {
   List<Member> info() throws Exception;
+  List<Member> search(String keyword) throws Exception;
   void add(Member member) throws Exception;
   Member get(int no) throws Exception;
   List<Member> list() throws Exception;
@@ -14,6 +15,7 @@ public interface MemberService {
   void insertPhoto(Member member);
   Member searchOneUser(String alias);
   Member subMember(int mno);
+  
   
   /*우인재*/
 }

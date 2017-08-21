@@ -17,15 +17,8 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
   </head>
 <body>
     <div id="modal"></div>
-  <!-- <div class="header-container">
-        <div class="in-header-container">
-         <img src="logo1.PNG" id="logo">
-        <input id="search-bar" type="text" name="search" placeholder="search">
-
-      <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-      <button type="button" id="edit-start-button">start
-      </div>
-    </div> -->
+    <div id="modal2"></div>
+  
     
     
      <header class="header">
@@ -76,124 +69,12 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 <div class="cont_card">
   <div class="inner_card">
   <ul class="travle_list">
-<!--     <li class="travel_item">
-      <div class="item_card">
-        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
-      <div class="img_card">
-        <a href="#">
-          <img class="list_img" src="./Turkey.jpg"></img>
-        </a>
-      </div>
-      <div class="card_desc">
-<div class="card_title">
-  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
-  <div class="cate">
-      <nav>
-      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-      <ul class="dropdown">
-        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
 
-
-        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
-      </ul>
-      </nav>
-</div>
-</div>
-<div class="card_bottom">
-  <img src="./usercircle.png"></img>
-  <span>swanpurple</span>
-    <div class="mypage_list_heart">
-  <i class="fa fa-heart-o" aria-hidden="true"></i>
-  <span class="heart_num">3</span>
-</div>
-</div>
-      </div>
-    </div>
-    </li>
-
-
-    <li class="travel_item">
-      <div class="item_card">
-        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
-      <div class="img_card">
-        <a href="#">
-          <img class="list_img" src="./Turkey.jpg"></img>
-        </a>
-      </div>
-      <div class="card_desc">
-  <div class="card_title">
-  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
-  <div class="cate">
-      <nav>
-      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-      <ul class="dropdown">
-        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
-
-
-        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
-      </ul>
-      </nav>
-  </div>
-  </div>
-  <div class="card_bottom">
-  <img src="./usercircle.png"></img>
-  <span>swanpurple</span>
-    <div class="mypage_list_heart">
-  <i class="fa fa-heart-o" aria-hidden="true"></i>
-  <span class="heart_num">3</span>
-  </div>
-  </div>
-      </div>
-    </div>
-    </li> 
-
-
-    <li class="travel_item">
-      <div class="item_card">
-        <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
-      <div class="img_card">
-        <a href="#">
-          <img class="list_img" src="./Turkey.jpg"></img>
-        </a>
-      </div>
-      <div class="card_desc">
-<div class="card_title">
-  <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
-  <div class="cate">
-      <nav>
-      <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-      <ul class="dropdown">
-        <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
-
-
-        <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-        <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-        <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
-      </ul>
-      </nav>
-</div>
-</div>
-<div class="card_bottom">
-  <img src="./usercircle.png"></img>
-  <span>swanpurple</span>
-    <div class="mypage_list_heart">
-  <i class="fa fa-heart-o" aria-hidden="true"></i>
-  <span class="heart_num">3</span>
-</div>
-</div>
-      </div>
-    </div>
-    </li>
--->
 
 
 
             <script id="content-template" type="text/x-handlebars-template">
-{{#each list}}
+{{#each selectOneUserPost}}
             <li class="travel_item">
               <div class="item_card">
                 <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
@@ -209,9 +90,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
               <nav>
               <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
               <ul class="dropdown">
-                <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
-
-
+                <li><a class="invite_f" href="javascript:;" data-value={{postno}}>친구 초대하기</a></li><br>
                 <li><a class="share_travel"href="javascript:;" data-value={{postno}} onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
                 <li><a class="delete_travel" href="javascript:;" data-value={{postno}} onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
                 <li><a class="lock_travel" href="javascript:;" data-value={{postno}} onclick="test1('lock')">나만 보기</a></li><br>
@@ -224,7 +103,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
           <span>{{alias}}</span>
             <div class="mypage_list_heart">
           <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <span class="heart_num">3</span>
+          <span class="heart_num">{{good}}</span>
         </div>
         </div>
               </div>
@@ -272,39 +151,45 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
               </div>
             </div>
             </li>
-
-
- 
 </ul>
   </div>
-
-
 </div>
 
 
 
-
+<!-- 친구와 같이쓰기 시작 -->
 <div id='invite_f_container'>
   <div class='content_a'>
     <h4>참여자</h4>
     <div class="join_user_list">
-      <img src="./usercircle.png"></img>
+      <div><img src="./usercircle.png"></img></div>
     </div>
     <hr>
     <h4>여행가 찾기</h4>
     <form class="f_search">
   <input type="text" id="f_search-bar" placeholder="ID를 입력해주세요">
-  <a href="#"><img class="f_search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+  <a id="f_search" href="#"><img class="f_search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 </form>
-
-<br>
-<br>
+<div id="f_search_list">
+<ul>
+<script id="search-friends-template" type="text/x-handlebars-template">
+{{#each info}}
+<li><a class="select_friends {{mno}}" data-email="{{email}}" data-path="../upload/{{path}}" href="javascript:;" onclick="test1('modal2'); test('confirm-invite-f');"><div><img src="../upload/{{path}}"></div>
+<div>{{email}}</div><div><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a></div>
+</li>
+{{/each}}
+</script>
+</ul>
+</div>
 <div class="save_btn"><button type="button" id="close1-btn" onclick="test1('modal'); test('invite_f_container');">나가기</button></div>
   </div>
 </div>
+<!-- 친구와 같이쓰기 끝 -->
 
-
-
+<div id="confirm-invite-f">
+<div id="confirm-email"></div>
+<button type="button" id="confirm-invite-f-yes" onclick="test1('modal2'); test('confirm-invite-f');">예</button><button type="button" id="confirm-invite-f-no" onclick="test1('modal2'); test('confirm-invite-f');">아니오</button>
+</div>
 
 
 <div id='delete_wrap'>
@@ -312,9 +197,6 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 
 <div class="delete_wrap_btns"><button type="button" id="no-btn" onclick="test1('modal'); test('delete_wrap');">아니요</button> <button type="button" id="yes-btn" onclick="test1('modal'); test('delete_wrap');">예</button></div>
 </div>
-
-
-
 
 
 
@@ -346,9 +228,75 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 
 </div>
 
+<script id="user-info-template" type="text/x-handlebars-template">
+  <span class="user_name">{{alias}}</span> 
+  <a href="#" class="fa fa-cog fa-2x" id="mysetting"></a>
+</script>
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="./mypage.js" charset="utf-8"></script>
 <script>
+var inviteMemberNo=0;
+var targetpostno=0;
+var targetuserimage=0;
+/* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수 */
+
+$(document).on("click",".select_friends",function(){
+	 console.log('selectf click')
+	 console.log(this)
+	 console.log($(this).attr('data-email'))
+	 var str = $(this).attr('data-email')+'에게 초대장을 보내시겠습니까?'
+	 $('#confirm-email').html(str)
+	 inviteMemberNo=$(this).attr('class').split(' ')[1]
+	 /* console.log($(this).children("div").first().children("div").children()) */
+	 targetuserimage=$(this).attr('data-path')
+	 console.log(inviteMemberNo)
+})
+/* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수  끝 */
+
+ $('#confirm-invite-f-yes').click(function(){
+	 console.log(inviteMemberNo)
+	 console.log(targetpostno)
+	$.post('../cowork/invite.json', {
+		'mno': inviteMemberNo,
+		'postno' : targetpostno
+	}, function(result) {
+	 /* $('<img src='+targetuserimage+'>').appendTo($('.join_user_list')) */
+	 console.log($('.join_user_list'))
+	 $('.join_user_list').append($('<div class="'+inviteMemberNo+'_'+targetpostno+'">').html('<img src="'+targetuserimage+'"><a class="delete-invite-f"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>'))
+	}, 'json')
+})
+ 
+ $(document).on("click",".delete-invite-f",function(){
+	 console.log($(this).parent())
+	 var img1 = $(this).parent()
+	 $.post('../cowork/delete.json', {
+		'mno': img1.attr('class').split('_')[0],
+		'postno' : img1.attr('class').split('_')[1]
+	}, function(result) {
+		console.log($(this))
+	 img1.remove()
+	}, 'json')
+ })
+ 
+
+$('#f_search').click(function(){
+	console.log('fsearch click')
+	var searchusername=$('#f_search-bar').val()
+	$.post('../member/search.json', {
+		'keyword': searchusername
+	}, function(result) {
+		console.log(result)
+		 var template = Handlebars.compile($('#search-friends-template').html())
+	      var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//	      tbody.text('') // tbody의 기존 tr 태그들을 지우고
+	      $('#f_search_list > ul').append(generatedHTML) // 새 tr 태그들로 설정한다.
+		
+	}, 'json')
+
+})
+
 
 function dropdown(){
 $(function() {
@@ -368,14 +316,27 @@ $(document).click(function(e) {
 }
 
 
+
+$(document).on("click",".invite_f",function(){
+	console.log(this)
+targetpostno=$(this).attr('data-value')
+	$('#modal').css('display','inline-block')
+	$('#invite_f_container').css('display','inline-block')
+	})
+	
 $(document).on("click",".share_travel",function(){
-test1(modal)
 console.log(this)
-}
+targetpostno=$(this).attr('data-value')
+$('#modal').css('display','inline-block')
+	$('#invite_f_container').css('display','inline-block')
+})
 
 $(document).on("click",".delete_travel",function(){
 	console.log(this)
-}
+	targetpostno=$(this).attr('value')
+	$('#modal').css('display','inline-block')
+	$('#invite_f_container').css('display','inline-block')
+})
 
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
@@ -395,20 +356,6 @@ function test(idMyDiv) {
   }
 }
 
-//
-// $('.invite_f').on('click', function(){
-//   $('.wrap').toggleClass('active');
-//
-//   return false;
-// });
-//
-// $(".wrap > div").click(function () {
-//         $('.wrap').toggleClass('active');
-//     });
-
-
-
-
     $('.delete_travel').on('click', function(){
       $('.wrap11, #b').toggleClass('active');
 
@@ -419,42 +366,6 @@ function test(idMyDiv) {
             $('.wrap11, #b').toggleClass('active');
         });
 
-
-</script>
-
-<script id="user-info-template" type="text/x-handlebars-template">
-  <span class="user_name">{{alias}}</span> 
-  <a href="#" class="fa fa-cog fa-2x" id="mysetting"></a>
-</script>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="./mypage.js" charset="utf-8"></script>
-
-<script>
-"use strict"
-
-/* $('#fileupload').fileupload({
-    url: '../member/upload2.json',        // 서버에 요청할 URL
-    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미
-    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-      console.log('done()...');
-      console.log(data.result);
-      var file = data.result.fileList[0];
-      $.each(data.result.fileList, function(index, file) {
-        $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
-      });
-    }
-});
-
-$.getJSON('../member/detail.json',{'no':no},function(result){w
-	  let str = result.data.memberPhoto;
-	  var path = window.location.pathname;
-	  console.log(path)
-	  console.log(str)
-	  $('.card_bottom').css({
-	      'background': 'url("/upload/' + str +'")'
-	  })
-	}) */
 
 </script>
 </body>

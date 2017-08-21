@@ -9,11 +9,29 @@ package travelstudio.domain;
 
 
 public class Picture {
-  int picno;
-  String path, time, lati, longit;
+  int picno, sortno;
+  String path, time;
+  Double lati, longit;
+  
+  @Override
+  public String toString() {
+    return "Picture [picno=" + picno + ", sortno=" + sortno + ", path=" + path + ", time=" + time + ", lati=" + lati
+        + ", longit=" + longit + "]";
+  }
+  
+  
   public int getPicno() {
     return picno;
   }
+  
+  public int getSortno() {
+    return sortno;
+  }
+
+  public void setSortno(int sortno) {
+    this.sortno = sortno;
+  }
+
   public void setPicno(int picno) {
     this.picno = picno;
   }
@@ -29,23 +47,23 @@ public class Picture {
   public void setTime(String time) {
     this.time = time;
   }
-  public String getLati() {
+  
+  public Double getLati() {
     return lati;
   }
-  public void setLati(String lati) {
+
+  public void setLati(Double lati) {
     this.lati = lati;
   }
-  public String getLongit() {
+
+  public Double getLongit() {
     return longit;
   }
-  public void setLongit(String longit) {
+
+  public void setLongit(Double longit) {
     this.longit = longit;
   }
-  @Override
-  public String toString() {
-    return "Picture [picno=" + picno + ", path=" + path + ", time=" + time + ", lati=" + lati + ", longit=" + longit
-        + "]";
-  }
+
   
   
 }

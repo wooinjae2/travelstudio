@@ -11,6 +11,8 @@
     <result column="date" property="date"/>
     <result column="lati" property="lati"/>
     <result column="longit" property="longit"/>
+    <result column="time" property="time"/>
+    <result column="sno" property="sortno"/>
   </resultMap> 
 
 <!--    <sql id="select1">
@@ -29,7 +31,12 @@
     insert into pic(path, lati, longit, time)
     values(#{path}, #{lati}, #{longit}, #{time})
   </insert>
-  
+
+  <insert id="insertAllPhoto" parameterType="picture" 
+          useGeneratedKeys="true" keyColumn="picno">
+    insert into pic(path, lati, longit, time, sno)
+    values(#{path}, #{lati}, #{longit}, #{time}, #{sortno})
+  </insert>
 <!--    <insert id="insert2" parameterType="String"> 
     insert into virtual(path)
     values(#{filename})
