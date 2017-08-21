@@ -189,6 +189,16 @@ div.card_title span{
   display: none;
 }
 
+#modal2{
+  width:100%;
+  height:100%;
+  background-color:gray;
+  position:fixed;
+  z-index: 99;
+  opacity: 0.6;
+  display: none;
+}
+
 
 
 i{
@@ -361,7 +371,29 @@ p {
 }
 */
 /*팝업 친구 초대하기 시작*/
-.join_user_list > img{
+.join_user_list{
+	text-align:center;
+}
+.join_user_list> div >a> i{
+	position: absolute;
+	z-index:100;
+	color:black;
+	
+}
+.fa-times-circle-o:before{
+	margin-left:-25px;
+	margin-top:-10px;
+}
+
+.join_user_list >div{
+	border-radius:50%;
+  width:40px;
+  height:40px;
+  overflow:hidden;
+  display:inline-block;
+  margin:4px;
+}
+.join_user_list > div > img{
   width:40px;
   height:40px;
 }
@@ -451,11 +483,58 @@ input#f_search-bar{
 /*친구 초대하기 서치바 끝*/
 
 
-/*
-*/
+/* 친구와 같이쓰기 친구검색 유저정보 조회하기*/
+#f_search_list{
+	border:1px solid black;
+	width: 350px;
+	heigth:250px;
+	margin-left:30px;
+	
+}
+
+
+#f_search_list> ul > li>a>div>img{
+	height:40px; width: 40px;
+}
+#f_search_list> ul{
+	padding:0px;
+}
+#f_search_list> ul > li div{
+	display:inline-block;
+}
+#f_search_list> ul > li> i{
+	align:right;
+}
+#f_search_list> ul > li{
+display:block;
+border-top: 1px solid lightgray;
+border-bottom: 1px solid lightgray;
+margin-left:10px;
+text-align:left;
+	height: 55px;
+	width:300px;
+}
+.fa-plus-circle:before{
+	margin-left:125px;
+}
 
 
 
+/* 친구와 같이쓰기 친구검색 유저정보 조회하기 끝*/
+
+#confirm-invite-f{
+	width:500px;
+	height: 200px;
+	position: fixed;
+	z-index: 100;
+	border: 1px solid black;
+	top:30%;
+	left:38%;
+	background:white;
+	text-align:center;
+	display:none;
+	
+}
 
 
 

@@ -32,6 +32,14 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  
+  @RequestMapping("search")
+  public JsonResult search(String keyword) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("info", memberService.search(keyword));
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
 
   
   

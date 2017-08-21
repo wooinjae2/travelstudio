@@ -240,6 +240,7 @@ $('#title_fileupload').fileupload({
 				$('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
 			});
 			savecount=0;
+			location.href='./mypage.html'
 		}
 
 });

@@ -1,6 +1,7 @@
 var userDesc= $('.user_desc');
 
 var alias= location.href.split('?')[1]
+var loginMemberNo =0;
 console.log(alias)
 console.log(encodeURI(alias, "UTF-8"))
 if(alias!=null){
@@ -40,6 +41,7 @@ $.getJSON('../member/header.json', function(result) {
 
    console.log(result);
        var template = Handlebars.compile($('#user-info-template').html())
+       loginMemberNo=result.data.loginMember.mno
        var generatedHTML = template(result.data.loginMember) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //       tbody.text('') // tbody의 기존 tr 태그들을 지우고
        userDesc.append(generatedHTML);
@@ -56,12 +58,14 @@ $.getJSON('../member/header.json', function(result) {
 	  $('#user-img').attr('src', '../upload/' + str).css('width', '170px').css('height', '170px').css('border-radius', '100%')
     }
 	
-//       generatedHTML.appendTo($('.user_desc')).insertAfter('#mysetting');
-//.insertAfter('.')
+    
+    selectLoginUserPost()
 })
 
-$.getJSON('../post/list.json', function(result) {
-	  console.log(result.data.list);
+function selectLoginUserPost(){
+	console.log(loginMemberNo)
+$.post('../post/selectOneUserPost.json',{'number':loginMemberNo}, function(result) {
+	  console.log(result);
       var template = Handlebars.compile($('#content-template').html())
       var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //      tbody.text('') // tbody의 기존 tr 태그들을 지우고
@@ -69,4 +73,5 @@ $.getJSON('../post/list.json', function(result) {
       dropdown()
   console.log(result.data.list)
 })
+}
 }

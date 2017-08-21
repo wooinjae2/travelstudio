@@ -19,6 +19,10 @@
     select * from member
   </select>
     
+    <select id="selectSearchList" resultMap="memberMap" parameterType="String">
+    select * from member where email like concat('%',#{keyword},'%')
+  </select> 
+   
     <select id="searchOneUser" resultMap="memberMap" parameterType="String">
     select * from member where email = #{email}
   </select>
