@@ -9,7 +9,7 @@
   <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY">
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"> -->
   
   </script>
 
@@ -27,6 +27,8 @@
    
 
 
+
+
     a {
       color: inherit;
     }
@@ -35,9 +37,66 @@
       border: none;
       outline: 0;
     }
-    /*div{
-border:1px solid black;
-}*/
+    /* 여기서부터 headercss */
+    
+    body {
+      margin: 0;
+    }
+
+    header {
+      border: 1px solid #c9d1dd;
+      width: 100%;
+      height: 70px;
+      z-index: 100;
+      background-color: white;
+    }
+
+    #logo {
+      max-height: 55px;
+      margin-top: 7px;
+      margin-left: 15px;
+      display: inline;
+    }
+
+    #search_bar {
+      border: 1px solid white;
+      border-bottom: 1px solid gray;
+      font-size: 25px;
+      font-weight: 600;
+      margin-left: 10%;
+      margin-top: 17px;
+      display: inline;
+      position: absolute;
+      width: 500px;
+      height: 40px;
+    }
+
+    #search_icon {
+      position: absolute;
+      margin-left: 695px;
+      margin-top: 19px;
+      background-color: white;
+      border: none;
+    }
+
+     ::-webkit-input-placeholder {
+      color: #aeb5c1;
+    }
+
+    #start-my-journey {
+      border: 1px solid black;
+      width: 140px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: white;
+      margin-left: 938px;
+      margin-top: 13px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      position: absolute;
+      display: inline;
+    }
+    /* 여기까지 headercss */
 .slide_bar {
   background-color: white;
   width: 320px;
@@ -200,6 +259,7 @@ line-height: 35px;
       height: 700px;
       font-family: 'Ropa Sans', sans-serif;
       margin-bottom: 20px;
+      
     }
 
 
@@ -537,8 +597,8 @@ line-height: 35px;
     }
 
     .blank-one {
-      border: 1px solid black;
-      margin-top: 69px;
+      
+      margin-top: -5px;
     }
 
     #gotop {
@@ -673,13 +733,14 @@ line-height: 35px;
       max-width: 90px;
       max-height: 90px;
       overflow: hidden;
-      border-radius: 50%;
+      border-radius: 100%;
       margin-left: auto;
       margin-right: auto;
     }
 
     #author {
       width: 90px;
+      height: 90px;
     }
 
     .alias {
@@ -749,7 +810,7 @@ line-height: 35px;
       border: none;
       border-top: 1px solid #d6d7d8;
       height: 150px;
-      ;
+      
       padding-left: 20px;
       list-style: none;
       padding: 16px;
@@ -849,6 +910,7 @@ line-height: 35px;
       width: 698px;
       height: 108px;
       border-radius: 2px;
+      margin-top:30px;
     }
 
     #inner_command {
@@ -867,17 +929,7 @@ line-height: 35px;
     border: 1px solid white;
     }
     
-   
-/*
-   .other_article_of_author{
-     border:1px solid black;
-     max-height: 200px;
-     overflow: hidden;
-   }
-    #prev, #after{
-      display: inline-block;
-      width: 48%;
-    }*/
+    
   </style>
 
 
@@ -889,8 +941,8 @@ line-height: 35px;
 
 <!-- 
   <header class="header">
+   
    <img src="img/slidecall.png" id="slide_icon">
-  
     <a href="../main_minkdak/main.html"><img id="logo" src="./pictures/ourlogo.png"></a>
     <p id="title_of_article">여행기 제목</p>
     <button type="button" onclick="location.href='../mypage/write.html'" id="start-my-journey">여행기 작성</button>
@@ -899,11 +951,19 @@ line-height: 35px;
   <!--header-->
 
   <!--글쓰기랑 이이디 클래스 이름 똑같음-->
-  <div class="header" id="header"></div>
+  <div class="header" id="header">
+  <img src="img/slidecall.png" id="slide_icon">
+    <a href="../jinseoKing/main01.html"><img id="logo" src="./pictures/ourlogo.png"></a>
+    <input type="search" id="search_bar" placeholder="검색">
+    <button id="search_icon" class="fa fa-search fa-2x" onclick="search()" aria-hidden="true"></button>
+    <button type="button" id="start-my-journey">여행기 작성</button>
+  </div> -
+  
+  
+<div id="blank-one" class="blank-one">
   <script id="content-template-3" type="text/x-handlebars-template">
-{{#each list}}
-  <div id="blank-one" class="blank-one" >
-    <textarea>{{title}}</textarea>
+{{#selectedPost}}
+    <textarea disabled>{{title}}</textarea>
     <div class="bb">
 
       <a href="#" class="write_select_date_start">
@@ -918,19 +978,29 @@ line-height: 35px;
       <span class="tag_hash">{{tag}}</span>
       
     </div>
-    <img src="./pictures/KR.png" id="KR_flag">
 
     <div class="faces">
       <div class="face">
-        <a href="#"><img src="./pictures/yunakim.jpg" id="yunakim"></a>
+        <a href="#"><img src="../mypage/upload/{{path}}" ></a>
       </div>
       <div class="face2">
-        <a href="#"><img src="./pictures/emma.jpg" id="Emma"></a>
+        <a href="#"><img src="../upload/{{path}}" id="Emma"></a>
       </div>
     </div>
-{{/each}}
+{{/selectedPost}}
   </script>
   </div>
+  
+  <div id="traveled_country">
+       <script id="flag-template" type="text/x-handlebars-template">
+{{#each flag_list}}
+      <ul style=none;>
+        <li><img src='{{address}}'>{{address}}</li>
+      </ul>
+{{/each}}
+</script>
+
+</div>
 
   <!--내용상자-->
   <div class="container_main">
@@ -946,7 +1016,7 @@ line-height: 35px;
 
 <div class="without_heart_main">
 
-  <div class="root">
+ <!--  <div class="root">
   <div class="root_way_first">
     <img id="root_way_first_img" src="./pictures/rootstart.PNG">
     <p id="name_root1">인천국제공항<br><img id="KR_root"src="./pictures/KR.png"><span id="next_flag">KR</span></p>
@@ -966,29 +1036,40 @@ line-height: 35px;
      <img id="rootend_img" src="./pictures/rootend.PNG">
      <p id="name_root3">오를리 국제 공항<br><img id="FR_root" src="./pictures/france.png"><span id="next_flag">FR</span></p>
   </div>
-  </div>
+  </div> -->
 
 <div class="tool_box">
 
-  <div id="title_in_text">여행의 시작은 기내식</div>
+<!--   <div id="title_in_text">여행의 시작은 기내식</div>
   <div id="googleMap"></div>
   <div class="content_text">
 
   <p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을 설치면서 훨씬 일찍 깨게 된다. 그럼 또 억울해서 1, 20분 더 자려고 들고, 그런 악순환의 반복이다. 아침에 짐 정리해야지, 라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다. 여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다. 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는 생각까지 했었건만. 자가예지력 짱임. 나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다. 뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...지만 지금은 다 캐리어 안에 있네. 으흐흐흐. 여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
 </div>
+ -->
+  <div class="whole_collage1">
+
 
 <div id="text_box">
 	<script id="content-template-2" type="text/x-handlebars-template">
-{{#each list}}
-  <div class="whole_collage1">
-  <div  id="one_whole_collage"><img id="img_4" src="./pictures/ca.jpg"></div>
 
-</div>
-<div class="caption">{{capt}}</div>
+{{#each list}}
+{{#if cont}}
+<div class="caption">{{cont}}</div>
 <div class="content_text">
 <p>{{cont}}</p>
   </div>
+{{/if}}
+{{#if picno}}
+  <div  id="one_whole_collage"><img id="img_4" src="../{{picno}}_700.png"></div>
+</div>
+{{/if}}
+{{#if lati}}
+<div style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;' id="map{{srtno}}" data-lati={{lati}} data-longit={{longit}}"}></div>
+{{/if}}
+
 {{/each}}
+
 </script>
 </div>
 
@@ -1009,7 +1090,7 @@ line-height: 35px;
 	<script id="content-template-4" type="text/x-handlebars-template">
 {{#each info}}
 <div class="author_pic">
-  <a href="#"><img id="author" src="./pictures/yunakim.jpg"></a>
+  <a href="#"><img id="author" src="../upload/{{path}}"></a>
 </div>
 
 <p class="alias">{{alias}}</p><br>
@@ -1032,7 +1113,10 @@ line-height: 35px;
 		<li>
 		
 			<div id="replyer">
-				<img src="./pictures/emma.jpg">
+			<script id="comment-template-write" type="text/x-handlebars-template">
+
+				<img src="../upload/{{path}}">
+ </script>
 			</div> <span class="content_reply">
 
 
@@ -1050,7 +1134,7 @@ line-height: 35px;
 		{{#each list}}
 		<li id="posted">
 			<div id="replyer">
-				<img src="./pictures/emma.jpg">
+				<img src="../upload/{{path}}">
 			</div> <span class="content_reply"> <a id="id">{{alias}}</a>
 			<span id="posted_date">{{date}}</span>
 				<div id="posted_command_wrap">
@@ -1082,27 +1166,52 @@ line-height: 35px;
 <!--내용상자-->
 
 <!--구글지도-->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./inner_article.js"></script>
 
    <script>
-      function initialize()
-      {
-       var mapProp = {
-         center: new google.maps.LatLng(37.250943, 127.028344),
-         zoom:7,
-         zoomControl:true,
-         zoomControlOptions: {
-           style:google.maps.ZoomControlStyle.SMALL
-         },
-         mapTypeId: google.maps.MapTypeId.ROADMAP
-       };
-       var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+   var mapname2;
+   function initMap(mapname) {
+	   console.log(mapname)
+	   mapname2=mapname
+       var map = new google.maps.Map(document.getElementById(mapname), {
+         zoom: 8,
+         center: {lat: parseFloat(document.getElementById(mapname).getAttribute('data-lati')), lng: parseFloat(document.getElementById(mapname).getAttribute('data-longit'))}
+       });
+       var geocoder = new google.maps.Geocoder;
+       var infowindow = new google.maps.InfoWindow;
 
+       geocodeLatLng(geocoder, map, infowindow);
+     }
 
+     function geocodeLatLng(geocoder, map, infowindow) {
+   	 
+       /* var input = document.getElementById('latlng').value; */
+       
+       /* var latlngStr = input.split(',', 2); */
+       var latlng = {lat: parseFloat(document.getElementById(mapname2).getAttribute('data-lati')), lng: parseFloat(document.getElementById(mapname2).getAttribute('data-longit'))};
+       geocoder.geocode({'location': latlng}, function(results, status) {
+         if (status === 'OK') {
+           if (results[1]) {
+             map.setZoom(14);
+             map.setCenter(results[0].geometry.location);
+             var marker = new google.maps.Marker({
+               position: latlng,
+               map: map
+             });
+             infowindow.setContent(results[1].formatted_address);
+             infowindow.open(map, marker);
+           } else {
+             window.alert('No results found');
+           }
+         } else {
+           window.alert('Geocoder failed due to: ' + status);
+         }
+       });
+     }
 
 
  <!-- 하트 -->
@@ -1128,7 +1237,7 @@ line-height: 35px;
         view.on('scroll', function(){
         var scrollTop = view.scrollTop();
         mast.toggleClass('hidden', scrollTop > prev);
-        console.log(scrollTop);
+        
         prev = scrollTop;
         });
         -->
@@ -1181,34 +1290,7 @@ $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
 
-$(document).ready(function(){
-  //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
-  $(".owl-carousel").owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:20,
-    autoplayHoverPause:true
-  });
-});
 
-$('.owl-carousel').owlCarousel({
-  loop:false,
-  margin:10,
-  nav:true,
-  autoWidth:true,
-  responsive:{
-    0:{
-      items:1
-    },
-    600:{
-      items:4
-    },
-    1000:{
-      items:5
-    }
-  }
-})
 
 
 

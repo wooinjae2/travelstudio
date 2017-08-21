@@ -24,6 +24,10 @@ public class PictureServiceImpl implements PictureService {
    
  }
  
+ public void addAllPicture(Picture picture) throws Exception {
+   pictureDao.insertAllPhoto(picture);
+   
+ }
  public List<Picture> selectPicNo(String path){
    return pictureDao.selectPicNo(path);
    

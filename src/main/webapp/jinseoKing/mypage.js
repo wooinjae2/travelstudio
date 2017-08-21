@@ -129,7 +129,7 @@ function address(){
 		'mno': mno
 	},
 	function(result) {
-		
+		console.log(result)
 		var uniqueNames = [];
 		var flag_list=[];
 		/*var flag_list_show=new Array();*/
