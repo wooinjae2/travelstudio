@@ -6,7 +6,7 @@ import java.util.Map;
 import travelstudio.domain.Member;
 
 public interface MemberDao {
-  List<Member> selectList();
+ List<Member> selectList();
   List<Member> selectSearchList(String keyword);
   Member selectOne(int no);
 //  Notice selectOneByEmailPassword(Map<String,Object> valueMap);

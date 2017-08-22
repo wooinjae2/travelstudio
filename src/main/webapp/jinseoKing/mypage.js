@@ -1,14 +1,17 @@
 var mno;
 var userDesc= $('.user_desc');
 
+
+
 var alias= location.href.split('?')[1]
-console.log(alias)
 console.log(encodeURI(alias, "UTF-8"))
+
 if(alias!=null){
 	$('#mysetting').attr('display','none;')
 	$.post('/travelstudio/member/searchOneUser.json', {
 		'alias': alias
 	},function(result) {
+		console.log(alias)
 		console.log(result.data)
 		var template = Handlebars.compile($('#user-info-template').html())
 		var generatedHTML = template(result.data.Member) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -18,6 +21,7 @@ if(alias!=null){
 		$(document.body).on('click', '#mysetting', function(event) {
 			location.href = 'user_setting.html'
 				event.preventDefault()
+				
 		})
 
 		let str = result.path;
@@ -34,6 +38,8 @@ if(alias!=null){
 
 //		generatedHTML.appendTo($('.user_desc')).insertAfter('#mysetting');
 		//.insertAfter('.')
+		
+	
 	})
 
 
