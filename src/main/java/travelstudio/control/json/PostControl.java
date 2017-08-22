@@ -102,10 +102,7 @@ public class PostControl {
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     
-    /*System.out.println(files[0]);*/
-    
-    
-    
+
     
     System.out.println(post);
     

@@ -17,6 +17,7 @@ int insert1(Picture picture);
 int insertAllPhoto(Picture picture);
 List<Picture> selectPicNo(String path);
 Picture selectByPost(String pictureno);
+Picture searchthispicture(String path);
 //  int update(Member member);
 //  int delete(int no) throws Exception;
 }

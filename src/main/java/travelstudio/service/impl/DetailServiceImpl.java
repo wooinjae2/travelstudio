@@ -63,6 +63,13 @@ public List<Detail> selectAddress(int mno) throws Exception {
   return detailDao.selectAddress(mno);
 }
 
+
+@Override
+public void addAllphoto(Detail detail) {
+  detailDao.addAllphoto(detail);
+  
+}
+
 //  
 //  public Teacher get(int no) throws Exception {
 //    return teacherDao.selectOne(no);

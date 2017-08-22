@@ -13,6 +13,7 @@ public interface PictureService {
 //  List<Post> getWriteCount(Post post) throws Exception;
 //  int getSize() throws Exception;
   Picture selectByPost(String pictureno);
+  Picture searchthispicture(String path);
 }
 
 

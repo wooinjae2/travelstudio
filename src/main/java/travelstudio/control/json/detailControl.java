@@ -3,7 +3,9 @@ package travelstudio.control.json;
 
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import travelstudio.domain.Detail;
 import travelstudio.domain.Member;
+import travelstudio.domain.Picture;
 import travelstudio.service.DetailService;
 
 
@@ -76,6 +79,29 @@ public class detailControl {
     dataMap.put("selectAddress", detailService.selectAddress(mno));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
+  
+  @RequestMapping("addAllphoto")
+  public Object addAllphoto(int[] picnoandparentno, HttpServletRequest req) throws Exception {
+    HttpServletRequest httpRequest = (HttpServletRequest) req;
+    Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
+    Detail detail= new Detail();
+    detail.setWriter(loginMember.getEmail());
+    
+    System.out.println("picnoandparentno 01");
+    System.out.println(picnoandparentno[0]);
+    System.out.println(picnoandparentno[1]);
+    List<Picture> pictureList = new ArrayList();
+    for(int i=0; i<picnoandparentno.length;i+=2){
+      detail.setSrtno(picnoandparentno[i]);
+      detail.setPicno(picnoandparentno[i+1]);
+      detailService.addAllphoto(detail);
+    }
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("pictureList", pictureList);
+    return resultMap;
+    
+  }  
 }
   
 

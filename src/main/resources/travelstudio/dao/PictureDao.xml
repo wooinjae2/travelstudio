@@ -49,6 +49,12 @@
     <select id="selectByPost" resultMap="pictureMap" parameterType="String">
   	select * from pic where picno=#{pictureno}
   </select>
+
+  
+    <select id="searchthispicture" resultMap="pictureMap" parameterType="String">
+  	select * from pic where path=#{path}
+  </select>
+  
  <!--  <select id="selectList" resultMap="postMap" parameterType="map">
     <include refid="select1"/>
     <if test="search != null">

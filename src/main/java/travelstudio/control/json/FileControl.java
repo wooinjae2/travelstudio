@@ -50,7 +50,7 @@ public class FileControl {
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     ArrayList<Object> fileList = new ArrayList<>();
-    
+    System.out.println("srtno");
     System.out.println(srtno);
     for (int i = 0; i < files.length; i++) {
       if (files[i].isEmpty()) 

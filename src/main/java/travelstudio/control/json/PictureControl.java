@@ -37,21 +37,12 @@ public class PictureControl {
   @RequestMapping("selectByPost")
   public Object selectByPost(String[] pictureno) throws Exception{
     List<Picture> fileList = new ArrayList();
-    /*List<Picture> file = new List<>();*/
-    /*System.out.println(pictureno[1]);*/
     
-    /*System.out.println(Arrays.toString(pictureno));*/
-    
-    /*String picturno2 = Arrays.toString(pictureno);
-    int idx = picturno2.indexOf("]"); 
-    String pictureno3=picturno2.substring(1, idx);
-    System.out.println(pictureno3);*/
     for(int i=0; i<pictureno.length;i++){
       
       
       fileList.add(pictureService.selectByPost(pictureno[i]));
       System.out.println(pictureService.selectByPost(pictureno[i]));
-      /*filepath[i]=pictureService.selectByPost(pictureno[i]).getPath();*/
       System.out.println(pictureno.length);
     }
     
@@ -59,6 +50,22 @@ public class PictureControl {
     resultMap.put("fileList", fileList);
     return resultMap;
   }
+  
+  @RequestMapping("searchthispicture")
+  public Object searchthispicture(String[] path) throws Exception {
+    System.out.println("넘어오는파일");
+    List<Picture> pictureList = new ArrayList();
+    for(int i=0; i<path.length;i++){
+      pictureList.add(pictureService.searchthispicture(path[i]));
+    }
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("pictureList", pictureList);
+    return resultMap;
+    
+  }  
+  
+  
 }
 
 

@@ -39,6 +39,13 @@ public Picture selectByPost(String pictureno) {
     
 };
 
+public Picture searchthispicture(String path) {
+  System.out.println("임플에서 path 출력");
+  System.out.println(path);
+  return pictureDao.searchthispicture(path);
+  
+};
+
 }
 
 
