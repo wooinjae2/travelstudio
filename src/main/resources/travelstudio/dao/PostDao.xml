@@ -30,10 +30,7 @@
   </select>
     
     
-     <select id="selectList" resultMap="postMap" parameterType="map">
-    select * from post natural join member order by postno desc
-  </select> 
-  
+   
   
      <select id="selectOneUserPost" resultMap="postMap" parameterType="int">
     select * from post natural join member where mno=#{number} order by postno desc

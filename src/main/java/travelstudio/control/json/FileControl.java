@@ -77,7 +77,7 @@ public class FileControl {
      
         
       HashMap<String,Object> fileMap = new HashMap<>();
-      fileMap.put("filename", newFilename);
+      fileMap.put("filename", "/mypage/upload/" + newFilename);
       fileMap.put("filesize", files[i].getSize());
       fileList.add(fileMap);
     }

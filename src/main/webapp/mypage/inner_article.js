@@ -8,16 +8,11 @@ var writeMemberno=0;
 
 /*detail 출력*/
 $.post('/travelstudio/detail/selectedOneDetail.json', {
-	'number': no
+	'number': no // 게시물 번호를 가지고 디테일 테이블에 가서 조회한다.
 	},function(result) {
 	console.log(result);
-	
-	console.log(result.data.list)
+	console.log(result.data)
 	var array1=result.data
-	/*result.data.list.sort(function (a, b){
-		return a.srtno < b.srtno ? -1 : 1;
-	})
-	console.log(result.data.list);*/
 	var picno=[]
 	var piccount=0;
 	for(i=0; i<result.data.list.length;i++){
@@ -28,11 +23,11 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 	}
 	console.log(picno)
 	jQuery.ajaxSettings.traditional = true;
-	
 	var pictures = $('.whole_collage1');
 	$.post('/travelstudio/picture/selectByPost.json', {
 		'pictureno': picno
 	}, function(result) {
+		console.log(result)
 		console.log(array1.list.length)
 		for(i=0; i < array1.list.length; i++){
 			for(j=0 ; j < result.fileList.length ; j++){
