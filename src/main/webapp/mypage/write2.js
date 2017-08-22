@@ -198,14 +198,14 @@ for(i=0;i<result.pictureList.length;i++){
 /*$('body').on("click",'.file1',function(){
 	console.log(this)	*/
 setFileUploadToInputTag() // 처음 한 번은 호출하고, 그 다음부터는 태그를 만들 때 호출한다.
-
+imagecount=0;
 function setFileUploadToInputTag() {
   $('.file1').fileupload({
 	url: '../File/upload.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-	singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-	autoUpload: true,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+	singleFileUploads: true, // 한 요청에 여러 개의 파일을 전송시키기.
+	autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
 	disableImageResize: /Android(?!.*Chrome)|Opera/
 		.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
 		previewMaxWidth: 700,   // 미리보기 이미지 너비
@@ -223,7 +223,10 @@ function setFileUploadToInputTag() {
 
 			var imagesDiv = $("#text_parent_"+aaa+"");
 			adddiv()
+			if(imagecount==0){
 			imagesDiv.html("");
+			imagecount++
+			}
 			for (var i = 0; i < data.files.length; i++) {
 				try {
 					if (data.files[i].preview.toDataURL) {
