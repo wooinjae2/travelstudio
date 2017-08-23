@@ -1,4 +1,7 @@
-
+var sortPic=[];
+var countPhoto=0;
+var sortCount=0;
+		/**/
 var content = $('#text_box');
 
 var no = location.href.split('?')[1].split('=')[1]
@@ -10,7 +13,7 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 	'number': no
 	},function(result) {
 	console.log(result);
-	
+	console.log(result.data)
 	console.log(result.data.list)
 	var array1=result.data
 	/*result.data.list.sort(function (a, b){
@@ -28,6 +31,10 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 	console.log(picno)
 	jQuery.ajaxSettings.traditional = true;
 	
+
+	
+	
+	
 	var pictures = $('.whole_collage1');
 	$.post('/travelstudio/picture/selectByPost.json', {
 		'pictureno': picno
@@ -40,6 +47,11 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 					if(array1.list[i].picno == result.fileList[j].picno){
 						array1.list[i].picno = result.fileList[j].path
 						console.log(result.fileList[j].picno)
+						sortPic[sortCount]=result.fileList[j].path
+					    sortCount++
+					    console.log(sortPic)
+					    console.log([array1.list[i].picno], [array1.list[i].srtno])
+					     console.log(array1.list[i].srtno)
 				}
 				}
 			}
@@ -47,21 +59,40 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 		
 		console.log(array1.list)
 		console.log(result.fileList);
-	
-		/*var template6 = Handlebars.compile($('#content-template-6').html())
-		
-		var generatedHTML6 = template6(result) 
-		pictures.append(generatedHTML6) */
+		console.log(result.fileList);
+		console.log(result.fileList.length)
 		console.log(result)
+		
+			if (result.fileList.length == '3') {
+		             {
+		              $("<div class='whole_collage3'>")
+		              .html("<div class='collage3-big' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
+		               + "<div class='collage3_2inner_collage'>"
+		               + "<div class='inner_two_collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
+		               + "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
+		               + "</div></div>"
+		               ).appendTo(content)
+		               $('#collage3-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+array1.list[0].picno + "_700.png").css('width', '534px').css('height','534px').css("display","inline-block");;
+		               $('#collage3-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+result.fileList[1].path + "_700.png").css('width', '260px').css('height','265px').css("display","inline-block");
+		               $('#collage3-3'+ countPhoto +' > img').attr('src',"../../travelstudio"+result.fileList[2].path + "_700.png").css('width', '260px').css('height','265px');
+		               
+		            } 
+		         }
+		
+		
+		
 		var template2 = Handlebars.compile($('#content-template-2').html())
 		
 		var generatedHTML2 = template2(array1)
+	
 		
 		content.append(generatedHTML2) 
 		/*console.log($('#map').attr('data-lati'));*/
 		/*console.log($('#map').attr(longit));*/
 		console.log($('#map'))
 		console.log(array1)
+		console.log(array1.list)
+		
 		for(i=0; i<array1.list.length;i++){
 			if(array1.list[i].lati!=0){
 				initMap('map'+array1.list[i].srtno)
@@ -251,44 +282,3 @@ $.getJSON('/travelstudio/member/header.json', function(result) {
   
   
   
-  
-/*
-
-$.getJSON('/travelstudio/member/header.json', function(result) {
-	var mno=parseInt(result.mno);
-	if(mno==null){
-		
-		$('#start-my-journey').off('click');
-		$('#start-my-journey').click(function(){
-		   location.href="./login.html"
-		    //Other code etc.
-		});
-	}else if(mno=!memberno){
-		$('#slide_icon').css('display','inline-block');
-		$('#start-my-journey').off('click');
-		$('#start-my-journey').click(function(){
-		   location.href="../mypage/write.html"
-		    //Other code etc.
-		});
-	}else if(mno=!memberno){
-		
-	}
-	    var template = Handlebars.compile($('#tbody-template4').html())
-	    var generatedHTML = template(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
-	    $('.slide_bar_content').append(generatedHTML) // 새 tr 태그들로 설정한다.
-	      $.post('/post/count.json',
-	    		  {mno : mno}	
-	      , function(result) {
-	    	  console.log(result.data.list.length)
-	    	  
-	    var template = Handlebars.compile($('#tbody-template4').html())
-	    var generatedHTML = template(result.data.list) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
-	    generatedHTML='';
-	    $('.counting1').html(result.data.list.length) // 새 tr 태그들로 설정한다.
-
-  })
-
-  }) // getJSON()
-*/

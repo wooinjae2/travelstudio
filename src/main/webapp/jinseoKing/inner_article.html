@@ -24,7 +24,43 @@
       box-sizing: border-box;
     }
 
-   
+   /* 콜라쥬 3개짜리 */
+      .whole_collage3{
+        width:824px;
+        height:549px;
+        background-color: white;
+      }
+
+      .collage3-big {
+        width: 534px;
+        height: 534px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .collage3-big img{
+        margin: 15px 0 0 15px;
+        max-height: 534px;
+      }
+
+      .collage3_2inner_collage{
+        width:260px;
+        height:534px;
+        display: inline-block;
+      }
+
+      .inner_two_collage{
+        width: 260px;
+        height: 265px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .inner_two_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 260px;
+      }
+  /* 콜라쥬 3개짜리 끝*/
 
 
 
@@ -1016,41 +1052,17 @@ line-height: 35px;
 
 <div class="without_heart_main">
 
- <!--  <div class="root">
-  <div class="root_way_first">
-    <img id="root_way_first_img" src="./pictures/rootstart.PNG">
-    <p id="name_root1">인천국제공항<br><img id="KR_root"src="./pictures/KR.png"><span id="next_flag">KR</span></p>
-  </div>
-
-  <span><img id="airplane" src="./pictures/airplane.png"></span>
-
-  <div class="root_way_more">
-    <img id="rooting_img" src="./pictures/rooting.PNG">
-
-    <p id="name_root2">비엔나 국제 공항<br><img src="./pictures/austria.png"><span id="next_flag">AT</span></p>
-  </div>
-
-  <span><img id="airplane" src="./pictures/airplane.png"></span>
-
-  <div class="root_way_last">
-     <img id="rootend_img" src="./pictures/rootend.PNG">
-     <p id="name_root3">오를리 국제 공항<br><img id="FR_root" src="./pictures/france.png"><span id="next_flag">FR</span></p>
-  </div>
-  </div> -->
 
 <div class="tool_box">
 
-<!--   <div id="title_in_text">여행의 시작은 기내식</div>
-  <div id="googleMap"></div>
-  <div class="content_text">
 
-  <p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을 설치면서 훨씬 일찍 깨게 된다. 그럼 또 억울해서 1, 20분 더 자려고 들고, 그런 악순환의 반복이다. 아침에 짐 정리해야지, 라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다. 여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다. 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는 생각까지 했었건만. 자가예지력 짱임. 나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다. 뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...지만 지금은 다 캐리어 안에 있네. 으흐흐흐. 여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
 </div>
- -->
+
   <div class="whole_collage1">
 
 
 <div id="text_box">
+
 	<script id="content-template-2" type="text/x-handlebars-template">
 
 {{#each list}}
@@ -1061,7 +1073,7 @@ line-height: 35px;
   </div>
 {{/if}}
 {{#if picno}}
-  <div  id="one_whole_collage"><img id="img_4" src="../{{picno}}_700.png"></div>
+ <!-- <div  id="one_whole_collage"><img id="img_4" src="../{{picno}}_700.png"></div>-->
 </div>
 {{/if}}
 {{#if lati}}
