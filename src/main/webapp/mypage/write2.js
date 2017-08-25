@@ -80,7 +80,7 @@ $('.text_parent').each(function () {
 	console.log(this)
 	console.log($('.text_parent').children().eq(1).attr('class'))
 	
-	if($('.text_parent').children().eq(1).attr('class')==='tool_box'){
+	if($('.text_parent').children().eq(1).attr('class') ==='tool_box'){
 		$('.text_parent').children().eq(1).remove()
 	}
 	console.log($('.text_parent').children().eq(1).attr('class'))
@@ -202,6 +202,7 @@ setFileUploadToInputTag() // 처음 한 번은 호출하고, 그 다음부터는
 imagecount=0;
 var submitcount=0;
 imagesDiv2=0;
+
 function setFileUploadToInputTag() {
   $('.file1').fileupload({
 	url: '../File/upload.json',        // 서버에 요청할 URL
@@ -916,6 +917,7 @@ function onlyPath(dataa){
 	      onlyPath1[sortno].push(dataa.result[i].path)
 	      
 	   }
+	   
 	   console.log("함수안에서 photo 출력=====>")
 	   console.log(onlyPath1)
 	   return onlyPath1
