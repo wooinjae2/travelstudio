@@ -65,6 +65,28 @@ public class PictureControl {
     
   }  
   
+  @RequestMapping("delete")
+  public Object delete(String[] deletePhoto) throws Exception {
+    
+    List<Picture> deleteList = new ArrayList();
+    for(int i = 0; i < deletePhoto.length; i++) {
+      deleteList.add(pictureService.searchPicNo(deletePhoto[i]));
+    }
+    
+    System.out.println(deleteList);
+    
+    
+    for(int j = 0; j < deleteList.size();j++) {
+//      System.out.printf("deleteList.get(j).getPicno(),%d", deleteList.get(j).getPicno());
+      pictureService.delete(deleteList.get(j).getPicno());
+    }
+//    for(int j = 0; j < deletePhoto.length; j++) {
+//    pictureService.delete(deletePhoto[j]);
+//    }
+//    System.out.println(deleteList);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
   
 }
 

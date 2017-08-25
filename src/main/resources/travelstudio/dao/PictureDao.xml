@@ -46,6 +46,12 @@
   	select picno from pic where path=#{path}
   </select>
   
+  <delete id="delete" parameterType="int">
+    delete de, pi from detail as de LEFT JOIN pic as pi
+    on de.picno = pi.picno
+    where pi.picno=#{picno}
+  </delete>
+  
     <select id="selectByPost" resultMap="pictureMap" parameterType="String">
   	select * from pic where picno=#{pictureno}
   </select>

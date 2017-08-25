@@ -14,6 +14,8 @@ public interface PictureService {
 //  int getSize() throws Exception;
   Picture selectByPost(String pictureno);
   Picture searchthispicture(String path);
+  Picture searchPicNo(String path);
+  void delete(int deletepno);
 }
 
 

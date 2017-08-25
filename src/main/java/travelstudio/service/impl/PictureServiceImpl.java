@@ -46,6 +46,17 @@ public Picture searchthispicture(String path) {
   
 };
 
+public Picture searchPicNo(String path) {
+  System.out.printf("나오냐====>");
+  System.out.println(path);
+  return pictureDao.searchPicNo(path);
+};
+
+public void delete(int deletepno) {
+  System.out.println("임플에서 path 출력");
+  System.out.println(deletepno);
+  pictureDao.delete(deletepno);
+}
 }
 
 
