@@ -1,6 +1,4 @@
 
-
-
   body {
       margin: 0;
     }
@@ -8,15 +6,16 @@
     header {
       border: 1px solid #c9d1dd;
       width: 100%;
-      height: 70px;
+      height: 120px;
       z-index: 100;
       background-color: white;
+      padding-top: 20px;
     }
 
     #logo {
       max-height: 55px;
       margin-top: 7px;
-      margin-left: 345px;
+      margin-left: 430px;
       display: inline;
     }
 
@@ -62,7 +61,7 @@
   height: 121px;
 }
 #container{
-width: 1220px;
+width: 1244px;
 height:1000px;
 margin-left: auto;
 margin-right: auto;
@@ -79,35 +78,37 @@ height: 40px;
   width: 5px;
 }
 #mypage{
-  padding-left: 20px;
   width:100%;
   height: 100%;
   padding-top:70px;
-  padding-right: 50px;
+  padding-right:10px;
 }
 #profile{
-  margin-top: 80px;
-  margin-left: 10px;
+  margin-top: 20px;
+ 
 }
-
+.cont_card{
+	margin-top: 68px;
+}
 .profile_photo{
   width:169px;
   height:171px;
   display: inline-block;
+  float: left;
   /* background: url('./usercircle.png');
  */
 }
 
 .tit_info{
-	font-size:20px;
+	font-size:27px;
 	font-weight: bold;
 	
 }
 
 
 .profile_desc{
-  margin-left: 15px;
-  height:120px;
+  margin-left: 45px;
+  height:176px;
   display: inline-block;
 }
 .user_name{
@@ -116,11 +117,11 @@ height: 40px;
  
 }
 .info_write{
-  width:110px;
+  width:160px;
   display: inline-block;
 }
 .info_nation{
-width:110px;
+width:160px;
 display: inline-block;
 }
 
@@ -137,6 +138,7 @@ ul> li{
 #traveled_country{
 	border: 1px solid white;
 	display: inline-block;
+	margin-left:20px;
 }
 /**/
 
@@ -145,7 +147,7 @@ ul> li{
   height:30px;
 }
 .user_desc{
-  margin-top: 10px;
+  margin-top: 40px;
 }
 .dot{
   width:27px;
@@ -159,17 +161,15 @@ ul> li{
 .travel_item{
   width:255px;
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 47px;
 }
 .list_img{
-  width:250px;
+  width:297px;
   padding-right: 0px;
-  height:200px;
+  height:255px;
 }
 
-.cont_card{
-  margin-top: 130px;
-}
+
 div.card_title span{
   width: 230px;
   height: 30px;
@@ -190,8 +190,10 @@ div.card_title span{
 }
 .list_title{
   display: inline-block;
-  width: 200px;
+  width: 240px;
+  height:65px;
   font-size: 22px;
+  overflow: hidden;
 }
 #modal{
   width:100%;
@@ -295,17 +297,18 @@ font-size: 16px;
 
 }
 .item_card{
-  height:350px;
-  width:260px;
-  padding-right: 5px;
-  margin-right: 1000px;
-  padding-left: 5px;
+  height:470px;
+  width:290px;
+  
 
 }
 .card_bottom{
-  margin-top: 15px;
+  margin-top: 80px;
 }
 
+.card_desc{
+	margin-left: 10px;
+}
 
 #lock{
   margin-top: 5px;
@@ -602,3 +605,18 @@ z-index: 100;
   margin-top
 }
 /*여행기 삭제하기 팝업 끝*/
+
+#numberOfFlag{
+	width: 30px;
+	font-size:30px;
+	border: none;
+	
+}
+
+#numOfPost{
+	width: 30px;
+	font-size:30px;
+	border: none;
+	
+}
+

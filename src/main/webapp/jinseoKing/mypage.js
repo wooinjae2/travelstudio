@@ -1,5 +1,7 @@
 var mno;
 var userDesc= $('.user_desc');
+var numOfFlag;
+var numOfPost;
 
 
 
@@ -73,17 +75,25 @@ if(alias!=null){
 //		generatedHTML.appendTo($('.user_desc')).insertAfter('#mysetting');
 //		.insertAfter('.')
 		address();
+		selectLoginUserPost()
 	})
 
-	$.getJSON('../post/list.json', function(result) {
-		console.log(result.data.list);
-		var template = Handlebars.compile($('#content-template').html())
-		var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//		tbody.text('') // tbody의 기존 tr 태그들을 지우고
-		$('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.
-
-		console.log(result.data.list)
-	})
+function selectLoginUserPost(){
+	console.log(mno)
+$.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
+	  console.log(result);
+	  for(i=0; i<=result.data.selectOneUserPost.length; i++){
+	  console.log(result.data.selectOneUserPost.length);
+	  numOfPost = result.data.selectOneUserPost.length;
+	  console.log(numOfPost);
+	  }
+      var template = Handlebars.compile($('#content-template').html())
+      var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//      tbody.text('') // tbody의 기존 tr 태그들을 지우고
+      $('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.
+      dropdown()
+  $('<input id="numOfPost">').attr('value',numOfPost).attr("readonly",true).attr("disabled",false).appendTo($('.postNum'))
+})
 }
 
 
@@ -103,7 +113,8 @@ function address(){
 			if(result.data.selectAddress[i]!=null){
 			if(result.data.selectAddress[i].address!=undefined){
 				flag_list[flag_count++]=result.data.selectAddress[i].address
-				/*flag_list_show.push(result.data.selectAddress[i].address)*/
+				console.log(flag_list)
+				
 			}
 			}
 		}
@@ -124,6 +135,8 @@ function address(){
 					flag_list[i]='./flags/png/china.png'
 				}else if(flag_list[i].indexOf("조선")!=-1){
 					flag_list[i]='./flags/png/north-korea.png'
+				}else if(flag_list[i].indexOf("스페인")!=-1){
+					flag_list[i]='./flags/png/spain.png'
 				}
 			}
 
@@ -134,9 +147,14 @@ function address(){
 			if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
 		});
 		console.log(uniqueNames)
+		console.log(uniqueNames.length)
+		numOfFlag=uniqueNames.length;
+		console.log(numOfFlag);
 		for(i=0;i<=uniqueNames.length;i++){
-			$('<img style=width:36px; height:36px; >').attr('src',uniqueNames[i]).css('margin-right','7px').appendTo($('#traveled_country'))
+			$('<img style=width:36px; height:36px;>').attr('src',uniqueNames[i]).css('margin-right','7px').appendTo($('#traveled_country'))
 		}
+		
+		$('<input id="numberOfFlag">').attr('value',numOfFlag).attr("readonly",true).attr("disabled",false).appendTo($('.countryNum'))
 		})
 	}
-
+}

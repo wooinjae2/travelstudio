@@ -29,8 +29,8 @@ time, tr, tt, u, ul, var, video {
 }
 
 
+ 
 
-}
 a {
   color: inherit;
 }
@@ -372,26 +372,29 @@ i{
 /*Body*/
 .container_main {
   /*border: solid black 1px;*/
-  width: 1024px;
+  width: 1217px;
   height:100%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 /* 여행기 슬라이드 블럭*/
 .slide_wrap {
-  width: 1024px;
-  height: 414px;
-  /*border: solid red 1px;*/
+  width: 1217px;
+  height: 470px;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 .box_slide_title {
   box-sizing: border-box;
   position: relative;
   float: left;
-  width: 260px;
+  width: 285px;
   height:100%;
   border-top: 1px solid #010101;
-  padding: 38px 20px 28px 0;
+  padding: 68px 20px 28px 0;
   /*border: solid black 1px;*/
 }
 .slide_wrap
@@ -434,9 +437,9 @@ i{
 }
 
 .slide_wrap .box_slide_main {
-    width: 762px;
+    width: 927px;
     height: 100%;
-    float: right;
+    float: left;
     /*border: solid 1px red;*/
     overflow: hidden;
 }
@@ -445,7 +448,7 @@ i{
   float: left;
   position: relative;
   margin-left: 10px;
-  width: 242px;
+  width: 299px;
   height: 100%;
   /*border: solid 1px black;*/
 }
@@ -456,14 +459,21 @@ max-height: 215px;
 
 .slide_wrap .box_slide_main .item .item_thumb img{
 max-width: none;
-width: 242px;
-height: 215px;
+width: 298px;
+height: 255px;
 }
+
+
 
 .slide_wrap .box_slide_main .item .item_in{
 height: 161px;
 position: relative;
 padding: 10px 10px 10px 0;
+}
+
+.item_in{
+	
+	margin-top: 50px;
 }
 
 .slide_wrap .box_slide_main .item .titl{
@@ -518,7 +528,7 @@ margin-bottom: 2px;
 /*여행 작가 라인*/
 .travel_writer {
   position: relative;
-  width: 1024px;
+  width: 1217px;
   /*border: solid 5px gray;*/
   padding: 30px auto 0;
   margin-bottom: 30px;
