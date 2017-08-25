@@ -21,8 +21,6 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 	}
 	jQuery.ajaxSettings.traditional = true;
 	var pictures = $('.whole_collage1');
-	console.log(picno[0])
-	if(picno[0]!=undefined){
 	$.post('/travelstudio/picture/selectByPost.json', {
 		'pictureno': picno
 	}, function(result) {
@@ -36,6 +34,15 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 			}
 		}
 		
+		/*console.log($('#map').attr('data-lati'));*/
+		/*console.log($('#map').attr(longit));*/
+		console.log($('#map'))
+		console.log(array1)
+		for(i=0; i<array1.list.length;i++){
+			if(array1.list[i].lati!=0){
+				initMap('map'+array1.list[i].srtno)
+			}
+		}
 
 		var Mapaa = new Map();
 
@@ -67,11 +74,21 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 			}
 		}
 		console.log(array1)
+
+		console.log(typeof(array1))
+		console.log(result)
+		var template2 = Handlebars.compile($('#content-template-2').html())
+
+		var generatedHTML2 = template2(array1)
+
+		content.append(generatedHTML2) 
+		console.log(array1)
 		/*console.log(array2)*/
 		console.log(Mapaa)
 		console.log(Mapaa.size)
 		var aa=[]
-		
+		makePictureCol()
+		function makePictureCol(){
 		for (var [key, value] of Mapaa) {
 			var count=0;
 			console.log(key + " = " + value);
@@ -87,61 +104,29 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 				}
 			}
 		}
-		console.log(array1)
-
-		console.log(typeof(array1))
-		console.log(result)
-		var template2 = Handlebars.compile($('#content-template-2').html())
-
-		var generatedHTML2 = template2(array1)
-
-		content.append(generatedHTML2) 
-		/*console.log($('#map').attr('data-lati'));*/
-		/*console.log($('#map').attr(longit));*/
-		console.log($('#map'))
-		console.log(array1)
-		for(i=0; i<array1.list.length;i++){
-			if(array1.list[i].lati!=0){
-				setTimeout(initMap('map'+array1.list[i].srtno), 1000);
-			}
-		}
-		
+		console.log($("#whole_collage" + aa.length+" "+key))
+		console.log($("#whole_collage" + aa.length+" "+key))
 		
 		console.log($("#whole_collage3 0"))
 		console.log($("#whole_collage3 4"))
 		countPhoto=0;
-		
-		setTimeout(makeCollageee(), 2000);
-
-
-		function makeCollageee(){ 
-		
 		for (var [key, value] of Mapaa) {
-			/*whole_collage3 0*/
-			countPhoto++;
-			var finalCollageArray=[]
-				console.log()
-				finalCollageArray=Mapaa.get(key).split(',')
-				console.log(key+"="+value)
-			console.log($("whole_collage" + aa.length+'_'+key))
-			console.log($("#whole_collage" + aa.length+'_'+key))
-			imagesDiv2=$($("#whole_collage" + finalCollageArray.length+'_'+key))
+			imagesDiv2=$($("whole_collage" + aa.length+"_"+key))
 			var count=0;
 			console.log(key + " = " + value);
-			console.log(finalCollageArray)
-			if (finalCollageArray.length == 2) {
+			if (aa.length == 2) {
 
 				$(imagesDiv2).html("<div  class='two_photo_col' id='collage2-1-count" +countPhoto +"'><img id='img_4' src=''></div>"
 						+ "<div  class='two_photo_col' id='collage2-2-count" +countPhoto +"'><img id='img_4' src=''></div>"
 						+ "</div>"
 				).appendTo(imagesDiv2)
-				$('#collage2-1-count'+ countPhoto +'> img').attr('src',"../"+finalCollageArray[0] + "_700.png").css('width', '534px').css('height','534px');
-				$('#collage2-2-count'+ countPhoto +'> img').attr('src',"../"+finalCollageArray[1] + "_700.png").css('height','534px');
-				/*console.log(photo[i][0])*/
-				/*console.log(photo[i][1])*/
+				$('#collage2-1-count'+ countPhoto +'> img').attr('src',"../"+aa[0] + "_700.png").css('width', '534px').css('height','534px');
+				$('#collage2-2-count'+ countPhoto +'> img').attr('src',"../"+aa[1] + "_700.png").css('height','534px');
+				console.log(photo[i][0])
+				console.log(photo[i][1])
 
 
-			} else if (finalCollageArray.length == '3') {
+			} else if (aa.length == '3') {
 
 
 				try {
@@ -151,12 +136,12 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 							+ "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
 							+ "</div></div>"
 					).appendTo(imagesDiv2)
-					$('#collage3-1-big'+ countPhoto +' > img').attr('src',"../"+finalCollageArray[0] + "_700.png").css('width', '534px').css('height','534px');
-					$('#collage3-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '260px').css('height','265px');
-					$('#collage3-3'+ countPhoto +' > img').attr('src',"../"+finalCollageArray[2] + "_700.png").css('width', '260px').css('height','265px');
+					$('#collage3-1-big'+ countPhoto +' > img').attr('src',"../"+aa[0] + "_700.png").css('width', '534px').css('height','534px');
+					$('#collage3-2'+ countPhoto +' > img').attr('src', "../"+aa[1] + "_700.png").css('width', '260px').css('height','265px');
+					$('#collage3-3'+ countPhoto +' > img').attr('src',"../"+aa[2] + "_700.png").css('width', '260px').css('height','265px');
 
 				} catch (err) {}
-			}else if (finalCollageArray.length == 4) {
+			}else if (aa.length == 4) {
 
 				try {
 					$(imagesDiv2).html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
@@ -166,13 +151,13 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 							+ "</div>"
 					).appendTo(imagesDiv2)
 
-					$('#collage4-1'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage4-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage4-3'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[2] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage4-4'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage4-1'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage4-2'+ countPhoto +' > img').attr('src', "../"+aa[1] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage4-3'+ countPhoto +' > img').attr('src', "../"+aa[2] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage4-4'+ countPhoto +' > img').attr('src', "../"+aa[3] + "_700.png").css('width', '397px').css('height','397px');
 
 				} catch (err) {}    
-			} else if (finalCollageArray.length == 5) {
+			} else if (aa.length == 5) {
 
 				try {
 
@@ -184,12 +169,12 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 							+ "<div  class='bottom_two_collage' id='collage5-5" +countPhoto +"'><img src=''></div>"
 							+ "</div>"
 					)
-					$('#collage5-1'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '260px').css('height','260px');
-					$('#collage5-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '259px').css('height','260px');
-					$('#collage5-3'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[2] + "_700.png").css('width', '260px').css('height','260px');
+					$('#collage5-1'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '260px').css('height','260px');
+					$('#collage5-2'+ countPhoto +' > img').attr('src', "../"+aa[1] + "_700.png").css('width', '259px').css('height','260px');
+					$('#collage5-3'+ countPhoto +' > img').attr('src', "../"+aa[2] + "_700.png").css('width', '260px').css('height','260px');
 
-					$('#collage5-4'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage5-5'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[4] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage5-4'+ countPhoto +' > img').attr('src', "../"+aa[3] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage5-5'+ countPhoto +' > img').attr('src', "../"+aa[4] + "_700.png").css('width', '397px').css('height','397px');
 
 				} catch (err) {}    
 			} else if (aa.length == 6) {
@@ -207,13 +192,13 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 							+"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
 							+"</div>"
 					)
-					$('#collage6-1-big'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '534px').css('height','534px');
-					$('#collage6-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '260px').css('height','265px');
-					$('#collage6-3'+ countPhoto +' > img').attr('src',"../"+finalCollageArray[2] + "_700.png").css('width', '260px').css('height','265px');
+					$('#collage6-1-big'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '534px').css('height','534px');
+					$('#collage6-2'+ countPhoto +' > img').attr('src', "../"+aa[1] + "_700.png").css('width', '260px').css('height','265px');
+					$('#collage6-3'+ countPhoto +' > img').attr('src',"../"+aa[2] + "_700.png").css('width', '260px').css('height','265px');
 
-					$('#collage6-4'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '264px').css('height','260px');
-					$('#collage6-5'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[4] + "_700.png").css('width', '264px').css('height','260px');
-					$('#collage6-6'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[5] + "_700.png").css('width', '264px').css('height','260px');
+					$('#collage6-4'+ countPhoto +' > img').attr('src', "../"+aa[3] + "_700.png").css('width', '264px').css('height','260px');
+					$('#collage6-5'+ countPhoto +' > img').attr('src', "../"+aa[4] + "_700.png").css('width', '264px').css('height','260px');
+					$('#collage6-6'+ countPhoto +' > img').attr('src', "../"+aa[5] + "_700.png").css('width', '264px').css('height','260px');
 
 				} catch (err) {}    
 			} else if (aa.length == 7) {
@@ -231,14 +216,14 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 									+"<div  class='bottom_three_of_seven' id='collage7-7" +countPhoto +"'><img src=''></div>"
 									+"</div>"
 							)
-							$('#collage7-1-small'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '192px').css('height','193px');
-					$('#collage7-2-small'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '192px').css('height','193px');
-					$('#collage7-3-small'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[2] + "_700.png").css('width', '192px').css('height','193px');
-					$('#collage7-4-small'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '192px').css('height','193px');
+							$('#collage7-1-small'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '192px').css('height','193px');
+					$('#collage7-2-small'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '192px').css('height','193px');
+					$('#collage7-3-small'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '192px').css('height','193px');
+					$('#collage7-4-small'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '192px').css('height','193px');
 
-					$('#collage7-5'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[4] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage7-6'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[5] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage7-7'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[6] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage7-5'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage7-6'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage7-7'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '397px').css('height','397px');
 
 
 				} catch (err) {}    
@@ -261,15 +246,15 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 
 
 
-					$('#collage8-1-big'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage8-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage8-3'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[2] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage8-4'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage8-5'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[4] + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage8-1-big'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage8-2'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage8-3'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage8-4'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage8-5'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '195px').css('height','195px');
 
-					$('#collage8-6'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[5] + "_700.png").css('width', '262px').css('height','260px');
-					$('#collage8-7'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[6] + "_700.png").css('width', '262px').css('height','260px');
-					$('#collage8-8'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[7] + "_700.png").css('width', '262px').css('height','260px');
+					$('#collage8-6'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '262px').css('height','260px');
+					$('#collage8-7'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '262px').css('height','260px');
+					$('#collage8-8'+ countPhoto +' > img').attr('src', "../"+aa[0] + "_700.png").css('width', '262px').css('height','260px');
 
 				} catch (err) {}    
 			} else if (aa.length == 9) {
@@ -291,16 +276,16 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 							+"</div>"
 					)
 
-					$('#collage9-1-big'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[0] + "_700.png").css('width', '397px').css('height','397px');
-					$('#collage9-2'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[1] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage9-3'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[2] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage9-4'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[3] + "_700.png").css('width', '195px').css('height','195px');
-					$('#collage9-5'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[4] + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage9-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+					$('#collage9-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage9-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage9-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+					$('#collage9-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
 
-					$('#collage9-6'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[5] + "_700.png").css('width', '195px').css('height','191px');
-					$('#collage9-7'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[6] + "_700.png").css('width', '195px').css('height','191px');
-					$('#collage9-8'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[7] + "_700.png").css('width', '195px').css('height','191px');
-					$('#collage9-9'+ countPhoto +' > img').attr('src', "../"+finalCollageArray[8] + "_700.png").css('width', '195px').css('height','191px');
+					$('#collage9-6'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','191px');
+					$('#collage9-7'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','191px');
+					$('#collage9-8'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','191px');
+					$('#collage9-9'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','191px');
 
 				} catch (err) {}    
 			} else {
@@ -315,9 +300,9 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 			} //else
 		}
 		}
-		
+		/*if(aa.length==)*/
+			
 	}, 'json')
-	}
 
 
 
@@ -366,7 +351,9 @@ $.post('/travelstudio/post/selectOne.json', {
 
 
 })
+/*console.log(result.data)*/
 
+/*	}, 'json')*/
 
 /*대표사진 div안에 들어가는 내용 끝*/
 
@@ -416,6 +403,15 @@ $('#send_btn').click(function() {
 			data: {'cont' : $('#text_reply').val(), 'postno':no}, 
 			async: false,
 			success: function(data) {
+
+//				/*새로 insert된거만 어떻게 뿌림?*/
+//				$.getJSON('../comment/list.json', function(result){
+//				console.log(result.data.list);
+
+////				var template = Handlebars.compile($('#comment-template').html())
+////				var generatedHTML = template(result.data) 
+////				reply.append(generatedHTML) 
+//				})
 
 			}
 		});// ajax작업 끝나고
