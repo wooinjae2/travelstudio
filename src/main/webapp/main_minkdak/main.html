@@ -66,220 +66,28 @@
     <div class="travel_writer">
       <div class="travel_writer_titl">
         <p class="pc_text">추억이 담긴 여행을 기록하는
+<!--       <div class= "background_left"></div> -->
           <span class="traveler_text">여행작가</span>가 되어보세요
         </p>
       </div>
       <div class="travel_writer_slide_wrap">
-        <div class="travel_writer_slide owl-carousel owl-theme">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+         <script id="content-template-2" type="text/x-handlebars-template">
+     {{#each info}}
+        <div class="swiper-slide travel_writer_slide">
           <div class="item">
           <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
+            <div class="travel_writer_photozone" background="url('../upload/{{memberPhoto}}')">
+          {{#if memberPhoto}}
+            <img src="../upload/{{memberPhoto}}">
+          {{^}}
+            <img src="./img/user_default.png">
+          {{/if}}
             </div>
-            <p class="travel_writer_id">InJaeZzang</p>
+            <p class="travel_writer_id">{{alias}}</p>
             <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
-            </p>
-            <div class="travel_writer_flag">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-              <img src="img/kr.png">
-            </div>
-          </a>
-          </div>
-          <div class="item">
-          <a href="#">
-            <div class="travel_writer_photozone">
-              <img src="img/vally.jpg">
-            </div>
-            <p class="travel_writer_id">InJaeZzang</p>
-            <p class="travel_writer_intro">
-            네무새 입니다 안녕하세요
+           {{intro}}
             </p>
             <div class="travel_writer_flag">
               <img src="img/kr.png">
@@ -291,6 +99,45 @@
           </a>
           </div>
         </div>
+     {{/each}}
+          </script>
+          
+         
+            
+<!--          <div class="swiper-slide travel_writer_slide">
+          <div class="item">
+          <a href="#">
+            <div class="travel_writer_photozone">
+              <img src="img/vally.jpg">
+              </div>
+              <p class="travel_writer_id">InJaeZzang</p>
+              <p class="travel_writer_intro">
+              안녕하세요
+              </p>
+              <div class="travel_writer_flag">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+              </div>
+              </a>
+              </div>
+            </div> -->
+          </div>
+          <!-- Add Pagination -->
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        
+        
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
+        <script src="./node_modules/swiper/dist/js/swiper.jquery.js"></script>
+        <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+        <script src="./main.js"></script>
+        
       </div>
     </div>
     <div class="slide_wrap">
