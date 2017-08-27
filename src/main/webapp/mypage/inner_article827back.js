@@ -1,5 +1,5 @@
 
-var content = $('.without_heart_main');
+var content = $('#text_box');
 
 var no = location.href.split('?')[1].split('=')[1]
 console.log(no)
@@ -11,7 +11,6 @@ $.post('/detail/selectedOneDetail.json', {
 	'number': no // 게시물 번호를 가지고 디테일 테이블에 가서 조회한다.
 },function(result) {
 	var array1=result.data
-	console.log(array1)
 	var picno=[]
 	var piccount=0;
 	for(i=0; i<result.data.list.length;i++){
@@ -36,23 +35,15 @@ $.post('/detail/selectedOneDetail.json', {
 					}
 				}
 			}
-			var CaptionMap = new Map();
 			console.log(array1.list)
 			var Mapaa = new Map();
 			console.log(result.fileList);
-			for(i=0; i< array1.list.length; i++){
-				if(array1.list[i].capt!=undefined){
-					if(CaptionMap.get(array1.list[i].srtno)==undefined){
-						CaptionMap.set(array1.list[i].srtno, array1.list[i].capt)
-					}
-				}
-			}
-			console.log(CaptionMap)
+
 			var pictureARR=[]
 			var j=0;
 			for(i=1; i<array1.list.length;i++){
 				console.log(array1.list[i].srtno)
-				if((array1.list[i-1].srtno==array1.list[i].srtno)&&array1.list[i].picno!=0&&array1.list[i-1].picno!=0){
+				if(array1.list[i-1].srtno==array1.list[i].srtno){
 					if(Mapaa.get(array1.list[i-1].srtno)==undefined){
 						Mapaa.set(array1.list[i-1].srtno, array1.list[i-1].picno)
 					}
@@ -80,7 +71,6 @@ $.post('/detail/selectedOneDetail.json', {
 					if(pictureARR[i]==array1.list[j].srtno){
 						array1.list[j].picno=undefined
 						continue;
-						/*&&array1.list[j].capt==undefined*/
 					}
 				}
 			}
@@ -106,28 +96,7 @@ $.post('/detail/selectedOneDetail.json', {
 				}
 			}
 			console.log(array1)
-			console.log(array1.list.length)
-			for(l=0; l<array1.list.length;l++){
-				if(array1.list[l].picno==undefined){
-					array1.list.splice(l,1);
-					console.log("undefined가 몇번인가")
-				}
-			}
-			for(l=0; l<array1.list.length;l++){
-				if(array1.list[l].picno==undefined){
-					array1.list.splice(l,1);
-					console.log("undefined가 몇번인가")
-				}
-			}
-			for(l=0; l<array1.list.length;l++){
-				if(array1.list[l].picno==undefined){
-					array1.list.splice(l,1);
-					console.log("undefined가 몇번인가")
-				}
-			}
-			
-			
-			console.log(array1)
+
 			console.log(typeof(array1))
 
 			console.log(result)
@@ -169,6 +138,7 @@ $.post('/detail/selectedOneDetail.json', {
 					console.log(key + " = " + value);
 					console.log(finalCollageArray)
 					if (finalCollageArray.length == 2) {
+
 						$(imagesDiv2).html("<div  class='two_photo_col' id='collage2-1-count" +countPhoto +"'><img id='img_4' src=''></div>"
 								+ "<div  class='two_photo_col' id='collage2-2-count" +countPhoto +"'><img id='img_4' src=''></div>"
 								+ "</div>"
@@ -191,7 +161,7 @@ $.post('/detail/selectedOneDetail.json', {
 							).appendTo(imagesDiv2)
 							$('#collage3-1-big'+ countPhoto +' > img').attr('src',finalCollageArray[0]).css('width', '534px').css('height','534px');
 							$('#collage3-2'+ countPhoto +' > img').attr('src', finalCollageArray[1]).css('width', '260px').css('height','265px');
-							$('#collage3-3'+ countPhoto +' > img').attr('src',finalCollageArray[2]).css('width', '260px').css('height','265px');
+							$('#collage3-3'+ countPhoto +' > img').attr('src',"../"+finalCollageArray[2]).css('width', '260px').css('height','265px');
 
 						} catch (err) {}
 					}else if (finalCollageArray.length == '4') {
@@ -234,10 +204,10 @@ $.post('/detail/selectedOneDetail.json', {
 
 						try {
 
-							$(imagesDiv2).html("<div class='collage6-big' id='collage6-1-big" +countPhoto +"'><img id='img_4' src=''></div>"
+							$(imagesDiv2).html("<div class='collage6-big' id='collage6-1-big'" +countPhoto +"><img id='img_4' src=''></div>"
 									+"<div id='collage6-2side-collage'>"
-									+"<div class='side_two_collage' id='collage6-2" +countPhoto +"'><img src=''></div>"
-									+"<div class='side_two_collage' id='collage6-3" +countPhoto +"'><img src=''></div>"
+									+"<div class='side_two_collage' id='collage6-2'" +countPhoto +"><img src=''></div>"
+									+"<div class='side_two_collage' id='collage6-3'" +countPhoto +"><img src=''></div>"
 									+"</div>"
 
 									+"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
@@ -352,11 +322,8 @@ $.post('/detail/selectedOneDetail.json', {
 
 					} //else
 				}
-				for (var [key, value] of CaptionMap){
-				$('<div id="txt-output-'+key+'" class="capt_output">'+value+'</div>').appendTo($('#text_parent_'+key+''))
-				}
 			}
-			
+
 		}, 'json')
 	}
 

@@ -299,6 +299,8 @@ $('#write_save_btn').click(function() {
 			console.log(content);
 			picnosearch()
 		}
+	}else{
+		picnosearch()
 	}
 });
 $('#title_fileupload').fileupload({
@@ -342,7 +344,7 @@ $('#title_fileupload').fileupload({
 					content.push($(this).parent().attr('id').split('_')[2])
 					content.push(decodeURIComponent($(this).val()))
 					console.log($(this).parent().attr('id').split('_')[2])
-					.attr('class').split('_')[1]
+					/*.attr('class').split('_')[1]*/
 					console.log(data.files[0])
 				})
 				console.log(content)
@@ -989,7 +991,7 @@ $(document.body).on('click','#capt-save', function() {
 	captionArray.push()
 	
 })
-
+captionArray=[]
 $(document).ready(function () {
 
 	

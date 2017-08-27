@@ -19,7 +19,6 @@ if(alias!=null){
 			   location.href = 'user_setting.html'
 			   event.preventDefault()
 			 })
-			 
 			 let str = result.path;
 		    if(str == null ) {
 		      $('#user-img').attr('src', './usercircle.png').css('width', '170px').css('height', '170px').css('border-radius', '100%')

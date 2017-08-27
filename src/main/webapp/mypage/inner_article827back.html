@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDEsgodbW4NrW5grQitDfklBBZhS9hicSY"> -->
-  <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><!-- 웹폰트 -->
   
   </script>
 
@@ -300,10 +299,9 @@ line-height: 35px;
 
     .container_main {
       border: solid 1px white;
-      width: 1250px;
+      width: 1220px;
       height: auto;
       margin: 0px auto;
-      margin-top:100px;
     }
 
     .icons {
@@ -345,13 +343,12 @@ line-height: 35px;
     }
 
     .travel_day {
-      
+      border-right: 1px black solid;
       width: 130px;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 0px;
       vertical-align: top;
-      margin-right: 100px;
-      
+      margin-right: 15px;
     }
 
     .travel_day>div {
@@ -380,14 +377,16 @@ line-height: 35px;
       border: 1px solid white;
     }
 
-    
+    .day_list {
+      border: 1px solid white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
     .fa fa-plus-circle fa-3x:hover {}
 
     p {
       display: inline-block;
-      word-break: keep-all;
-      font-size: 15px;
-      font-weight: 500;
     }
 
     #title_in_text {
@@ -398,7 +397,6 @@ line-height: 35px;
       margin-bottom: 40px;
       width: 809px;
     }
-    
 
     .content_text {
       border: 1px solid white;
@@ -407,14 +405,13 @@ line-height: 35px;
       width: 750px;
       margin-left: 20px;
       padding-left: 5px;
-      
-    }
-    .content_text > p{
-    font-size:20px;
-    font-family:Noto Sans KR;
-    line-height:28px;
     }
 
+    p {
+      word-break: keep-all;
+      font-size: 15px;
+      font-weight: 500;
+    }
     /*사진1*/
 
     #one_whole_collage {
@@ -534,9 +531,8 @@ line-height: 35px;
 
     #list_heart_1 {
       color: #fc5549;
-      margin-left:48.5%;
+      margin-left:49%;
       margin-bottom: 80px;
-      margin-top:50px;
       
     }
     
@@ -547,7 +543,7 @@ line-height: 35px;
     .without_heart_main {
       border: 1px solid white;
       display: inline-block;
-      margin-left: 0px;
+      margin-left: 250px;
      
     }
   
@@ -1218,40 +1214,9 @@ line-height: 35px;
   
   /* 8/27 인재  css */
   /* 전체 글 위치 지정 */
-   .day1{
-  margin-top:50px;
-  margin-bottom:80px;
-  } 
-/*   div{
-  border:1px solid black 
-  } */
   
-  .whole_collage{
-  display: inline-block
-  }
- .text_parent{
- display:inline-block;
- width:900px;
- }
- #heart-count{
- 	font-size:30px;
- 	margin-left:10px;
- }
- .capt_output{
- display:block;
-       border: 1px solid white;
-      width: 750px;
-      font-size: 15px;
-      color: #91a1bc;
-      text-align: center;
-      margin-bottom: 30px;
-      margin-left: 20px;
-      font-weight: 600;
-      margin-top:20px;
-      font-family:Noto Sans KR;
- }
   </style>
- 
+
 
 
 </head>
@@ -1294,10 +1259,13 @@ line-height: 35px;
       </a>
       <hr id="aa">
     </div>
+
     <div class="tags">
       <span class="tag_hash">{{tag}}</span>
+      
     </div>
     <img src="./pictures/KR.png" id="KR_flag">
+
     <div class="faces">
       <div class="face">
         <a href="#"><img src="../mypage/upload/{{path}}" ></a>
@@ -1315,44 +1283,71 @@ line-height: 35px;
   <div class="container_main">
 
 
-     <!--  <div class="travel_day">
+    <div class="day_list">
+      <div class="travel_day">
         <h2>1일차<h2>
   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
   <div class="travel_detail_date">2017.05.05</div>
-</div> -->
+</div>
 
 
 <div class="without_heart_main">
+
+ <!--  <div class="root">
+  <div class="root_way_first">
+    <img id="root_way_first_img" src="./pictures/rootstart.PNG">
+    <p id="name_root1">인천국제공항<br><img id="KR_root"src="./pictures/KR.png"><span id="next_flag">KR</span></p>
+  </div>
+
+  <span><img id="airplane" src="./pictures/airplane.png"></span>
+
+  <div class="root_way_more">
+    <img id="rooting_img" src="./pictures/rooting.PNG">
+
+    <p id="name_root2">비엔나 국제 공항<br><img src="./pictures/austria.png"><span id="next_flag">AT</span></p>
+  </div>
+
+  <span><img id="airplane" src="./pictures/airplane.png"></span>
+
+  <div class="root_way_last">
+     <img id="rootend_img" src="./pictures/rootend.PNG">
+     <p id="name_root3">오를리 국제 공항<br><img id="FR_root" src="./pictures/france.png"><span id="next_flag">FR</span></p>
+  </div>
+  </div> -->
+
+<div class="tool_box">
+
+<!--   <div id="title_in_text">여행의 시작은 기내식</div>
+  <div id="googleMap"></div>
+  <div class="content_text">
+
+  <p>아침 일찍 움직여야 한다는 생각이 들면 늘 잠을 설치면서 훨씬 일찍 깨게 된다. 그럼 또 억울해서 1, 20분 더 자려고 들고, 그런 악순환의 반복이다. 아침에 짐 정리해야지, 라고 생각하니 마음이 조급했는데, 다행히 생각보다 정리가 일찍 끝났다. 여유 있게 아침 먹으러 갔다 와서 시트를 싹 걷어들고 당당하게 내려왔...으나 알고 보니 이어폰을 침대등 위에 당당히 놓고 왔다. 😓 아침에 일어나면서 '잘 하면 놓고 가겠는데'라는 생각까지 했었건만. 자가예지력 짱임. 나오면서 짐을 맡기고 왔으니 어차피 돌아가야 하니까 그때 물어보던가 해야겠다. 뭐, 이럴까봐 이어폰도 두 개나 더 챙겨왔...지만 지금은 다 캐리어 안에 있네. 으흐흐흐. 여행이 절반쯤 지나가니 슬슬 정신줄이 빠져나간다.</p>
+</div>
+ -->
+  <div class="whole_collage1">
+
 
 <div id="text_box">
 	<script id="content-template-2" type="text/x-handlebars-template">
 
 {{#each list}}
 <div class="day1">
- <div class="travel_day">
-        <h2>1일차<h2>
-  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-  <div class="travel_detail_date">2017.05.05</div>
-</div>
-<div class="text_parent" id=text_parent_{{srtno}}>
 {{#if cont}}
 <br>
-
+<div class="caption">{{cont}}</div>
 <div class="content_text">
 <p class="content">{{cont}}</p>	</div>
 {{/if}}
-
 {{#if writer}}
-<div id="whole_collage1" class="whole_collage"><img src={{writer}} style="width:700px; height:600px;></img></div>
+<div id="whole_collage1"><img src={{writer}} style="width:700px; height:600px;></img></div>
 {{/if}}
 {{#if picno}}
-  <div id="whole_collage{{picno}}_{{srtno}}" class="whole_collage"></div>
+  <div id="whole_collage{{picno}}_{{srtno}}"></div>
 </div>
 {{/if}}
 {{#if lati}}
 <div style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;' id="map{{srtno}}" data-lati={{lati}} data-longit={{longit}}"}></div>
 {{/if}}
-</div>
 </div>
 {{/each}}
 
@@ -1360,6 +1355,7 @@ line-height: 35px;
 </div>
 
 </div><!--whole_collage-->
+</div>
 <a id="gotop"href="#top" title="맨 위로가는 버튼"></i>▲TOP</a>
 </div>
 </div>
@@ -1399,10 +1395,9 @@ line-height: 35px;
 		
 			<div id="replyer">
 			<script id="comment-template-write" type="text/x-handlebars-template">
-			
-				<img src="..{{path}}">
-			
-			 </script>
+
+				<img src="../upload/{{path}}">
+ </script>
 			</div> <span class="content_reply">
 
 
@@ -1526,7 +1521,7 @@ if(loginmemberno==undefined){
      
 function likeclick(color,number){
     	 console.log(number)
-    	 $.post('/good/searchBymnopostno.json', {
+    	 $.post('/travelstudio/good/searchBymnopostno.json', {
 		'postno': no,
 		'mno': loginmemberno
 	}, function(result) {
@@ -1534,7 +1529,7 @@ function likeclick(color,number){
 		console.log(result)
 		if(result.status!='success'){
 			number+=1;
-			$.post('/good/add.json', {
+			$.post('/travelstudio/good/add.json', {
     			'postno':no,
     			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
     			'gcnt':1,
@@ -1545,7 +1540,7 @@ function likeclick(color,number){
     		})
 		}else{
 			number-=1;
-			$.post('/good/delete.json', {
+			$.post('/travelstudio/good/delete.json', {
     			'postno':no,
     			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
     			'number':number
@@ -1578,13 +1573,13 @@ function likeclick(color,number){
 
      function subClick(res){
     	 console.log(res)
-    		  $.post('/follow/searchBymnomno2.json', {
+    		  $.post('/travelstudio/follow/searchBymnomno2.json', {
     				'mno': loginmemberno,
     				'mno2': writeMemberno
     			}, function(result) {
     				console.log(result) //로그인 회원 번호와 작성자 회원 번호로 데이터값 조회 
     				if(result.status!='success'){ //만약 해당하는 데이터가 없다면 add 시키고 
-    					$.post('/follow/add.json', {
+    					$.post('/travelstudio/follow/add.json', {
     		    			'mno':loginmemberno, //js의 댓글작성부분에서 memberinfo값 정의한다.
     		    			'mno2':writeMemberno,
     		    			'postno':no
@@ -1593,7 +1588,7 @@ function likeclick(color,number){
     		    		})
     				}else{ //로그인 회원 번호와 작성자 회원 번호로 데이터값 조회 했을때 있다면 delete 시킨다.
     					
-    					$.post('/follow/delete.json', {
+    					$.post('/travelstudio/follow/delete.json', {
     						'mno': loginmemberno,
    	    				'mno2': writeMemberno
     		    		}, function(result) {
@@ -1618,9 +1613,17 @@ function likeclick(color,number){
         $('#posted').mouseover(function(){
           $('#singo').css("display", "inline-block");
         });
+
+
         $('#posted').mouseleave(function(){
           $("#singo").hide();
         });
+
+    
+
+      
+
+
 function slideCall() {
 $('#slide_icon').click(function (){
   $('.slide_bar').animate({left:0}, 350);
@@ -1631,16 +1634,26 @@ $('#cancel_icon').click(function () {
   $('.slide_bar').animate({left:-320}, 350);
   $('.cover_dimmed').hide();
 })
+
 }
+
 function slide_off() {
   $('.cover_dimmed').click(function () {
     $('.slide_bar').animate({left:-320}, 350);
     $('.cover_dimmed').hide();
 })
 }
+
 $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
+
+
+
+
+
    </script>
+
+
   </body>
 </html>
