@@ -630,9 +630,9 @@ $('#fileAllUpload').fileupload({
 		               + "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
 		               + "</div></div>"
 		               ).appendTo(textParent)
-		               $('#collage3-1-big'+ countPhoto +' > img').attr('src',"/travelstudio"+ photo[i][0].path+"_500.png").css('width', '534px').css('height','534px');
-		               $('#collage3-2'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
-		               $('#collage3-3'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
+		               $('#collage3-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_500.png").css('width', '534px').css('height','534px');
+		               $('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
+		               $('#collage3-3'+ countPhoto +' > img').attr('src', photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
 		               
 		            } catch (err) {}
 		         }else if (photo[i].length == 4) {
@@ -646,10 +646,10 @@ $('#fileAllUpload').fileupload({
 		              + "</div>"
 		              ).appendTo(textParent)
 		              
-		             $('#collage4-1'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][0].path+"_400.png").css('width', '397px').css('height','397px');
-		             $('#collage4-2'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][1].path+"_400.png").css('width', '397px').css('height','397px');
-		             $('#collage4-3'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][2].path+"_400.png").css('width', '397px').css('height','397px');
-		             $('#collage4-4'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][3].path+"_400.png").css('width', '397px').css('height','397px');
+		             $('#collage4-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_400.png").css('width', '397px').css('height','397px');
+		             $('#collage4-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_400.png").css('width', '397px').css('height','397px');
+		             $('#collage4-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_400.png").css('width', '397px').css('height','397px');
+		             $('#collage4-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_400.png").css('width', '397px').css('height','397px');
 		             
 		            } catch (err) {}    
 		         } else if (photo[i].length == 5) {
