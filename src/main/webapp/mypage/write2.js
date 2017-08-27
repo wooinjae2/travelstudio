@@ -288,9 +288,9 @@ function setFileUploadToInputTag() {
 		               + "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
 		               + "</div></div>"
 		               ).appendTo(imagesDiv2)
-		               $('#collage3-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '534px').css('height','534px');
-		               $('#collage3-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[1].filename + "_700.png").css('width', '260px').css('height','265px');
-		               $('#collage3-3'+ countPhoto +' > img').attr('src',"../../travelstudio"+ data.result.fileList[2].filename + "_700.png").css('width', '260px').css('height','265px');
+		               $('#collage3-1-big'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '534px').css('height','534px');
+		               $('#collage3-2'+ countPhoto +' > img').attr('src', data.result.fileList[1].filename + "_700.png").css('width', '260px').css('height','265px');
+		               $('#collage3-3'+ countPhoto +' > img').attr('src',data.result.fileList[2].filename + "_700.png").css('width', '260px').css('height','265px');
 		               
 		            } catch (err) {}
 		         }else if (data.result.fileList.length == 4) {
@@ -304,10 +304,10 @@ function setFileUploadToInputTag() {
 		              + "</div>"
 		              ).appendTo(imagesDiv2)
 		              
-		             $('#collage4-1'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage4-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage4-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage4-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage4-1'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage4-2'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage4-3'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage4-4'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
 		             
 		            } catch (err) {}    
 		         } else if (data.result.fileList.length == 5) {
@@ -322,12 +322,12 @@ function setFileUploadToInputTag() {
 		              + "<div  class='bottom_two_collage' id='collage5-5" +countPhoto +"'><img src=''></div>"
 		              + "</div>"
 		             ).appendTo(imagesDiv2) 
-		             $('#collage5-1'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','260px');
-		             $('#collage5-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '259px').css('height','260px');
-		             $('#collage5-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','260px');
+		             $('#collage5-1'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','260px');
+		             $('#collage5-2'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '259px').css('height','260px');
+		             $('#collage5-3'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','260px');
 		             
-		             $('#collage5-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage5-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage5-4'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage5-5'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
 		             
 		            } catch (err) {}    
 		         } else if (data.result.fileList.length == 6) {
@@ -345,13 +345,13 @@ function setFileUploadToInputTag() {
 		                +"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
 		                +"</div>"
 		                ).appendTo(imagesDiv2) 
-		             $('#collage6-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '534px').css('height','534px');
-		             $('#collage6-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','265px');
-		             $('#collage6-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','265px');
+		             $('#collage6-1-big'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '534px').css('height','534px');
+		             $('#collage6-2'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','265px');
+		             $('#collage6-3'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '260px').css('height','265px');
 		             
-		             $('#collage6-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
-		             $('#collage6-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
-		             $('#collage6-6'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
+		             $('#collage6-4'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
+		             $('#collage6-5'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
+		             $('#collage6-6'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '264px').css('height','260px');
 		             
 		            } catch (err) {}    
 		         } else if (data.result.fileList.length == 7) {
@@ -370,14 +370,14 @@ function setFileUploadToInputTag() {
 		                +"<div  class='bottom_three_of_seven' id='collage7-7" +countPhoto +"'><img src=''></div>"
 		                +"</div>"
 		                ).appendTo(imagesDiv2)  
-		                $('#collage7-1-small'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
-		                $('#collage7-2-small'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
-		                $('#collage7-3-small'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
-		                $('#collage7-4-small'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
+		                $('#collage7-1-small'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
+		                $('#collage7-2-small'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
+		                $('#collage7-3-small'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
+		                $('#collage7-4-small'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '192px').css('height','193px');
 		                
-		                $('#collage7-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		                $('#collage7-6'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		                $('#collage7-7'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		                $('#collage7-5'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		                $('#collage7-6'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		                $('#collage7-7'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
 		                    
 		             
 		            } catch (err) {}    
@@ -401,15 +401,15 @@ function setFileUploadToInputTag() {
 		              
 
 		               
-		             $('#collage8-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage8-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
-		             $('#collage8-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
-		             $('#collage8-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
-		             $('#collage8-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+		             $('#collage8-1-big'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage8-2'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+		             $('#collage8-3'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+		             $('#collage8-4'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+		             $('#collage8-5'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
 		             
-		             $('#collage8-6'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
-		             $('#collage8-7'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
-		             $('#collage8-8'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
+		             $('#collage8-6'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
+		             $('#collage8-7'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
+		             $('#collage8-8'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '262px').css('height','260px');
 		             
 		            } catch (err) {}    
 		         } else if (data.result.fileList.length == 9) {
@@ -431,8 +431,8 @@ function setFileUploadToInputTag() {
 		                  +"</div>"
 		              ).appendTo(imagesDiv2)
 		               
-		             $('#collage9-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
-		             $('#collage9-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
+		             $('#collage9-1-big'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '397px').css('height','397px');
+		             $('#collage9-2'+ countPhoto +' > img').attr('src', data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
 		             $('#collage9-3'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
 		             $('#collage9-4'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
 		             $('#collage9-5'+ countPhoto +' > img').attr('src', "../../travelstudio"+data.result.fileList[0].filename + "_700.png").css('width', '195px').css('height','195px');
@@ -631,9 +631,9 @@ $('#fileAllUpload').fileupload({
 		               + "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
 		               + "</div></div>"
 		               ).appendTo(textParent)
-		               $('#collage3-1-big'+ countPhoto +' > img').attr('src',"/travelstudio"+ photo[i][0].path+"_500.png").css('width', '534px').css('height','534px');
-		               $('#collage3-2'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
-		               $('#collage3-3'+ countPhoto +' > img').attr('src', "/travelstudio"+photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
+		               $('#collage3-1-big'+ countPhoto +' > img').attr('src',photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
+		               $('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
+		               $('#collage3-3'+ countPhoto +' > img').attr('src', photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
 		               
 		            } catch (err) {}
 		         }else if (photo[i].length == 4) {

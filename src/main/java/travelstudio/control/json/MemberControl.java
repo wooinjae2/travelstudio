@@ -45,9 +45,9 @@ public class MemberControl {
   
 @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
-  System.out.println(no);
+  /*System.out.println(no);*/
     Member member = memberService.get(no);
-    System.out.println(member);
+    /*System.out.println(member);*/
     if (member == null) {
       return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
     }
@@ -77,7 +77,7 @@ public Object upload1(MultipartFile[] files, HttpServletRequest req) throws Exce
   
   for (int i = 0; i < files.length; i++) {
     files[i].transferTo(new File(servletContext.getRealPath("/mypage/upload/" + files[i].getOriginalFilename())));
-    System.out.println(files[i].getOriginalFilename());
+    /*System.out.println(files[i].getOriginalFilename());*/
     HashMap<String,Object> fileMap = new HashMap<>();
     fileMap.put("filename", files[i].getOriginalFilename());
     fileMap.put("filesize", files[i].getSize());
@@ -86,7 +86,7 @@ public Object upload1(MultipartFile[] files, HttpServletRequest req) throws Exce
     
     
     String newFile =files[i].getOriginalFilename();
-    System.out.println(newFile);
+    /*System.out.println(newFile);*/
     member.setPath(newFile);
     member.setMno(loginMember.getMno());
     
@@ -103,7 +103,7 @@ public Object upload1(MultipartFile[] files, HttpServletRequest req) throws Exce
 @RequestMapping("add")
 public JsonResult add(Member member) throws Exception {
   memberService.add(member);
-  System.out.println("1");
+  /*System.out.println("1");*/
   return new JsonResult(JsonResult.SUCCESS, "ok");
 }
 
@@ -111,7 +111,7 @@ public JsonResult add(Member member) throws Exception {
 public JsonResult header(HttpServletRequest req, HttpServletResponse res) throws Exception {
   HttpServletRequest httpRequest = (HttpServletRequest) req;
   Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
-  System.out.println(loginMember);
+  /*System.out.println(loginMember);*/
   HashMap<String,Object> dataMap = new HashMap<>();
   dataMap.put("loginMember", loginMember);
 
@@ -123,7 +123,7 @@ public JsonResult header(HttpServletRequest req, HttpServletResponse res) throws
 public JsonResult searchOneUser(String alias) throws Exception {
   
   /*alias="'"+alias+"'";*/
-  System.out.println(alias);
+  /*System.out.println(alias);*/
   HashMap<String,Object> dataMap = new HashMap<>();
   Member member = memberService.searchOneUser(alias);
   
@@ -149,8 +149,8 @@ public JsonResult list() throws Exception {
 
 @RequestMapping("subMember")
 public JsonResult selectAddress(int mno) throws Exception {
-  System.out.println("------");
- System.out.println(mno);
+  /*System.out.println("------");*/
+ /*System.out.println(mno);*/
   HashMap<String,Object> dataMap = new HashMap<>();
   dataMap.put("subMember", memberService.subMember(mno));
   return new JsonResult(JsonResult.SUCCESS, dataMap);

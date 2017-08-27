@@ -25,6 +25,7 @@ public interface DetailDao {
 void insertDetailByEmail(Detail detail);
 void deleteEmail(String writer);
 void insertDetailContent(Detail detail);
+void insertDetailCaption(Detail detail);
 List<Detail> selectedOneDetail(String postno);
 List<Detail> selectAddress(int mno);
 void addAllphoto(Detail detail);

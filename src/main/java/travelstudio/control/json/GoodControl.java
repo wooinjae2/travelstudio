@@ -44,11 +44,11 @@ public class GoodControl {
     if(good.getMno()==0){
       return new JsonResult(JsonResult.FAIL, good);
     }
-    System.out.println(good);
-    System.out.println("--------------------good");
+    /*System.out.println(good);*/
+    /*System.out.println("--------------------good");*/
     Good good2 = goodService.searchBymnopostno(good);
-    System.out.println(good2);
-    System.out.println("good2===============================");
+    /*System.out.println(good2);*/
+    /*System.out.println("good2===============================");*/
     if(good2==null){
       return new JsonResult(JsonResult.FAIL, good2);
     }else{

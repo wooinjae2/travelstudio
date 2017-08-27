@@ -937,7 +937,8 @@ line-height: 35px;
     
     
     
-    
+    .whole_collage2{
+    display:block;}
 /* 콜라쥬 2개짜리 */
       .whole_collage2{
         width:824px;
@@ -1361,13 +1362,17 @@ line-height: 35px;
 
 {{#each list}}
 {{#if cont}}
+<br>
 <div class="caption">{{cont}}</div>
 <div class="content_text">
 <p>{{cont}}</p>
   </div>
 {{/if}}
+{{#if writer}}
+<div id="whole_collage1"><img src={{writer}} style="width:700px; height:600px;></img></div>
+{{/if}}
 {{#if picno}}
-  <div  id="whole_collage{{picno}}_{{srtno}}"></div>
+  <div id="whole_collage{{picno}}_{{srtno}}"></div>
 </div>
 {{/if}}
 {{#if lati}}
@@ -1396,7 +1401,7 @@ line-height: 35px;
 	<script id="content-template-4" type="text/x-handlebars-template">
 {{#each info}}
 <div class="author_pic">
-  <a href="#"><img id="author" src="../upload/{{path}}"></a>
+  <a href="#"><img id="author" src="../mypage/upload/{{path}}"></a>
 </div>
 
 <p class="alias">{{alias}}</p><br>
@@ -1440,7 +1445,7 @@ line-height: 35px;
 		{{#each list}}
 		<li id="posted">
 			<div id="replyer">
-				<img src="../upload/{{path}}">
+				<img src="../mypage/upload/{{path}}">
 			</div> <span class="content_reply"> <a id="id">{{alias}}</a>
 			<span id="posted_date">{{date}}</span>
 				<div id="posted_command_wrap">

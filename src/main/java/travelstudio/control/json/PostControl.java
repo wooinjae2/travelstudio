@@ -97,7 +97,7 @@ public class PostControl {
   
   
   @RequestMapping("add")
-  public JsonResult add(Post post, String[] content, HttpServletRequest req, MultipartFile[] files) throws Exception {
+  public JsonResult add(Post post, String[] content, String[] caption, HttpServletRequest req, MultipartFile[] files) throws Exception {
     
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
@@ -126,6 +126,8 @@ public class PostControl {
     System.out.println(post.getPostno());*/
     
     Detail detail = new Detail();
+    Detail detailCaption = new Detail();
+    
     
     detail.setPostno(post.getPostno());
     /*System.out.println(post.getCont());*/
@@ -133,16 +135,32 @@ public class PostControl {
     detail.setWriter(loginMember.getEmail());
     
     System.out.println(content);
+    if(content!=null){
     for(int i=0;i<content.length;i+=2){
       detail.setCont(content[i+1]);
+      System.out.println("콘텐츠 하나씩 출력");
+      System.out.println(content[i]);
       detail.setSrtno(Integer.parseInt((content[i])));
       System.out.println(content[i]);
       detailService.insertDetailContent(detail);
     }
-    
-    
-   
+    }
     detailService.insertDetailByEmail(detail);
+    
+    
+    detailCaption.setPostno(post.getPostno());
+    detailCaption.setWriter(loginMember.getEmail());
+    for(int j=0; j < caption.length;j+=2){
+      System.out.printf("caption 넘기기 ========>");
+      System.out.printf("%s,%s\n",caption[j],caption[j+1]);
+      detailCaption.setSrtno(Integer.parseInt(caption[j]));
+      detailCaption.setCapt(caption[j+1]);
+      detailService.insertDetailCaption(detailCaption);
+    }
+    detailService.insertDetailByEmail(detailCaption);
+    
+    
+    
     detailService.deleteEmail(loginMember.getEmail());
     System.out.println();
     

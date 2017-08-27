@@ -46,38 +46,36 @@ public class FileControl {
   
 
   @RequestMapping(path="upload")
-  public Object upload(MultipartFile[] files, int srtno, HttpServletRequest req) throws Exception {
+  public Object upload(MultipartFile[] files, HttpServletRequest req) throws Exception {
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     ArrayList<Object> fileList = new ArrayList<>();
-    System.out.println("srtno");
-    System.out.println(srtno);
     for (int i = 0; i < files.length; i++) {
       if (files[i].isEmpty()) 
         continue;
       
       String newFilename = this.getNewFilename();
-      File file = new File(ctx.getRealPath("/mypage/upload/" + newFilename));
+      File file = new File(ctx.getRealPath("/upload/" + newFilename));
       System.out.println(file);
 //      System.out.println();
       files[i].transferTo(file);
-      pictureService.add("/mypage/upload/" + newFilename);
-      List<Picture> picNoList = pictureService.selectPicNo("/mypage/upload/" + newFilename);
+      pictureService.add("/upload/" + newFilename);
+      /*      List<Picture> picNoList = pictureService.selectPicNo("/upload/" + newFilename);
       
       System.out.println(loginMember.getEmail());
       Detail detail = new Detail();
       detail.setPicno(picNoList.get(0).getPicno());
       detail.setWriter(loginMember.getEmail());
       detail.setSrtno(srtno);
-      detailService.sadd(detail);
+      detailService.sadd(detail);*/
       
-      File thumbnail = new File(ctx.getRealPath("/mypage/upload/" + newFilename + "_700"));
-      Thumbnails.of(file).size(761, 506).outputFormat("png").toFile(thumbnail); 
+      File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_700"));
+      Thumbnails.of(file).size(761, 606).outputFormat("png").toFile(thumbnail); 
 
      
         
       HashMap<String,Object> fileMap = new HashMap<>();
-      fileMap.put("filename", "/mypage/upload/" + newFilename);
+      fileMap.put("filename", "/upload/" + newFilename);
       fileMap.put("filesize", files[i].getSize());
       fileList.add(fileMap);
     }
