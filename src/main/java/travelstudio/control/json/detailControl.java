@@ -44,7 +44,7 @@ public class detailControl {
   
   @RequestMapping("add")
   public String add(Detail detail) throws Exception {
-    System.out.println("1");
+    /*System.out.println("1");*/
     detailService.add(detail);
     return "a";
   }  
@@ -54,7 +54,7 @@ public class detailControl {
     HttpServletRequest httpRequest = (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     detail.setWriter(loginMember.getEmail());
-    System.out.println(detail);
+    /*System.out.println(detail);*/
     detailService.addMap(detail);
     return "a";
     
@@ -73,8 +73,8 @@ public class detailControl {
   
   @RequestMapping("selectAddress")
   public JsonResult selectAddress(int mno) throws Exception {
-    System.out.println("------");
-   System.out.println(mno);
+    /*System.out.println("------");*/
+   /*System.out.println(mno);*/
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("selectAddress", detailService.selectAddress(mno));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
@@ -88,8 +88,10 @@ public class detailControl {
     detail.setWriter(loginMember.getEmail());
     
     System.out.println("picnoandparentno 01");
-    System.out.println(picnoandparentno[0]);
-    System.out.println(picnoandparentno[1]);
+    System.out.println(picnoandparentno);
+    /*if(picnoandparentno.length>0){
+    System.out.println(picnoandparentno[0]);  
+    }*/
     List<Picture> pictureList = new ArrayList();
     for(int i=0; i<picnoandparentno.length;i+=2){
       detail.setSrtno(picnoandparentno[i]);

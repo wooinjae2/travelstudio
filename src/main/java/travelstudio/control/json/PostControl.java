@@ -133,13 +133,16 @@ public class PostControl {
     detail.setWriter(loginMember.getEmail());
     
     System.out.println(content);
+    if(content!=null){
     for(int i=0;i<content.length;i+=2){
       detail.setCont(content[i+1]);
+      System.out.println("콘텐츠 하나씩 출력");
+      System.out.println(content[i]);
       detail.setSrtno(Integer.parseInt((content[i])));
       System.out.println(content[i]);
       detailService.insertDetailContent(detail);
     }
-    
+    }
     
    
     detailService.insertDetailByEmail(detail);

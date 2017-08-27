@@ -417,3 +417,333 @@ $('#fileAllUpload').fileupload({
 
 
 /*back file up 끝*/
+
+
+
+
+/* 드래그드롭 시작*/
+function stopFunction(currentParent,$this){
+	  var stopFunctionArray=[];
+	   for(i=0; i<$('img', currentParent).length;i++){
+		   /* if($('img',currentParent).eq(i).attr('src')!=$('img',$this).attr('src')){ */
+			 stopFunctionArray[i]=$('img',currentParent).eq(i).attr('src')
+		   /* } */
+		   console.log('커런트 페어런츠 소스',$('img',currentParent).eq(i).attr('src'))
+		   console.log('디스 이미지 소스',$('img',$this).attr('src'))
+		   console.log(stopFunctionArray[i])
+	   }
+       console.log(currentParent)
+       console.log($(currentParent).parent())
+       console.log(stopFunctionArray)
+          countPhoto="";
+       /* if(currentCollageSize */
+     		  if ($(currentParent).attr('class').split('_')[1].charAt(7) == '3') {
+     	  $(currentParent)
+	             .html("<div  class='two_photo_col' id='collage2-1-count" +countPhoto +"'><img id='img_4' src=''></div>"
+	              + "<div  class='two_photo_col' id='collage2-2-count" +countPhoto +"'><img id='img_4' src=''></div>"
+	              + "</div>")
+	              $('#collage2-1-count'+ countPhoto +'> img').attr('src',stopFunctionArray[0]).css('width', '534px').css('height','534px');
+	              $('#collage2-2-count'+ countPhoto +'> img').attr('src',stopFunctionArray[1]).css('height','534px');
+	         /*      console.log(photo[i][0])
+	              console.log(photo[i][1]) */
+	              $(currentParent).attr("class","whole_collage2")
+         makeDropable($(currentParent))
+         makeDragable($(currentParent))
+	              stopFunctionArray.splice(0,stopFunctionArray.length)
+	         } else if ($(currentParent).attr('class').split('_')[1].charAt(7) == '4') {
+	            
+//	           
+	            try {
+	            	$(currentParent)
+	              .html("<div class='collage3-big' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
+	               + "<div class='collage3_2inner_collage'>"
+	               + "<div class='inner_two_collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
+	               + "<div class='inner_two_collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
+	               + "</div></div>")
+	               $('#collage3-1-big'+ countPhoto +' > img').attr('src', stopFunctionArray[0]).css('width', '534px').css('height','534px');
+	               $('#collage3-2'+ countPhoto +' > img').attr('src', stopFunctionArray[1]).css('width', '260px').css('height','265px');
+	               $('#collage3-3'+ countPhoto +' > img').attr('src',stopFunctionArray[2]).css('width', '260px').css('height','265px');
+	               $(currentParent).attr("class","whole_collage3")
+	               makeDropable($(currentParent))
+	               makeDragable($(currentParent))
+	               stopFunctionArray.splice(0,stopFunctionArray.length)
+	            } catch (err) {}
+	         }else if ($(currentParent).attr('class').split('_')[1].charAt(7) == '5') {
+	            
+	            	$(currentParent)
+	             .html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
+	              + "<div class='four_photo_collage' id='collage4-2" +countPhoto +"'><img src=''></div>"
+	              + "<div class='four_photo_collage' id='collage4-3" +countPhoto +"'><img src=''></div>"
+	              + " <div class='four_photo_collage' id='collage4-4" +countPhoto +"'><img src=''></div>"
+	              + "</div>"
+	              )
+	              
+	             $('#collage4-1'+ countPhoto +' > img').attr('src', stopFunctionArray[0]).css('width', '397px').css('height','397px');
+	             $('#collage4-2'+ countPhoto +' > img').attr('src', stopFunctionArray[1]).css('width', '397px').css('height','397px');
+	             $('#collage4-3'+ countPhoto +' > img').attr('src', stopFunctionArray[2]).css('width', '397px').css('height','397px');
+	             $('#collage4-4'+ countPhoto +' > img').attr('src', stopFunctionArray[3]).css('width', '397px').css('height','397px');
+	             $(currentParent).attr("class","whole_collage4")
+	             stopFunctionArray.splice(0,stopFunctionArray.length)
+	             makeDropable($(currentParent))
+	             makeDragable($(currentParent))
+	         } else if ($(currentParent).attr('class').split('_')[1].charAt(7) == '6') {
+	            
+	            	$(currentParent)
+	              .html("<div  class='top_three_collage' id='collage5-1" +countPhoto +"'><img src=''></div>"
+	              + "<div  class='top_three_collage' id='collage5-2" +countPhoto +"'><img src=''></div>"
+	              + "<div  class='top_three_collage' id='collage5-3" +countPhoto +"'><img src=''></div>"
+
+	              + "<div  class='bottom_two_collage' id='collage5-4" +countPhoto +"'><img src=''></div>"
+	              + "<div  class='bottom_two_collage' id='collage5-5" +countPhoto +"'><img src=''></div>"
+	              + "</div>")
+	             $('#collage5-1'+ countPhoto +' > img').attr('src', stopFunctionArray[0]).css('width', '260px').css('height','260px');
+	             $('#collage5-2'+ countPhoto +' > img').attr('src', stopFunctionArray[1]).css('width', '259px').css('height','260px');
+	             $('#collage5-3'+ countPhoto +' > img').attr('src', stopFunctionArray[2]).css('width', '260px').css('height','260px');
+	             
+	             $('#collage5-4'+ countPhoto +' > img').attr('src', stopFunctionArray[3]).css('width', '397px').css('height','397px');
+	             $('#collage5-5'+ countPhoto +' > img').attr('src', stopFunctionArray[4]).css('width', '397px').css('height','397px');
+	             $(currentParent).attr("class","whole_collage5")
+	             stopFunctionArray.splice(0,stopFunctionArray.length)
+	             makeDropable($(currentParent))
+	             makeDragable($(currentParent))
+	         }else if($(currentParent).attr('class').split('_')[1].charAt(7)=='7'){
+       	
+       	$(currentParent)
+           .html("<div class='collage6-big' id='collage6-1-big'" +countPhoto +"><img id='img_4' src=''></div>"
+            +"<div id='collage6-2side-collage'>"
+            +"<div class='side_two_collage' id='collage6-2'" +countPhoto +"><img src=''></div>"
+            +"<div class='side_two_collage' id='collage6-3'" +countPhoto +"><img src=''></div>"
+            +"</div>"
+
+            +"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
+            +"<div  class='bottom_three_collage' id='collage6-5" +countPhoto +"'><img id='img_4' src=''></div>"
+            +"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
+            +"</div>"
+            )
+         $('#collage6-1-big'+ countPhoto +' > img').attr('src', stopFunctionArray[0]).css('width', '534px').css('height','534px');
+         $('#collage6-2'+ countPhoto +' > img').attr('src', stopFunctionArray[1]).css('width', '260px').css('height','265px');
+         $('#collage6-3'+ countPhoto +' > img').attr('src', stopFunctionArray[2]).css('width', '260px').css('height','265px');
+         
+         $('#collage6-4'+ countPhoto +' > img').attr('src', stopFunctionArray[3]).css('width', '264px').css('height','260px');
+         $('#collage6-5'+ countPhoto +' > img').attr('src', stopFunctionArray[4]).css('width', '264px').css('height','260px');
+         $('#collage6-6'+ countPhoto +' > img').attr('src', stopFunctionArray[5]).css('width', '264px').css('height','260px');
+         $(currentParent).attr("class","whole_collage6")
+         stopFunctionArray.splice(0,stopFunctionArray.length)
+         makeDropable($(currentParent))
+         makeDragable($(currentParent))
+        } else if ($(currentParent).attr('class').split('_')[1].charAt(7) == '8') {
+     	   $(currentParent)
+		                .html("<div class='four_of_seven'>"
+		                +"<div class='right_four_of_seven' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
+		                +"<div class='right_four_of_seven' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
+		                +"<div class='right_four_of_seven' id='collage7-3-small" +countPhoto +"'><img src=''></div>"
+		                +"<div class='right_four_of_seven' id='collage7-4-small" +countPhoto +"'><img src=''></div>"
+		                +"</div>"
+
+
+		                +"<div  class='bottom_three_of_seven' id='collage7-5" +countPhoto +"'><img src=''></div>"
+		                +"<div  class='bottom_three_of_seven' id='collage7-6" +countPhoto +"'><img src=''></div>"
+		                +"<div  class='bottom_three_of_seven' id='collage7-7" +countPhoto +"'><img src=''></div>"
+		                +"</div>"
+		                )
+		                $('#collage7-1-small'+ countPhoto +' > img').attr('src', stopFunctionArray[0]).css('width', '192px').css('height','193px');
+		                $('#collage7-2-small'+ countPhoto +' > img').attr('src', stopFunctionArray[1]).css('width', '192px').css('height','193px');
+		                $('#collage7-3-small'+ countPhoto +' > img').attr('src', stopFunctionArray[2]).css('width', '192px').css('height','193px');
+		                $('#collage7-4-small'+ countPhoto +' > img').attr('src', stopFunctionArray[3]).css('width', '192px').css('height','193px');
+		                
+		                $('#collage7-5'+ countPhoto +' > img').attr('src', stopFunctionArray[4]).css('width', '397px').css('height','397px');
+		                $('#collage7-6'+ countPhoto +' > img').attr('src', stopFunctionArray[5]).css('width', '397px').css('height','397px');
+		                $('#collage7-7'+ countPhoto +' > img').attr('src', stopFunctionArray[6]).css('width', '397px').css('height','397px');
+		                $(currentParent).attr("class","whole_collage7")
+	             stopFunctionArray.splice(0,stopFunctionArray.length)
+	             makeDropable($(currentParent))
+	             makeDragable($(currentParent))
+        }
+}
+
+function resizeCollage( $this,$item ) {
+	  /* console.log($this)
+	  console.log($($item).children().attr('src'))
+	  console.log($($this).attr('class').split('_')[1].charAt(7))
+	  console.log($('img', $this)) */
+	  console.log($item)
+	  console.log( $($item).children().attr('src'))
+	  var resizeCollageArray=[]
+	   for(i=0; i<$('img', $this).length;i++){
+		   resizeCollageArray[i]=$('img', $this).eq(i).attr('src')
+		   console.log(resizeCollageArray[i])
+	   }
+	  var countPhoto="";
+	  if($($this).attr('class').split('_')[1].charAt(7)=='5'){
+		        	  $($this)
+	               .html("<div class='collage6-big' id='collage6-1-big'" +countPhoto +"><img id='img_4' src=''></div>"
+	                +"<div id='collage6-2side-collage'>"
+	                +"<div class='side_two_collage' id='collage6-2'" +countPhoto +"><img src='ca.jpg'></div>"
+	                +"<div class='side_two_collage' id='collage6-3'" +countPhoto +"><img src='mrbike.PNG'></div>"
+	                +"</div>"
+
+	                +"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
+	                +"<div  class='bottom_three_collage' id='collage6-5" +countPhoto +"'><img id='img_4' src=''></div>"
+	                +"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
+	                +"</div>"
+	                )
+	             $('#collage6-1-big'+ countPhoto +' > img').attr('src', resizeCollageArray[0]).css('width', '534px').css('height','534px');
+	             $('#collage6-2'+ countPhoto +' > img').attr('src', resizeCollageArray[1]).css('width', '260px').css('height','265px');
+	             $('#collage6-3'+ countPhoto +' > img').attr('src', resizeCollageArray[2]).css('width', '260px').css('height','265px');
+	             
+	             $('#collage6-4'+ countPhoto +' > img').attr('src', resizeCollageArray[3]).css('width', '264px').css('height','260px');
+	             $('#collage6-5'+ countPhoto +' > img').attr('src', resizeCollageArray[4]).css('width', '264px').css('height','260px');
+	             $('#collage6-6'+ countPhoto +' > img').attr('src', $($item).children().attr('src')).css('width', '264px').css('height','260px');
+	             $($this).attr("class","whole_collage6")
+	              makeDropable($($this))
+         makeDragable($($this))
+         resizeCollageArray.splice(0,resizeCollageArray.length)
+	            return;
+	         } else if ($($this).attr('class').split('_')[1].charAt(7)=='6') {
+	            	$($this)
+	                .html("<div class='four_of_seven'>"
+	                +"<div class='right_four_of_seven' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
+	                +"<div class='right_four_of_seven' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
+	                +"<div class='right_four_of_seven' id='collage7-3-small" +countPhoto +"'><img src=''></div>"
+	                +"<div class='right_four_of_seven' id='collage7-4-small" +countPhoto +"'><img src=''></div>"
+	                +"</div>"
+
+
+	                +"<div  class='bottom_three_of_seven' id='collage7-5" +countPhoto +"'><img src=''></div>"
+	                +"<div  class='bottom_three_of_seven' id='collage7-6" +countPhoto +"'><img src=''></div>"
+	                +"<div  class='bottom_three_of_seven' id='collage7-7" +countPhoto +"'><img src=''></div>"
+	                +"</div>"
+	                )
+	                $('#collage7-1-small'+ countPhoto +' > img').attr('src', resizeCollageArray[0]).css('width', '192px').css('height','193px');
+	                $('#collage7-2-small'+ countPhoto +' > img').attr('src', resizeCollageArray[1]).css('width', '192px').css('height','193px');
+	                $('#collage7-3-small'+ countPhoto +' > img').attr('src', resizeCollageArray[2]).css('width', '192px').css('height','193px');
+	                $('#collage7-4-small'+ countPhoto +' > img').attr('src', resizeCollageArray[3]).css('width', '192px').css('height','193px');
+	                
+	                $('#collage7-5'+ countPhoto +' > img').attr('src', resizeCollageArray[4]).css('width', '397px').css('height','397px');
+	                $('#collage7-6'+ countPhoto +' > img').attr('src', resizeCollageArray[5]).css('width', '397px').css('height','397px');
+	                $('#collage7-7'+ countPhoto +' > img').attr('src', $($item).children().attr('src')).css('width', '397px').css('height','397px');
+	                    aaa=[]
+	                $($this).attr("class","whole_collage7")
+	                 makeDropable($($this))
+         makeDragable($($this))
+	                 resizeCollageArray.splice(0,resizeCollageArray.length)
+	                return;
+	         } else if ($($this).attr('class').split('_')[1].charAt(7)=='7') {
+		            
+		           		
+		           		
+		              $($this)
+		               .html("<div class='collage8-1' id='collage8-1-big" +countPhoto +"'><img src=''></div>"
+		                 +"<div  id='four_of_eight'>"
+		                 +"<div class='right_four_of_eight' id='collage8-2" +countPhoto +"'><img src=''></div>"
+		                 +"<div class='right_four_of_eight' id='collage8-3" +countPhoto +"'><img src=''></div>"
+		                 +"<div class='right_four_of_eight' id='collage8-4" +countPhoto +"'><img src=''></div>"
+		                 +"<div class='right_four_of_eight' id='collage8-5" +countPhoto +"'><img src=''></div>"
+		                 +"</div>"
+
+		                 +"<div  class='bottom_three_of_eight' id='collage8-6" +countPhoto +"'><img src=''></div>"
+		                 +"<div  class='bottom_three_of_eight' id='collage8-7" +countPhoto +"'><img src=''></div>"
+		                 +"<div  class='bottom_three_of_eight' id='collage8-8" +countPhoto +"'><img src=''></div>"
+		                 +"</div>"
+		                 )
+		              
+
+		               
+		             $('#collage8-1-big'+ countPhoto +' > img').attr('src', resizeCollageArray[0]).css('width', '397px').css('height','397px');
+		             $('#collage8-2'+ countPhoto +' > img').attr('src', resizeCollageArray[1]).css('width', '195px').css('height','195px');
+		             $('#collage8-3'+ countPhoto +' > img').attr('src', resizeCollageArray[2]).css('width', '195px').css('height','195px');
+		             $('#collage8-4'+ countPhoto +' > img').attr('src', resizeCollageArray[3]).css('width', '195px').css('height','195px');
+		             $('#collage8-5'+ countPhoto +' > img').attr('src', resizeCollageArray[4]).css('width', '195px').css('height','195px');
+		             
+		             $('#collage8-6'+ countPhoto +' > img').attr('src', resizeCollageArray[5]).css('width', '262px').css('height','260px');
+		             $('#collage8-7'+ countPhoto +' > img').attr('src', resizeCollageArray[6]).css('width', '262px').css('height','260px');
+		             $('#collage8-8'+ countPhoto +' > img').attr('src', $($item).children().attr('src')).css('width', '262px').css('height','260px');
+		             
+		            $($this).attr("class","whole_collage8")
+         resizeCollageArray.splice(0,resizeCollageArray.length)
+		             makeDropable($($this))
+         makeDragable($($this))
+		            return;
+	         }
+	  console.log($item)
+}
+
+
+
+function makeDropable($thisclass){
+	console.log($thisclass)
+	console.log($('img',$thisclass).parent())
+	console.log($('img').parent())
+	  $($thisclass).droppable({
+	       accept: (function(){
+	    	   for(j=0; j< $('img').parent().length; j++){
+	    		   return $('img').parent().eq(j)
+	    	   }
+	       }), 
+	      drop: function( event, ui ) {
+	    	  console.log(this)
+	    	  /* console.log($(ui.draggable).parent().attr('class').split('_')[1].charAt(7)) */
+	    	  dropdiv=$(this).attr('class').split('_')[1].charAt(7)
+	    	  /* console.log($(this).attr('class').split('_')[1].charAt(7)) */
+	    	  console.log($(this).attr('class'))
+	    	  if($(ui.draggable).parent().attr('class') == undefined||$(ui.draggable).parent().attr('class').split('_')[0]!='whole'){
+	    		  if($(this).attr('class').split('_')[1].charAt(7)!=$(ui.draggable).parent().parent().attr('class').split('_')[1].charAt(7)){
+	    	    	  resizeCollage( this, ui.draggable);}
+	    	  	}else{
+	    	  if($(this).attr('class').split('_')[1].charAt(7)!=$(ui.draggable).parent().attr('class').split('_')[1].charAt(7)||$(ui.draggable).parent().attr('class')==undefined){
+	    	  resizeCollage( this, ui.draggable);
+	    	  }
+	    	  }
+	      }
+	    })
+}; 
+function makeDragable($thisclass){
+	console.log($("img",$thisclass))
+	for(i=0; i< $("img",$thisclass).length;i++){
+	 $(function() {
+	    $( $("img",$thisclass).eq(i)).parent().draggable({
+	    	 revert: 'invalid', 	
+	    	     start: function(){
+	    	    	 console.log('1111')
+	    	    	 if($(this).parent().attr('class')==undefined){
+	    	    		 currentCollageSize=$(this).parent().parent().attr('class').split('_')[1].charAt(7)}
+	    	    	 else{
+	    	    	 currentCollageSize=$(this).parent().attr('class').split('_')[1].charAt(7)
+	    	    	 }
+               }, /* start끝 */
+	      stop: function() {
+	    	  console.log(this)
+	    	  currentParent = $thisclass;
+	    	  console.log($(this).parent())
+	    	  console.log(currentParent)
+		    	 var aaa=[]
+		    	 console.log("stop 들어왔다")
+		  	   for(i=0; i<$('img', currentParent).length;i++){
+		  		   aaa[i]=$('img',currentParent).eq(i).attr('src')
+		  		   console.log(aaa[i])
+		  	   }
+	    	  console.log
+
+	    	  console.log(currentParent)
+		  		    if(dropdiv!=currentCollageSize){ 
+		  			 stopFunction(currentParent,aaa)
+		  		    } 
+		  	   }
+	      })  
+	    });
+ } 
+	}
+	
+function showControlBox() {
+	   $(document).ready(function() {
+	          if($('.control_box').css("display") == "block") {
+	            $('.control_box').css('display', 'none');
+	          } else {
+	        $('.control_box').css('display', 'block');
+	      }
+	      console.log("누름")
+	      })
+	      return false;
+	   }
+
+/*드래그드롭끝*/

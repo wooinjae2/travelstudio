@@ -1,4 +1,4 @@
-$.getJSON('/travelstudio/post/list.json', function(result) {
+$.getJSON('/post/list.json', function(result) {
 
    console.log(result.data.list);
        var template = Handlebars.compile($('#content-template1').html())
@@ -24,7 +24,7 @@ $.getJSON('/travelstudio/member/info.json', function(result) {
 
   
   
-$.getJSON('/travelstudio/member/header.json', function(result) {
+$.getJSON('/member/header.json', function(result) {
 	console.log(result);
 	var mno=result.data.loginMember;
 	console.log(mno)
@@ -33,7 +33,7 @@ $.getJSON('/travelstudio/member/header.json', function(result) {
 		$('#slide_icon').css('display','inline-block');
 		$('#start-my-journey').off('click');
 		$('#start-my-journey').click(function(){
-		   location.href="../mypage/write2.html"
+		   location.href="../mypage/write.html"
 		    //Other code etc.
 		});
 	}else{
