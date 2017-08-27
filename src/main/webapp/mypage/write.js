@@ -961,12 +961,19 @@ function findNeedUpdateNo(beforePlus) {
 			$('.control_box','#text_parent_'+ i).attr('id','control-box-div-' + (i+1))
 		}
 		
+		if($('.file_browse', '#text_parent_'+ i).attr('class') != undefined) {
+			$('.file_browse', '#text_parent_'+ i).attr('href','javascript:file_browse('+ (i+1) +')')
+		}
+
+		if($('.create_box', '#text_parent_'+ i).attr('class') != undefined) {
+			$('.create_box','#text_parent_'+ i).attr('onclick', 'createtextbox('+ (i+1) +')')
+		}
+		
 		console.log($('#text_parent_'+ i).attr('onclick','showControlBox('+ (i+1) +')'))
 		$('#text_parent_'+ i).attr('data-textparent', (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) + 1))
 		$('#text_parent_'+ i).attr('id', 'text_parent_' + (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) + 1))
 		
 	}
-	
 }
 
 $(document.body).on('click','#capt-save', function() {
