@@ -129,9 +129,9 @@ a:link {
   color: #767676;
   margin: 10px auto;
 }
-div{
-	border:1px solid black;
-}
+/* div{
+	border:1px solid ;
+} */
 .edit_settings li {
   /*display: inline-block;*/
   color: #4265EE;
@@ -144,7 +144,7 @@ div{
 	
 	width:900px;
 	min-height:150px;
-	border:1px solid black;
+/* 	border:1px solid black; */
 	display:inline-block;
 }
 
@@ -509,6 +509,7 @@ a:-webkit-any-link {
   margin-left: 10px;
 }
 
+
 #map_container {
   display: none;
   position: absolute;
@@ -516,9 +517,12 @@ a:-webkit-any-link {
   background-color: white;
   border: solid 1px gray;
   border-radius: 1%;
-  height: 600px;
-  width: 800px;
+  height: 650px;
+  width: 850px;
+  margin-left: 215px;;
+ 
 }
+
 
 #map_container>h3 {
   text-align: center;
@@ -679,15 +683,13 @@ button[id*='day_btn'] {
 }
 
 
-/*search 끝*/
-
-#cancel-login, #login-summit {
+#cancel-login, #login-summit, #saveMap-summit {
   border: 2px solid #6a7991;
-  width: 200px;
-  height: 40px;
+  width: 150px;
+  height: 45px;
   border-radius: 25px;
   font-size: 17px;
-  margin-bottom: 15px;
+ 
 }
 
 #cancel-login {
@@ -698,46 +700,82 @@ button[id*='day_btn'] {
 }
 
 .buttons {
-  margin-left: 210px;
-  margin-top: 30px;
+  margin-left: 250px;
+  margin-top: 15px;
 }
 
+#login-summit, #saveMap-summit{
+	background-color: white;
+	color: #6a7991;
+	font-weight: bold;
+}
 
 
 
 /***** Google maps CSS *****/
 #map {
-	height: 100%;
-	width: 100%;
-	border: 2px solid darkgrey;
+	height: 400px;
+	width: 500px;
+	margin-left:20px;
+	display: inline-block;
 }
 
 .controls {
-	margin-top: 10px;
 	border: 1px solid transparent;
 	border-radius: 2px 0 0 2px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	height: 32px;
 	outline: none;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	
 }
 
+
+
+#mapPlusSearchbox{
+	width: 800px;
+	height: 410px;
+	margin-left: 30px;
+  
+	
+}
 #pac-input {
-	background-color: #fff;
+	background-color: white;
 	font-family: Roboto;
 	font-size: 15px;
 	font-weight: 300;
-	margin-left: 12px;
 	padding: 0 11px 0 13px;
 	text-overflow: ellipsis;
-	width: 300px;
+	width: 230px;
+	height: 40px;
+  float: left;
+  display: inline-block;
+  border: 1px solid #e5e5e5;
+  border-right-color: white;
+  border-radius: 4px 0 0 4px;
+
 }
 
-#pac-input:focus {
+#cleanSearchBox{
+	background-color: white;
+	display: inline-block;
+	float:left;
+	height: 40px;
+	width: 30px;
+	font-weight: bold;
+	border: 1px solid #e5e5e5;
+	border-left-color: white;
+	border-radius: 0 4px 4px 0;
+ 
+
+	
+}
+
+
+ #pac-input:focus {
 	border-color: #4d90fe;
-}
-
+} 
+ 
 .pac-container {
 	font-family: Roboto;
 }
@@ -769,3 +807,312 @@ button[id*='day_btn'] {
 .modal-backdrop {
 	z-index: 10;
 }
+
+/* 콜라쥬 */
+
+/* 콜라쥬 2개짜리 */
+      .whole_collage2{
+        width:824px;
+        height:412px;
+        background-color: white;
+      }
+
+        .two_photo_col {
+          width: 397px;
+          height: 397px;
+          overflow: hidden;
+          display: inline-block;
+        }
+
+        .two_photo_col  img{
+          margin: 15px 0 0 15px;
+          max-height: 397px;
+       }
+
+/* 콜라쥬 2개짜리 끝*/
+
+/* 콜라쥬 3개짜리 */
+      .whole_collage3{
+        width:824px;
+        height:549px;
+        background-color: white;
+      }
+
+      .collage3-big {
+        width: 534px;
+        height: 534px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .collage3-big img{
+        margin: 15px 0 0 15px;
+        max-height: 534px;
+      }
+
+      .collage3_2inner_collage{
+        width:260px;
+        height:534px;
+        display: inline-block;
+      }
+
+      .inner_two_collage{
+        width: 260px;
+        height: 265px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .inner_two_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 260px;
+      }
+  /* 콜라쥬 3개짜리 끝*/
+  /* 콜라쥬 4개짜리 */
+        .whole_collage4{
+        width:824px;
+        height:824px;
+        background-color: gray;
+      }
+
+      .four_photo_collage{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .four_photo_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 397px;
+      }
+  /* 콜라쥬 4개짜리 끝 */
+  
+  /* 콜라쥬 5개 */
+    .whole_collage5{
+        width:824px;
+        height:687px;
+        background-color: #ffffff;
+        /* position: absolute; */
+        /* padding-left:- 5px; */
+      }
+
+      .top_three_collage{
+        width: 262px;
+        height: 260px;
+        overflow: hidden;
+        display: inline-block;
+        position:relative
+      }
+
+      .top_three_collage img{
+        margin: 15px 5px 0 15px;
+        max-height: 260px;
+      }
+
+      .bottom_two_collage{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_two_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 397px;
+      }
+  /* 콜라쥬 5개 끝 */
+  
+  /* 콜라쥬 6개 */
+        .whole_collage6{
+        width:824px;
+        height:824px;
+        background-color: gray;
+      }
+
+      .collage6-big{
+        width: 534px;
+        height: 534px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .collage6-big img{
+        margin: 15px 0 0 15px;
+        max-height: 534px;
+      }
+
+      #collage6-2side-collage{
+
+        display: inline-block;
+        height: 534px;
+        width:260px;
+      }
+
+      .side_two_collage{
+        width: 260px;
+        height: 265px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .side_two_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 260px;
+      }
+
+      .bottom_three_collage{
+        width: 264px;
+        height: 260px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_three_collage img{
+        margin: 15px 0 0 15px;
+        max-height: 260px;
+      }
+  
+  /* 콜라쥬 6개 끝 */
+  /* 콜라쥬 7개 */
+           .whole_collage7{
+        width:824px;
+        height:824px;
+        background-color: gray;
+      }
+
+      .four_of_seven{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_three_of_seven{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_three_of_seven img{
+        margin: 15px 0 0 15px;
+        max-height: 397px;
+      }
+
+      .right_four_of_seven{
+        width: 193px;
+        height: 192px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .right_four_of_seven img{
+        margin: 15px 0 0 15px;
+        max-height: 192px;
+      }
+  /* 콜라쥬 7개 끝 */
+  
+  /* 콜라쥬 8개 */
+  
+        .whole_collage8{
+        width:824px;
+        height:687px;
+        background-color: gray;
+      }
+
+      .collage8-1{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .collage8-1 img{
+        margin: 15px 0 0 15px;
+        max-height: 397px;
+      }
+
+      #four_of_eight{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+
+      .right_four_of_eight{
+        width: 195px;
+        height: 195px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .right_four_of_eight img{
+        margin: 15px 0 0 15px;
+        max-height: 191px;
+      }
+
+      .bottom_three_of_eight{
+        width: 262px;
+        height: 260px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_three_of_eight img{
+        margin: 15px 0 0 15px;
+        max-height: 260px;
+      }
+  /* 콜라쥬 8개 끝 */
+  
+  /* 콜라쥬 9개 */
+        .whole_collage9{
+        width:824px;
+        height:618px;
+        background-color: gray;
+      }
+
+      #collage9-1-big{
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      #collage9-1-big img{
+        margin: 15px 0 0 15px;
+        max-height: 397px;
+      }
+
+      .four_of_nine {
+        width: 397px;
+        height: 397px;
+        overflow: hidden;
+        display: inline-block;
+}
+      .right_four_of_nine{
+        width: 195px;
+        height: 195px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .right_four_of_nine img{
+        margin: 15px 0 0 15px;
+        max-height: 191px;
+      }
+
+      .bottom_four_of_nine{
+        width: 195px;
+        height: 191px;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .bottom_four_of_nine img{
+        margin: 15px 0 0 15px;
+        max-height: 191px;
+      }
+  
+  /* 콜라쥬 9개 끝 */

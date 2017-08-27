@@ -45,8 +45,10 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 				console.log(array1.list[i].picno)
 				if(array1.list[i].picno!=0){
 					if(array1.list[i].picno == result.fileList[j].picno){
-						array1.list[i].picno = result.fileList[j].path
-						console.log(result.fileList[j].picno)
+						array1.list[i].picno == result.fileList[j].path 
+						console.log(result.fileList[j].path, array1.list[i].picno )
+						console.log(array1.list[i].srtno)
+						console.log(array1.list)
 						sortPic[sortCount]=result.fileList[j].path
 					    sortCount++
 					    console.log(sortPic)
@@ -64,6 +66,7 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 		console.log(result)
 		
 			if (result.fileList.length == '3') {
+				
 		             {
 		              $("<div class='whole_collage3'>")
 		              .html("<div class='collage3-big' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
@@ -75,7 +78,7 @@ $.post('/travelstudio/detail/selectedOneDetail.json', {
 		               $('#collage3-1-big'+ countPhoto +' > img').attr('src', "../../travelstudio"+array1.list[0].picno + "_700.png").css('width', '534px').css('height','534px').css("display","inline-block");;
 		               $('#collage3-2'+ countPhoto +' > img').attr('src', "../../travelstudio"+result.fileList[1].path + "_700.png").css('width', '260px').css('height','265px').css("display","inline-block");
 		               $('#collage3-3'+ countPhoto +' > img').attr('src',"../../travelstudio"+result.fileList[2].path + "_700.png").css('width', '260px').css('height','265px');
-		               
+		             
 		            } 
 		         }
 		
