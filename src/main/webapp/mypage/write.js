@@ -278,9 +278,8 @@ function setFileUploadToInputTag() {
 var change=0;
 
 $('#write_save_btn').click(function() {
-	if(savecount==1){
-		saveBtnClick()
-	}else{
+	console.log("aaaaaaaa")
+	if(savecount!=1){
 		$('.text_write_box').each(function () {
 			/*console.log($(this).val())*/
 			content.push($(this).parent().attr('id').split('_')[2])
@@ -290,7 +289,7 @@ $('#write_save_btn').click(function() {
 			/*console.log(data.files[0])*/
 		})
 
-
+		console.log("저장버튼 눌렀다")
 		console.log(ficont.val());
 		if(fititle.val() == null){
 			alert("제목을 입력해주세요")
@@ -331,10 +330,10 @@ $('#title_fileupload').fileupload({
 					}
 				} catch (err) {}
 			} 
-
-			function datasubmit(){
-				data.submit()
-			}
+			  $(".innerClick").on('click', function () {
+		            data.submit();
+		        });
+		
 		}, submit: function (e, data){ // 서버에 전송하기 직전에 호출된다.
 			if(change==0){
 				console.log('submit()...');
@@ -377,10 +376,10 @@ $('#title_fileupload').fileupload({
 			location.href="../jinseoKing/main01.html"
 		}
 });
-function saveBtnClick(){
+/*function saveBtnClick(){
 	picnosearch()
-	/*$('#write_save_btn').unbind("click");*/
-}
+	$('#write_save_btn').unbind("click");
+}*/
 
 function picnosearch(data){
 	console.log("onlypath다")
@@ -468,7 +467,8 @@ function addAllphoto(data){
 	if(savecount!=1){
 		setTimeout("noBackgroundSave()",2000)
 	}else{
-		setTimeout("datasubmit()",2000)
+		setTimeout($('.innerClick').click(),3000);
+		console.log('innerclick')
 	}
 }
 
@@ -525,7 +525,7 @@ $('#fileAllUpload').fileupload({
 					}
 				} catch (err) {}
 			}*/
-			$('#write_save_btn').unbind("click");
+			/*$('#write_save_btn').unbind("click");*/
 		}, 
 		
 		

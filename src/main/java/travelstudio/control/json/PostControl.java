@@ -150,12 +150,14 @@ public class PostControl {
     
     detailCaption.setPostno(post.getPostno());
     detailCaption.setWriter(loginMember.getEmail());
+    if(caption!=null){
     for(int j=0; j < caption.length;j+=2){
       System.out.printf("caption 넘기기 ========>");
       System.out.printf("%s,%s\n",caption[j],caption[j+1]);
       detailCaption.setSrtno(Integer.parseInt(caption[j]));
       detailCaption.setCapt(caption[j+1]);
       detailService.insertDetailCaption(detailCaption);
+    }
     }
     detailService.insertDetailByEmail(detailCaption);
     
