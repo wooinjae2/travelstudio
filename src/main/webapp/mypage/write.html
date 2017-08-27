@@ -309,7 +309,27 @@
                   </div><br></div></div></div>  
 {{/each}}
            </script>
-  
+  <script id="addbtn-dayplus-template" type="text/x-handlebars-template">
+{{#each insertDiv}}
+      <div class="day1">
+        <div class='write_day'>
+                  <h2><button onclick='changebuttontoday(day_btn{{count}})' id='day_btn{{count}}>+ 일차</button>1일차<h2>"
+                  <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
+                  <div class='travel_detail_date' id='detail-date-div-{{count}}'>2017.05.05</div>
+                  <h2 class='gpsInfo' id='location-info-{{count}}'>여행지</h2></div>
+                  <div class='text_parent' id='text_parent_{{count}}' data-textparent='{{count}}'onclick='showControlBox({{count}})'>
+
+                  <div class='tool_box'>
+                  <a href='#' onclick="test('testdiv{{count}}'); return false;">
+                  <span id='ab{{count}}' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>
+                  <div id='testdiv{{count}}' style='display: none'>
+                  <a href='javascript:file_browse({{count}})' multiple><img id='testdiv_1' src='./image.png'><input value={{count}} type='file' style='display: none' name='files' class='file1_{{count}} file1' multiple></input></a>
+                  <a href='#' onclick="test('map_container'); test1('modal'); return false;"><img id='showMapModal' src='./marker.png'></a> 
+                  <a href='#' return false;'><img id='testdiv_2' src='./route.png'></img></a>
+                  <a href='javascript:;' onclick='createtextbox({{count}})'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+                  </div><br></div></div></div>  
+{{/each}}
+           </script>
   <!-- container_main 태그 -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -498,6 +518,33 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 
       $('#write_addition').css('display', "none");
     }
+    
+    function addbtn_adddiv(divThisCount) {
+        
+        //add btn 클릭시 해당 div에서 countPhoto 번호를 저장한 divThisCount 저장.
+        var afterTbody = $('#text_parent_'+ divThisCount) // 넘겨받은 div번호 뒤에 태그 after하기 위해 변수 선언
+        console.log("adddiv에서 넘겨받는 this")
+          console.log(divThisCount)
+          console.log("adddiv 자체 $(this)")
+          console.log($(this))
+          console.log(count)
+
+          
+          var beforePlus = parseInt(divThisCount) + 1 // 추가된 div 번호 설정 변수 초기화
+          console.log("beforePlus 값======>")
+          console.log(beforePlus)
+          var data = {insertDiv:[{count:beforePlus}]} // 추가된 div 모든 자식노드 count 설정할 변수
+          
+               var template = Handlebars.compile($('#addbtn-dayplus-template').html())
+               var generatedHTML = template(data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//               tbody.text('') // tbody의 기존 tr 태그들을 지우고
+               afterTbody.after(generatedHTML) // 새 tr 태그들로 설정한다.
+               
+          setFileUploadToInputTag()
+          registMapFunction()
+          
+          $('#write_addition').css('display', "none");
+        }    
 
     function resize(obj) {
       obj.style.height = "1px";

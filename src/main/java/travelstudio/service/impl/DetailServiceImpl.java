@@ -50,7 +50,10 @@ public void deleteEmail(String writer) {
 public void insertDetailContent(Detail detail) {
   detailDao.insertDetailContent(detail);
 }
-
+@Override
+public void insertDetailCaption(Detail detail) {
+  detailDao.insertDetailCaption(detail);
+}
 
 @Override
 public List<Detail> selectedOneDetail(String postno) {

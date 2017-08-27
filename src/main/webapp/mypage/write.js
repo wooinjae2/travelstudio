@@ -24,6 +24,8 @@ imagecount=0;
 var submitcount=0;
 imagesDiv2=0;
 
+
+
 function setFileUploadToInputTag() {
 	$('.file1').fileupload({
 		url: '../File/upload.json',        // 서버에 요청할 URL
@@ -346,12 +348,20 @@ $('#title_fileupload').fileupload({
 				})
 				console.log(content)
 
+				$('.capt_output').each(function () {
+				console.log($(this).attr('id').split('-')[2],$(this).text())
+				captionArray.push($(this).attr('id').split('-')[2])
+				captionArray.push($(this).text())
+			})
+			console.log(captionArray)
+			
 				data.formData = {
 					title : decodeURIComponent(fititle.val()),
 					sdt: fisdt.val(),
 					edt: fiedt.val(),
 					mno: mno,
-					content: content
+					content: content,
+					caption: captionArray
 				}
 				change=1;
 			};
@@ -495,14 +505,14 @@ $('#fileAllUpload').fileupload({
 			console.log($(this).val())
 			console.log(data.files);
 			/*console.log(no)*/
-
-			var progress = parseInt(data.loaded / data.total * 100, 10);
-			$('#progress .bar').css(
-					'width',
-					progress + '%'
-			);
-
-			/*			var imagesDiv = $("#text_parent_"+aaa+"").empty();
+			
+	        var progress = parseInt(data.loaded / data.total * 100, 10);
+	        $('#progress .bar').css(
+	            'width',
+	            progress + '%'
+	        );
+			
+/*			var imagesDiv = $("#text_parent_"+aaa+"").empty();
 			adddiv()
 			imagesDiv.html("");
 			for (var i = 0; i < data.files.length; i++) {
@@ -515,10 +525,10 @@ $('#fileAllUpload').fileupload({
 					}
 				} catch (err) {}
 			}*/
-			/*$('#write_save_btn').unbind("click");*/
+			$('#write_save_btn').unbind("click");
 		}, 
-
-
+		
+		
 		done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 			console.log('done()...');
 			console.log(data._response);
@@ -539,395 +549,461 @@ $('#fileAllUpload').fileupload({
 			console.log("photo길이 =======>")
 			console.log(photo.length)
 			for(var i = 0; i < photo.length; i++){
-				var textParent= $("#text_parent_"+countPhoto+"")
-				if (photo[i].length == 1) {
-					$("<div class='whole_collage1' data-countPhoto="+countPhoto+">")
-					.html("<div  class='one_photo_col' id='collage1-1" +countPhoto +"'><img id='img_4' src=''></div>"
-							+ "</div>"
-							+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-							+ "<ul class='clrfix'>"
-							+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-							+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-							+ "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"'>캡션</button></li>"
-							+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-							+ "</ul>"
-							+ "</div>"
-					).appendTo(textParent)
-					$('#collage1-1'+ countPhoto +'> img').attr('src',photo[i][0].path + "_600.png").css('width', '809px').css('height','606px');
-					if(photo[i][0].lati != null && photo[i][0].longit != null) {
-						var lat = photo[i][0].lati
-						var long = photo[i][0].longit
-						googleapisView(lat, long, countPhoto)
-					}
-					$('.tool_box').remove()
-					deletephoto(countPhoto)
-					popCaptionModal(countPhoto)
 
-				} else if (photo[i].length == 2) {
-					$("<div class='whole_collage2' data-countPhoto="+countPhoto+" id='TP-collage-" +countPhoto +"'>")
-					.html("<div  class='two_photo_col 2-collage' id='collage2-1-count" +countPhoto +"'><img id='img_4' src=''></div>"
-							+ "<div  class='two_photo_col 2-collage ' id='collage2-2-count" +countPhoto +"'><img id='img_4' src=''></div>"
-							+ "</div>"
-							+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-							+ "<ul class='clrfix'>"
-							+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-							+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-							+ "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"'>캡션</button></li>"
-							+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-							+ "</ul>"
-							+ "</div>"
-
-					).appendTo(textParent)
-					$('#collage2-1-count'+ countPhoto +'> img').attr('src', photo[i][0].path + "_600.png").css('width', '534px').css('height','534px');
-					$('#collage2-2-count'+ countPhoto +'> img').attr('src', photo[i][1].path + "_600.png").css('width', '534px').css('height','534px');
+			
+			var textParent= $("#text_parent_"+countPhoto+"")
+			if (photo[i].length == 2) {
+			    $("<div class='whole_collage2' id='TP-collage-" +countPhoto +"'>")
+			    .html("<div  class='two_photo_col 2-collage' id='collage2-1-count-" +countPhoto +"'><img id='img_4' src=''></div>"
+			     + "<div  class='two_photo_col 2-collage ' id='collage2-2-count-" +countPhoto +"'><img id='img_4' src=''></div>"
+			     + "</div>"
+			     + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+			     + "<ul class='clrfix' >"
+			     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+			     + "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"' data-capno='"+countPhoto+"'>캡션</button></li>"
+			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+			     + "</ul>"
+			     + "</div>"
+			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			     
+			     ).appendTo(textParent)
+			     $('#collage2-1-count-'+ countPhoto +'> img').attr('src', photo[i][0].path + "_600.png").css('width', '534px').css('height','534px');
+			     $('#collage2-2-count-'+ countPhoto +'> img').attr('src', photo[i][1].path + "_600.png").css('width', '534px').css('height','534px');
+			     $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			     
+			     if(photo[i][0].lati != null && photo[i][0].longit != null) {
+			    	 var lat = photo[i][0].lati
+			    	 var long = photo[i][0].longit
+			    	 googleapisView(lat, long, countPhoto)
+			     }
+			     
+			     $('.tool_box').remove()
+			     deletephoto(countPhoto)
+//			     popCaptionModal(countPhoto)
+//			     saveBtn(countPhoto)
+//			     modalOpen()
+			     
+			} else if (photo[i].length == 3) {
+				
+//				var str = ".." + data._response.result[i].path;
+//				var dataSource = data._response.result[i].path
+				
+				try {
+				  $("<div class='whole_collage3'>")
+				  .html("<div class='collage3-big 3-collage' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
+				   + "<div class='collage3_2inner_collage'>"
+				   + "<div class='inner_two_collage 3-collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
+				   + "<div class='inner_two_collage 3-collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
+				   + "</div></div>"
+				   
+				   + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+				     + "<ul class='clrfix'>"
+				     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+				     + "<li><button type='button' class='btn_caption' data-capno='"+countPhoto+"'>캡션</button></li>"
+				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+				     + "</ul>"
+				     + "</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				   ).appendTo(textParent)
+					$('#collage3-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
+					$('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
+					$('#collage3-3'+ countPhoto +' > img').attr('src', photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
+					
 					$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
 					if(photo[i][0].lati != null && photo[i][0].longit != null) {
-						var lat = photo[i][0].lati
-						var long = photo[i][0].longit
-						googleapisView(lat, long, countPhoto)
+			    	 var lat = photo[i][0].lati
+			    	 var long = photo[i][0].longit
+			    	 googleapisView(lat, long, countPhoto)
 					}
+			     $('.tool_box').remove()
+			     deletephoto(countPhoto)
+			     
+				} catch (err) {}
+			}else if (photo[i].length == 4) {
+				
+				try {
+			    $("<div class='whole_collage4'>")
+			    .html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
+			     + "<div class='four_photo_collage' id='collage4-2" +countPhoto +"'><img src=''></div>"
+			     + "<div class='four_photo_collage' id='collage4-3" +countPhoto +"'><img src=''></div>"
+			     + " <div class='four_photo_collage' id='collage4-4" +countPhoto +"'><img src=''></div>"
+			     + "</div>"
+			     
+			     + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+			     + "<ul class='clrfix'>"
+			     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+			     
+			     + "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"' data-capno='"+countPhoto+"'>캡션</button></li>"
+			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+			     + "</ul>"
+			     + "</div>"
+			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			     ).appendTo(textParent)
+			     
+			    $('#collage4-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage4-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage4-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage4-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    
+				if(photo[i][0].lati != null && photo[i][0].longit != null) {
+		    	 var lat = photo[i][0].lati
+		    	 var long = photo[i][0].longit
+		    	 googleapisView(lat, long, countPhoto)
+				}
+			    
+			    $('.tool_box').remove()
+			    deletephoto(countPhoto)
+				} catch (err) {} 	
+			} else if (photo[i].length == 5) {
+				
+				try {
+				  $("<div class='whole_collage5'>")
+				  .html("<div  class='top_three_collage' id='collage5-1" +countPhoto +"'><img src=''></div>"
+				  + "<div  class='top_three_collage' id='collage5-2" +countPhoto +"'><img src=''></div>"
+				  + "<div  class='top_three_collage' id='collage5-3" +countPhoto +"'><img src=''></div>"
 
-					$('.tool_box').remove()
-					deletephoto(countPhoto)
-					popCaptionModal(countPhoto)
-				} else if (photo[i].length == 3) {
+				  + "<div  class='bottom_two_collage' id='collage5-4" +countPhoto +"'><img src=''></div>"
+				  + "<div  class='bottom_two_collage' id='collage5-5" +countPhoto +"'><img src=''></div>"
+				  + "</div>"
+				  
+  			      + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+			      + "<ul class='clrfix'>"
+			      + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+			      
+			      + "<li><button type='button' class='btn_caption'>캡션</button></li>"
+			      + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+			      + "</ul>"
+			      + "</div>"
+			      + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			      
+			    ).appendTo(textParent) 
+			    $('#collage5-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '260px').css('height','260px');
+			    $('#collage5-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '259px').css('height','260px');
+			    $('#collage5-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '260px').css('height','260px');
+			    
+			    $('#collage5-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage5-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    
+			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
+		    	 var lat = photo[i][0].lati
+		    	 var long = photo[i][0].longit
+		    	 googleapisView(lat, long, countPhoto)
+				}
+			    
+			    $('.tool_box').remove()
+			    deletephoto(countPhoto)
+				} catch (err) {} 	
+			} else if (photo[i].length == 6) {
+				
+				try {
+				  $("<div class='whole_collage6'>")
+				   .html("<div class='collage6-big' id='collage6-1-big" +countPhoto +"'><img id='img_4' src=''></div>"
+				    +"<div id='collage6-2side-collage'>"
+				    +"<div class='side_two_collage' id='collage6-2" +countPhoto +"'><img src=''></div>"
+				    +"<div class='side_two_collage' id='collage6-3" +countPhoto +"'><img src=''></div>"
+				    +"</div>"
 
-//					var str = ".." + data._response.result[i].path;
-//					var dataSource = data._response.result[i].path
-
-					try {
-						$("<div class='whole_collage3' data-countPhoto="+countPhoto+">")
-						.html("<div class='collage3-big 3-collage' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
-								+ "<div class='collage3_2inner_collage'>"
-								+ "<div class='inner_two_collage 3-collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
-								+ "<div class='inner_two_collage 3-collage' id='collage3-3"+countPhoto+"'><img src=''></div>"
-								+ "</div></div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-
-						).appendTo(textParent)
-						$('#collage3-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
-						$('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
-						$('#collage3-3'+ countPhoto +' > img').attr('src', photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
-
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-						$('.tool_box').remove()
-						deletephoto(countPhoto)
-
-					} catch (err) {}
-				}else if (photo[i].length == 4) {
-
-					try {
-						$("<div class='whole_collage4' data-countPhoto="+countPhoto+">")
-						.html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
-								+ "<div class='four_photo_collage' id='collage4-2" +countPhoto +"'><img src=''></div>"
-								+ "<div class='four_photo_collage' id='collage4-3" +countPhoto +"'><img src=''></div>"
-								+ " <div class='four_photo_collage' id='collage4-4" +countPhoto +"'><img src=''></div>"
-								+ "</div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-						).appendTo(textParent)
-
-						$('#collage4-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage4-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage4-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage4-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-
-						$('.tool_box').remove()
-						deletephoto(countPhoto)
-					} catch (err) {} 	
-				} else if (photo[i].length == 5) {
-
-					try {
-						$("<div class='whole_collage5' data-countPhoto="+countPhoto+">")
-						.html("<div  class='top_three_collage' id='collage5-1" +countPhoto +"'><img src=''></div>"
-								+ "<div  class='top_three_collage' id='collage5-2" +countPhoto +"'><img src=''></div>"
-								+ "<div  class='top_three_collage' id='collage5-3" +countPhoto +"'><img src=''></div>"
-
-								+ "<div  class='bottom_two_collage' id='collage5-4" +countPhoto +"'><img src=''></div>"
-								+ "<div  class='bottom_two_collage' id='collage5-5" +countPhoto +"'><img src=''></div>"
-								+ "</div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-
-						).appendTo(textParent) 
-						$('#collage5-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '260px').css('height','260px');
-						$('#collage5-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '259px').css('height','260px');
-						$('#collage5-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '260px').css('height','260px');
-
-						$('#collage5-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage5-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-
-						$('.tool_box').remove()
-						deletephoto(countPhoto)
-					} catch (err) {} 	
-				} else if (photo[i].length == 6) {
-
-					try {
-						$("<div class='whole_collage6' data-countPhoto="+countPhoto+">")
-						.html("<div class='collage6-big' id='collage6-1-big" +countPhoto +"'><img id='img_4' src=''></div>"
-								+"<div id='collage6-2side-collage'>"
-								+"<div class='side_two_collage' id='collage6-2" +countPhoto +"'><img src=''></div>"
-								+"<div class='side_two_collage' id='collage6-3" +countPhoto +"'><img src=''></div>"
-								+"</div>"
-
-								+"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
-								+"<div  class='bottom_three_collage' id='collage6-5" +countPhoto +"'><img id='img_4' src=''></div>"
-								+"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
-								+"</div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-						).appendTo(textParent)
-
-						$('#collage6-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
-						$('#collage6-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '260px').css('height','265px');
-						$('#collage6-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '260px').css('height','265px');
-
-						$('#collage6-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '264px').css('height','260px');
-						$('#collage6-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '264px').css('height','260px');
-						$('#collage6-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '264px').css('height','260px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-
-						$('.tool_box').remove()
-						deletephoto(countPhoto)
-
-					} catch (err) {} 	
-				} else if (photo[i].length == 7) {
-					try {
-						$("<div class='whole_collage7' data-countPhoto="+countPhoto+">")
-						.html("<div class='four_of_seven'>"
-								+"<div class='right_four_of_seven 7-collage' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_seven 7-collage' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_seven 7-collage' id='collage7-3-small" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_seven 7-collage' id='collage7-4-small" +countPhoto +"'><img src=''></div>"
-								+"</div>"
+				    +"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
+				    +"<div  class='bottom_three_collage' id='collage6-5" +countPhoto +"'><img id='img_4' src=''></div>"
+				    +"<div  class='bottom_three_collage' id='collage6-6" +countPhoto +"'><img id='img_4' src=''></div>"
+				    +"</div>"
+				    
+				    + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+				    + "<ul class='clrfix'>"
+				    + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+				    
+				    + "<li><button type='button' class='btn_caption' data-capno='"+countPhoto+"'>캡션</button></li>"
+				    + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+				    + "</ul>"
+				    + "</div>"
+				    + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				    ).appendTo(textParent)
+				    
+			    $('#collage6-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
+			    $('#collage6-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '260px').css('height','265px');
+			    $('#collage6-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '260px').css('height','265px');
+			    
+			    $('#collage6-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '264px').css('height','260px');
+			    $('#collage6-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '264px').css('height','260px');
+			    $('#collage6-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '264px').css('height','260px');
+			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    
+			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
+		    	 var lat = photo[i][0].lati
+		    	 var long = photo[i][0].longit
+		    	 googleapisView(lat, long, countPhoto)
+				}
+			    
+			    $('.tool_box').remove()
+			    deletephoto(countPhoto)
+			    
+				} catch (err) {} 	
+			} else if (photo[i].length == 7) {
+				try {
+				  $("<div class='whole_collage7'>")
+			       .html("<div class='four_of_seven'>"
+			       +"<div class='right_four_of_seven 7-collage' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
+			       +"<div class='right_four_of_seven 7-collage' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
+			       +"<div class='right_four_of_seven 7-collage' id='collage7-3-small" +countPhoto +"'><img src=''></div>"
+			       +"<div class='right_four_of_seven 7-collage' id='collage7-4-small" +countPhoto +"'><img src=''></div>"
+			       +"</div>"
 
 
-								+"<div  class='bottom_three_of_seven 7-collage' id='collage7-5" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_three_of_seven 7-collage' id='collage7-6" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_three_of_seven 7-collage' id='collage7-7" +countPhoto +"'><img src=''></div>"
-								+"</div>"
+			       +"<div  class='bottom_three_of_seven 7-collage' id='collage7-5" +countPhoto +"'><img src=''></div>"
+			       +"<div  class='bottom_three_of_seven 7-collage' id='collage7-6" +countPhoto +"'><img src=''></div>"
+			       +"<div  class='bottom_three_of_seven 7-collage' id='collage7-7" +countPhoto +"'><img src=''></div>"
+			       +"</div>"
+			       
+			       	 + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+				     + "<ul class='clrfix'>"
+				     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+				     
+				     + "<li><button type='button' class='btn_caption' data-capno='"+countPhoto+"'>캡션</button></li>"
+				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+				     + "</ul>"
+				     + "</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				    ).appendTo(textParent)  
+				    $('#collage7-1-small'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '192px').css('height','193px');
+				    $('#collage7-2-small'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '192px').css('height','193px');
+				    $('#collage7-3-small'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '192px').css('height','193px');
+				    $('#collage7-4-small'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '192px').css('height','193px');
+				    
+				    $('#collage7-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
+				    $('#collage7-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '397px').css('height','397px');
+				    $('#collage7-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '397px').css('height','397px');
+				    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			     console.log(photo[i][0])
+			     console.log(photo[i][1])
+			     if(photo[i][0].lati != null && photo[i][0].longit != null) {
+			    	 var lat = photo[i][0].lati
+			    	 var long = photo[i][0].longit
+			    	 googleapisView(lat, long, countPhoto)
+			     }
+			     $('.tool_box').remove()
+//			     showControlBox()
+			     deletephoto(countPhoto)
+				} catch (err) {} 	
+			} else if (photo[i].length == 8) {
+				
+				try {
+					$("<div class='whole_collage8'>")
+					.html("<div class='collage8-1' id='collage8-1-big" +countPhoto +"'><img src=''></div>"
+				     +"<div  id='four_of_eight'>"
+				     +"<div class='right_four_of_eight' id='collage8-2" +countPhoto +"'><img src=''></div>"
+				     +"<div class='right_four_of_eight' id='collage8-3" +countPhoto +"'><img src=''></div>"
+				     +"<div class='right_four_of_eight' id='collage8-4" +countPhoto +"'><img src=''></div>"
+				     +"<div class='right_four_of_eight' id='collage8-5" +countPhoto +"'><img src=''></div>"
+				     +"</div>"
 
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-						).appendTo(textParent)  
-						$('#collage7-1-small'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '192px').css('height','193px');
-						$('#collage7-2-small'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '192px').css('height','193px');
-						$('#collage7-3-small'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '192px').css('height','193px');
-						$('#collage7-4-small'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '192px').css('height','193px');
+				     +"<div  class='bottom_three_of_eight' id='collage8-6" +countPhoto +"'><img src=''></div>"
+				     +"<div  class='bottom_three_of_eight' id='collage8-7" +countPhoto +"'><img src=''></div>"
+				     +"<div  class='bottom_three_of_eight' id='collage8-8" +countPhoto +"'><img src=''></div>"
+				     +"</div>"
+				     
+				     + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+				     + "<ul class='clrfix'>"
+				     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+				     
+				     + "<li><button type='button' class='btn_caption' data-capno='"+countPhoto+"'>캡션</button></li>"
+				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+				     + "</ul>"
+				     + "</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				     ).appendTo(textParent)
+				  
 
-						$('#collage7-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage7-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage7-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-						console.log(photo[i][0])
-						console.log(photo[i][1])
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-						$('.tool_box').remove()
-//						showControlBox()
-						deletephoto(countPhoto)
-					} catch (err) {} 	
-				} else if (photo[i].length == 8) {
+					
+			    $('#collage8-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage8-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage8-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage8-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage8-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '195px').css('height','195px');
+			    
+			    $('#collage8-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '262px').css('height','260px');
+			    $('#collage8-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '262px').css('height','260px');
+			    $('#collage8-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '262px').css('height','260px');
+			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    
+			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
+			    	 var lat = photo[i][0].lati
+			    	 var long = photo[i][0].longit
+			    	 googleapisView(lat, long, countPhoto)
+			     }
+			     $('.tool_box').remove()
+//			     showControlBox()
+			     deletephoto(countPhoto)
+			     
+				} catch (err) {} 	
+			} else if (photo[i].length == 9) {
+				try {
+				    $("<div class='whole_collage9'>")
+				     .html("<div class='one_of_nine' id='collage9-1-big"+countPhoto+"'><img id='img_4' src=''></div>"
+				      +"<div  class='four_of_nine'>"
+				      +"<div class='right_four_of_nine' id='collage9-2" +countPhoto +"'><img src=''></div>"
+				      +"<div class='right_four_of_nine' id='collage9-3" +countPhoto +"'><img src=''></div>"
+				      +"<div class='right_four_of_nine' id='collage9-4" +countPhoto +"'><img src=''></div>"
+				      +"<div class='right_four_of_nine' id='collage9-5" +countPhoto +"'><img src=''></div>"
+				      +"</div>"
 
-					try {
-						$("<div class='whole_collage8' data-countPhoto="+countPhoto+">")
-						.html("<div class='collage8-1' id='collage8-1-big" +countPhoto +"'><img src=''></div>"
-								+"<div  id='four_of_eight'>"
-								+"<div class='right_four_of_eight' id='collage8-2" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_eight' id='collage8-3" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_eight' id='collage8-4" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_eight' id='collage8-5" +countPhoto +"'><img src=''></div>"
-								+"</div>"
+				      +"<div  class='bottom_four_of_nine' id='collage9-6" +countPhoto +"'><img src=''></div>"
+				      +"<div  class='bottom_four_of_nine' id='collage9-7" +countPhoto +"'><img src=''></div>"
+				      +"<div  class='bottom_four_of_nine' id='collage9-8" +countPhoto +"'><img src=''></div>"
+				      +"<div  class='bottom_four_of_nine' id='collage9-9" +countPhoto +"'><img src=''></div>"
+				      +"</div>"
+				      
+				      + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+					  + "<ul class='clrfix'>"
+					  + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+					  
+					  + "<li><button type='button' class='btn_caption' data-capno='"+countPhoto+"'>캡션</button></li>"
+					  + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+					  + "</ul>"
+					  + "</div>"
+					  + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+					  
+//					  + "</div>"
+				  ).appendTo(textParent)
+					
+			    $('#collage9-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
+			    $('#collage9-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage9-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage9-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '195px').css('height','195px');
+			    $('#collage9-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '195px').css('height','195px');
+			    
+			    $('#collage9-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '195px').css('height','191px');
+			    $('#collage9-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '195px').css('height','191px');
+			    $('#collage9-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '195px').css('height','191px');
+			    $('#collage9-9'+ countPhoto +' > img').attr('src', photo[i][8].path+"_300.png").css('width', '195px').css('height','191px');
+			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    
+			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
+			    	 var lat = photo[i][0].lati
+			    	 var long = photo[i][0].longit
+			    	 googleapisView(lat, long, countPhoto)
+			     }
+			     $('.tool_box').remove()
+//			     showControlBox()
+			     deletephoto(countPhoto)
+				} catch (err) {} 	
+			} else {
+			
+				// 사진이 두장이라면
+				  var str = photo[i][0].path;
+				  
+				try {
+					$("<img>").attr('src', str+"_300.png").css('width', 'auto').appendTo(textParent);
+				} catch (err) {}
 
-								+"<div  class='bottom_three_of_eight' id='collage8-6" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_three_of_eight' id='collage8-7" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_three_of_eight' id='collage8-8" +countPhoto +"'><img src=''></div>"
-								+"</div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-						).appendTo(textParent)
-
-						$('#collage8-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage8-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage8-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage8-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage8-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '195px').css('height','195px');
-
-						$('#collage8-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '262px').css('height','260px');
-						$('#collage8-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '262px').css('height','260px');
-						$('#collage8-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '262px').css('height','260px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-						$('.tool_box').remove()
-//						showControlBox()
-						deletephoto(countPhoto)
-
-					} catch (err) {} 	
-				} else if (photo[i].length == 9) {
-					try {
-						$("<div class='whole_collage9' data-countPhoto="+countPhoto+">")
-						.html("<div class='one_of_nine' id='collage9-1-big"+countPhoto+"'><img id='img_4' src=''></div>"
-								+"<div  class='four_of_nine'>"
-								+"<div class='right_four_of_nine' id='collage9-2" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_nine' id='collage9-3" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_nine' id='collage9-4" +countPhoto +"'><img src=''></div>"
-								+"<div class='right_four_of_nine' id='collage9-5" +countPhoto +"'><img src=''></div>"
-								+"</div>"
-
-								+"<div  class='bottom_four_of_nine' id='collage9-6" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_four_of_nine' id='collage9-7" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_four_of_nine' id='collage9-8" +countPhoto +"'><img src=''></div>"
-								+"<div  class='bottom_four_of_nine' id='collage9-9" +countPhoto +"'><img src=''></div>"
-								+"</div>"
-
-								+ "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
-								+ "<ul class='clrfix'>"
-								+ "<li><button type='button' class='btn_add'>추가</button><input type='file' accept='image/*' multiple='' style='display: none;'></li>"
-								+ "<li><button type='button' class='btn_edit'>편집</button></li>"
-								+ "<li><button type='button' class='btn_caption'>캡션</button></li>"
-								+ "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
-								+ "</ul>"
-								+ "</div>"
-						).appendTo(textParent)
-
-						$('#collage9-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
-						$('#collage9-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage9-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage9-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '195px').css('height','195px');
-						$('#collage9-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '195px').css('height','195px');
-
-						$('#collage9-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '195px').css('height','191px');
-						$('#collage9-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '195px').css('height','191px');
-						$('#collage9-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '195px').css('height','191px');
-						$('#collage9-9'+ countPhoto +' > img').attr('src', photo[i][8].path+"_300.png").css('width', '195px').css('height','191px');
-						$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
-
-						if(photo[i][0].lati != null && photo[i][0].longit != null) {
-							var lat = photo[i][0].lati
-							var long = photo[i][0].longit
-							googleapisView(lat, long, countPhoto)
-						}
-						$('.tool_box').remove()
-//						showControlBox()
-						deletephoto(countPhoto)
-					} catch (err) {} 	
-				} else {
-
-					// 사진이 두장이라면
-					var str = photo[i][0].path;
-
-					try {
-						$("<img>").attr('src', str+"_300.png").css('width', 'auto').appendTo(textParent);
-					} catch (err) {}
-
-				} //else
-				countPhoto++
-				makeDropable($(textParent).children())
-				makeDragable($(textParent).children())
-				adddiv()
+			} //else
+			countPhoto++
+			adddiv()
 			} // 사진 for문
-//			})
-			console.log("끝")
 		} //done
 });
 
 function showControlBox(count) {
 	$(document).ready(function() {
-//		contBoxCount = $(this).prop('id').split('_')[2]
-//		console.log('#control-box-div-'+contBoxCount)
-		if($('#control-box-div-'+count).css("display") == "block") {
-			$('#control-box-div-'+count).css('display', 'none');
-		} else {
-			$('#control-box-div-'+count).css('display', 'block');
-		}
-		console.log("누름")
+	    if($('#control-box-div-'+count).css("display") == "block") {
+	      $('#control-box-div-'+count).css('display', 'none');
+	    } else {
+	  $('#control-box-div-'+count).css('display', 'block');
+	}
+	console.log("누름")
 	})
-//	event.preventDefault()
 	return false;
 }
-function popCaptionModal(countPhoto) {
+
+$(document.body).on('click','.btn_caption', function() {
+	console.log(this)
+	thisPP = $(this)
+	console.log("되라좀")
+	$('.caption_modal').css('display', 'block')
+})
+
+$(document.body).on('click','.btn_add', function() {
+			console.log('add==========>')
+			var divThis = $(this).attr('data-addno')
+			findNeedUpdateNo(divThis)
+			addbtn_adddiv(divThis)
+			console.log(divThis)
+
+})
+
+
+function findNeedUpdateNo(beforePlus) {
+	var nextPlusSpot = parseInt(beforePlus) + 1
+	var textParentDiv;
+	console.log($('.text_parent').size())
+	
+	console.log(nextPlusSpot)
+	for (var i = $('.text_parent').size()-1 ; i >= nextPlusSpot ; i--) {
+		
+//		textParentDiv = $('#text_parent_'+ i).children()
+//		var test = $('img' ,textParentDiv).parent().attr('id');
+//		var testSplit = test.split('-')
+//		console.log(textParentDiv)
+//		console.log($('img' ,$('#text_parent_'+ i).children()).parent(''))
+//		console.log($('img' ,textParentDiv).parent().attr('id').split('-'))
+		
+		
+		$('.btn_add','#text_parent_'+ i).attr('data-addno', i+1)
+		$('.btn_add','#text_parent_'+ i).attr('id', 'addbtn-' + (i+1))
+		
+		$('.btn_caption','#text_parent_'+ i).attr('data-capno', i+1)
+		$('.btn_caption','#text_parent_'+ i).attr('id', 'edtbtn-' + (i+1))		
+		$('.btn_del','#text_parent_'+ i).attr('id', 'delbtn-' + (i+1))
+		
+		console.log('확인하세요')
+		if($('.control_box','#text_parent_'+ i).attr('id') != undefined) {
+			$('.control_box','#text_parent_'+ i).attr('id','control-box-div-' + (i+1))
+		}
+		
+		console.log($('#text_parent_'+ i).attr('onclick','showControlBox('+ (i+1) +')'))
+		$('#text_parent_'+ i).attr('data-textparent', (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) + 1))
+		$('#text_parent_'+ i).attr('id', 'text_parent_' + (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) + 1))
+		
+	}
+	
+}
+
+$(document.body).on('click','#capt-save', function() {
+	console.log(thisPP.attr('data-capno'))
+	
+	console.log("되라좀aa")
+	event.stopPropagation()
+	let capTxt = $('#cap-txt').val()
+	console.log($('.capt_output' ,'div[data-textparent='+ thisPP.attr('data-capno') +']'))
+	$('.capt_output' ,'div[data-textparent='+ thisPP.attr('data-capno') +']').text(capTxt);
+	
+	
+	captionArray.push()
+	
+})
+
+$(document).ready(function () {
+
+	
+	$('#capt-cancel').click(function() {
+		$('.caption_modal').css('display', 'none')
+		$('#control-box-div-'+count).css('display', 'none');
+		$('#cap-txt').val('');
+		console.log("닫히냐")
+		
+	})
+
+})
+
+
+/*function popCaptionModal(countPhoto) {
 	$('#edtbtn-'+countPhoto).click(function() {
 		console.log("눌렀냐")
 		$('.caption_modal').css('display', 'block') 
 		event.stopPropagation()
 	})
-}
+}*/
 var deleteTextParent = [];
 var deletePhoto = [];
 
