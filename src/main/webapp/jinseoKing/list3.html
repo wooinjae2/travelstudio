@@ -500,6 +500,10 @@ height: 200px;
 
    
    }
+   
+   #numOfPost {
+    width: 30px;
+    font-size: 30px;
 </style>
 
 
@@ -587,13 +591,13 @@ height: 200px;
 <!-- <a href="./mypage.html?{{email}}"> -->
 	<script id="content-template2" type="text/x-handlebars-template">
 {{#each info}}
-    <div class="user_one" data-mno='{{mno}}'>
+    <div class="user_one">
     <div class="user_one_info">
 
     <div class="profile_photo">
       <img id="circle_profile" src="../upload/{{path}}"></img>
     </div>
-<div id="holding">
+<div id="holding"  data-mno='{{mno}}'>
     <div class="profile_desc">
       <div class="user_desc">
         <span class="user_name">{{alias}}
@@ -602,14 +606,15 @@ height: 200px;
 
 
   <div style="padding-top:5px;">
-    <div class="info_write">
+    <div class="info_write" name='{{mno}}'>
       <span class="fa fa-file-text-o fa-2x" aria-hidden="true"></span>
       <span class="tit_info">여행기</span>
       <span class="txt_num travel_num"></span>
     </div>
     <div class="info_nation" data-mno='{{mno}}'>
       <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
-      <span class="tit_info">여행국가</span>
+      <span class="tit_info2">여행국가</span>
+
       <span class="txt_num">3</span>
     </div>
 
@@ -635,6 +640,7 @@ height: 200px;
 {{/each}}
 </script>
 
+
 </div>
 
 
@@ -647,6 +653,6 @@ height: 200px;
 	
 	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="./list.js"></script>
+	<script src="./list3.js"></script>
 </body>
 </html>

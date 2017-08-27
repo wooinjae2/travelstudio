@@ -9,7 +9,7 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-<link rel="stylesheet" type="text/css" href="write2.css">
+<link rel="stylesheet" type="text/css" href="write.css">
 <link rel="stylesheet"
 	href="./font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -295,7 +295,8 @@
         <div class='write_day'>
                   <button  id='day_btn{{count}}>{{count}}일차</button>
                   <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
-                  <input class='travel_detail_date' value="" type="text" id='detail-date-div-{{count}}'placeholder="날짜" onclick="datePick()">
+                  <p id="dateCounting">Day-{{count}}</p>
+                  <input class='travel_detail_date' type="text" id='detail-date-div-{{count}}'placeholder="날짜" onclick="datePick()">
                   <input class='gpsInfo' id='location-info-{{count}}' onclick="egitLocation()" placeholder="여행지"></input></div>
                   <div class='text_parent' id='text_parent_{{count}}' onclick='showControlBox({{count}})'>
 
@@ -327,7 +328,7 @@
     src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
   <script
     src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
-  <script src="./write2.js"></script>
+  <script src="./write.js"></script>
 
   
 
@@ -335,11 +336,9 @@
 com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=visualization&sensor=false, places"></script> -->
   <script>
   
- 
-  if($(".travel_detail_date").attr("value")!=null){
-	  console.log("here")
-      }
-   
+
+  
+  
   
   
   function egitLocation(){
@@ -584,6 +583,7 @@ $(document.body).on('mouseleave', '.day1', function(event) {
  	   console.log("날짜 누름")
  	    $( ".travel_detail_date" ).datepicker({
  	    	 showButtonPanel : true,
+ 	        dateFormat : 'yy/mm/dd'
  	    });
  	  };
    

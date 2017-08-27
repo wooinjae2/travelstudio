@@ -466,14 +466,13 @@ a:-webkit-any-link {
 }
 
 .travel_detail_date {
-	font-size: 25px;
+	font-size: 15px;
 	display: inline-block;
 	text-align: center;
 	border: none;
-	width: 134px;
-	margin-top: 4px;
+	width: 98px;
+  margin-top: 4px;
 	color: #6a5f5f;
-  background-color: #e0dcdc;
 }
 
 .bb>#aa {
@@ -589,7 +588,7 @@ textarea.autosize {
 }
 
 button[id*='day_btn'] {
-  width: 164px;
+	width: 150px;
 	height: 62px;
 	border-radius: 35px;
 	font-size: 17px;
@@ -1112,16 +1111,15 @@ button[id*='day_btn'] {
 }
 
 /* 콜라쥬 9개 끝 */
-.gpsInfo  {
+.gpsInfo {
 	font-size: 120%;
 	position: absolute;
 	width: 180px;
 	border: none;
-	margin-left: -159px; 
-	margin-top : 61px;
+	margin-left: -142px; 
+	margin-top : 29px;
 	text-align: center;
 	font-weight: 900;
-	margin-top: 61px;
 }
 
 #dateCounting{

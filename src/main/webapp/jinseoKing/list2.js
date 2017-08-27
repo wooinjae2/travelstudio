@@ -109,33 +109,39 @@ function search(){
 	}, 'json')
 }
 
+address()
+
 function address(){
 	console.log(membernoArray)
-	console.log(no)
-	jQuery.ajaxSettings.traditional = true;
-		$.post('../detail/addFromMno.json', {
-			'mno': membernoArray
+	for(i=0; i<membernoArray.length;i++){
+		console.log("..........",membernoArray[i])
+		var memberno=membernoArray
+		console.log("console.log(memberno)",memberno)
+		$.post('../detail/selectAddress.json', {
+			'mno': memberno
 		},
 		function(result) {
 
 			console.log(no)
-			console.log(result)
+			console.log(membernoArray[i], result)
 
 			uniqueNames = [];
-			var flag_list=[];
 			/*var flag_list_show=new Array();*/
-			var flag_count=0;
-
-			for(i=0;i<result.data.addFromMno.length;i++){
-				if(result.data.addFromMno[i]!=null){
-					if(result.data.addFromMno[i].address!=undefined){
-						flag_list[flag_count++]=result.data.addFromMno[i].address
+			var flag_count=1;
+			var flag_list=[];
+			flag_list[0]=memberno
+			console.log(memberno)
+			for(i=0;i<result.data.selectAddress.length;i++){
+				if(result.data.selectAddress[i]!=null){
+					if(result.data.selectAddress[i].address!=undefined){
+						flag_list[flag_count++]=result.data.selectAddress[i].address
+						
 						/*flag_list_show.push(result.data.selectAddress[i].address)*/
 						/*console.log(result)*/
 					}
 				}
 			}
-			for(i=0;i<flag_list.length;i++){
+			for(i=1;i<flag_list.length;i++){
 				if(flag_list[i]!=undefined){
 					if(flag_list[i].indexOf("대한민국")!=-1){
 						flag_list[i] ='./flags/png/south-korea.png'
@@ -160,8 +166,10 @@ function address(){
 
 			$.each(flag_list, function(i, el){
 				if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+			
 			});
-			posted(membernoArray[i],flag_list)
+			posted(flag_list)
+			console.log(membernoArray[i])
 			flag_list.splice(0,flag_list.length);
 			/*			for(i=0;i<=uniqueNames.length;i++){
 
@@ -171,19 +179,22 @@ function address(){
 	}//post요청끝
 }
 
-function posted(userno){
-console.log(userno)
-console.log(flag_list)
+function posted(flag_list){
+	
+	console.log(flag_list)
+/*console.log(userno)*/
 	$('.user_one').each(function(){
-		if($(this).attr('data-mno')==userno){
-			for(j=0; j<flag_list.length; j++){
-				$('<img src='+flag_list[j]+'>').appendTo($('.info_nation',this))
+		if($(this).attr('data-mno')==flag_list[0]){
+			for(j=1; j<flag_list.length; j++){
+				$('<img src='+flag_list[j]+'>').appendTo($('.info_nation', this))
 				$('.info_nation img',this).css('margin-right','7px').css('width', '36px').css('height', '36px')
 			}
 		}
 	})
 
 }
+/*	}
+}*/
 
 /*$('<img src=result>').appendTo($(this))*/
 
