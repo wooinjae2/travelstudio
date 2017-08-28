@@ -345,6 +345,8 @@ function test1(idMyDiv) {
   } else {
     objDiv.style.display = "inline-block";
   }
+  event.preventDefault();
+  event.stopPropagation()
 }
 
 function test(idMyDiv) {
@@ -354,6 +356,8 @@ function test(idMyDiv) {
   } else {
     objDiv.style.display = "inline-block";
   }
+  event.preventDefault();
+  event.stopPropagation()
 }
 
     $('.delete_travel').on('click', function(){
