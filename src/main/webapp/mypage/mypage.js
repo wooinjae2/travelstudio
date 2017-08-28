@@ -74,3 +74,30 @@ $.post('../post/selectOneUserPost.json',{'number':loginMemberNo}, function(resul
 })
 }
 }
+
+/* 민섭 - 여행기 삭제 */
+
+//삭제 버튼 클릭시 타깃 넘버 받아오기.
+var targetpostno=0;
+$(document).on("click",".delete_travel",function(){
+	
+	targetpostno=$(this).attr('data-value')
+
+	console.log("postno 뜰거다 ================>",targetpostno)
+	$('#modal').css('display','inline-block')
+	$('#delete_wrap').css('display','inline-block')
+	deleteYes(targetpostno)
+})
+
+function deleteYes(postno) {
+$('#delete-yes-btn').click(function() {
+	console.log(postno)
+	$.post('../post/delete.json', {
+		'postno' : postno
+	}, function(result) {
+		console.log(result)
+	}, 'json')
+	
+	$('.post_list[data-post='+ postno +']').parent().parent().parent().remove()
+}) 
+}

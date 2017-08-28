@@ -23,4 +23,5 @@ void insertDetailLocation(Detail detail);
 List<Detail> selectedOneDetail(String postno);
 List<Detail> selectAddress(int mno) throws Exception;
 void addAllphoto(Detail detail);
+void pictureNoSearch(int postno);
 }

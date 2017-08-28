@@ -1,5 +1,6 @@
 package travelstudio.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,23 @@ public class DetailServiceImpl implements DetailService {
    detailDao.insert_map(detail);
  }
  
-
+ 
+ @Override
+ public void pictureNoSearch(int postno) {
+   
+   ArrayList<Detail> picno = detailDao.picnosearch(postno);
+//   ArrayList<String> arr1 ;
+   System.out.printf("picno리턴 받는다=========>");
+   System.out.println(picno);
+   for(int i =0; i < picno.size(); i++) {
+     detailDao.deletePicture(picno.get(i).getPicno());
+   }
+   
+   detailDao.deleteDetail(postno);
+   detailDao.deletePost(postno);
+   
+ }
+ 
 @Override
 public void insertDetailByEmail(Detail detail) {
   detailDao.insertDetailByEmail(detail);

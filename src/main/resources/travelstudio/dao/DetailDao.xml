@@ -78,7 +78,24 @@
     values(#{picno},#{writer},#{srtno})
   </insert>
   
-
+  <select id="picnosearch" resultMap="detailMap" parameterType="int">
+    select picno from detail where postno=#{postno} and picno > 0
+  </select>
+  
+  <delete id="deletePicture" parameterType="int">
+    delete from pic
+    where picno=#{picno}
+  </delete>
+  
+  <delete id="deleteDetail" parameterType="int">
+    delete from detail
+    where postno=#{postno}
+  </delete>
+  
+  <delete id="deletePost" parameterType="int">
+    delete from post
+    where postno=#{postno}
+  </delete>
 
 </mapper>
 

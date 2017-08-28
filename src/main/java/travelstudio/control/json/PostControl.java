@@ -5,8 +5,10 @@ package travelstudio.control.json;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -206,6 +208,19 @@ public class PostControl {
     
     return new JsonResult(JsonResult.SUCCESS, post);
   }  
+  
+  @RequestMapping("delete")
+  public JsonResult delete(int postno) throws Exception {
+    /*System.out.printf("%s 셀렉트원",number);*/
+    HashMap<String,Object> dataMap = new HashMap<>();
+//    dataMap.put("selectedPost", postService.selectOne(number));
+//    dataMap.put("totalCount", noticeService.getSize());
+    System.out.printf("postno 넘기기 성공==========>%d", postno);
+    List<Integer> picno = new ArrayList();
+    detailService.pictureNoSearch(postno);
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
   
   int count = 0;
   synchronized private String getNewFilename() {
