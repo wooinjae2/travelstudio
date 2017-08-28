@@ -1077,12 +1077,11 @@ function deletephoto(countPhoto) {
 			console.log($('img',deleteTextParentChild).eq(i).attr('src').slice(0, -8))
 			console.log("경로 자르기")
 			var cut = [];
-//			console.log((deleteTextParentChild.eq(i).children('img').attr('src').split('/')[2]))
-//			console.log((deleteTextParentChild.eq(i).children('img').attr('src').split('/')[2]).slice(0, -8))
 			deletePhoto.push($('img',deleteTextParentChild).eq(i).attr('src').slice(0, -8))
 
 		} //for 
 		
+		// 태그 번호 끝 자리부터 감소
 		var presentSpot = $(this).parents('.text_parent').attr('id').split('_')[2]
 		console.log(presentSpot)
 		for (var i = $('.text_parent').size()-1 ; i > presentSpot  ; i--) {
@@ -1118,6 +1117,7 @@ function deletephoto(countPhoto) {
 		delPhotoTransm()
 		event.stopPropagation()
 		console.log(deletePhoto)
+		console.log($(this).parents('.text_parent').parent())
 		$(this).parents('.text_parent').parent().remove()
 	})
 }
