@@ -15,6 +15,7 @@ public interface PictureService {
   Picture selectByPost(String pictureno);
   Picture searchthispicture(String path);
   Picture searchPicNo(String path);
+//  void delete(int deletepno);
   void delete(int deletepno);
 }
 

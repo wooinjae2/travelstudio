@@ -21,5 +21,5 @@ Picture searchthispicture(String path);
 Picture searchPicNo(String path);
 //  int update(Member member);
 //  int delete(int no) throws Exception;
-int delete(int deletepno);
+void delete(int deletepno);
 }

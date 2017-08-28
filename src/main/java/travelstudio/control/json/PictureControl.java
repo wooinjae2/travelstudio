@@ -2,7 +2,6 @@ package travelstudio.control.json;
 
 
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -70,11 +69,11 @@ public class PictureControl {
     
     List<Picture> deleteList = new ArrayList();
     for(int i = 0; i < deletePhoto.length; i++) {
+      System.out.println((pictureService.searchPicNo(deletePhoto[i])));
       deleteList.add(pictureService.searchPicNo(deletePhoto[i]));
     }
     
     System.out.println(deleteList);
-    
     
     for(int j = 0; j < deleteList.size();j++) {
 //      System.out.printf("deleteList.get(j).getPicno(),%d", deleteList.get(j).getPicno());
