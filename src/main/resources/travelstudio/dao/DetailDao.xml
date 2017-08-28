@@ -51,6 +51,11 @@
     values(#{capt},#{postno}, #{srtno})
   </insert>
     
+  <insert id="insertDetailDate" parameterType="detail"> 
+    insert into detail(date, postno, srtno)
+    values(#{date},#{postno}, #{srtno})
+  </insert>
+   
   <select id="selectedOneDetail" resultMap="detailMap" parameterType="String">
   select * from detail where postno=#{postno} order by srtno asc
   </select>

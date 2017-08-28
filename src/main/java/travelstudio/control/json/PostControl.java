@@ -4,6 +4,8 @@ package travelstudio.control.json;
 
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
@@ -97,7 +99,7 @@ public class PostControl {
   
   
   @RequestMapping("add")
-  public JsonResult add(Post post, String[] content, String[] caption, HttpServletRequest req, MultipartFile[] files) throws Exception {
+  public JsonResult add(Post post, String[] content, String[] caption, String[] travelDate, HttpServletRequest req, MultipartFile[] files) throws Exception {
     
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
@@ -127,7 +129,7 @@ public class PostControl {
     
     Detail detail = new Detail();
     Detail detailCaption = new Detail();
-    
+    Detail detailTravelDate = new Detail();
     
     detail.setPostno(post.getPostno());
     /*System.out.println(post.getCont());*/
@@ -150,6 +152,7 @@ public class PostControl {
     
     detailCaption.setPostno(post.getPostno());
     detailCaption.setWriter(loginMember.getEmail());
+    
     if(caption!=null){
     for(int j=0; j < caption.length;j+=2){
       System.out.printf("caption 넘기기 ========>");
@@ -161,7 +164,23 @@ public class PostControl {
     }
     detailService.insertDetailByEmail(detailCaption);
     
+    System.out.printf("날짜확인=========>");
+    detailTravelDate.setPostno(post.getPostno());
+    detailTravelDate.setWriter(loginMember.getEmail());
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    Date dateTypeCasting = null;
     
+    String oldstring = null;
+    
+    for(int k=0; k < travelDate.length; k+=2) {
+      
+      detailTravelDate.setSrtno(Integer.parseInt(travelDate[k]));
+      Date date = new SimpleDateFormat("yyyy-MM-dd").parse(travelDate[k+1]);
+      detailTravelDate.setDate(date);
+//      detailTravelDate.setDate(travelDate[k+1]);
+      detailService.insertDetailDate(detailTravelDate);
+    }
+    detailService.insertDetailByEmail(detailTravelDate);
     
     detailService.deleteEmail(loginMember.getEmail());
     System.out.println();

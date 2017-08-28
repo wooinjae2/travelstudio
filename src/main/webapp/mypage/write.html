@@ -90,11 +90,11 @@
             1일차
           </h2>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          <div class="travel_detail_date"  id="detail-date-div-0">2017.05.05</div>
-          <h2 class="gpsInfo" id="location-info-0">여행지</h2>  
+          <input class="travel_detail_date" type="text" id="detail-date-div-0" placeholder="날짜" onclick="datePick()"></input>
+          <input class="gpsInfo" id="location-info-0" placeholder="여행지"></input>
         </div>
         
-        <div class="text_parent" id="text_parent_0" onclick='showControlBox(0)'>
+        <div class="text_parent" id="text_parent_0" onclick='showControlBox(0,id)' data-btn=false data-textparent="0">
           <div class="tool_box">
             <a href="#" onclick="test('testdiv'); return false;">
             <span id="ab" class="fa fa-plus-circle fa-2x" aria-hidden="true"></span>
@@ -294,9 +294,9 @@
         <div class='write_day'>
                   <h2><button onclick='changebuttontoday(day_btn{{count}})' id='day_btn{{count}}>+ 일차</button>1일차<h2>"
                   <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
-                  <div class='travel_detail_date' id='detail-date-div-{{count}}'>2017.05.05</div>
-                  <h2 class='gpsInfo' id='location-info-{{count}}'>여행지</h2></div>
-                  <div class='text_parent' id='text_parent_{{count}}' onclick='showControlBox({{count}})'>
+                  <input class='travel_detail_date' type="text" id='detail-date-div-{{count}}'placeholder="날짜" onclick="datePick()">
+                  <input class='gpsInfo' id='location-info-{{count}}' onclick="egitLocation()" placeholder="여행지"></input></div>
+                  <div class='text_parent' id='text_parent_{{count}}' data-textparent='{{count}}'onclick='showControlBox({{count}})'>
 
                   <div class='tool_box'>
                   <a href='#' onclick="test('testdiv{{count}}'); return false;">
@@ -315,8 +315,8 @@
         <div class='write_day'>
                   <h2><button onclick='changebuttontoday(day_btn{{count}})' id='day_btn{{count}}>+ 일차</button>1일차<h2>"
                   <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
-                  <div class='travel_detail_date' id='detail-date-div-{{count}}'>2017.05.05</div>
-                  <h2 class='gpsInfo' id='location-info-{{count}}'>여행지</h2></div>
+                  <input class='travel_detail_date' type="text" id='detail-date-div-{{count}}'placeholder="날짜" onclick="datePick()">
+                  <input class='gpsInfo' id='location-info-{{count}}' onclick="egitLocation()" placeholder="여행지"></input></div>
                   <div class='text_parent' id='text_parent_{{count}}' data-textparent='{{count}}'onclick='showControlBox({{count}})'>
 
                   <div class='tool_box'>
@@ -608,7 +608,14 @@ $(document.body).on('mouseleave', '.day1', function(event) {
         dateFormat : 'yy/mm/dd'
       });
     });
-
+    
+    function datePick() {
+        console.log("날짜 누름")
+         $( ".travel_detail_date" ).datepicker({
+            showButtonPanel : true,
+             dateFormat : 'yy-mm-dd'
+         });
+       };
     /*  */
 
     var date = $('.files_date')

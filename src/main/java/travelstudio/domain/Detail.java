@@ -1,5 +1,6 @@
 package travelstudio.domain;
 
+import java.util.Date;
 
 /* 역할: memb 테이블의 값을 보관할 때 사용할 클래스
  * => 복합 데이터를 다룰 때, 이렇게 클래스를 정의하여 사용한다.
@@ -10,8 +11,9 @@ package travelstudio.domain;
 
 public class Detail {
   int picno, postno, srtno;
-  String cont, date, capt, writer, address;
+  String cont, capt, writer, address;
   double lati, longit;
+  Date date;
   
   @Override
   public String toString() {
@@ -52,11 +54,11 @@ public class Detail {
     this.cont = cont;
   }
 
-  public String getDate() {
+  public Date getDate() {
     return date;
   }
 
-  public void setDate(String date) {
+  public void setDate(Date date) {
     this.date = date;
   }
 

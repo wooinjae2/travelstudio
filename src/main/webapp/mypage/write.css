@@ -464,6 +464,11 @@ a:-webkit-any-link {
 .travel_detail_date {
   font-size: 15px;
   display: inline-block;
+  text-align: center;
+  border: none;
+  width: 98px;
+  margin-top: 4px;
+  color: black;
 }
 
 .bb>#aa {
@@ -582,13 +587,14 @@ textarea.autosize {
 }
 
 button[id*='day_btn'] {
-  width: 100px;
-  height: 40px;
+  width: 130px;
+  height: 60px;
   border-radius: 25px;
   font-size: 17px;
   border: white solid 2px;
   margin-top: 40px;
   margin-bottom: 15px;
+  background-color: #fff;
 }
 
 
@@ -1128,6 +1134,12 @@ button[id*='day_btn'] {
   .gpsInfo {
     font-size: 120%;
     position: absolute;
+    width: 180px; 
+    border: none;
+    margin-left: -142px; 
+    margin-top : 29px;
+	  text-align: center;
+    font-weight: 900;
   }
   
   

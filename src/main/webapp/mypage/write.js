@@ -14,7 +14,8 @@ var aaa=0;
 var jsPictureList=[];
 var photo1=[];
 var picnoparentno=[];
-
+var captionArray = []
+var detailDateArr = []
 
 var aaa=0;
 
@@ -354,6 +355,14 @@ $('#title_fileupload').fileupload({
 				captionArray.push($(this).attr('id').split('-')[2])
 				captionArray.push($(this).text())
 			})
+			
+			$('.travel_detail_date').each(function () {
+				var textParentDiv= $('.text_parent',$(this).parents('.day1'))
+				if($(this).val() != "" && $('.text_parent', $('img', $('.text_parent',$(this).parents('.day1')))) != undefined){
+					detailDateArr.push(textParentDiv.attr('id').split('_')[2])
+					detailDateArr.push($(this).val())
+				}
+			})
 			console.log(captionArray)
 			
 				data.formData = {
@@ -362,7 +371,8 @@ $('#title_fileupload').fileupload({
 					edt: fiedt.val(),
 					mno: mno,
 					content: content,
-					caption: captionArray
+					caption: captionArray,
+					travelDate: detailDateArr
 				}
 				change=1;
 			};
@@ -554,7 +564,31 @@ $('#fileAllUpload').fileupload({
 
 			
 			var textParent= $("#text_parent_"+countPhoto+"")
-			if (photo[i].length == 2) {
+			if (photo[i].length == 1) {
+               $("<div class='whole_collage1' data-countPhoto="+countPhoto+">")
+               .html("<div  class='one_photo_col' id='collage1-1" +countPhoto +"'><img id='img_4' src=''></div>"
+                     + "</div>"
+                     + "<div class='control_box' id='control-box-div-"+countPhoto+"'>"
+                     + "<ul class='clrfix' >"
+    			     + "<li><button type='button' class='btn_add' id='addbtn-"+countPhoto+"' data-addno='"+countPhoto+"'>추가</button></li>"
+    			     + "<li><button type='button' class='btn_caption' id='edtbtn-"+countPhoto+"' data-capno='"+countPhoto+"'>캡션</button></li>"
+    			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
+    			     + "</ul>"
+    			     + "</div>"
+    			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+               ).appendTo(textParent)
+               $('#collage1-1'+ countPhoto +'> img').attr('src',photo[i][0].path + "_600.png").css('width', '809px').css('height','606px');
+               $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
+               if(photo[i][0].lati != null && photo[i][0].longit != null) {
+                  var lat = photo[i][0].lati
+                  var long = photo[i][0].longit
+                  googleapisView(lat, long, countPhoto)
+               }
+               $('.tool_box').remove()
+               deletephoto(countPhoto)
+//               popCaptionModal(countPhoto)
+
+            } else if (photo[i].length == 2) {
 			    $("<div class='whole_collage2' id='TP-collage-" +countPhoto +"'>")
 			    .html("<div  class='two_photo_col 2-collage' id='collage2-1-count-" +countPhoto +"'><img id='img_4' src=''></div>"
 			     + "<div  class='two_photo_col 2-collage ' id='collage2-2-count-" +countPhoto +"'><img id='img_4' src=''></div>"
@@ -571,7 +605,7 @@ $('#fileAllUpload').fileupload({
 			     ).appendTo(textParent)
 			     $('#collage2-1-count-'+ countPhoto +'> img').attr('src', photo[i][0].path + "_600.png").css('width', '534px').css('height','534px');
 			     $('#collage2-2-count-'+ countPhoto +'> img').attr('src', photo[i][1].path + "_600.png").css('width', '534px').css('height','534px');
-			     $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			     $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			     
 			     if(photo[i][0].lati != null && photo[i][0].longit != null) {
 			    	 var lat = photo[i][0].lati
@@ -611,7 +645,7 @@ $('#fileAllUpload').fileupload({
 					$('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
 					$('#collage3-3'+ countPhoto +' > img').attr('src', photo[i][2].path +"_300.png").css('width', '260px').css('height','265px');
 					
-					$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+					$('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 					if(photo[i][0].lati != null && photo[i][0].longit != null) {
 			    	 var lat = photo[i][0].lati
 			    	 var long = photo[i][0].longit
@@ -646,7 +680,7 @@ $('#fileAllUpload').fileupload({
 			    $('#collage4-2'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '397px').css('height','397px');
 			    $('#collage4-3'+ countPhoto +' > img').attr('src', photo[i][2].path+"_300.png").css('width', '397px').css('height','397px');
 			    $('#collage4-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
-			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			    
 				if(photo[i][0].lati != null && photo[i][0].longit != null) {
 		    	 var lat = photo[i][0].lati
@@ -686,7 +720,7 @@ $('#fileAllUpload').fileupload({
 			    
 			    $('#collage5-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '397px').css('height','397px');
 			    $('#collage5-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
-			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			    
 			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
 		    	 var lat = photo[i][0].lati
@@ -730,7 +764,7 @@ $('#fileAllUpload').fileupload({
 			    $('#collage6-4'+ countPhoto +' > img').attr('src', photo[i][3].path+"_300.png").css('width', '264px').css('height','260px');
 			    $('#collage6-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '264px').css('height','260px');
 			    $('#collage6-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '264px').css('height','260px');
-			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			    
 			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
 		    	 var lat = photo[i][0].lati
@@ -776,7 +810,7 @@ $('#fileAllUpload').fileupload({
 				    $('#collage7-5'+ countPhoto +' > img').attr('src', photo[i][4].path+"_300.png").css('width', '397px').css('height','397px');
 				    $('#collage7-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '397px').css('height','397px');
 				    $('#collage7-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '397px').css('height','397px');
-				    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+				    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			     console.log(photo[i][0])
 			     console.log(photo[i][1])
 			     if(photo[i][0].lati != null && photo[i][0].longit != null) {
@@ -827,7 +861,7 @@ $('#fileAllUpload').fileupload({
 			    $('#collage8-6'+ countPhoto +' > img').attr('src', photo[i][5].path+"_300.png").css('width', '262px').css('height','260px');
 			    $('#collage8-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '262px').css('height','260px');
 			    $('#collage8-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '262px').css('height','260px');
-			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			    
 			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
 			    	 var lat = photo[i][0].lati
@@ -879,7 +913,7 @@ $('#fileAllUpload').fileupload({
 			    $('#collage9-7'+ countPhoto +' > img').attr('src', photo[i][6].path+"_300.png").css('width', '195px').css('height','191px');
 			    $('#collage9-8'+ countPhoto +' > img').attr('src', photo[i][7].path+"_300.png").css('width', '195px').css('height','191px');
 			    $('#collage9-9'+ countPhoto +' > img').attr('src', photo[i][8].path+"_300.png").css('width', '195px').css('height','191px');
-			    $('#detail-date-div-'+ countPhoto).text(photo[i][0].time)
+			    $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
 			    
 			    if(photo[i][0].lati != null && photo[i][0].longit != null) {
 			    	 var lat = photo[i][0].lati
@@ -1181,7 +1215,7 @@ function googleapisView(lat, lon, countPhoto) {
 					} 	
 				}
 				console.log(gpsinfo.split(' '))
-				$("#location-info-"+countPhoto).text(nationName + " " + cityName)
+				$("#location-info-"+countPhoto).attr("value", nationName + " " + cityName)
 
 			} else if(myJSONResult.status == 'ZERO_RESULTS') {
 				alert("지오코딩이 성공했지만 반환된 결과가 없음을 나타냅니다.\n\n이는 지오코딩이 존재하지 않는 address 또는 원격 지역의 latlng을 전달받는 경우 발생할 수 있습니다.")
@@ -1508,7 +1542,7 @@ function resizeCollage($this, $item,countPhotoresize) { //디스는 콜라주, �
 		$('#collage3-2'+ countPhotoresize +' > img').attr('src', resizeCollageArray[1]).css('width', '260px').css('height','265px');
 		$('#collage3-3'+ countPhotoresize +' > img').attr('src', $($item).children().attr('src')).css('width', '260px').css('height','265px');
 
-		/*$('#detail-date-div-'+ countPhoto).text(photo[i][0].time)*/
+		/*$('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)*/
 
 		$($this).attr("class","whole_collage3")
 		makeDropable($($this))
