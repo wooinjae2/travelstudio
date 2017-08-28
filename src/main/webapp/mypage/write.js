@@ -987,7 +987,6 @@ function findNeedUpdateNo(beforePlus) {
 	var nextPlusSpot = parseInt(beforePlus) + 1
 	var textParentDiv;
 	console.log($('.text_parent').size())
-	
 	console.log(nextPlusSpot)
 	for (var i = $('.text_parent').size()-1 ; i >= nextPlusSpot ; i--) {
 		
