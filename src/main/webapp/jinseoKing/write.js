@@ -527,7 +527,7 @@ $('#fileAllUpload').fileupload({
 					}
 				} catch (err) {}
 			}*/
-			$('#write_save_btn').unbind("click");
+//			$('#write_save_btn').unbind("click");
 		}, 
 		
 		
