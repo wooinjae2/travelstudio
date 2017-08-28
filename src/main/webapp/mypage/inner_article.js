@@ -188,7 +188,7 @@ $.post('/detail/selectedOneDetail.json', {
 			console.log(array1)
 			for(i=0; i<array1.list.length;i++){
 				if(array1.list[i].lati!=0){
-					setTimeout(initMap('map'+array1.list[i].srtno), 1000);
+					setTimeout("initMap('map"+array1.list[i].srtno+"')", 1000);
 				}
 			}
 			
@@ -203,6 +203,7 @@ $.post('/detail/selectedOneDetail.json', {
 			function makeCollageee(){ 
 
 				for (var [key, value] of Mapaa) {
+					modalPhoto()
 					/*whole_collage3 0*/
 					countPhoto++;
 					var finalCollageArray=[]

@@ -1,5 +1,6 @@
 package travelstudio.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import travelstudio.domain.Detail;
@@ -31,4 +32,8 @@ void insertDetailLocation(Detail detail);
 List<Detail> selectedOneDetail(String postno);
 List<Detail> selectAddress(int mno);
 void addAllphoto(Detail detail);
+ArrayList<Detail> picnosearch(int postno);
+void deletePicture(int picno);
+void deleteDetail(int postno);
+void deletePost(int postno);
 }

@@ -280,8 +280,8 @@ line-height: 35px;
 
     header {
       border: 1px solid #c9d1dd;
-      padding-left:450px;
-      left-padding:300px;
+      padding-left:340px;
+      
       width: 100%;
       height: 70px;
       z-index: 100;
@@ -395,6 +395,42 @@ i{
 }
 
 /* 여행기 슬라이드 블럭*/
+
+/* 스와이퍼 캐러셀*/
+.carousel {
+  background: #FAFAFA;
+  width: 170;
+}
+
+.carousel-cell {
+  width: 170px;
+  height: 200px;
+  margin-right: 5px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+.item a {
+  color:inherit;
+}
+.item a:link {
+  border: none;
+  outline: 0;
+  
+}
+
+/* 스와이퍼 캐러셀 끝*/
+
 .slide_wrap {
   width: 1217px;
   height: 470px;
@@ -544,7 +580,7 @@ margin-bottom: 2px;
 /*여행 작가 라인*/
 .travel_writer {
   position: relative;
-  width: 1217px;
+  width: 100%;
   /*border: solid 5px gray;*/
   padding: 30px auto 0;
   margin-bottom: 30px;
@@ -595,17 +631,15 @@ margin-bottom: 2px;
 
 }
 
-.owl-stage-outer {
-  display: inline-block;
-  width: 800px;
-  margin-left: 100px;
-}
 
 .travel_writer_slide .travel_writer_photozone {
-  width: 160px;
+  position: relative;
+  width: 130px;
   height: 130px;
-  /*border: 1px solid blue;*/
-  margin-bottom: 10px;
+  background: url('./img/user_default.png') center center no-repeat;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+  text-align: center;
 }
 
 .travel_writer_slide .travel_writer_photozone img {
@@ -613,6 +647,7 @@ margin-bottom: 2px;
   height: 130px;
   border-radius: 100%;
   margin: 0px auto;
+  background: url('./img/user_default.png') center center no-repeat;
 }
 
 .travel_writer_slide .travel_writer_id {
@@ -620,12 +655,18 @@ margin-bottom: 2px;
   /*z-index: 999;*/
   width: 160px;
   text-align: center;
-  margin: 0 0 10px 0;
-  font-size: 15px;
+  margin: 0 auto 10px;
+  font-size: 110%;
+  font-weight: 600;
 }
 
 .travel_writer_slide .travel_writer_intro {
   margin: 10px 0;
+  text-align: center;
+  overflow: hidden;
+  color: black;
+  font-size: 110%;
+  opacity: 0.7;
 }
 
 .travel_writer_slide .travel_writer_flag {

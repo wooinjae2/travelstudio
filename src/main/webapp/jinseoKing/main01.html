@@ -5,12 +5,12 @@
 <title>travel_log</title>
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="./node_modules/swiper/dist/css/swiper.min.css">
 <link rel="stylesheet" type="text/css" href="./main.css">
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./OwlCarousel/dist/owl.carousel.min.js"></script>
+<!-- <script src="./node_modules/jquery/dist/jquery.min.js"></script> -->
 </head>
 <body>
+      
   <div class="slide_bar">
     <div class="slide_bar_cancel">
       <a href="#"><img src="img/cancel.png" id="cancel_icon"></a>
@@ -65,12 +65,72 @@
           <span class="traveler_text">여행작가</span>가 되어보세요
         </p>
       </div>
-      <div class="owl-stage-outer">
-        <div class="owl-stage">
-        
-         
+      <div class="travel_writer_slide_wrap">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+         <script id="content-template-2" type="text/x-handlebars-template">
+     {{#each info}}
+        <div class="swiper-slide travel_writer_slide">
+          <div class="item">
+          <a href="#">
+            <div class="travel_writer_photozone" background="url('../upload/{{memberPhoto}}')">
+          {{#if memberPhoto}}
+            <img src="../upload/{{memberPhoto}}">
+          {{^}}
+            <img src="./img/user_default.png">
+          {{/if}}
+            </div>
+            <p class="travel_writer_id">{{alias}}</p>
+            <p class="travel_writer_intro">
+           {{intro}}
+            </p>
+            <div class="travel_writer_flag">
+              <img src="img/kr.png">
+              <img src="img/kr.png">
+              <img src="img/kr.png">
+              <img src="img/kr.png">
+              <img src="img/kr.png">
+            </div>
+          </a>
+          </div>
         </div>
+     {{/each}}
+          </script>
+          
+         
+            
+<!--          <div class="swiper-slide travel_writer_slide">
+          <div class="item">
+          <a href="#">
+            <div class="travel_writer_photozone">
+              <img src="img/vally.jpg">
+              </div>
+              <p class="travel_writer_id">InJaeZzang</p>
+              <p class="travel_writer_intro">
+              안녕하세요
+              </p>
+              <div class="travel_writer_flag">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+                <img src="img/kr.png">
+              </div>
+              </a>
+              </div>
+            </div> -->
+          </div>
+          <!-- Add Pagination -->
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        
+        
+        
+        
       </div>
+      
     </div>
     <div class="slide_wrap">
       <div class="box_slide_title">
@@ -263,7 +323,11 @@
 
 
 
-</body>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
+        <script src="./node_modules/swiper/dist/js/swiper.jquery.js"></script>
+        <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+        <script src="./main.js"></script>
 <script>
 function slideCall() {
 $('#slide_icon').click(function (){
@@ -284,35 +348,12 @@ function slide_off() {
 $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
-$(document).ready(function(){
-  //자동회전과 꽉찬 1개의 슬라이드만 나오도록 설정
-  $(".owl-carousel").owlCarousel({
-    items:1,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:20,
-    autoplayHoverPause:true
-  });
-});
-$('.owl-carousel').owlCarousel({
-  loop:false,
-  margin:10,
-  nav:true,
-  autoWidth:true,
-  responsive:{
-    0:{
-      items:1
-    },
-    600:{
-      items:4
-    },
-    1000:{
-      items:5
-    }
-  }
-})
+
+
 </script>
-<script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+<!-- <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./main.js"></script>
+<script src="./main.js"></script> -->
+</body>
+
 </html>

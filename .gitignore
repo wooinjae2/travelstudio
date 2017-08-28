@@ -11,3 +11,6 @@
 **/.settings
 **/.project
 !build.gradle
+src/main/webapp/jinseoKing/main.js
+src/main/webapp/jinseoKing/main.js
+src/main/webapp/mypage/inner_article.html

@@ -10,7 +10,7 @@ $.getJSON('../member/header.json', function(result) {
 })
 
 
- $.getJSON('/travelstudio/follow/listByloginMember.json',{
+ $.getJSON('../follow/listByloginMember.json',{
 	'mno':mno
 	 },
 	 function(result) { 
@@ -32,7 +32,7 @@ $.getJSON('../member/header.json', function(result) {
 			 }
 	 }
 		 console.log(mno2)
-		 $.getJSON('/travelstudio/member/subMember.json',{
+		 $.getJSON('../member/subMember.json',{
 			 'mno':mno2 
 		 }, function(result) {
 			 console.log(result);

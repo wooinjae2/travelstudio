@@ -82,7 +82,7 @@ function setFileUploadToInputTag() {
 			}
 			console.log(data.result.fileList.length)
 			if (data.result.fileList.length == 1) {
-				$("<div class='whole_collage1'>")
+				$("<div class='whole_collage1' data-countPhoto="+countPhoto+">")
 				.html("<div  class='one_photo_col' id='collage1-1" +countPhoto +"'><img id='img_4' src=''></div>"
 						+ "</div>"
 				).appendTo(imagesDiv2)
@@ -97,7 +97,7 @@ function setFileUploadToInputTag() {
 				$('#collage2-2-count'+ countPhoto +'> img').attr('src',data.result.fileList[1].filename + "_700.png").css('width', '534px').css('height','534px');
 			} else if (data.result.fileList.length == '3') {
 				try {
-					$("<div class='whole_collage3'>")
+					$("<div class='whole_collage3' data-countPhoto="+countPhoto+">")
 					.html("<div class='collage3-big' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
 							+ "<div class='collage3_2inner_collage'>"
 							+ "<div class='inner_two_collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
@@ -111,7 +111,7 @@ function setFileUploadToInputTag() {
 				} catch (err) {}
 			}else if (data.result.fileList.length == 4) {
 				try {
-					$("<div class='whole_collage4'>")
+					$("<div class='whole_collage4' data-countPhoto="+countPhoto+">")
 					.html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
 							+ "<div class='four_photo_collage' id='collage4-2" +countPhoto +"'><img src=''></div>"
 							+ "<div class='four_photo_collage' id='collage4-3" +countPhoto +"'><img src=''></div>"
@@ -126,7 +126,7 @@ function setFileUploadToInputTag() {
 				} catch (err) {}    
 			} else if (data.result.fileList.length == 5) {
 				try {
-					$("<div class='whole_collage5'>")
+					$("<div class='whole_collage5' data-countPhoto="+countPhoto+">")
 					.html("<div  class='top_three_collage' id='collage5-1" +countPhoto +"'><img src=''></div>"
 							+ "<div  class='top_three_collage' id='collage5-2" +countPhoto +"'><img src=''></div>"
 							+ "<div  class='top_three_collage' id='collage5-3" +countPhoto +"'><img src=''></div>"
@@ -144,11 +144,11 @@ function setFileUploadToInputTag() {
 				} catch (err) {}    
 			} else if (data.result.fileList.length == 6) {
 				try {
-					$("<div class='whole_collage6'>")
-					.html("<div class='collage6-big' id='collage6-1-big'" +countPhoto +"><img id='img_4' src=''></div>"
+					$("<div class='whole_collage6' data-countPhoto="+countPhoto+">")
+					.html("<div class='collage6-big' id='collage6-1-big" +countPhoto +"'><img id='img_4' src=''></div>"
 							+"<div id='collage6-2side-collage'>"
-							+"<div class='side_two_collage' id='collage6-2'" +countPhoto +"><img src=''></div>"
-							+"<div class='side_two_collage' id='collage6-3'" +countPhoto +"><img src=''></div>"
+							+"<div class='side_two_collage' id='collage6-2" +countPhoto +"'><img src=''></div>"
+							+"<div class='side_two_collage' id='collage6-3" +countPhoto +"'><img src=''></div>"
 							+"</div>"
 
 							+"<div  class='bottom_three_collage' id='collage6-4" +countPhoto +"'><img id='img_4' src=''></div>"
@@ -167,7 +167,7 @@ function setFileUploadToInputTag() {
 				} catch (err) {}    
 			} else if (data.result.fileList.length == 7) {
 				try {
-					$("<div class='whole_collage7'>")
+					$("<div class='whole_collage7' data-countPhoto="+countPhoto+">")
 					.html("<div class='four_of_seven'>"
 							+"<div class='right_four_of_seven' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
 							+"<div class='right_four_of_seven' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
@@ -194,7 +194,7 @@ function setFileUploadToInputTag() {
 				} catch (err) {}    
 			} else if (data.result.fileList.length == 8) {
 				try {
-					$("<div class='whole_collage8'>")
+					$("<div class='whole_collage8' data-countPhoto="+countPhoto+">")
 					.html("<div class='collage8-1' id='collage8-1-big" +countPhoto +"'><img src=''></div>"
 							+"<div  id='four_of_eight'>"
 							+"<div class='right_four_of_eight' id='collage8-2" +countPhoto +"'><img src=''></div>"
@@ -225,7 +225,7 @@ function setFileUploadToInputTag() {
 			} else if (data.result.fileList.length == 9) {
 
 				try {
-					$("<div class='whole_collage9'>")
+					$("<div class='whole_collage9' data-countPhoto="+countPhoto+">")
 					.html("<div  id='collage9-1-big'><img id='img_4' src='ca.jpg'></div>"
 							+"<div  class='four_of_nine'>"
 							+"<div class='right_four_of_nine' id='collage9-2" +countPhoto +"'><img src=''></div>"
@@ -597,9 +597,10 @@ $('#fileAllUpload').fileupload({
                $('.tool_box').remove()
                deletephoto(countPhoto)
 //               popCaptionModal(countPhoto)
+			
 
             } else if (photo[i].length == 2) {
-			    $("<div class='whole_collage2' id='TP-collage-" +countPhoto +"'>")
+			    $("<div class='whole_collage2' data-countPhoto="+countPhoto+" id='TP-collage-" +countPhoto +"'>")
 			    .html("<div  class='two_photo_col 2-collage' id='collage2-1-count-" +countPhoto +"'><img id='img_4' src=''></div>"
 			     + "<div  class='two_photo_col 2-collage ' id='collage2-2-count-" +countPhoto +"'><img id='img_4' src=''></div>"
 			     + "</div>"
@@ -635,7 +636,7 @@ $('#fileAllUpload').fileupload({
 //				var dataSource = data._response.result[i].path
 				
 				try {
-				  $("<div class='whole_collage3'>")
+				  $("<div class='whole_collage3' data-countPhoto="+countPhoto+">")
 				  .html("<div class='collage3-big 3-collage' id='collage3-1-big"+countPhoto+"'><img src=''></div>"
 				   + "<div class='collage3_2inner_collage'>"
 				   + "<div class='inner_two_collage 3-collage' id='collage3-2"+countPhoto+"'><img src=''></div>"
@@ -668,7 +669,7 @@ $('#fileAllUpload').fileupload({
 			}else if (photo[i].length == 4) {
 				
 				try {
-			    $("<div class='whole_collage4'>")
+			    $("<div class='whole_collage4' data-countPhoto="+countPhoto+">")
 			    .html("<div class='four_photo_collage' id='collage4-1" +countPhoto +"'><img src=''></div>"
 			     + "<div class='four_photo_collage' id='collage4-2" +countPhoto +"'><img src=''></div>"
 			     + "<div class='four_photo_collage' id='collage4-3" +countPhoto +"'><img src=''></div>"
@@ -704,7 +705,7 @@ $('#fileAllUpload').fileupload({
 			} else if (photo[i].length == 5) {
 				
 				try {
-				  $("<div class='whole_collage5'>")
+				  $("<div class='whole_collage5' data-countPhoto="+countPhoto+">")
 				  .html("<div  class='top_three_collage' id='collage5-1" +countPhoto +"'><img src=''></div>"
 				  + "<div  class='top_three_collage' id='collage5-2" +countPhoto +"'><img src=''></div>"
 				  + "<div  class='top_three_collage' id='collage5-3" +countPhoto +"'><img src=''></div>"
@@ -744,7 +745,7 @@ $('#fileAllUpload').fileupload({
 			} else if (photo[i].length == 6) {
 				
 				try {
-				  $("<div class='whole_collage6'>")
+				  $("<div class='whole_collage6' data-countPhoto="+countPhoto+">")
 				   .html("<div class='collage6-big' id='collage6-1-big" +countPhoto +"'><img id='img_4' src=''></div>"
 				    +"<div id='collage6-2side-collage'>"
 				    +"<div class='side_two_collage' id='collage6-2" +countPhoto +"'><img src=''></div>"
@@ -788,7 +789,7 @@ $('#fileAllUpload').fileupload({
 				} catch (err) {} 	
 			} else if (photo[i].length == 7) {
 				try {
-				  $("<div class='whole_collage7'>")
+				  $("<div class='whole_collage7' data-countPhoto="+countPhoto+">")
 			       .html("<div class='four_of_seven'>"
 			       +"<div class='right_four_of_seven 7-collage' id='collage7-1-small" +countPhoto +"'><img src=''></div>"
 			       +"<div class='right_four_of_seven 7-collage' id='collage7-2-small" +countPhoto +"'><img src=''></div>"
@@ -835,7 +836,7 @@ $('#fileAllUpload').fileupload({
 			} else if (photo[i].length == 8) {
 				
 				try {
-					$("<div class='whole_collage8'>")
+					$("<div class='whole_collage8' data-countPhoto="+countPhoto+">")
 					.html("<div class='collage8-1' id='collage8-1-big" +countPhoto +"'><img src=''></div>"
 				     +"<div  id='four_of_eight'>"
 				     +"<div class='right_four_of_eight' id='collage8-2" +countPhoto +"'><img src=''></div>"
@@ -885,7 +886,7 @@ $('#fileAllUpload').fileupload({
 				} catch (err) {} 	
 			} else if (photo[i].length == 9) {
 				try {
-				    $("<div class='whole_collage9'>")
+				    $("<div class='whole_collage9' data-countPhoto="+countPhoto+">")
 				     .html("<div class='one_of_nine' id='collage9-1-big"+countPhoto+"'><img id='img_4' src=''></div>"
 				      +"<div  class='four_of_nine'>"
 				      +"<div class='right_four_of_nine' id='collage9-2" +countPhoto +"'><img src=''></div>"
@@ -946,6 +947,9 @@ $('#fileAllUpload').fileupload({
 			} //else
 			countPhoto++
 			adddiv()
+			
+			makeDropable($(textParent).children())
+			makeDragable($(textParent).children())
 			} // 사진 for문
 		} //done
 });
@@ -1030,7 +1034,7 @@ $(document.body).on('click','#capt-save', function() {
 	let capTxt = $('#cap-txt').val()
 	console.log($('.capt_output' ,'div[data-textparent='+ thisPP.attr('data-capno') +']'))
 	$('.capt_output' ,'div[data-textparent='+ thisPP.attr('data-capno') +']').text(capTxt);
-	
+	console.log(capTxt)
 	
 	captionArray.push()
 	
@@ -1274,8 +1278,6 @@ function onlyPath(dataa){
 
 }
 
-//googleapisView();
-
 /*back file up 끝*/
 
 
@@ -1298,10 +1300,13 @@ function makeDragable($thisclass){
 					console.log(this)
 					currentParent = $thisclass
 					console.log(currentParent)
+					console.log($($thisclass).attr('class'))
+					console.log(this.parents('.text_parent').children().attr('class'))
+					if($thisclass==this.parents('.text_parent').children())
 					console.log('stop')
-					/*if(dropdiv!=currentCollageSize){*/
+					/*if(dropdiv!=currentCollageSize){
 					stopFunction(currentParent,this,currentParent.attr('data-countPhoto'))
-					/*}*/
+					}*/
 				}  
 			});
 		})
