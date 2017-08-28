@@ -99,7 +99,7 @@ public class PostControl {
   
   
   @RequestMapping("add")
-  public JsonResult add(Post post, String[] content, String[] caption, String[] travelDate, HttpServletRequest req, MultipartFile[] files) throws Exception {
+  public JsonResult add(Post post, String[] content, String[] caption, String[] travelDate, String[] location, HttpServletRequest req, MultipartFile[] files) throws Exception {
     
     HttpServletRequest httpRequest= (HttpServletRequest) req;
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
@@ -130,6 +130,7 @@ public class PostControl {
     Detail detail = new Detail();
     Detail detailCaption = new Detail();
     Detail detailTravelDate = new Detail();
+    Detail detailLocation = new Detail();
     
     detail.setPostno(post.getPostno());
     /*System.out.println(post.getCont());*/
@@ -182,6 +183,21 @@ public class PostControl {
     }
     detailService.insertDetailByEmail(detailTravelDate);
     
+    
+    detailLocation.setPostno(post.getPostno());
+    detailLocation.setWriter(loginMember.getEmail());
+    for(int k=0; k < location.length; k+=2) {
+      
+      detailLocation.setSrtno(Integer.parseInt(travelDate[k]));
+      detailLocation.setAddress(location[k+1]);
+//      detailTravelDate.setDate(travelDate[k+1]);
+      detailService.insertDetailLocation(detailLocation);
+    }
+    detailService.insertDetailByEmail(detailLocation);
+    
+    detailService.deleteEmail(loginMember.getEmail());
+    
+    System.out.println("detailTravelDate==============>");
     detailService.deleteEmail(loginMember.getEmail());
     System.out.println();
     

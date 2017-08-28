@@ -16,7 +16,7 @@ var photo1=[];
 var picnoparentno=[];
 var captionArray = []
 var detailDateArr = []
-
+var detailLocArr = [];
 var aaa=0;
 
 var countPhoto=0;
@@ -363,6 +363,15 @@ $('#title_fileupload').fileupload({
 					detailDateArr.push($(this).val())
 				}
 			})
+			
+			$('.gpsInfo').each(function () {
+				var textParentDiv= $('.text_parent',$(this).parents('.day1'))
+				if($(this).val() != "" && $('.text_parent', $('img', $('.text_parent',$(this).parents('.day1')))) != undefined){
+					detailLocArr.push(textParentDiv.attr('id').split('_')[2])
+					detailLocArr.push($(this).val())
+				}
+			})
+			
 			console.log(captionArray)
 			
 				data.formData = {
@@ -372,7 +381,8 @@ $('#title_fileupload').fileupload({
 					mno: mno,
 					content: content,
 					caption: captionArray,
-					travelDate: detailDateArr
+					travelDate: detailDateArr,
+					location: detailLocArr
 				}
 				change=1;
 			};

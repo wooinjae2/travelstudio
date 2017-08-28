@@ -62,6 +62,12 @@ public void insertDetailDate(Detail detail) {
 }
 
 @Override
+public void insertDetailLocation(Detail detail) {
+  System.out.println(detail);
+  detailDao.insertDetailLocation(detail);
+}
+
+@Override
 public List<Detail> selectedOneDetail(String postno) {
   return detailDao.selectedOneDetail(postno);
 }

@@ -14,7 +14,7 @@
     <result column="lati" property="lati"/>
     <result column="longit" property="longit"/>
     <result column="writer" property="writer"/>
-    <result column="address" property="address"/>
+    <result column="adrs" property="address"/>
   </resultMap> 
 
    <insert id="insert" parameterType="detail"> 
@@ -37,6 +37,8 @@
   update detail set postno= #{postno} where writer=#{writer}
   </update>
   
+  
+  
   <update id="deleteEmail" parameterType="String" >
   update detail set writer="" where writer=#{writer}
   </update>
@@ -54,6 +56,11 @@
   <insert id="insertDetailDate" parameterType="detail"> 
     insert into detail(date, postno, srtno)
     values(#{date},#{postno}, #{srtno})
+  </insert>
+   
+   <insert id="insertDetailLocation" parameterType="detail"> 
+    insert into detail(adrs, postno, srtno)
+    values(#{address},#{postno}, #{srtno})
   </insert>
    
   <select id="selectedOneDetail" resultMap="detailMap" parameterType="String">
