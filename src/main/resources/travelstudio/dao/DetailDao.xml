@@ -68,7 +68,7 @@
   </select>
   
  <select id="selectAddress" resultMap="detailMap" parameterType="Integer">
-    select d.address
+    select d.adrs
     from post p inner join detail d on p.postno=d.postno
     where mno=#{mno}
   </select> 
