@@ -105,7 +105,7 @@ public class PostControl {
     Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
     
 
-    
+    System.out.println("%%%%%%%%%%%%%%%%%%%%%%%");
     System.out.println(post);
     
     if(files!=null){

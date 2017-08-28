@@ -75,7 +75,15 @@
   </div><!--whole_collage-->
 <script>
 var imgInCollage = [];
-
+$(document).ready(function(){ 
+    $('body').click(function(e){
+        var src = e.target.getAttribute('src');
+        if ((src != '') && (src != null))  
+        console.log(src);
+        $("#imgOnModal").attr("src", src);
+        
+    });
+});
 </script>
   </body>
 </html>

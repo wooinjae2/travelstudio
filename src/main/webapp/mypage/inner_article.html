@@ -1155,6 +1155,85 @@ line-height: 35px;
 #whole_collage1{
 padding-left:45px;
 }
+
+/*모달*/
+  /* 모달 백그라운드 */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 60%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
   </style>
  
 
@@ -1215,6 +1294,18 @@ padding-left:45px;
   </script>
   </div>
   
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01" src="">내용내용
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
 
   <!--내용상자-->
   <div class="container_main">
@@ -1545,6 +1636,59 @@ function slide_off() {
 $(document).ready(slideCall)
 $(document).ready(slide_off)
 // (slideCall);
+
+
+var image;
+var ordering;
+var collageList;
+var collageCount;
+
+$(document).ready(function(){ 
+   $('.without_heart_main').click(function(e){
+      /*  var src = e.target.getAttribute('src'); */
+       var name = e.target.parentElement.parentElement 
+      /*  .parentElement.parentElement */
+       if ((name != '') && (name != null)) {
+       console.log(name);
+       console.log(name.children);
+       var name2 = name.children;
+       console.log(name2)
+     
+       var collageLeng = name.children.length;
+       console.log(collageLeng)
+       
+       collageCount = 0;
+       collageList = [];
+       for(i=0;i<$('img',name).length;i++){
+       console.log($('img',name).length)
+       console.log($('img',name).eq(i).attr('src'))
+       collageList[collageCount++] = $('img',name).eq(i).attr('src');
+       console.log(collageList)
+       console.log(collageList.length)
+       $('#myModal').css("display", "block");
+       image = collageList[0];
+  
+       $('#img01').attr("src", image);
+       console.log(image);
+       	}
+       var photoClickcount=1;
+       $('#img01').click(function(){
+       	console.log("사진 클릭")
+       	
+       	$('#img01').attr("src", collageList[photoClickcount++]);
+       	if(photoClickcount==collageList.length){
+       		photoClickcount=0;
+       	}
+               })
+             }
+           })
+           })
+           
+        
+
+
+
+
    </script>
   </body>
 </html>
