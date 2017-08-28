@@ -1177,7 +1177,7 @@ padding-left:45px;
     margin: auto;
     display: block;
     width: 60%;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -1643,8 +1643,9 @@ var ordering;
 var collageList;
 var collageCount;
 
+function modalPhoto(){
 $(document).ready(function(){ 
-   $('.without_heart_main').click(function(e){
+   $('.text_parent').click(function(e){
       /*  var src = e.target.getAttribute('src'); */
        var name = e.target.parentElement.parentElement 
       /*  .parentElement.parentElement */
@@ -1683,6 +1684,7 @@ $(document).ready(function(){
              }
            })
            })
+}
            
         
 

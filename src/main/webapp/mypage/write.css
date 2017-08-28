@@ -1350,6 +1350,10 @@ button[id*='day_btn'] {
   z-index: 1500;
 }
 
-
+.capt_output {
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+}
 
     /* 캡션창 끝*/
