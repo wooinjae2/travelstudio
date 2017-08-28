@@ -1048,7 +1048,6 @@ $(document).ready(function () {
 		$('#control-box-div-'+count).css('display', 'none');
 		$('#cap-txt').val('');
 		console.log("닫히냐")
-		
 	})
 
 })

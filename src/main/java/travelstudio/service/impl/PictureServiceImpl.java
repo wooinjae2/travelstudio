@@ -56,7 +56,7 @@ public void delete(int deletepno) {
   System.out.println("임플에서 path 출력");
   System.out.println(deletepno);
   pictureDao.delete(deletepno);
-}
+  }
 }
 
 
