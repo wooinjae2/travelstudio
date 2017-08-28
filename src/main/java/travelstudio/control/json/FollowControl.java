@@ -1,8 +1,4 @@
 package travelstudio.control.json;
-
-
-
-
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
