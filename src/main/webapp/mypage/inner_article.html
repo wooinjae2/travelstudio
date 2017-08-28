@@ -354,10 +354,10 @@ line-height: 35px;
       
     }
 
-    .travel_day>div {
+   /*  .travel_day>div {
       display: inline-block;
       font-size: 10px;
-    }
+    } */
 
     .tool_box {
       margin-top: 30px;
@@ -410,7 +410,7 @@ line-height: 35px;
       
     }
     .content_text > p{
-    font-size:20px;
+    font-size:15px;
     font-family:Noto Sans KR;
     line-height:28px;
     }
@@ -540,15 +540,10 @@ line-height: 35px;
       
     }
     
-   
-
-
-
     .without_heart_main {
       border: 1px solid white;
       display: inline-block;
       margin-left: 0px;
-     
     }
   
     .tag {
@@ -605,8 +600,6 @@ line-height: 35px;
       width: 811px;
       height: auto;
     }
-
-
 
     .root_way_first {
       border: 1px solid white;
@@ -1250,6 +1243,26 @@ line-height: 35px;
       margin-top:20px;
       font-family:Noto Sans KR;
  }
+ 
+ 
+ #travel_detail_place{
+    font-size: 25px;
+    position: absolute;
+    width: 180px;
+    border: none;
+    margin-left: -142px;
+    margin-top: 29px;
+    text-align: center;
+    font-weight: 900;
+    
+    font-size:20px;
+    font-family:Noto Sans KR;
+    line-height:28px;
+    
+}
+#whole_collage1{
+padding-left:45px;
+}
   </style>
  
 
@@ -1330,24 +1343,23 @@ line-height: 35px;
 {{#each list}}
 <div class="day1">
  <div class="travel_day">
-        <h2>1일차<h2>
-  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-  <div class="travel_detail_date">2017.05.05</div>
+  <div id="travel_detail_date_{{srtno}}"></div>
+  <div id="travel_detail_place_{{srtno}}" class="travel_detail_date"></div>
 </div>
 <div class="text_parent" id=text_parent_{{srtno}}>
-{{#if cont}}
-<br>
-
-<div class="content_text">
-<p class="content">{{cont}}</p>	</div>
-{{/if}}
 
 {{#if writer}}
 <div id="whole_collage1" class="whole_collage"><img src={{writer}} style="width:700px; height:600px;></img></div>
 {{/if}}
+
+{{#if cont}}
+<br>
+<div class="content_text"><p class="content">{{cont}}</p>	</div>
+{{/if}}
+
 {{#if picno}}
   <div id="whole_collage{{picno}}_{{srtno}}" class="whole_collage"></div>
-</div>
+	</div>
 {{/if}}
 {{#if lati}}
 <div style='width:809px; height:380px; border:1px solid white; margin-bottom: 70px;' id="map{{srtno}}" data-lati={{lati}} data-longit={{longit}}"}></div>

@@ -44,10 +44,32 @@ $.post('/detail/selectedOneDetail.json', {
 				if(array1.list[i].capt!=undefined){
 					if(CaptionMap.get(array1.list[i].srtno)==undefined){
 						CaptionMap.set(array1.list[i].srtno, array1.list[i].capt)
+						array1.list.splice(i,1);
 					}
 				}
 			}
 			console.log(CaptionMap)
+			var dateMap = new Map();
+			
+			for(i=0; i< array1.list.length; i++){
+				if(array1.list[i].date!=undefined){
+					if(dateMap.get(array1.list[i].srtno)==undefined){
+						dateMap.set(array1.list[i].srtno, array1.list[i].date)
+						array1.list.splice(i,1);
+					}
+				}
+			}
+			
+			var AddressMap = new Map();
+			for(i=0; i< array1.list.length; i++){
+				if(array1.list[i].address!=undefined){
+					if(AddressMap.get(array1.list[i].srtno)==undefined){
+						AddressMap.set(array1.list[i].srtno, array1.list[i].address)
+						array1.list.splice(i,1);
+					}
+				}
+			}
+			
 			var pictureARR=[]
 			var j=0;
 			for(i=1; i<array1.list.length;i++){
@@ -59,7 +81,7 @@ $.post('/detail/selectedOneDetail.json', {
 					Mapaa.set(array1.list[i-1].srtno, Mapaa.get(array1.list[i-1].srtno) +','+ array1.list[i].picno)
 					pictureARR[j++]=array1.list[i].srtno;
 				}else if(i<array1.list.length-1){
-				if(array1.list[i-1].picno!=0&& array1.list[i-1].srtno!=array1.list[i].srtno&&array1.list[i+1].srtno!=array1.list[i].srtno){
+				if(array1.list[i-1].picno!=0 && array1.list[i-1].srtno != array1.list[i].srtno && array1.list[i+1].srtno!=array1.list[i].srtno){
 					array1.list[i].writer=array1.list[i].picno
 					if(i==array1.list.length-1){
 						if(array1.list[i].picno!=0&& array1.list[i-1].srtno!=array1.list[i].srtno){
@@ -68,13 +90,14 @@ $.post('/detail/selectedOneDetail.json', {
 					}
 				}
 				}if(i==1){
-					if(array1.list[i].picno!=0 && array1.list[i-1].srtno!=array1.list[i].srtno){
+					if(array1.list[i-1].picno!=0 && ((array1.list[i-1].srtno!=array1.list[i].srtno)||((array1.list[i-1].srtno==array1.list[i].srtno)&&(array1.list[i-1].picno==0)||(array1.list[i].picno==0)))){
 							array1.list[i-1].writer=array1.list[i-1].picno
 						}
 				}
 			}
 			console.log(pictureARR)
 			console.log(Mapaa)
+			
 			for(i=0; i< pictureARR.length; i++){
 				for(j=0; j<array1.list.length; j++){
 					if(pictureARR[i]==array1.list[j].srtno){
@@ -119,17 +142,40 @@ $.post('/detail/selectedOneDetail.json', {
 					console.log("undefined가 몇번인가")
 				}
 			}
-			for(l=0; l<array1.list.length;l++){
+			/*for(l=0; l<array1.list.length;l++){
 				if(array1.list[l].picno==undefined){
 					array1.list.splice(l,1);
 					console.log("undefined가 몇번인가")
 				}
 			}
 			
+			for(l=0; l<array1.list.length;l++){
+				if(array1.list[l].picno==0&& array1.list[l].cont==undefined && array1.list[l].lati==undefined){
+					array1.list.splice(l,1);
+					console.log("undefined가 몇번인가")
+				}
+			}
+			for(l=0; l<array1.list.length;l++){
+				if(array1.list[l].picno==0&& array1.list[l].cont==undefined&& array1.list[l].lati==undefined){
+					array1.list.splice(l,1);
+					console.log("undefined가 몇번인가")
+				}
+			}
+			for(l=0; l<array1.list.length;l++){
+				if(array1.list[l].picno==0&& (array1.list[l].cont==undefined&& array1.list[l].lati==undefined)){
+					array1.list.splice(l,1);
+					console.log("undefined가 몇번인가")
+				}
+			}
+			for(l=0; l<array1.list.length;l++){
+				if(array1.list[l].picno==0 && !(array1.list[l].date==undefined)){
+					array1.list.splice(l,1);
+					console.log("undefined가 몇번인가")
+				}
+			}*/
 			
 			console.log(array1)
 			console.log(typeof(array1))
-
 			console.log(result)
 			var template2 = Handlebars.compile($('#content-template-2').html())
 
@@ -145,7 +191,8 @@ $.post('/detail/selectedOneDetail.json', {
 					setTimeout(initMap('map'+array1.list[i].srtno), 1000);
 				}
 			}
-
+			
+			
 
 			
 			countPhoto=0;
@@ -355,6 +402,23 @@ $.post('/detail/selectedOneDetail.json', {
 				for (var [key, value] of CaptionMap){
 				$('<div id="txt-output-'+key+'" class="capt_output">'+value+'</div>').appendTo($('#text_parent_'+key+''))
 				}
+				
+				console.log(dateMap)
+				for (var [key, value] of dateMap){
+					$('#travel_detail_date_'+key).html('<i class="fa fa-pencil-square-o" aria-hidden="true">'+value+'</i>')
+					/*$('<div id="txt-output-'+key+'" class="capt_output">'+value+'</div>').appendTo()*/
+					}
+				console.log(AddressMap)
+				for (var [key, value] of AddressMap){
+					$('#travel_detail_place_'+key+'').html(value)
+					/*$('<div id="txt-output-'+key+'" class="capt_output">'+value+'</div>').appendTo($('#travel_day_'+key+''))*/
+					}
+				$( ".travel_day" ).each(function() {
+					
+					  if($(this).children().children().val()==null&&$(this).children().eq(1).val()==null){
+						  $(this).attr('display','none');
+					  }
+					});
 			}
 			
 		}, 'json')
@@ -394,6 +458,7 @@ $.post('/post/selectOne.json', {
 }, function(result) {
 	console.log(result.data.selectedPost.path);
 	memberno=result.data.selectedPost.mno
+	console.log(memberno)
 	$('#heart-count').html(result.data.selectedPost.good)
 	var template3 = Handlebars.compile($('#content-template-3').html())
 
@@ -405,10 +470,23 @@ $.post('/post/selectOne.json', {
 			"background-repeat" : "no-repeat",
 			"background-attachment" : "fixed"});  
 	}
-
+	setTimeout('buttonHtml()',0)
 })
 
 
+function buttonHtml(){
+	console.log(memberno)
+	console.log(loginmemberno)
+	console.log(loginmemberno==memberno)
+	if(loginmemberno==memberno){
+		$('#start-my-journey').html('여행기 수정')
+	}else{
+		$('#start-my-journey').html('여행기 작성')
+		$('#start-my-journey').click(function(){
+			location.href="./write.html"
+		})
+	}
+}
 /*대표사진 div안에 들어가는 내용 끝*/
 
 /*게시글이 끝날 때 나타나는 작성자 프로필*/

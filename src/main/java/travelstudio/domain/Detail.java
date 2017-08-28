@@ -13,13 +13,17 @@ public class Detail {
   int picno, postno, srtno;
   String cont, capt, writer, address;
   double lati, longit;
-  Date date;
+  String date;
   
   @Override
   public String toString() {
     return "Detail [picno=" + picno + ", postno=" + postno + ", srtno=" + srtno + ", cont=" + cont + ", date=" + date
         + ", capt=" + capt + ", writer=" + writer + ", address=" + address + ", lati=" + lati + ", longit=" + longit
         + "]";
+  }
+
+  public void setDate(String date) {
+    this.date = date;
   }
 
   public int getPicno() {
@@ -54,14 +58,7 @@ public class Detail {
     this.cont = cont;
   }
 
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
+ 
   public String getCapt() {
     return capt;
   }

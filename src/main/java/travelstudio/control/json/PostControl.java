@@ -176,8 +176,8 @@ public class PostControl {
     for(int k=0; k < travelDate.length; k+=2) {
       
       detailTravelDate.setSrtno(Integer.parseInt(travelDate[k]));
-      Date date = new SimpleDateFormat("yyyy-MM-dd").parse(travelDate[k+1]);
-      detailTravelDate.setDate(date);
+      /*Date date = new SimpleDateFormat("yyyy-MM-dd").parse([k+1]);*/
+      detailTravelDate.setDate(travelDate[k+1]);
 //      detailTravelDate.setDate(travelDate[k+1]);
       detailService.insertDetailDate(detailTravelDate);
     }
