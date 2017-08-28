@@ -331,12 +331,12 @@ $('#modal').css('display','inline-block')
 	$('#invite_f_container').css('display','inline-block')
 })
 
-$(document).on("click",".delete_travel",function(){
+/* $(document).on("click",".delete_travel",function(){
 	console.log(this)
 	targetpostno=$(this).attr('value')
 	$('#modal').css('display','inline-block')
 	$('#invite_f_container').css('display','inline-block')
-})
+}) */
 
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
@@ -362,7 +362,6 @@ function test(idMyDiv) {
 
     $('.delete_travel').on('click', function(){
       $('.wrap11, #b').toggleClass('active');
-
       return false;
     });
 
