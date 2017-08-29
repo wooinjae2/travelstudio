@@ -56,11 +56,35 @@ public class CoworkControl {
   
   @RequestMapping("checkInvite")
   public JsonResult checkInvite(int mno) throws Exception {
-    System.out.printf("멤버번호 보냈다======>%d",mno);
+    System.out.printf("멤버번호 보냈다======>%d", mno);
     ArrayList<Cowork> checkNo = coworkService.coworkCheck(mno);
+    System.out.println(checkNo);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("checkNo", checkNo.get(0).getConfirm());
+//    for(int i = 0; i < checkNo.size(); i++) {
+//      dataMap.put("list", checkNo.get(i));
+//    }
+//    System.out.println(dataMap);
 //    System.out.println(checkedConfirm);
+    return new JsonResult(JsonResult.SUCCESS, checkNo);
+  }
+  
+  @RequestMapping("acceptRequest")
+  public JsonResult acceptRequest(int[] memberPostNo) throws Exception {
+    int postNo = memberPostNo[0];
+    int memberNo = memberPostNo[1];
+    coworkService.acceptCowork(memberNo, postNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  @RequestMapping("refuseRequest")
+  public JsonResult refuseRequest(int[] memberPostNo) throws Exception {
+    int postNo = memberPostNo[0];
+    int memberNo = memberPostNo[1];
+    coworkService.refuseCowork(memberNo, postNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 

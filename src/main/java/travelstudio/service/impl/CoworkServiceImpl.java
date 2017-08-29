@@ -1,6 +1,7 @@
 package travelstudio.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,26 @@ public class CoworkServiceImpl implements CoworkService {
   return coworkDao.coworkCheck(mno);
    
    
+ }
+ 
+ public void acceptCowork(int memberNo, int postNo) {
+   System.out.println(memberNo);
+   System.out.println(postNo);
+   HashMap<String, Integer> Map = new HashMap<>();
+   Map.put("mno", memberNo);
+   Map.put("pno", postNo);
+   System.out.println(Map);
+   coworkDao.acceptCowork(Map);
+ }
+ 
+ public void refuseCowork(int memberNo, int postNo) {
+   System.out.println(memberNo);
+   System.out.println(postNo);
+   HashMap<String, Integer> Map = new HashMap<>();
+   Map.put("mno", memberNo);
+   Map.put("pno", postNo);
+   System.out.println(Map);
+   coworkDao.refuseCowork(Map);
  }
 }
 

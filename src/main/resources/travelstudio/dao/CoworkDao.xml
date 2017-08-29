@@ -16,13 +16,22 @@
   </insert>
   
   
- <delete id="delete" parameterType="cowork">
+  <delete id="delete" parameterType="cowork">
     delete from cowork where mno=#{mno} and postno=#{postno}
   </delete>
   
   <select id="coworkCheck" resultMap="coworkMap"  parameterType="int">
-    select confirm from cowork where mno=#{mno}
+    select * from cowork where mno=#{mno}
   </select>
+  
+  <update id="acceptCowork" parameterType="map">
+    update cowork set
+    confirm = 1 where mno=#{mno} and postno=#{pno}
+  </update>
+  
+  <delete id="refuseCowork" parameterType="map">
+    delete from cowork where mno=#{mno} and postno=#{pno}
+  </delete>
  
 </mapper>
 

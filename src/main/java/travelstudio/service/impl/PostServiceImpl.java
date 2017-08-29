@@ -17,7 +17,9 @@ public class PostServiceImpl implements PostService {
  public List<Post> selectOneUserPost(int number) throws Exception{
    return postDao.selectOneUserPost(number);
  }
-  
+ public Post requestedPost(int postno) throws Exception{ 
+   return postDao.requestedPost(postno);
+ }
   public List<Post> list() throws Exception {
     return postDao.selectList();
   }

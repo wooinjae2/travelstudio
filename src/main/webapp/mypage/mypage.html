@@ -114,7 +114,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 		       </script>
 
 <script id="content-request-template" type="text/x-handlebars-template">
-       {{#each selectOneUserPost}}
+       {{#each invitingUserPost}}
             <li class="travel_item">
 
               <div class="item_card">
@@ -349,11 +349,12 @@ $('#f_search').click(function(){
 })
 
 
-function dropdown(){
+function dropdown() {
 $(function() {
 // Dropdown toggle
 $('.dropdown-toggle').click(function(){
   $(this).next('.dropdown').toggle();
+  /* console.log('아예안되나?') */
 });
 
 $(document).click(function(e) {

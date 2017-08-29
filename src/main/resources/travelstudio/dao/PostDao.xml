@@ -16,8 +16,8 @@
     <result column="capt" property="capt"/>
     <result column="detail" property="detail"/>
     <result column="ispublic" property="ispublic"/>
-        <result column="mno" property="mno"/>
-        <result column="good" property="good"/>
+    <result column="mno" property="mno"/>
+    <result column="good" property="good"/>
   </resultMap> 
 
 
@@ -32,8 +32,12 @@
     
    
   
-     <select id="selectOneUserPost" resultMap="postMap" parameterType="int">
+  <select id="selectOneUserPost" resultMap="postMap" parameterType="int">
     select * from post natural join member where mno=#{number} order by postno desc
+  </select>
+    
+    <select id="requestedPost" resultMap="postMap" parameterType="int">
+    select * from post where postno=#{postno} order by postno desc
   </select>
     
 <insert id="insert" parameterType="post" useGeneratedKeys="true" keyColumn="postno" >

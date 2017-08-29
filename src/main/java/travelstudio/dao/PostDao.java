@@ -13,6 +13,7 @@ public interface PostDao {
   Post selectOne(String postno);
   List<Post> search(String keyword);
   List<Post> selectOneUserPost(int number);
+  Post requestedPost(int postno);
   List<Post> info1(String number);
   void updateLike(Post post);
 //  int getSize();

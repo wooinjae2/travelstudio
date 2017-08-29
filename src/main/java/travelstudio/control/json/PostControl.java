@@ -55,6 +55,21 @@ public class PostControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 
+@RequestMapping("invitingUserPost")
+public JsonResult invitingUserPost(int[] requestPost) throws Exception {
+  HashMap<String,Object> dataMap = new HashMap<>();
+  System.out.println(requestPost);
+  List toLoadPostNo = new ArrayList();
+  for(int i = 0; i < requestPost.length; i++) {
+    toLoadPostNo.add(postService.requestedPost(requestPost[i]));
+  }
+  
+  dataMap.put("invitingUserPost", toLoadPostNo);
+  System.out.printf("List 호출할게=================>");
+  System.out.println(toLoadPostNo);
+  
+  return new JsonResult(JsonResult.SUCCESS, dataMap);
+}
   
 
   @RequestMapping("info1")

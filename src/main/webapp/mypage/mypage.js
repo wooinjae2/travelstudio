@@ -104,16 +104,95 @@ $('#delete-yes-btn').click(function() {
 }
 
 /* 친구 초대 수락 */
-
+var coworksave
 var checkNo= '';
+var requestPost =[];
 function inviteMessage(memberNo) {
-	console.log("멤버번호 바로호출했어 ======>", memberNo)
 	$.post('../cowork/checkInvite.json', {mno: memberNo}, function(result) {
-		checkNo=result.data.checkNo
-		if(checkNo == 0) {
+		console.log(result.data)
+		if(result.data.length != 0) {
+		for (var i = 0; i < result.data.length; i++) {
+			requestPost.push(result.data[i].postno)
+		} // for 문: i
+		coworksave=result.data
+		console.log("========>", result.data)
+		console.log(result.data.length)
+		console.log(coworksave.length)
 			
-		}
-	})
+			console.log(requestPost)
+			/* 초대 받은 사진 뿌리기*/
+		jQuery.ajaxSettings.traditional = true;
+			$.post('../post/invitingUserPost.json', {'requestPost':requestPost}, function(result) {
+		  console.log(result.data.invitingUserPost.length);
+	      var template = Handlebars.compile($('#content-request-template').html())
+	      var generatedHTML;
+	      console.log(result.pdt)
+	    	  generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+	    	  $('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.	    	  
+	      /*dropdown()*/
+	      
+//	      console.log("빨리===========>", )
+	      for(var j = 0; j < result.data.invitingUserPost.length; j++){
+	    	for(var k = 0; k < coworksave.length; k++){
+				console.log("변경전======>",result.data.invitingUserPost[j].sdt)
+				if(result.data.invitingUserPost[j].postno == coworksave[k].postno) {
+					result.data.invitingUserPost[j].sdt = coworksave[k].confirm 
+				console.log("변경후=======>", result.data.invitingUserPost[j].sdt)
+				} // if 문
+				
+			}// for 문: k 
+	    	if(result.data.invitingUserPost[j].sdt == 1) {
+	    		$('#invite_request_'+result.data.invitingUserPost[j].postno).css('display', 'none'); 
+	    	}
+	      }// for 문: j
+	      
+//	      }
+	      /*if(result.sdt==0){
+	    	  
+	      }*/
+	  console.log(result.data)
+	  
+	}) // $.post invitingUserPost
+			acceptRequest(memberNo)
+			refuseRequest(memberNo)
+  } // if 문
+	})// $.post
 	
 	
 }
+
+function loadRequestPost(requestPost) {
+	
+}
+function acceptRequest(memberNo) {
+$(document.body).on('click', '.btn_accept', function() {
+	   var selectPostNo = $(this).parents('.box_request').attr('id').split('_')[2]
+	   console.log(selectPostNo ,memberNo)
+	   let PostMemberNo = []
+	   PostMemberNo.push(selectPostNo)
+	   PostMemberNo.push(memberNo)
+	   
+	   jQuery.ajaxSettings.traditional = true;
+	   $.post('../cowork/acceptRequest.json', {'memberPostNo': PostMemberNo}, function(result) {
+		   console.log(result)
+		})
+		
+	$(this).parents('.box_request').remove();
+//	   event.preventDefault()
+	 })
+}
+
+function refuseRequest(memberNo) {
+	$(document.body).on('click', '.btn_reject', function() {
+		var selectPostNo = $(this).parents('.box_request').attr('id').split('_')[2]
+		let PostMemberNo = []
+		PostMemberNo.push(selectPostNo)
+		PostMemberNo.push(memberNo)
+		jQuery.ajaxSettings.traditional = true;
+		/*$.post('../cowork/refuseRequest.json', {'memberPostNo': PostMemberNo}, function(result) {
+			   console.log(result)
+		})*/
+		$(this).parents('.travel_item').remove()
+	})
+}
+
