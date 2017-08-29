@@ -60,7 +60,7 @@ a:-webkit-any-link {
     header {
       border: 1px solid #c9d1dd;
       width: 100%;
-      height: 70px;
+      height: 125px;
       z-index: 100;
       background-color: white;
     }
@@ -136,11 +136,11 @@ font-size: 40px;
 
 #conainerForOne{
 border:1px solid white;
-width:1000px;
+width:784px;
 margin-right: auto;
 margin-left: auto;
 margin-top: 30px;
-height: 100px;
+height: 75px;
 
  }
  
@@ -163,7 +163,7 @@ height: 100px;
  
  #alias{
  border:1px solid white;
- font-size: 27px;
+ font-size: 18px;
   margin-top: 5px;
 
   
@@ -171,8 +171,8 @@ height: 100px;
 
  #intro{
   border:1px solid white;
-  font-size: 21px;
-  margin-top: 23px;
+  font-size: 13px;
+  margin-top: 10px;
    
  }
  
@@ -202,14 +202,14 @@ height: 100px;
     }
 
     #subsc_btn{
-      border: 1px solid black;
-      width:90px;
+      border: 1px solid #2be5a4;
+      width:73px;
       height: 35px;
       color:black;
       background-color: white;
       border-radius: 17.5px;
       margin-top: 30px;
-
+      color: #2be5a4;
     }
     
 
@@ -302,9 +302,24 @@ height: 100px;
 .user_mypage {
 line-height: 35px;
 }
+#subscribe{
+	border: 2px solid #4a4a4a;
+  text-align: center;
+  background-color: white;
+  width: 150px;
+  height: 35px;
+  color: #4a4a4a;
+  border-radius: 30px;
+  margin: 12px auto 0;
+  vertical-align: center;
+  font-size: 80%
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bold;
+  
+}
 
 .user_nation {
-  height: 55px;
   text-align: center;
   margin-top: 20px;
   list-style: none;
@@ -370,7 +385,7 @@ line-height: 35px;
   color: #d2d2d2;
 }
 .slide_bar_menu {
-    padding-top: 30px;
+    padding-top: 5px;
     text-align: center;
 }
 
@@ -396,8 +411,20 @@ line-height: 35px;
 }
 /*커버 끝*/
 
- 
- 
+/*여기서부터 footer*/
+.footer{
+
+  width: 100%;
+  height: 300px;
+  margin-bottom: 0px;
+  margin-top: 5%;
+  background-color: #5b687a;
+}
+
+#Mf{
+	font-size: 20px;
+	font-weight: bold;
+}
  
 </style>
 
@@ -435,7 +462,7 @@ line-height: 35px;
 	<!--여기까지 header -->
 
 <div id="sub_container">
-<div id="title">내가 구독하는 여행자</div>
+<div id="title">My Favorite</div>
 
 	<script id="subMember-template" type="text/x-handlebars-template"> 
 <div id="conainerForOne">
@@ -449,11 +476,11 @@ line-height: 35px;
 <a><div class="in_profile" id="intro">{{intro}} </div></a>
 </div>
 <div class="sub_box">
-<button type="button" id="subsc_btn">구독하기</button>
+<button type="button" id="subsc_btn">구독중</button>
 </div>
 
 </div>
-<hr>
+
 </script>
 
 </div>
@@ -470,6 +497,7 @@ line-height: 35px;
           <div class="user_url">{{email}}</div>
      
           <a href="../jinseoKing/mypage.html"><div class="user_mypage">마이페이지</div></a>
+          <a href="../jinseoKing/subscribe.html" ><div id="subscribe">구독</div></a>       
           <div class="user_nation">
          
           </div>
@@ -504,6 +532,10 @@ line-height: 35px;
       </div>  
 </script>
 
+<!--footer-->
+<div class="footer">
+  <h1>footer</h1>
+</div>
 
 
 

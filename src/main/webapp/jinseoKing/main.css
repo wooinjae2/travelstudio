@@ -172,8 +172,23 @@ display: inline-block;
 line-height: 35px;
 }
 
+#subscribe{
+	border: 2px solid #4a4a4a;
+  text-align: center;
+  background-color: white;
+  width: 150px;
+  height: 35px;
+  color: #4a4a4a;
+  border-radius: 30px;
+  margin: 12px auto 0;
+  vertical-align: center;
+  font-size: 80%
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
 .user_nation {
-  height: 55px;
   text-align: center;
   margin-top: 20px;
   list-style: none;
@@ -686,5 +701,13 @@ margin-bottom: 2px;
 }
 
 
+/*여기서부터 footer*/
+.footer{
 
+  width: 100%;
+  height: 300px;
+  margin-bottom: 0px;
+  margin-top: 5%;
+  background-color: #2b5496;
 
+}

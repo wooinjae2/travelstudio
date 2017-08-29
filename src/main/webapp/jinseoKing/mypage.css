@@ -707,8 +707,23 @@ z-index: 100;
 line-height: 35px;
 }
 
+#subscribe{
+	border: 2px solid #4a4a4a;
+  text-align: center;
+  background-color: white;
+  width: 150px;
+  height: 35px;
+  color: #4a4a4a;
+  border-radius: 30px;
+  margin: 12px auto 0;
+  vertical-align: center;
+  font-size: 80%
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
 .user_nation {
-  height: 55px;
   text-align: center;
   margin-top: 20px;
   list-style: none;
@@ -774,7 +789,7 @@ line-height: 35px;
   color: #d2d2d2;
 }
 .slide_bar_menu {
-    padding-top: 30px;
+    padding-top: 5px;
     text-align: center;
 }
 
@@ -801,5 +816,20 @@ line-height: 35px;
 /*커버 끝*/
 
 
+/*여기서부터 footer*/
+.footer{
+
+  width: 100%;
+  height: 300px;
+  margin-bottom: 0px;
+  margin-top: 5%;
+  background-color: #5b687a;
+
+}
+
+#Mf{
+	font-size: 20px;
+	font-weight: bold;
+}
 
 
