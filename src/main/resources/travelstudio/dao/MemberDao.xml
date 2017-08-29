@@ -31,7 +31,7 @@
   
    <select id="selectOne" resultMap="memberMap" parameterType="int">
     select alias, intro, email, mpto from member
-    where mno = #{mno}
+    where mno = #{no}
   </select>
   
   <update id="update" parameterType="member">

@@ -44,12 +44,13 @@ public class MemberControl {
   
   
 @RequestMapping("detail")
-  public JsonResult detail(int no) throws Exception {
-  /*System.out.println(no);*/
-    Member member = memberService.get(no);
+  public JsonResult detail(int mno) throws Exception {
+    System.out.print("=======>");
+    System.out.println(mno);
+    Member member = memberService.get(mno);
     /*System.out.println(member);*/
     if (member == null) {
-      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
+      return new JsonResult(JsonResult.FAIL, mno + "번 강사가 없습니다.");
     }
     return new JsonResult(JsonResult.SUCCESS, member);
   }

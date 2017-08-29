@@ -115,11 +115,14 @@ function inviteMessage(memberNo) {
 			requestPost.push(result.data[i].postno)
 		} // for 문: i
 		coworksave=result.data
-		console.log("========>", result.data)
-		console.log(result.data.length)
-		console.log(coworksave.length)
-			
-			console.log(requestPost)
+		console.log(memberNo)
+		$.post('../member/detail.json', {mno: memberNo}, function(result) {
+			console.log("ㅇㅇ?")
+			console.log(result)
+		})
+		
+		
+		
 			/* 초대 받은 사진 뿌리기*/
 		jQuery.ajaxSettings.traditional = true;
 			$.post('../post/invitingUserPost.json', {'requestPost':requestPost}, function(result) {

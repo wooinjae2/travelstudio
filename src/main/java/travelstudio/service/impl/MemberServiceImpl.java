@@ -33,8 +33,8 @@ public class MemberServiceImpl implements MemberService {
  
 
   
-  public Member get(int no) throws Exception {
-    return memberDao.selectOne(no);
+  public Member get(int mno) throws Exception {
+    return memberDao.selectOne(mno);
   }
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
