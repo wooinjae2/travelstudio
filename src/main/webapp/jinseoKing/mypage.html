@@ -16,19 +16,27 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
     </style>
   </head>
 <body>
-    <div id="modal"></div>
-  <!-- <div class="header-container">
-        <div class="in-header-container">
-         <img src="logo1.PNG" id="logo">
-        <input id="search-bar" type="text" name="search" placeholder="search">
+ <div class="slide_bar">
+    <div class="slide_bar_cancel">
+      <a href="#"><img src="img/cancel.png" id="cancel_icon"></a>
 
-      <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-      <button type="button" id="edit-start-button">start
-      </div>
-    </div> -->
+    </div>
+
+    <!-- 슬라이드 메뉴바 호출 -->
+       <div class="slide_bar_content">
+  
+  </div>
+  <!-- 슬라이드 메뉴바 호출 끝 -->
+
+
+
+</div>
+<div class="cover_dimmed"></div>
+
     
-    
+  
      <header class="header">
+       <img src="img/slidecall.png" id="slide_icon">
     <img id="logo" src="./pictures/ourlogo.png">
     <input type="search" id="search_bar" placeholder="검색">
     <button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
@@ -198,8 +206,52 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
   </form>
 <button id="close2_button" onclick="test1('modal'); test('share_wrap');">나가기</button>
 </div>
-
 </div>
+
+  <script id="tbody-template4" type="text/x-handlebars-template">
+
+    <div class="member_slide">
+        <div class="member_info">
+          <div class="user_photo">
+            <img src="../mypage/upload/{{path}}">
+          </div>
+          <div class="user_id">{{alias}}</div>
+          <div class="user_url">{{email}}</div>
+     
+          <a href="../jinseoKing/mypage.html"><div class="user_mypage">마이페이지</div></a>
+          <div class="user_nation">
+         
+          </div>
+          
+  
+
+          <div class="user_visited">
+            <div class="user_write">
+              <img src="img/textbook.png" alt="">
+              <span>여행기</span>
+              <div class="counting1"></div>
+            </div>
+            <div class="user_visited_count">
+              <img src="img/aeroplane.png" alt="">
+              <span>여행국가</span>
+
+              <div class="counting2"></div>
+            </div>
+          </div>
+          <hr class="slide_bar_classify">
+
+          <div class="slide_bar_menu">
+            <ul class="list_menu">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="./find_pwd.html">비밀번호 변경</a></li>
+              <li><a href="#">탈퇴하기</a></li>
+              <li><a href="#">로그아웃</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>  
+</script>
 
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -285,6 +337,25 @@ function test(idMyDiv) {
 
     })
     	}
+    
+    function slideCall() {
+    	$('#slide_icon').click(function (){
+    	  $('.slide_bar').animate({left:0}, 350);
+    	  $('.cover_dimmed').show();
+    	})
+    	$('#cancel_icon').click(function () {
+    	  $('.slide_bar').animate({left:-320}, 350);
+    	  $('.cover_dimmed').hide();
+    	})
+    	}
+    	function slide_off() {
+    	  $('.cover_dimmed').click(function () {
+    	    $('.slide_bar').animate({left:-320}, 350);
+    	    $('.cover_dimmed').hide();
+    	})
+    	}
+    	$(document).ready(slideCall)
+    	$(document).ready(slide_off)
 
     
 

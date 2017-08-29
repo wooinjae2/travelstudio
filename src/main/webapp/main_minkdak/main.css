@@ -159,7 +159,7 @@ line-height: 35px;
 }
 
 .user_nation {
-  height: 30px;
+  height: 55px;
   text-align: center;
   margin-top: 20px;
   list-style: none;
@@ -174,8 +174,8 @@ line-height: 35px;
 
 .user_nation img {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  
+  height: 36px;
   border-radius: 100%;
   vertical-align: middle;
 }
@@ -193,6 +193,7 @@ line-height: 35px;
   .user_visited .user_write {
     display: inline-block;
     width: 100px;
+    height: 50px;
   }
 
   .user_visited .user_visited_count {
@@ -207,6 +208,18 @@ line-height: 35px;
     color: black;
   }
 
+  #numberOfFlag{
+	width: 30px;
+	font-size:30px;
+	border: none;
+	
+}
+#numOfPost{
+	width: 30px;
+	font-size:30px;
+	border: none;
+	
+}
 .slide_bar_classify{
   width: 80%;
   color: #d2d2d2;
@@ -365,21 +378,30 @@ i{
 
 /* 여행기 슬라이드 블럭*/
 .slide_wrap {
-  width: 1024px;
-  height: 414px;
-  /*border: solid red 1px;*/
+  width: 1217px;
+  height: 470px;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 .box_slide_title {
   box-sizing: border-box;
   position: relative;
   float: left;
-  width: 260px;
+  width: 285px;
   height:100%;
   border-top: 1px solid #010101;
-  padding: 38px 20px 28px 0;
+  padding: 68px 20px 28px 0;
   /*border: solid black 1px;*/
 }
+.slide_wrap
+.box_slide_title .titl {
+  font-size: 23px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
 .slide_wrap
 .box_slide_title .titl {
   font-size: 23px;
@@ -407,7 +429,7 @@ i{
   color: #8a8a8a;
   font-weight: 400;
   line-height: 1.5;
-  /*border: solid 1px blue;*/
+  font-family: "Noto Sans KR";
 }
 
 .slide_wrap
@@ -420,9 +442,9 @@ i{
 }
 
 .slide_wrap .box_slide_main {
-    width: 762px;
+    width: 927px;
     height: 100%;
-    float: right;
+    float: left;
     /*border: solid 1px red;*/
     overflow: hidden;
 }
@@ -431,9 +453,8 @@ i{
   float: left;
   position: relative;
   margin-left: 10px;
-  width: 242px;
+  width: 299px;
   height: 100%;
-  /*border: solid 1px black;*/
 }
 
 .slide_wrap .box_slide_main .item .item_thumb {
@@ -442,15 +463,22 @@ max-height: 215px;
 
 .slide_wrap .box_slide_main .item .item_thumb img{
 max-width: none;
-width: 242px;
-height: 215px;
+width: 298px;
+height: 255px;
 }
+
 
 .slide_wrap .box_slide_main .item .item_in{
 height: 161px;
 position: relative;
 padding: 10px 10px 10px 0;
 }
+
+
+.item_in{
+	margin-top: 50px;
+}
+
 
 .slide_wrap .box_slide_main .item .titl{
 width: 100%;
@@ -465,7 +493,7 @@ font-family: "Noto Sans KR"
 }
 
 .slide_wrap .box_slide_main .item .tag {
-  width: 75%;
+  width: 100%;
   height: 34px;
   min-height: 34px;
   overflow: hidden;
@@ -475,7 +503,9 @@ font-family: "Noto Sans KR"
   color: #8b8b8b;
   margin-bottom: 18px;
   line-height: 1.3;
+	
 }
+
 
 .box_slide_main .bottom_msg {
   width: 249px;
@@ -501,11 +531,12 @@ margin-bottom: 2px;
 /*여행 작가 라인*/
 .travel_writer {
   position: relative;
-  width: 1024px;
+  width: 100%;
   /*border: solid 5px gray;*/
   padding: 30px auto 0;
   margin-bottom: 30px;
   background-color: #f2f9fb;
+  
 }
 
 .travel_writer .travel_writer_titl {
@@ -551,17 +582,16 @@ margin-bottom: 2px;
 
 }
 
-.owl-stage-outer {
-  display: inline-block;
-  width: 800px;
-  margin-left: 100px;
-}
+
 
 .travel_writer_slide .travel_writer_photozone {
-  width: 160px;
+  position: relative;
+  width: 130px;
   height: 130px;
-  /*border: 1px solid blue;*/
-  margin-bottom: 10px;
+  background: url('./img/user_default.png') center center no-repeat;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+  text-align: center;
 }
 
 .travel_writer_slide .travel_writer_photozone img {
@@ -569,11 +599,10 @@ margin-bottom: 2px;
   height: 130px;
   border-radius: 100%;
   margin: 0px auto;
+  background: url('./img/user_default.png') center center no-repeat;
 }
 
 .travel_writer_slide .travel_writer_id {
-  /*position: absolute;*/
-  /*z-index: 999;*/
   width: 160px;
   text-align: center;
   margin: 0 0 10px 0;
@@ -582,7 +611,13 @@ margin-bottom: 2px;
 
 .travel_writer_slide .travel_writer_intro {
   margin: 10px 0;
+  text-align: center;
+  overflow: hidden;
+  color: black;
+  font-size: 110%;
+  opacity: 0.7;
 }
+
 
 .travel_writer_slide .travel_writer_flag {
   height: 30px;
@@ -595,3 +630,9 @@ margin-bottom: 2px;
   height: 30px;
   border-radius: 100%;
 }
+
+.item{
+	float: left;
+	position: inline-block;
+}
+

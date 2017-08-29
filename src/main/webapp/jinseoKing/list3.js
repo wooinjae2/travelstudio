@@ -1,4 +1,5 @@
 var no;
+var mno;
 var tbody = $('.content-container');
 var userOne = ''
 	var posted_count = 0;
@@ -6,6 +7,48 @@ var uniqueNames;
 var membernoArray=[]
 var numOfPost;
 var postOwner;
+
+$.getJSON('../member/header.json', function(result) {
+	console.log(result);
+	 mno=result.data.loginMember;
+	console.log(mno)
+	console.log(result.data.loginMember)
+	if(mno!=undefined){
+		$('#slide_icon').css('display','inline-block');
+		$('#start-my-journey').off('click');
+		$('#start-my-journey').click(function(){
+		   location.href="../mypage/write.html"
+		    //Other code etc.
+		});
+	}else{
+		$('#start-my-journey').off('click');
+		$('#start-my-journey').click(function(){
+		   location.href="./login.html"
+		    //Other code etc.
+		    selectLoginUserPost()
+		});
+	}
+	    var template = Handlebars.compile($('#tbody-template4').html())
+	    var generatedHTML = template(result.data.loginMember) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
+	    $('.slide_bar_content').append(generatedHTML) // 새 tr 태그들로 설정한다.
+	    
+	 /*
+	    console.log(mno);
+	      $.post('../post/count.json',
+	    		  {mno : mno}	
+	      , function(result) {
+	    	  console.log(result.data.list.length)
+	    	  
+	    var template = Handlebars.compile($('#tbody-template4').html())
+	    var generatedHTML = template(result.data.list) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//	    tbody.text('') // tbody의 기존 tr 태그들을 지우고
+	    generatedHTML='';
+	    $('.counting1').html(result.data.list.length) // 새 tr 태그들로 설정한다.
+  
+  })*/
+  
+  }) 
 
 $.getJSON('../post/list.json', function(result) {
 
@@ -112,57 +155,34 @@ function search(){
 }
 
 function selectLoginUserPost(){
-	console.log(membernoArray)
-	for(i=0; i<membernoArray.length; i++){
-		console.log(membernoArray.length, membernoArray[i])
-		$.post('../post/selectOneUserPost.json',{'number':membernoArray[i]}, function(result) {
-
-			console.log(result);
-
-			for(i=0; i<result.data.selectOneUserPost.length; i++){
-				postOwner=result.data.selectOneUserPost[i].mno
-				console.log("postOwner",postOwner);
-				console.log(result.data.selectOneUserPost[i].postno);
-				numOfPost = result.data.selectOneUserPost.length;
-				console.log("console.log(numOfPost)",numOfPost);
-			}
-			
-			$('<input id="numOfPost">').attr('value',numOfPost).attr('name',postOwner).attr("readonly",true).appendTo($('.profile_desc'))
-			if($(this).attr('name') == $("#holding").attr('data-mno')){
-				console.log("postOwner")
-			}
-			})
-			
-			/*if($("#numOfPost").attr('name') == $("#holding").attr('data-name')){
-				$('<input id="numOfPost">').attr('value',numOfPost).attr('name',postOwner).attr("readonly",true).appendTo($(".info_write").attr('name',postOwner))
-				
-			}*/
-		
-	}
-}
-
-/*      var template = Handlebars.compile($('#content-template').html())
+	console.log(mno)
+$.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
+	  console.log(result);
+	  for(i=0; i<=result.data.selectOneUserPost.length; i++){
+	  console.log(result.data.selectOneUserPost.length);
+	  numOfPost = result.data.selectOneUserPost.length;
+	  console.log(numOfPost);
+	  }
+      var template = Handlebars.compile($('#content-template').html())
       var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //      tbody.text('') // tbody의 기존 tr 태그들을 지우고
       $('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.
       dropdown()
   $('<input id="numOfPost">').attr('value',numOfPost).attr("readonly",true).attr("disabled",false).appendTo($('.postNum'))
 })
-}*/
+}
 
-
-/*address()
 
 function address(){
-	console.log(membernoArray)
+	console.log(mno)
 	$.post('../detail/selectAddress.json', {
-		'mno': membernoArray
+		'mno': mno
 	},
 	function(result) {
 		console.log(result)
 		var uniqueNames = [];
 		var flag_list=[];
-		var flag_list_show=new Array();
+		/*var flag_list_show=new Array();*/
 		var flag_count=0;
 
 		for(i=0;i<result.data.selectAddress.length;i++){
@@ -214,23 +234,4 @@ function address(){
 		})
 	}
 
-
-function posted(flag_list){
-	
-	console.log(flag_list)
-console.log(userno)
-	$('.user_one').each(function(){
-		if($(this).attr('data-mno')==flag_list[0]){
-			for(j=1; j<flag_list.length; j++){
-				$('<img src='+flag_list[j]+'>').appendTo($('.info_nation', this))
-				$('.info_nation img',this).css('margin-right','7px').css('width', '36px').css('height', '36px')
-			}
-		}
-	})
-
-}*/
-/*	}
-}*/
-
-/*$('<img src=result>').appendTo($(this))*/
 
