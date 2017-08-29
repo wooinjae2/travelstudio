@@ -714,3 +714,58 @@ z-index: 100;
     background-color: #fff;
     color: #474747;
 }
+
+.request_user {
+    width: 184px;
+    margin: 0 auto;
+}
+
+.user_img  {
+	float: left;
+  overflow: hidden;
+  /* border-radius: 50%; */
+  -webkit-border-radius: 50%;
+}
+
+.user_img img {
+    width: 66px;
+    height: 65px;
+}
+
+.user_desc {
+    float: left;
+    padding: 11px;
+    width: 118px;
+}
+
+	
+.user_desc .desc_name {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    overflow: hidden;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    word-wrap: normal;
+    line-height: 1.2;
+}
+
+.user_desc .desc_account {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.desc_account>span {
+    overflow: hidden;
+    max-width: 70%;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    word-wrap: normal;
+}
