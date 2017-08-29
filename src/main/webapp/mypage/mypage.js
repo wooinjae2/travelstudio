@@ -1,12 +1,12 @@
 var userDesc= $('.user_desc');
 
 var alias= location.href.split('?')[1]
-var loginMemberNo =0;
+var loginMemberNo = 0;
 console.log(alias)
 console.log(encodeURI(alias, "UTF-8"))
 if(alias!=null){
 	$('#mysetting').attr('display','none;')
-	$.post('/travelstudio/member/searchOneUser.json', {
+	$.post('../member/searchOneUser.json', {
 		'alias': alias
 		},function(result) {
 			console.log(result.data)
@@ -57,7 +57,7 @@ $.getJSON('../member/header.json', function(result) {
 	  $('#user-img').attr('src', '../upload/' + str).css('width', '170px').css('height', '170px').css('border-radius', '100%')
     }
 	
-    
+    inviteMessage(loginMemberNo)
     selectLoginUserPost()
 })
 
@@ -71,6 +71,7 @@ $.post('../post/selectOneUserPost.json',{'number':loginMemberNo}, function(resul
       $('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.
       dropdown()
   console.log(result.data.list)
+  
 })
 }
 }
@@ -100,4 +101,19 @@ $('#delete-yes-btn').click(function() {
 	
 	$('.post_list[data-post='+ postno +']').parent().parent().parent().remove()
 }) 
+}
+
+/* 친구 초대 수락 */
+
+var checkNo= '';
+function inviteMessage(memberNo) {
+	console.log("멤버번호 바로호출했어 ======>", memberNo)
+	$.post('../cowork/checkInvite.json', {mno: memberNo}, function(result) {
+		checkNo=result.data.checkNo
+		if(checkNo == 0) {
+			
+		}
+	})
+	
+	
 }

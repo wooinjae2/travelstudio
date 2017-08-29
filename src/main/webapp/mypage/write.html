@@ -553,7 +553,7 @@ $(document.body).on('mouseleave', '.day1', function(event) {
     function addbtn_adddiv(divThisCount) {
         
         //add btn 클릭시 해당 div에서 countPhoto 번호를 저장한 divThisCount 저장.
-        var afterTbody = $('#text_parent_'+ divThisCount) // 넘겨받은 div번호 뒤에 태그 after하기 위해 변수 선언
+        var afterTbody = $('#text_parent_'+ divThisCount).parent() // 넘겨받은 div번호 뒤에 태그 after하기 위해 변수 선언
         console.log("adddiv에서 넘겨받는 this")
           console.log(divThisCount)
           console.log("adddiv 자체 $(this)")

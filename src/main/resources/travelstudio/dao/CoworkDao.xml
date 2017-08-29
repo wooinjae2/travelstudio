@@ -19,6 +19,10 @@
  <delete id="delete" parameterType="cowork">
     delete from cowork where mno=#{mno} and postno=#{postno}
   </delete>
+  
+  <select id="coworkCheck" resultMap="coworkMap"  parameterType="int">
+    select confirm from cowork where mno=#{mno}
+  </select>
  
 </mapper>
 

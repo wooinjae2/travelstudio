@@ -814,7 +814,14 @@ button[id*='day_btn'] {
 }
 
 /* 콜라쥬 */
-
+.whole_collage1 {
+	position: relative
+	
+}
+.whole_collage1 .control_box {
+    width: 90%;
+    height: 94%
+}
 /* 콜라쥬 2개짜리 */
       .whole_collage2{
         width:824px;

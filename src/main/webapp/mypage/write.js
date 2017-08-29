@@ -987,7 +987,6 @@ function findNeedUpdateNo(beforePlus) {
 	var nextPlusSpot = parseInt(beforePlus) + 1
 	var textParentDiv;
 	console.log($('.text_parent').size())
-	
 	console.log(nextPlusSpot)
 	for (var i = $('.text_parent').size()-1 ; i >= nextPlusSpot ; i--) {
 		
@@ -1010,11 +1009,12 @@ function findNeedUpdateNo(beforePlus) {
 		if($('.control_box','#text_parent_'+ i).attr('id') != undefined) {
 			$('.control_box','#text_parent_'+ i).attr('id','control-box-div-' + (i+1))
 		}
+		$('.capt_output', '#text_parent_'+ i).attr('id', 'txt-output-'+(i+1))
 		
 		if($('.file_browse', '#text_parent_'+ i).attr('class') != undefined) {
 			$('.file_browse', '#text_parent_'+ i).attr('href','javascript:file_browse('+ (i+1) +')')
 		}
-
+		
 		if($('.create_box', '#text_parent_'+ i).attr('class') != undefined) {
 			$('.create_box','#text_parent_'+ i).attr('onclick', 'createtextbox('+ (i+1) +')')
 		}
@@ -1066,29 +1066,59 @@ var deletePhoto = [];
 function deletephoto(countPhoto) {
 //	$(document).ready(function() {
 	$('#delbtn-'+countPhoto).click(function() {
-		deleteTextParent = $(this).parents('#text_parent_'+countPhoto)
+		deleteTextParent = $(this).parents('.text_parent')
+		console.log($(this).parents('.text_parent'))
 		var deleteTextParentChild =deleteTextParent.children();
 
 //		console.log(deleteTextParent.children('#whole_collage2'+countPhoto))
-		console.log(deleteTextParentChild.eq(1).children('img').attr('src'))
-		console.log(deleteTextParentChild.eq(0).children('img').attr('src'))
-		console.log(deleteTextParentChild.eq(0).attr('class'))
-
+		
 		for (var i = 0;i < $('img',deleteTextParentChild).length; i++) {
 			console.log("ㅇㅇ")
 			console.log($('img',deleteTextParentChild).eq(i).attr('src').slice(0, -8))
 			console.log("경로 자르기")
 			var cut = [];
-//			console.log((deleteTextParentChild.eq(i).children('img').attr('src').split('/')[2]))
-//			console.log((deleteTextParentChild.eq(i).children('img').attr('src').split('/')[2]).slice(0, -8))
 			deletePhoto.push($('img',deleteTextParentChild).eq(i).attr('src').slice(0, -8))
 
 		} //for 
+		
+		// 태그 번호 끝 자리부터 감소
+		var presentSpot = $(this).parents('.text_parent').attr('id').split('_')[2]
+		console.log(presentSpot)
+		for (var i = $('.text_parent').size()-1 ; i > presentSpot  ; i--) {
+			$('.btn_add','#text_parent_'+ i).attr('data-addno', i-1)
+			$('.btn_add','#text_parent_'+ i).attr('id', 'addbtn-' + (i-1))
+			
+			$('.btn_caption','#text_parent_'+ i).attr('data-capno', i-1)
+			$('.btn_caption','#text_parent_'+ i).attr('id', 'edtbtn-' + (i-1))		
+			$('.btn_del','#text_parent_'+ i).attr('id', 'delbtn-' + (i-1))
+			
+			console.log('확인하세요')
+			if($('.control_box','#text_parent_'+ i).attr('id') != undefined) {
+				$('.control_box','#text_parent_'+ i).attr('id','control-box-div-' + (i-1))
+			}
+			$('.capt_output', '#text_parent_'+ i).attr('id', 'txt-output-'+(i-1))
+			
+			if($('.file_browse', '#text_parent_'+ i).attr('class') != undefined) {
+				$('.file_browse', '#text_parent_'+ i).attr('href','javascript:file_browse('+ (i-1) +')')
+			}
+			
+			if($('.create_box', '#text_parent_'+ i).attr('class') != undefined) {
+				$('.create_box','#text_parent_'+ i).attr('onclick', 'createtextbox('+ (i-1) +')')
+			}
+			
+			console.log($('#text_parent_'+ i).attr('onclick','showControlBox('+ (i-1) +')'))
+			$('#text_parent_'+ i).attr('data-textparent', (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) - 1))
+			$('#text_parent_'+ i).attr('id', 'text_parent_' + (parseInt($('#text_parent_'+ i).attr('id').split('_')[2]) - 1))
+			
+		}
+		
+		
 		console.log(countPhoto)
 		delPhotoTransm()
 		event.stopPropagation()
 		console.log(deletePhoto)
-		$('#text_parent_'+countPhoto).parent().remove()
+		console.log($(this).parents('.text_parent').parent())
+		$(this).parents('.text_parent').parent().remove()
 	})
 }
 
