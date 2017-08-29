@@ -172,9 +172,10 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 </form>
 <div id="f_search_list">
 <ul>
+
 <script id="search-friends-template" type="text/x-handlebars-template">
 {{#each info}}
-<li><a class="select_friends {{mno}}" data-email="{{email}}" data-path="../upload/{{path}}" href="javascript:;" onclick="test1('modal2'); test('confirm-invite-f');"><div><img src="../upload/{{path}}"></div>
+<li><a class="select_friends {{mno}}" data-email="{{email}}" data-path="../upload/{{path}}" href="javascript:;" "><div><img src="../upload/{{path}}"></div>
 <div>{{email}}</div><div><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a></div>
 </li>
 {{/each}}
@@ -249,6 +250,7 @@ $(document).on("click",".select_friends",function(){
 	 var str = $(this).attr('data-email')+'에게 초대장을 보내시겠습니까?'
 	 $('#confirm-email').html(str)
 	 inviteMemberNo=$(this).attr('class').split(' ')[1]
+	 console.log($(this).attr('class'))
 	 /* console.log($(this).children("div").first().children("div").children()) */
 	 targetuserimage=$(this).attr('data-path')
 	 console.log(inviteMemberNo)
