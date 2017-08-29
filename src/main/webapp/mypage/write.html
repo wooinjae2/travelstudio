@@ -30,8 +30,21 @@
     </div>
   </div>
     <button class="innerClick" style="display:none;"></button>
-  
+    
+    <!-- 슬라이드바 -->
+   <div class="slide_bar">
+    <div class="slide_bar_cancel">
+      <a href="#"><img src="img/cancel.png" id="cancel_icon"></a>
+    </div>
+    <!-- 슬라이드 메뉴바 호출 -->
+       <div class="slide_bar_content">
+  </div>
+  <!-- 슬라이드 메뉴바 호출 끝 -->
+
+</div>
+<div class="cover_dimmed"></div>
   <header class="header">
+   <img src="img/slidecall.png" id="slide_icon">
     <a href="../jinseoKing/main01.html"><img id="logo"
       src="./pictures/ourlogo.png"></a>
     <p id="title_of_article">여행기 제목</p>
@@ -330,6 +343,51 @@
                   </div><br></div></div></div>  
 {{/each}}
            </script>
+           
+            <script id="tbody-template4" type="text/x-handlebars-template">
+
+    <div class="member_slide">
+        <div class="member_info">
+          <div class="user_photo">
+            <img src="../mypage/upload/{{path}}">
+          </div>
+          <div class="user_id">{{alias}}</div>
+          <div class="user_url">{{email}}</div>
+     
+          <a href="../jinseoKing/mypage.html"><div class="user_mypage">마이페이지</div></a>
+          <div class="user_nation">
+         
+          </div>
+          
+  
+
+          <div class="user_visited">
+            <div class="user_write">
+              <img src="img/textbook.png" alt="">
+              <span>여행기</span>
+              <div class="counting1"></div>
+            </div>
+            <div class="user_visited_count">
+              <img src="img/aeroplane.png" alt="">
+              <span>여행국가</span>
+
+              <div class="counting2"></div>
+            </div>
+          </div>
+          <hr class="slide_bar_classify">
+
+          <div class="slide_bar_menu">
+            <ul class="list_menu">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="./find_pwd.html">비밀번호 변경</a></li>
+              <li><a href="#">탈퇴하기</a></li>
+              <li><a href="#">로그아웃</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>  
+</script>
   <!-- container_main 태그 -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvJO_nbwEqokghhsnj7oj_uQPgnjFoa84&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -484,34 +542,7 @@ $(document.body).on('mouseleave', '.day1', function(event) {
 //           tbody.text('') // tbody의 기존 tr 태그들을 지우고
            tbody.append(generatedHTML) // 새 tr 태그들로 설정한다.
            
-    /*  $("<div class='day1'>")
-          .html(
-              "<div class='day1'>"
-                  + "<div class='write_day'>"
-                  + "<h2><button onclick='changebuttontoday(day_btn"
-                  + count
-                  + ")' id='day_btn"
-                  + count
-                  + "'>+ 일차</button>1일차<h2>"
-                  + "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>"
-                  + "<div class='travel_detail_date'>2017.05.05</div></div>"
-                  + "<div class='text_parent' id='text_parent_"+count+"' >"
-                  + "<div class='tool_box'>"
-                  + "<a href='#' onclick='test(&#39;testdiv"
-                  + count
-                  + "&#39;); return false;'>"
-                  + "<span id='ab"+count+"' class='fa fa-plus-circle fa-2x' aria-hidden='true'></span></a>"
-                  + "<div id='testdiv"+count+"' style='display: none'>"
-                  + "<a href='javascript:file_browse("
-                  + count
-                  + ")' multiple><img id='testdiv_1' src='./image.png'><input value="+count+" type='file' style='display: none' name='files' class='file1_"+count+" file1' multiple></input></a>"
-                  + "<a href='#' onclick='test(&#39;map_container&#39;); test1('modal'); return false;'><img id='testdiv_2' src='./marker.png'></a> "
-                  + "<a href='#' return false;'><img id='testdiv_2' src='./route.png'></img></a>"
-                  + "<a href='javascript:;' onclick='createtextbox("
-                  + count
-                  + ")'><i class='fa fa-pencil' aria-hidden='true'></i></a>"
-                  + "</div><br></div></div></div>").appendTo(
-              tbody) */
+   
       setFileUploadToInputTag()
       registMapFunction()
       divcount++;
@@ -921,6 +952,27 @@ function saveMap() {
   }, function(result) {
   }, 'json')
 }
+
+
+function slideCall() {
+	$('#slide_icon').click(function (){
+	  $('.slide_bar').animate({left:0}, 350);
+	  $('.cover_dimmed').show();
+	})
+	$('#cancel_icon').click(function () {
+	  $('.slide_bar').animate({left:-320}, 350);
+	  $('.cover_dimmed').hide();
+	})
+	}
+	function slide_off() {
+	  $('.cover_dimmed').click(function () {
+	    $('.slide_bar').animate({left:-320}, 350);
+	    $('.cover_dimmed').hide();
+	})
+	}
+	$(document).ready(slideCall)
+	$(document).ready(slide_off)
+
   </script>
 
 </body>
