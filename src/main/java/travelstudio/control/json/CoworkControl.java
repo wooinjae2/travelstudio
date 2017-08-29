@@ -30,11 +30,11 @@ public class CoworkControl {
   public JsonResult invite(Cowork cowork) throws Exception {
     System.out.println("print cowork-------------------");
     System.out.println(cowork);
-    ArrayList<String> aa = new ArrayList();
-    aa.add("ok");
+    ArrayList<String> okMessage = new ArrayList();
+    okMessage.add("ok");
     coworkService.invite(cowork);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", aa);
+    dataMap.put("list", okMessage);
 //    dataMap.put("totalCount", noticeService.getSize());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
@@ -54,6 +54,15 @@ public class CoworkControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }  
   
+  @RequestMapping("checkInvite")
+  public JsonResult checkInvite(int mno) throws Exception {
+    System.out.printf("멤버번호 보냈다======>%d",mno);
+    ArrayList<Cowork> checkNo = coworkService.coworkCheck(mno);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("checkNo", checkNo.get(0).getConfirm());
+//    System.out.println(checkedConfirm);
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
 
   
   /*@RequestMapping("searchBymnomno2")
