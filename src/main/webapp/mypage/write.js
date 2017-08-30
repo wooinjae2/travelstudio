@@ -25,8 +25,6 @@ imagecount=0;
 var submitcount=0;
 imagesDiv2=0;
 
-
-
 function setFileUploadToInputTag() {
 	$('.file1').fileupload({
 		url: '../File/upload.json',        // 서버에 요청할 URL
