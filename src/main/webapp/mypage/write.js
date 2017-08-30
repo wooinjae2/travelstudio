@@ -568,6 +568,7 @@ $('#fileAllUpload').fileupload({
 			var countPhoto = aaa;
 			console.log("photo길이 =======>")
 			console.log(photo.length)
+			function DdayOut() {}
 			for(var i = 0; i < photo.length; i++){
 
 			
