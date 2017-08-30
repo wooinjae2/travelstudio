@@ -9,6 +9,7 @@ public interface MemberService {
   List<Member> search(String keyword) throws Exception;
   void add(Member member) throws Exception;
   Member get(int mno) throws Exception;
+  Member inviteInfo(int sendermno) throws Exception;
   List<Member> list() throws Exception;
   Member getByEmailPassword(String email, String password) throws Exception;
   void update(Member member) throws Exception;

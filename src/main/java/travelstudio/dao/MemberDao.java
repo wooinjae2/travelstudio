@@ -16,6 +16,8 @@ public interface MemberDao {
   int update(Member member);
   Member searchOneUser(String alias);
   
+  Member inviteInfo(int sendermno);
+  
   void insertPhoto(Member member);
 //  void insertPhoto(Map<String,Object> valueMap);
 //  List<String> selectPhotoList(int teacherNo);

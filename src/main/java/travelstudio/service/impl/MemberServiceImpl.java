@@ -31,7 +31,9 @@ public class MemberServiceImpl implements MemberService {
   }
   
  
-
+  public Member inviteInfo(int sendermno) throws Exception {
+    return memberDao.inviteInfo(sendermno);
+  }
   
   public Member get(int mno) throws Exception {
     return memberDao.selectOne(mno);

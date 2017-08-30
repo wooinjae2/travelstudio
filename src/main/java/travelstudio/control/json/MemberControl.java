@@ -3,6 +3,7 @@ package travelstudio.control.json;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,19 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("invitingUserPost")
+  public JsonResult invitingUserPost(int[] sendermno) throws Exception {
+    System.out.printf("sendermno==========>");
+    System.out.println(sendermno[0]);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    List invitingUser = new ArrayList();
+    for (int i = 0; i < sendermno.length; i++) {
+      invitingUser.add(memberService.inviteInfo(sendermno[i]));
+    }
+    dataMap.put("invitingUserInfo", invitingUser);      
+      
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
   
   @RequestMapping("search")
   public JsonResult search(String keyword) throws Exception {
@@ -115,9 +129,8 @@ public JsonResult header(HttpServletRequest req, HttpServletResponse res) throws
   /*System.out.println(loginMember);*/
   HashMap<String,Object> dataMap = new HashMap<>();
   dataMap.put("loginMember", loginMember);
-
   return new JsonResult(JsonResult.SUCCESS, dataMap);
-  
+
 }
 
 @RequestMapping("searchOneUser")
