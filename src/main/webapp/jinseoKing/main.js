@@ -1,5 +1,18 @@
 var mno;
 var numOfPost;
+
+var appendNumber = 4;
+var prependNumber = 1;
+var swiper = new Swiper('.swiper-container', {
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    slidesPerView: 4,
+    centeredSlides: false,
+/*        paginationClickable: true,*/
+//    spaceBetween: 5
+});
+
+
 $.getJSON('../post/list.json', function(result) {
 
    console.log(result.data.list);
@@ -19,7 +32,26 @@ $.getJSON('../post/list.json', function(result) {
 
   }) // getJSON()ile(title)
   
-
+$.getJSON('../member/info.json', function(result) {
+	
+   console.log(result.data.info);
+       var template2 = Handlebars.compile($('#content-template-2').html())
+       var generatedHTML2 = template2(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//       tbody.text('') // tbody의 기존 tr 태그들을 지우고
+//       mainbox.append(generatedHTML2) // 새 tr 태그들로 설정한다.
+       swiper.appendSlide(generatedHTML2)
+       
+       let str = result.data.memberPhoto;
+       console.log(str)
+      
+     /*  if (str != undefined) {
+       $('.travel_writer_photozone').css({
+		  'background': 'url("/upload/' + str +'")' + 'center center no-repeat'
+       	})
+       }*/
+       
+ 
+  }) 
 
   
 $.getJSON('../member/header.json', function(result) {
