@@ -1,4 +1,5 @@
 var mno;
+var mno2;
 var numOfPost;
 
 var appendNumber = 4;
@@ -57,6 +58,7 @@ $.getJSON('../member/info.json', function(result) {
 $.getJSON('../member/header.json', function(result) {
 	console.log(result);
 	 mno=result.data.loginMember;
+	 mno2=result.data.loginMember.mno;
 	console.log(mno)
 	console.log(result.data.loginMember)
 	if(mno!=undefined){
@@ -102,7 +104,7 @@ $.getJSON('../member/header.json', function(result) {
   
   function selectLoginUserPost(){
 	console.log(mno)
-$.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
+$.post('../post/selectOneUserPost.json',{'number':mno2}, function(result) {
 	  console.log(result);
 	  for(i=0; i<=result.data.selectOneUserPost.length; i++){
 	  console.log(result.data.selectOneUserPost.length);
@@ -117,7 +119,7 @@ $.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
 function address(){
 	console.log(mno)
 	$.post('../detail/selectAddress.json', {
-		'mno': mno
+		'mno': mno2
 	},
 	function(result) {
 		console.log(result)
@@ -167,7 +169,7 @@ function address(){
 		console.log(uniqueNames.length)
 		numOfFlag=uniqueNames.length;
 		console.log(numOfFlag);
-		for(i=0;i<=uniqueNames.length;i++){
+		for(i=0;i<uniqueNames.length;i++){
 			$('<img style=width:36px; height:36px;>').attr('src',uniqueNames[i]).css('margin-right','7px').appendTo($('.user_nation'))
 		}
 		

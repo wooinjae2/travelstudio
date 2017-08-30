@@ -778,10 +778,26 @@ line-height: 35px;
 	border: none;
 	
 }
+
+ #counting1{
+	width: 47px;
+	font-size:30px;
+	border: none;
+	margin-left: 41px;
+	
+}
 #numOfPost{
 	width: 47px;
 	font-size:30px;
 	border: none;
+	
+}
+
+#counting2{
+	width: 47px;
+	font-size:30px;
+	border: none;
+	margin-left: 41px;
 	
 }
 .slide_bar_classify{
@@ -816,7 +832,7 @@ line-height: 35px;
 /*커버 끝*/
 
 
-/*여기서부터 footer*/
+/* /*여기서부터 footer*/
 .footer{
 
   width: 100%;
@@ -831,5 +847,5 @@ line-height: 35px;
 	font-size: 20px;
 	font-weight: bold;
 }
-
+ */
 

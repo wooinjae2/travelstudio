@@ -1,8 +1,5 @@
 package travelstudio.control.json;
 
-
-
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,9 +21,6 @@ import travelstudio.domain.Member;
 import travelstudio.domain.Post;
 import travelstudio.service.DetailService;
 import travelstudio.service.PostService;
-
-
-
 
 @RestController
 @RequestMapping("/post/")

@@ -237,15 +237,17 @@ line-height: 35px;
     color: black;
   }
   #numberOfFlag{
-	width: 30px;
+	width: 50px;
 	font-size:30px;
 	border: none;
+	margin-left: 47px;
 	
 }
 #numOfPost{
-	width: 30px;
+	width: 50px;
 	font-size:30px;
 	border: none;
+	margin-left: 32px;
 	
 }
 
@@ -708,6 +710,6 @@ margin-bottom: 2px;
   height: 300px;
   margin-bottom: 0px;
   margin-top: 5%;
-  background-color: #2b5496;
+  background-color: #5b687a;
 
 }

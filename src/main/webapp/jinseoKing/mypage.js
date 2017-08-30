@@ -2,6 +2,7 @@ var mno;
 var userDesc= $('.user_desc');
 var numOfFlag;
 var numOfPost;
+var mno2;
 
 
 
@@ -90,9 +91,9 @@ if(alias!=null){
 
 }else{
 	$.getJSON('../member/header.json', function(result) {
-		mno = parseInt(result.data.loginMember.mno);
+		mno2 = parseInt(result.data.loginMember.mno);
 		console.log("---------------------");
-		console.log(mno);
+		console.log(mno2);
 		console.log(result);
 		console.log(result.status);
 		console.log(result.data.loginMember.mno);
@@ -123,7 +124,7 @@ if(alias!=null){
 
 function selectLoginUserPost(){
 	console.log(mno)
-$.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
+$.post('../post/selectOneUserPost.json',{'number':mno2}, function(result) {
 	  console.log(result);
 	  for(i=0; i<=result.data.selectOneUserPost.length; i++){
 	  console.log(result.data.selectOneUserPost.length);
@@ -136,14 +137,15 @@ $.post('../post/selectOneUserPost.json',{'number':mno}, function(result) {
       $('.travle_list').append(generatedHTML) // 새 tr 태그들로 설정한다.
       dropdown()
   $('<input id="numOfPost">').attr('value',numOfPost).attr("readonly",true).attr("disabled",false).appendTo($('.postNum'))
+   $('<input id="counting1">').attr('value',numOfPost).attr("readonly",true).attr("disabled",false).appendTo($('.counting1'))
 })
 }
 
 
 function address(){
-	console.log(mno)
+	console.log(mno2)
 	$.post('../detail/selectAddress.json', {
-		'mno': mno
+		'mno': mno2
 	},
 	function(result) {
 		console.log(result)
@@ -193,11 +195,13 @@ function address(){
 		console.log(uniqueNames.length)
 		numOfFlag=uniqueNames.length;
 		console.log(numOfFlag);
-		for(i=0;i<=uniqueNames.length;i++){
+		for(i=0;i<uniqueNames.length;i++){
 			$('<img style=width:36px; height:36px;>').attr('src',uniqueNames[i]).css('margin-right','7px').appendTo($('#traveled_country'))
+			$('<img style=width:36px; height:36px;>').attr('src',uniqueNames[i]).css('margin-right','7px').appendTo($('.user_nation'))
 		}
 		
 		$('<input id="numberOfFlag">').attr('value',numOfFlag).attr("readonly",true).attr("disabled",false).appendTo($('.countryNum'))
+		$('<input id="counting2">').attr('value',numOfFlag).attr("readonly",true).attr("disabled",false).appendTo($('.counting2'))
 		})
 	}
 }
