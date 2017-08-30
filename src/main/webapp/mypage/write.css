@@ -304,7 +304,23 @@ body, table, div, p, textarea, span, h2 {
       margin-bottom: 15px;
       font-size: 17px;
       position: absolute;
+      display: inline-block;
+      font-weight: 600;
+    }
+    
+    #finish-my-journey {
+      border: 1px solid black;
+      width: 140px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: white;
+      margin-left: 938px;
+      margin-top: 13px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      position: absolute;
       display: inline;
+      font-weight: 600;
     }
 .all_photo_select{
   margin-top:30px;
@@ -383,7 +399,6 @@ a:-webkit-any-link {
   position: relative;
   height: 15%;
   width: 100%;
-  border-bottom: solid 1px #d2d2d2;
 }
 
 .container_main {
@@ -468,6 +483,16 @@ a:-webkit-any-link {
   width: 98px;
   margin-top: 4px;
   color: black;
+}
+
+.travel_d_day {
+  font-size: 25px;
+  display: inline-block;
+  text-align: center;
+  border: none;
+  width: 98px;
+  height: 40px;
+  margin-top: 4px;
 }
 
 .bb>#aa {

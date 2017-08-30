@@ -583,7 +583,7 @@ $('#fileAllUpload').fileupload({
     			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
     			     + "</ul>"
     			     + "</div>"
-    			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+    			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
                ).appendTo(textParent)
                $('#collage1-1'+ countPhoto +'> img').attr('src',photo[i][0].path + "_600.png").css('width', '809px').css('height','606px');
                $('#detail-date-div-'+ countPhoto).attr("value", photo[i][0].time)
@@ -609,7 +609,7 @@ $('#fileAllUpload').fileupload({
 			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 			     + "</ul>"
 			     + "</div>"
-			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 			     
 			     ).appendTo(textParent)
 			     $('#collage2-1-count-'+ countPhoto +'> img').attr('src', photo[i][0].path + "_600.png").css('width', '534px').css('height','534px');
@@ -648,7 +648,7 @@ $('#fileAllUpload').fileupload({
 				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 				     + "</ul>"
 				     + "</div>"
-				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 				   ).appendTo(textParent)
 					$('#collage3-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
 					$('#collage3-2'+ countPhoto +' > img').attr('src', photo[i][1].path +"_300.png").css('width', '260px').css('height','265px');
@@ -682,7 +682,7 @@ $('#fileAllUpload').fileupload({
 			     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 			     + "</ul>"
 			     + "</div>"
-			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 			     ).appendTo(textParent)
 			     
 			    $('#collage4-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '397px').css('height','397px');
@@ -720,7 +720,7 @@ $('#fileAllUpload').fileupload({
 			      + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 			      + "</ul>"
 			      + "</div>"
-			      + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+			      + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 			      
 			    ).appendTo(textParent) 
 			    $('#collage5-1'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '260px').css('height','260px');
@@ -763,7 +763,7 @@ $('#fileAllUpload').fileupload({
 				    + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 				    + "</ul>"
 				    + "</div>"
-				    + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				    + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 				    ).appendTo(textParent)
 				    
 			    $('#collage6-1-big'+ countPhoto +' > img').attr('src', photo[i][0].path+"_600.png").css('width', '534px').css('height','534px');
@@ -809,7 +809,7 @@ $('#fileAllUpload').fileupload({
 				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 				     + "</ul>"
 				     + "</div>"
-				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 				    ).appendTo(textParent)  
 				    $('#collage7-1-small'+ countPhoto +' > img').attr('src', photo[i][0].path+"_300.png").css('width', '192px').css('height','193px');
 				    $('#collage7-2-small'+ countPhoto +' > img').attr('src', photo[i][1].path+"_300.png").css('width', '192px').css('height','193px');
@@ -856,7 +856,7 @@ $('#fileAllUpload').fileupload({
 				     + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 				     + "</ul>"
 				     + "</div>"
-				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+				     + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 				     ).appendTo(textParent)
 				  
 
@@ -907,7 +907,7 @@ $('#fileAllUpload').fileupload({
 					  + "<li><button type='button' class='btn_del' id='delbtn-"+countPhoto+"'>삭제</button></li>"
 					  + "</ul>"
 					  + "</div>"
-					  + "<div class='capt_output' id='txt-output-"+countPhoto+"'>안녕하세요</div>"
+					  + "<div class='capt_output' id='txt-output-"+countPhoto+"'></div>"
 					  
 //					  + "</div>"
 				  ).appendTo(textParent)

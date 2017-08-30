@@ -48,6 +48,7 @@
     <a href="../jinseoKing/main01.html"><img id="logo"
       src="./pictures/ourlogo.png"></a>
     <p id="title_of_article">여행기 제목</p>
+    <button type="button" id="finish-my-journey">나가기</button>
     <button type="button" id="start-my-journey">저장하기</button>
   </header>
 
@@ -94,12 +95,13 @@
     <div class="day_list">
       <div class="day1">
         <div class="write_day">
-          <h2>
-            <button id="write_save_btn">aaa</button>
-            1일차
-          </h2>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <!-- <h2> -->
+            <!-- <button id="write_save_btn">aaa</button> -->
+            <input class="travel_d_day" type="text" placeholder="일차"></input>
+<!--             1일차
+          </h2> -->
          
+          <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->
           <input class="travel_detail_date" type="text" id="detail-date-div-0" placeholder="날짜" onclick="datePick()"></input>
           <input class="gpsInfo" id="location-info-0" placeholder="여행지"></input>
         </div>
@@ -302,8 +304,8 @@
 {{#each aa}}
       <div class="day1">
         <div class='write_day'>
-                  <h2><button id='day_btn{{count}}>+ 일차</button>1일차<h2>"
-                  <i class='fa fa-pencil-square-o' aria-hidden='true'></i>
+                  
+                  <input class="travel_d_day" type="text" placeholder="일차"></input>
                   <input class='travel_detail_date' type="text" id='detail-date-div-{{count}}'placeholder="날짜" onclick="datePick()">
                   <input class='gpsInfo' id='location-info-{{count}}' onclick="egitLocation()" placeholder="여행지"></input></div>
                   <div class='text_parent' id='text_parent_{{count}}' data-textparent='{{count}}'onclick='showControlBox({{count}})'>
