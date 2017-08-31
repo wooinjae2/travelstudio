@@ -19,16 +19,11 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
  <div class="slide_bar">
     <div class="slide_bar_cancel">
       <a href="#"><img src="img/cancel.png" id="cancel_icon"></a>
-
     </div>
-
     <!-- 슬라이드 메뉴바 호출 -->
        <div class="slide_bar_content">
-  
   </div>
   <!-- 슬라이드 메뉴바 호출 끝 -->
-
-
 
 </div>
 <div class="cover_dimmed"></div>
@@ -92,15 +87,15 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 
 
 
-            <script id="content-template" type="text/x-handlebars-template">
-{{#each selectOneUserPost}}
+             <script id="content-template" type="text/x-handlebars-template">
+       {{#each selectOneUserPost}}
             <div class="travel_item">
+
               <div class="item_card">
                 <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
               <div class="img_card">
-                <a href="../mypage/inner_article.html?postno={{postno}}">
-
-                  <img class="list_img" src="../{{cont}}" onerror="./image.jpg"></img> 
+                <a class= "post_list" data-post="{{postno}}" href="../mypage/inner_article.html?postno={{postno}}">
+                  <img class="list_img" src="../{{cont}}"></img>
                 </a>
               </div>
               <div class="card_desc">
@@ -110,12 +105,10 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
               <nav>
               <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
               <ul class="dropdown">
-                <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
-
-
-                <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-                <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-                <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
+                <li><a class="invite_f" href="javascript:;" data-value={{postno}}>친구 초대하기</a></li><br>
+                <li><a class="share_travel"href="javascript:;" data-value={{postno}} onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
+                <li><a class="delete_travel" href="javascript:;" data-value={{postno}}>여행기 삭제하기</a></li><br>
+                <li><a class="lock_travel" href="javascript:;" data-value={{postno}} onclick="test1('lock')">나만 보기</a></li><br>
               </ul>
               </nav>
         </div>
@@ -125,14 +118,15 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
           <span>{{alias}}</span>
             <div class="mypage_list_heart">
           <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <span class="heart_num">3</span>
+          <span class="heart_num">{{good}}</span>
         </div>
         </div>
               </div>
             </div>
             </div>
-{{/each}}
+        {{/each}}
 		       </script>
+
 
 
 
@@ -147,36 +141,47 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 
 
 
+<!-- 친구와 같이쓰기 시작 -->
 <div id='invite_f_container'>
   <div class='content_a'>
     <h4>참여자</h4>
     <div class="join_user_list">
-      <img src="./usercircle.png"></img>
+      <div><img src="./usercircle.png"></img></div>
     </div>
     <hr>
     <h4>여행가 찾기</h4>
     <form class="f_search">
   <input type="text" id="f_search-bar" placeholder="ID를 입력해주세요">
-  <a href="#"><img class="f_search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+  <a id="f_search" href="#"><img class="f_search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 </form>
+<div id="f_search_list">
+<ul>
 
-<br>
-<br>
+<script id="search-friends-template" type="text/x-handlebars-template">
+{{#each info}}
+<li><a class="select_friends {{mno}}" data-email="{{email}}" data-path="../upload/{{path}}" href="javascript:;" "><div><img src="../upload/{{path}}"></div>
+<div>{{email}}</div><div><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a></div>
+</li>
+{{/each}}
+</script>
+</ul>
+</div>
 <div class="save_btn"><button type="button" id="close1-btn" onclick="test1('modal'); test('invite_f_container');">나가기</button></div>
   </div>
 </div>
+<!-- 친구와 같이쓰기 끝 -->
 
-
-
+<div id="confirm-invite-f">
+<div id="confirm-email"></div>
+<button type="button" id="confirm-invite-f-yes" onclick="test1('modal2'); test('confirm-invite-f');">예</button><button type="button" id="confirm-invite-f-no" onclick="test1('modal2'); test('confirm-invite-f');">아니오</button>
+</div>
 
 
 <div id='delete_wrap'>
     <h4>여행기를 삭제하시겠습니까?</h4>
 
-<div class="delete_wrap_btns"><button type="button" id="no-btn" onclick="test1('modal'); test('delete_wrap');">아니요</button> <button type="button" id="yes-btn" onclick="test1('modal'); test('delete_wrap');">예</button></div>
+<div class="delete_wrap_btns"><button type="button" id="no-btn" onclick="test1('modal'); test('delete_wrap');">아니요</button> <button type="button" id="delete-yes-btn" onclick="test1('modal'); test('delete_wrap');">예</button></div>
 </div>
-
-
 
 
 
@@ -264,13 +269,77 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
 
+var inviteMemberNo=0;
+var targetpostno=0;
+var targetuserimage=0;
 
-/* 
+/* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수 */
+
+$(document).on("click",".select_friends",function(){
+	 console.log('selectf click')
+	 console.log(this)
+	 console.log($(this).attr('data-email'))
+	 var str = $(this).attr('data-email')+'에게 초대장을 보내시겠습니까?'
+	 $('#confirm-email').html(str)
+	 inviteMemberNo=$(this).attr('class').split(' ')[1]
+	 console.log($(this).attr('class'))
+	 /* console.log($(this).children("div").first().children("div").children()) */
+	 targetuserimage=$(this).attr('data-path')
+	 test1('modal2')
+	 test('confirm-invite-f')
+	 console.log(inviteMemberNo)
+})
+/* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수  끝 */
+
+ $('#confirm-invite-f-yes').click(function(){
+	 console.log(inviteMemberNo)
+	 console.log(targetpostno)
+	$.post('../cowork/invite.json', {
+		'mno': inviteMemberNo,
+		'postno' : targetpostno
+	}, function(result) {
+	 /* $('<img src='+targetuserimage+'>').appendTo($('.join_user_list')) */
+	 console.log($('.join_user_list'))
+	 $('.join_user_list').append($('<div class="'+inviteMemberNo+'_'+targetpostno+'">').html('<img src="'+targetuserimage+'"><a class="delete-invite-f"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>'))
+	}, 'json')
+})
+ 
+ $(document).on("click",".delete-invite-f",function(){
+	 console.log($(this).parent())
+	 var img1 = $(this).parent()
+	 $.post('../cowork/delete.json', {
+		'mno': img1.attr('class').split('_')[0],
+		'postno' : img1.attr('class').split('_')[1]
+	}, function(result) {
+		console.log($(this))
+	 img1.remove()
+	}, 'json')
+ })
+ 
+
+$('#f_search').click(function(){
+	console.log('fsearch click')
+	var searchusername=$('#f_search-bar').val()
+	$.post('../member/search.json', {
+		'keyword': searchusername
+	}, function(result) {
+		console.log(result)
+		 var template = Handlebars.compile($('#search-friends-template').html())
+	      var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//	      tbody.text('') // tbody의 기존 tr 태그들을 지우고
+	      $('#f_search_list > ul').append(generatedHTML) // 새 tr 태그들로 설정한다.
+		
+	}, 'json')
+
+})
+
+
+function dropdown() {
 $(function() {
-
 // Dropdown toggle
 $('.dropdown-toggle').click(function(){
   $(this).next('.dropdown').toggle();
+  /* console.log('아예안되나?') */
 });
 
 $(document).click(function(e) {
@@ -280,7 +349,27 @@ $(document).click(function(e) {
   }
 });
 
-}); */
+});
+}
+
+
+
+$(document).on("click",".invite_f",function(){
+	console.log(this)
+targetpostno=$(this).attr('data-value')
+	$('#modal').css('display','inline-block')
+	$('#invite_f_container').css('display','inline-block')
+	})
+	
+$(document).on("click",".share_travel",function(){
+console.log(this)
+targetpostno=$(this).attr('data-value')
+$('#modal').css('display','inline-block')
+	$('#invite_f_container').css('display','inline-block')
+})
+
+
+
 
 
 function test1(idMyDiv) {
@@ -290,6 +379,8 @@ function test1(idMyDiv) {
   } else {
     objDiv.style.display = "inline-block";
   }
+  event.preventDefault();
+  event.stopPropagation()
 }
 
 function test(idMyDiv) {
@@ -299,22 +390,19 @@ function test(idMyDiv) {
   } else {
     objDiv.style.display = "inline-block";
   }
+  event.preventDefault();
+  event.stopPropagation()
 }
 
 
+$('.delete_travel').on('click', function(){
+    $('.wrap11, #b').toggleClass('active');
+    return false;
+  });
 
-
-
-    $('.delete_travel').on('click', function(){
-      $('.wrap11, #b').toggleClass('active');
-
-      return false;
-    });
-
-    $(".delete_travel > #no-btn").click(function () {
-            $('.wrap11, #b').toggleClass('active');
-        });
-    
+  $(".delete_travel > #no-btn").click(function () {
+          $('.wrap11, #b').toggleClass('active');
+      });
     
     
     

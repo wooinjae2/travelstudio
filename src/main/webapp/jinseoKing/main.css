@@ -462,8 +462,9 @@ i{
   float: left;
   width: 285px;
   height:100%;
-  border-top: 1px solid #010101;
+  border-top: 8px Solid white;
   padding: 68px 20px 28px 0;
+  background-color:#064482;
   /*border: solid black 1px;*/
 }
 .slide_wrap
@@ -519,7 +520,10 @@ i{
   margin-left: 10px;
   width: 299px;
   height: 100%;
-  /*border: solid 1px black;*/
+  border: solid 1px #e0e1e2;
+  margin-bottom: -17px;
+  margin-top: 8px;
+  overflow:hidden;
 }
 
 .slide_wrap .box_slide_main .item .item_thumb {
@@ -528,14 +532,15 @@ max-height: 215px;
 
 .slide_wrap .box_slide_main .item .item_thumb img{
 max-width: none;
-width: 298px;
+
 height: 255px;
+margin-top:45px;
 }
 
 
 
 .slide_wrap .box_slide_main .item .item_in{
-height: 161px;
+height: 130px;
 position: relative;
 padding: 10px 10px 10px 0;
 width:
@@ -555,7 +560,10 @@ font-size: 20px;
 margin-bottom: 10px;
 letter-spacing: -.5px;
 line-height: 1.2;
-font-family: "Noto Sans KR"
+font-family: "Noto Sans KR";
+color: white;
+margin-left: 9px;
+   
 }
 
 .slide_wrap .box_slide_main .item .tag {
@@ -587,6 +595,7 @@ font-family: "Noto Sans KR"
 
 .box_slide_main .bottom_msg .circle_photo{
 margin-bottom: 2px;
+margin-left: 11px;
 }
 .circle_photo {
   display: inline-block;

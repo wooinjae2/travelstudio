@@ -197,12 +197,12 @@ ul> li{
   height: 33px;
 }
 .travel_item{
-  width:255px;
+  width:300px;
   display: inline-block;
-  margin-right: 47px;
+  margin-right: 5px;
+  overflow: hidden;
 }
 .list_img{
-  width:297px;
   padding-right: 0px;
   height:255px;
 }
