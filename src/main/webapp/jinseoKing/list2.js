@@ -1,5 +1,5 @@
- $.getJSON('../member/info.json', function(result) {
-   console.log(result.data.info);
+ $.getJSON('../member/countPost.json', function(result) {
+   console.log(result);
        var template = Handlebars.compile($('#content-template2').html())
        var generatedHTML = template(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //       tbody.text('') // tbody의 기존 tr 태그들을 지우고

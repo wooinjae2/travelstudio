@@ -3,6 +3,7 @@ package travelstudio.dao;
 import java.util.List;
 
 import travelstudio.domain.Good;
+import travelstudio.domain.Post;
 
 public interface GoodDao {
 //  int getSize();
@@ -11,6 +12,7 @@ public interface GoodDao {
 int insert(Good good);
 Good searchBymnopostno(Good good);
 int delete(Good good);
+List<Good> selectOneForHeart();
 
 /*Picture selectByPost(String pictureno);*/
 //  int update(Member member);

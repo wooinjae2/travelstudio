@@ -64,6 +64,19 @@
    where mno=#{mno}
   </select>
   
+  <!--   <select id="countPost" resultMap="memberMap" parameterType="map">
+       select m.mno, m.alias , m.path, m.email, count(*) 
+   from member m natural join  post p
+   group by p.mno;
+  </select>
+     select m.mno, m.alias , m.path, m.email, (count(*) 
+   from member m natural join  post p) like as m.postCount,
+   from member m inner join post p
+   group by p.mno;
+   -->
+   <!-- select *, count(*) from post p natural join good g
+  group by p.mno;
+   -->
   
 <!--  
   <select id="selectOneByEmailPassword" resultMap="teacherMap" parameterType="map">

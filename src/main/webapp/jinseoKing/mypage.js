@@ -119,7 +119,7 @@ if(alias!=null){
 //		generatedHTML.appendTo($('.user_desc')).insertAfter('#mysetting');
 //		.insertAfter('.')
 		address();
-		selectLoginUserPost()
+		selectLoginUserPost();
 	})
 
 function selectLoginUserPost(){

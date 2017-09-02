@@ -79,6 +79,15 @@ public class GoodControl {
     
   }  */
   
+  @RequestMapping("selectOneForHeart")
+  public JsonResult selectOneForHeart() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("selectOneForHeart", goodService.selectOneForHeart());
+//    dataMap.put("totalCount", noticeService.getSize());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   
   
 }

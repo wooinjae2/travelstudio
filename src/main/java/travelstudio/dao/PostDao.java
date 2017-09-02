@@ -7,6 +7,7 @@ import travelstudio.domain.Post;
 
 public interface PostDao {
   List<Post> selectList();
+  List<Post> ListandGood();
   List<Post> getWriteCount(Post post);
   int insert(Post post);
   void insertPhoto(Map<String,Object> valueMap);
@@ -16,6 +17,7 @@ public interface PostDao {
   Post requestedPost(int postno);
   List<Post> info1(String number);
   void updateLike(Post post);
+  
 //  int getSize();
 //  List<Member> selectListByNames(Map<String,Object> valueMap);
 //  Member selectOne(int no);

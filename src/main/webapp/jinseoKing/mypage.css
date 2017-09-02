@@ -197,16 +197,19 @@ ul> li{
   height: 33px;
 }
 .travel_item{
-  width:300px;
+  width:255px;
   display: inline-block;
-  margin-right: 5px;
-  overflow: hidden;
+  margin-right: 47px;
 }
 .list_img{
+  width:297px;
   padding-right: 0px;
   height:255px;
 }
 
+.cont_card{
+  margin-top: 130px;
+}
 
 div.card_title span{
   width: 230px;
@@ -671,15 +674,19 @@ z-index: 100;
 
 
 .member_slide .member_info .user_photo {
-  position: relative;
-  padding: 30px 0;
-  text-align: center;
+      position: relative;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    border: 1px solid white;
+    overflow: hidden;
 }
 
 .member_slide .member_info .user_photo img {
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
+    max-height: 100px;
 }
 
 .member_slide .member_info .user_id {
@@ -847,5 +854,5 @@ line-height: 35px;
 	font-size: 20px;
 	font-weight: bold;
 }
- */
+ 
 

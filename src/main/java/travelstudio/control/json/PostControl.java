@@ -31,6 +31,17 @@ public class PostControl {
   @Autowired PostService postService;
   @Autowired ServletContext ctx;
   
+  @RequestMapping("ListandGood")
+  public JsonResult ListandGood() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("ListandGood", postService.ListandGood());
+//    dataMap.put("totalCount", noticeService.getSize());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  
+  
   @RequestMapping("list")
   public JsonResult list() throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
@@ -48,6 +59,8 @@ public class PostControl {
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
+
+
 
 @RequestMapping("invitingUserPost")
 public JsonResult invitingUserPost(int[] requestPost) throws Exception {

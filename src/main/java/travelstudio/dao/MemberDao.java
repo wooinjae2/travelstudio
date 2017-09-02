@@ -7,6 +7,7 @@ import travelstudio.domain.Member;
 
 public interface MemberDao {
  List<Member> selectList();
+ List<Member> countPost();
   List<Member> selectSearchList(String keyword);
   Member selectOne(int mno);
 //  Notice selectOneByEmailPassword(Map<String,Object> valueMap);
@@ -29,4 +30,5 @@ public interface MemberDao {
   int insert(Member member);
   
   Member subMember(int no);
+  
 }

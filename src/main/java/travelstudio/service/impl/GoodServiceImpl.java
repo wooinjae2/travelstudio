@@ -1,10 +1,13 @@
 package travelstudio.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import travelstudio.dao.GoodDao;
 import travelstudio.domain.Good;
+import travelstudio.domain.Post;
 import travelstudio.service.GoodService;
 
 @Service
@@ -28,6 +31,10 @@ public Good searchBymnopostno(Good good) throws Exception {
 
 public void delete(Good good) throws Exception {
   goodDao.delete(good);
+}
+
+public List<Good> selectOneForHeart() throws Exception {
+  return goodDao.selectOneForHeart();
 }
 
 }

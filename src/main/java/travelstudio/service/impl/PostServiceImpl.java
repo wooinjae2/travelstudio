@@ -20,6 +20,10 @@ public class PostServiceImpl implements PostService {
  public Post requestedPost(int postno) throws Exception{ 
    return postDao.requestedPost(postno);
  }
+  public List<Post> ListandGood() throws Exception {
+    return postDao.ListandGood();
+  }
+  
   public List<Post> list() throws Exception {
     return postDao.selectList();
   }
@@ -54,6 +58,8 @@ public void like(Post post) throws Exception {
   postDao.updateLike(post);
   
 }
+
+
  
 
  

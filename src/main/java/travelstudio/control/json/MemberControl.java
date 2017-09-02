@@ -33,6 +33,13 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("countPost")
+  public JsonResult countPost() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("countPost", memberService.countPost());
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   @RequestMapping("invitingUserPost")
   public JsonResult invitingUserPost(int[] sendermno) throws Exception {
     System.out.printf("sendermno==========>");

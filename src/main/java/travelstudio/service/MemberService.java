@@ -6,6 +6,7 @@ import travelstudio.domain.Member;
 
 public interface MemberService {
   List<Member> info() throws Exception;
+  List<Member> countPost() throws Exception;
   List<Member> search(String keyword) throws Exception;
   void add(Member member) throws Exception;
   Member get(int mno) throws Exception;

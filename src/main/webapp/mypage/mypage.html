@@ -12,16 +12,32 @@
 <style>
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 body, table, div, p, textarea {font-family:'Nanum Gothic';}
-
     </style>
   </head>
 <body>
     <div id="modal"></div>
     <div id="modal2"></div>
   
+     <div class="slide_bar">
+    <div class="slide_bar_cancel">
+      <a href="#"><img src="img/cancel.png" id="cancel_icon"></a>
+
+    </div>
+
+    <!-- 슬라이드 메뉴바 호출 -->
+       <div class="slide_bar_content">
+  
+  </div>
+  <!-- 슬라이드 메뉴바 호출 끝 -->
+
+
+
+</div>
+<div class="cover_dimmed"></div>
     
     
      <header class="header">
+         <img src="img/slidecall.png" id="slide_icon">
     <a href="../jinseoKing/main01.html"><img id="logo" src="./pictures/ourlogo.png"></a>
     <input type="search" id="search_bar" placeholder="검색">
     <button id="search_icon" class="fa fa-search fa-2x" aria-hidden="true"></button>
@@ -31,12 +47,14 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
     
 
   <!-- <hr style="margin-top:-8px;"> -->
+  
+  
 <div id="container">
   <div id="mypage">
     <div id="profile">
-      <div style="margin-left:40px;">
+          <div id="holding_profile_photo">
       <div class="profile_photo">
-        <img id="user-img"></img>
+        <img id="user-img" style="float: right;"></img>
       </div>
       <div class="profile_desc">
         <div class="user_desc">
@@ -44,38 +62,43 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
         </div>
 
 
-    <div style="padding-top:5px;">
+    <div style="padding-top:23px;">
       <div class="info_write">
         <span class="fa fa-file-text-o fa-2x" aria-hidden="true"></span>
         <span class="tit_info">여행기</span>
-        <span class="txt_num">3</span>
+        <span class="postNum"></span>
       </div>
       <div class="info_nation">
         <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
         <span class="tit_info">여행국가</span>
-        <span class="txt_num">3</span>
+         <span class="countryNum"></span>
       </div>
 
-      <ul style="display:inline-block">
-        <li><img src="./KR.png"></li>
-        <li><img src="./TH.png"></li>
-        <li><img src="./GB.png"></li>
-      </ul>
 
+<div id="traveled_country">
+       <script id="flag-template" type="text/x-handlebars-template">
+{{#each flag_list}}
+      <ul style=none;>
+        <li><img src='{{address}}'>{{address}}</li>
+      </ul>
+{{/each}}
+</script>
+
+</div>
 
     </div>
 </div>
 </div>
 <div class="cont_card">
   <div class="inner_card">
-  <ul class="travle_list">
+  <div class="travle_list">
 
 
 
 
           <script id="content-template" type="text/x-handlebars-template">
        {{#each selectOneUserPost}}
-            <div class="travel_item">
+            <li class="travel_item">
 
               <div class="item_card">
                 <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
@@ -98,6 +121,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
               </ul>
               </nav>
         </div>
+
         </div>
         <div class="card_bottom">
           <img src="../upload/{{path}}" style='border-radius:100%'></img>
@@ -109,7 +133,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
         </div>
               </div>
             </div>
-            </div>
+            </li>
         {{/each}}
 		       </script>
 
@@ -151,7 +175,7 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
         <div class="box_request" id="invite_request_{{postno}}">
           <div class="request_user">
            <div class="user_img">
-            <img src="../upload/{{detail}}" alt="minkdak">
+            
            </div>
            <div class="user_desc">
              <p class="desc_name ff_pp">{{edt}}</p>
@@ -167,45 +191,9 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
             </li>
         {{/each}}
            </script>
+</div>
 
 
-
-            <li class="travel_item">
-              <div class="item_card">
-                <div><i id="lock" class="fa fa-lock fa-2x" aria-hidden="true"></i></div>
-              <div class="img_card">
-                <a href="#">
-                  <img class="list_img" src="./Turkey.jpg"></img>
-                </a>
-              </div>
-              <div class="card_desc">
-        <div class="card_title">
-          <div class="list_title"><a href="#">첫번째33333 여행기</a></div>
-          <div class="cate">
-              <nav>
-              <a class="dropdown-toggle" href="javascript:;" title="Menu"><i class="fa fa-align-justify" aria-hidden="true"></i></a>
-              <ul class="dropdown">
-                <li><a class="invite_f" href="javascript:;" onclick="test1('modal'); test('invite_f_container');">친구 초대하기</a></li><br>
-
-
-                <li><a class="share_travel"href="javascript:;"  onclick="test1('modal'); test('share_wrap');">여행기 공유하기</a></li><br>
-                <li><a class="delete_travel" href="javascript:;" onclick="test1('modal'); test('delete_wrap');">여행기 삭제하기</a></li><br>
-                <li><a class="lock_travel" href="javascript:;" onclick="test1('lock')">나만 보기</a></li><br>
-              </ul>
-              </nav>
-        </div>
-        </div>
-        <div class="card_bottom">
-          <img src="./usercircle.png"></img>
-          <span>swanpurple</span>
-            <div class="mypage_list_heart">
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <span class="heart_num">3</span>
-        </div>
-        </div>
-              </div>
-            </div>
-            </li>
 </ul>
   </div>
 </div>
@@ -241,32 +229,22 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
   </div>
 </div>
 <!-- 친구와 같이쓰기 끝 -->
-
 <div id="confirm-invite-f">
 <div id="confirm-email"></div>
 <button type="button" id="confirm-invite-f-yes" onclick="test1('modal2'); test('confirm-invite-f');">예</button><button type="button" id="confirm-invite-f-no" onclick="test1('modal2'); test('confirm-invite-f');">아니오</button>
 </div>
-
-
 <div id='delete_wrap'>
     <h4>여행기를 삭제하시겠습니까?</h4>
-
 <div class="delete_wrap_btns"><button type="button" id="no-btn" onclick="test1('modal'); test('delete_wrap');">아니요</button> <button type="button" id="delete-yes-btn" onclick="test1('modal'); test('delete_wrap');">예</button></div>
 </div>
-
-
-
-
 <div id="share_wrap">
   <div class="sns_share">SNS로 공유하기
   </div>
-
   <div class="buttons">
     <button id="facebook_button"><i id="facebook_share" class="fa fa-facebook fa-2x" aria-hidden="true"></i></button>
     <button id="twitter_button"><i id="twitter_share" class="fa fa-twitter fa-2x" aria-hidden="true"></i></button>
   </div>
   <hr>
-
 <div class="link_copy">
   <div id="word_copy">링크 복사하기</div>
   <form>
@@ -281,12 +259,59 @@ body, table, div, p, textarea {font-family:'Nanum Gothic';}
   </form>
 <button id="close2_button" onclick="test1('modal'); test('share_wrap');">나가기</button>
 </div>
-
 </div>
-
 <script id="user-info-template" type="text/x-handlebars-template">
   <span class="user_name">{{alias}}</span> 
   <a href="#" class="fa fa-cog fa-2x" id="mysetting"></a>
+</script>
+
+<script id="tbody-template4" type="text/x-handlebars-template">
+
+    <div class="member_slide">
+        <div class="member_info">
+          <div class="user_photo">
+            <img src="../mypage/upload/{{path}}">
+          </div>
+          <div class="user_id">{{alias}}</div>
+          <div class="user_url">{{email}}</div>
+     
+          <a href="../jinseoKing/mypage.html"><div class="user_mypage">마이페이지</div></a>
+          <a href="../jinseoKing/subscribe.html" ><div id="subscribe">구독</div></a>
+          <div class="user_nation">
+         
+          </div>
+          
+  
+
+          <div class="user_visited">
+            <div class="user_write">
+              <img src="img/textbook.png" alt="">
+              <span>여행기</span>
+              <div class="counting1"></div>
+            </div>
+            <div class="user_visited_count">
+              <img src="img/aeroplane.png" alt="">
+              <span>여행국가</span>
+
+              <div class="counting2"></div>
+            </div>
+          </div>
+          <hr class="slide_bar_classify">
+
+          <div class="slide_bar_menu">
+            <ul class="list_menu">
+              <li><a href="./find_pwd.html">비밀번호 변경</a></li>
+              <li><a href="#">탈퇴하기</a></li>
+              <li><a href="#">로그아웃</a></li>
+              <li><a href="#">공지사항</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>  
+
+
+
 </script>
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
@@ -297,7 +322,6 @@ var inviteMemberNo=0;
 var targetpostno=0;
 var targetuserimage=0;
 /* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수 */
-
 $(document).on("click",".select_friends",function(){
 	 console.log('selectf click')
 	 console.log(this)
@@ -313,7 +337,6 @@ $(document).on("click",".select_friends",function(){
 	 console.log(inviteMemberNo)
 })
 /* 친구 초대하기에서 검색후 친구 이름을 눌렀을때 확인창 부분에서 하는 함수  끝 */
-
  $('#confirm-invite-f-yes').click(function(){
 	 console.log(inviteMemberNo)
 	 console.log(targetpostno)
@@ -339,7 +362,6 @@ $(document).on("click",".select_friends",function(){
 	}, 'json')
  })
  
-
 $('#f_search').click(function(){
 	console.log('fsearch click')
 	var searchusername=$('#f_search-bar').val()
@@ -353,10 +375,7 @@ $('#f_search').click(function(){
 	      $('#f_search_list > ul').append(generatedHTML) // 새 tr 태그들로 설정한다.
 		
 	}, 'json')
-
 })
-
-
 function dropdown() {
 $(function() {
 // Dropdown toggle
@@ -364,19 +383,14 @@ $('.dropdown-toggle').click(function(){
   $(this).next('.dropdown').toggle();
   /* console.log('아예안되나?') */
 });
-
 $(document).click(function(e) {
   var target = e.target;
   if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) {
     $('.dropdown').hide();
   }
 });
-
 });
 }
-
-
-
 $(document).on("click",".invite_f",function(){
 	console.log(this)
 targetpostno=$(this).attr('data-value')
@@ -390,14 +404,12 @@ targetpostno=$(this).attr('data-value')
 $('#modal').css('display','inline-block')
 	$('#invite_f_container').css('display','inline-block')
 })
-
 /* $(document).on("click",".delete_travel",function(){
 	console.log(this)
 	targetpostno=$(this).attr('value')
 	$('#modal').css('display','inline-block')
 	$('#invite_f_container').css('display','inline-block')
 }) */
-
 function test1(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
   if (objDiv.style.display == "inline-block") {
@@ -408,7 +420,6 @@ function test1(idMyDiv) {
   event.preventDefault();
   event.stopPropagation()
 }
-
 function test(idMyDiv) {
   var objDiv = document.getElementById(idMyDiv);
   if (objDiv.style.display == "inline-block") {
@@ -419,15 +430,35 @@ function test(idMyDiv) {
   event.preventDefault();
   event.stopPropagation()
 }
-
     $('.delete_travel').on('click', function(){
       $('.wrap11, #b').toggleClass('active');
       return false;
     });
-
     $(".delete_travel > #no-btn").click(function () {
             $('.wrap11, #b').toggleClass('active');
         });
+    
+    /**/
+       
+    function slideCall() {
+    	$('#slide_icon').click(function (){
+    	  $('.slide_bar').animate({left:0}, 350);
+    	  $('.cover_dimmed').show();
+    	})
+    	$('#cancel_icon').click(function () {
+    	  $('.slide_bar').animate({left:-320}, 350);
+    	  $('.cover_dimmed').hide();
+    	})
+    	}
+    	function slide_off() {
+    	  $('.cover_dimmed').click(function () {
+    	    $('.slide_bar').animate({left:-320}, 350);
+    	    $('.cover_dimmed').hide();
+    	})
+    	}
+    	$(document).ready(slideCall)
+    	$(document).ready(slide_off)
+
 
 
 </script>

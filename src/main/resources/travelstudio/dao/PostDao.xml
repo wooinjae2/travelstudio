@@ -29,7 +29,6 @@
     select * from post natural join member where title like concat('%',#{keyword},'%')
   </select>
     
-    
    
   
   <select id="selectOneUserPost" resultMap="postMap" parameterType="int">
@@ -79,6 +78,25 @@
   <select id="getWriteCount" resultMap="postMap" parameterType="map">
   	select count(*) from post where mno=#{mno}
   </select>
+  
+   <select id="ListandGood" resultMap="postMap" parameterType="map">
+    select * from post p inner join good g
+                   
+  </select> 
+  
+  select * 
+  from post p 
+  inner join member m
+  where m.mno = p.mno
+  inner join detail d
+  where p.postno = d.postno
+                     inner join detail
+                     order by p.postno desc
+  
+
+
+ 
+  
   <!--   <if test="search != null">
 	    <where>
 	      <choose>

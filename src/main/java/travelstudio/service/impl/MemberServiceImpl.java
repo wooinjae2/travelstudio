@@ -26,6 +26,10 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.selectList();
   }
   
+  public List<Member> countPost() throws Exception {
+    return memberDao.countPost();
+  }
+  
   public List<Member> search(String keyword) throws Exception {
     return memberDao.selectSearchList(keyword);
   }
