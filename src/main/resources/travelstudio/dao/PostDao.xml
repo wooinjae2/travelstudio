@@ -83,17 +83,6 @@
     select * from post p inner join good g
                    
   </select> 
-  
-  select * 
-  from post p 
-  inner join member m
-  where m.mno = p.mno
-  inner join detail d
-  where p.postno = d.postno
-                     inner join detail
-                     order by p.postno desc
-  
-
 
  
   
