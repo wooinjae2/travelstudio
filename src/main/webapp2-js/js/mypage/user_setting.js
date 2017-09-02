@@ -98,10 +98,12 @@ $.getJSON('/member/header.json',function(result){
 	var path = window.location.pathname;
 	
 	console.log(str)
-	$('.user_photo_change').css({
-		  'background': 'url("/upload/' + str +'")' + 'center center no-repeat'
-		  
-	})
+	if(str != null) {
+		$('.user_photo_change').css({
+			  'background': 'url("/upload/' + str +'")' + 'center center no-repeat'
+			  
+		})
+	}
 }) 
 
 //})
