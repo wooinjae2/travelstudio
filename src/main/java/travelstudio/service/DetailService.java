@@ -22,6 +22,7 @@ void insertDetailDate(Detail detail);
 void insertDetailLocation(Detail detail);
 List<Detail> selectedOneDetail(String postno);
 List<Detail> selectAddress(int mno) throws Exception;
+List<Detail> carouselNation(int mno) throws Exception;
 void addAllphoto(Detail detail);
 void pictureNoSearch(int postno);
 }

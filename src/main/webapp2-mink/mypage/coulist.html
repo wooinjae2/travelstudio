@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style>
+    #container {
+      padding-left: 70px;
+      margin-top: 200px;
+      margin-left: 240px;
+      margin-right: auto;
+      height: 4000px;
+      border: 1px solid black;
+      width: 1400px;
+      padding-top: 40px;
+    }
+
+    #list {
+      background: white;
+      width: 250px;
+
+      margin-top: 330px;
+      /*background-color:#CCCC00;*/
+      /*display:inline;*/
+      position: absolute;
+      padding-top: 20px;
+      font-size: 20px;
+      margin-left: 50px;
+    }
+
+    #l1 {
+      font-size: 17px;
+      margin-left: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-top: solid gray 1px;
+      width: 230px;
+      margin-top: 0px;
+    }
+
+    #pic4 {
+      height: 250px;
+      width: 250px;
+      position: absolute;
+      display: inline-block;
+      display: inline;
+      border: solid 2px navy;
+      margin: 50px;
+    }
+
+    #brandname {
+      position: absolute;
+      margin-left: 400px;
+      margin-top: 50px;
+      font-size: 45px;
+    }
+
+    #innerbtn {
+      z-index: 70;
+      width: 150px;
+      height: 80px;
+      margin-left: 950px;
+      margin-top: -230px;
+      float: none;
+    }
+
+    #fav-btn {
+      width: 180px;
+      height: 100px;
+      position: absolute;
+      margin-top: 700px;
+      margin-left: 80px;
+    }
+
+    #listend {
+      margin-top: 0px;
+      border: 1px gray solid;
+    }
+
+    #getcode1 {
+      width: 100px;
+      height: 40px;
+      margin-top: 30px;
+    }
+
+    #r1 {
+      display: inline;
+    }
+
+    #itemborder {
+      z-index: 1;
+      border: solid navy 1px;
+      margin-left: 400px;
+      width: 750px;
+      height: 200px;
+      margin-top: 20px;
+      padding: 15px;
+    }
+
+    .intext {
+      font-size: 17px;
+      margin-left: 20px;
+      margin-top: 5px;
+      padding-top: 5px;
+      z-index: 2;
+      width: 300px;
+    }
+
+    #hft {
+      size: 30px;
+    }
+
+    @base: #2a3644;
+    @blue: #2296cf;
+    @gray: #cccccc;
+    @mint: #20b9a4;
+    @oran: #e2764a;
+    @norm: #ffffff;
+    @dark: #777;
+    @link: rgba(0, 0, 0, .1);
+
+
+
+    body {
+      font: 'Open Sans' sans-serif;
+      background: @base;
+    }
+
+
+
+    .pop {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 35%;
+      width: 500px;
+      height: 700px;
+      background: white;
+      border: solid 1px gray;
+      align-items: center;
+    }
+
+
+
+    #code {
+      background-color: gray;
+      width: 150px;
+      height: 100px;
+      margin-left: 100px;
+      text-align: center;
+      padding-top: 30px;
+      font-size: 30px;
+    }
+
+    #codebox {
+      margin-left: 60px;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div id="container">
+      <img src="./burger.png" id="pic4"></img>
+      <div id=list>
+        <hr id="listend">
+        <div>정렬</div>
+        <hr>
+        <input type="checkbox" name="name" value="홈피">최신순<br>
+        <hr>
+        <input type="checkbox" name="name" value="왕국">좋아요순<br>
+        <hr>
+        <input type="checkbox" name="name" value="홈피왕국" checked="checked">조회수순<br>
+        <hr>
+        <hr id="listend">
+      </div>
+      <button id="fav-btn" class="btn btn-primary">이 브랜드 찜하기 <i class="fa fa-heart" aria-hidden="true"></i></button>
+      <h1 id="brandname">버거킹</h1>
+      <hr>
+      <br>
+      <br><br><br><br><br><br>
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+      <button id="innerbtn" class="btn btn-primary">코드받기</button>
+
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+
+      <button id="innerbtn" class="btn btn-primary">코드받기</button>
+
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+      <button id="innerbtn" class="btn btn-primary">코드받기</button>
+
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+      <button id="innerbtn" class="btn btn-default">코드받기</button>
+
+
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+      <button id="innerbtn" class="btn btn-default">코드받기</button>
+
+      <div id="itemborder">
+        <div class="intext">프로모션 코드명</div>
+        <div class="intext">20만원 이상 사용시 30%할인</div>
+        <div class="intext">2017.06.06 - 2017.07.07</div>
+        <div class="intext">사용된수</div>
+      </div>
+      <button id="innerbtn" class="btn btn-default ">코드받기</button>
+
+      <div class="pop">
+        <span>✖</span>
+        <div id="codebox">
+          <h1>와퍼상품 </h1>
+          <p>30%할인</p><br>
+          <div id="code">A33574</div><br>
+          <div>유효기간 2222-22-22 - 2222-22-22</div><br><br>
+          <i id="hft" class="fa fa-heart fa-2x" aria-hidden="true">12 </i><i id="hft" class="fa fa-facebook-official fa-2x" aria-hidden="true" fa-2x></i><i id="hft" class="fa fa-twitter fa-2x" aria-hidden="true" fa-2x></i>
+        </div>
+      </div>
+
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $("button").click(function() {
+            $(".pop").fadeIn(200);
+          });
+          $(".pop > span").click(function() {
+            $(".pop").fadeOut(200);
+          });
+        });
+      </script>
+</body>
+
+</html>

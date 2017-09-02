@@ -72,12 +72,29 @@ public class detailControl {
   }
   
   @RequestMapping("selectAddress")
-  public JsonResult selectAddress(int mno) throws Exception {
+  public JsonResult selectAddress(String[] mno) throws Exception {
     System.out.println("------");
    System.out.println(mno);
+   
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("selectAddress", detailService.selectAddress(mno));
+    for(int i=0;i < mno.length; i++){
+    dataMap.put(mno[i], detailService.selectAddress(Integer.parseInt(mno[i])));
+    }
     return new JsonResult(JsonResult.SUCCESS, dataMap);
+    
+  }
+  
+  @RequestMapping("carouselNation")
+  public void carouselNation(int[] mno) throws Exception {
+    System.out.println("------");
+   System.out.println(mno[0]);
+   for(int i = 0; i < mno.length; i++) {
+     System.out.printf("%d==========> mno뭔데?",mno[i]);
+     System.out.println(detailService.carouselNation(mno[i]));
+   }
+    HashMap<String,Object> dataMap = new HashMap<>();
+//    dataMap.put("selectAddress", detailService.selectAddress(mno));
+//    return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
   @RequestMapping("addAllphoto")

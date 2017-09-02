@@ -95,9 +95,13 @@ public List<Detail> selectAddress(int mno) throws Exception {
   return detailDao.selectAddress(mno);
 }
 
-
+public List<Detail> carouselNation(int mno) throws Exception {
+  return detailDao.carouselNation(mno);
+}
 @Override
 public void addAllphoto(Detail detail) {
+  System.out.printf("detail====================>");
+  System.out.println(detail);
   detailDao.addAllphoto(detail);
   
 }

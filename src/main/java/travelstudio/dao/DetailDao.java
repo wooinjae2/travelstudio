@@ -31,6 +31,7 @@ void insertDetailDate(Detail detail);
 void insertDetailLocation(Detail detail);
 List<Detail> selectedOneDetail(String postno);
 List<Detail> selectAddress(int mno);
+List<Detail> carouselNation(int mno);
 void addAllphoto(Detail detail);
 ArrayList<Detail> picnosearch(int postno);
 void deletePicture(int picno);

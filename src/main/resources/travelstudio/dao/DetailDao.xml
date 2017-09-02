@@ -71,7 +71,13 @@
     select d.adrs
     from post p inner join detail d on p.postno=d.postno
     where mno=#{mno}
-  </select> 
+  </select>
+  
+   <select id="carouselNation" resultMap="detailMap" parameterType="int">
+      select d.adrs
+      from post p inner join detail d on p.postno=d.postno
+      where mno=#{mno}
+    </select> 
   
    <insert id="addAllphoto" parameterType="detail"> 
     insert into detail(picno, writer, srtno)
